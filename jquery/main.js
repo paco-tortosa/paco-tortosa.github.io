@@ -9,11 +9,11 @@ function fLoadLesson( response, status, xhr ) {
     if ( status == "error" ) {
         if( strES_EN == "ES" )
         {
-            $('.lesson').load( './_cursos/00_Web/Lesson_404/404_ES.html' );
+            $('.lesson').load( './courses/00_Web/Lesson_404/404_ES.html' );
         }
         else
         {
-            $('.lesson').load('./_cursos/00_Web/Lesson_404/404_EN.html');
+            $('.lesson').load('./courses/00_Web/Lesson_404/404_EN.html');
         }
     }
 }
@@ -254,8 +254,8 @@ $(() => {
     });
     
 
-    strEnglishLesson        =   './_cursos/00_Web/HomePage/00_EN.html';
-    strSpanishLesson        =   './_cursos/00_Web/HomePage/00_ES.html';
+    strEnglishLesson        =   './courses/00_Web/HomePage/00_EN.html';
+    strSpanishLesson        =   './courses/00_Web/HomePage/00_ES.html';
     strLesson               =   strEnglishLesson;
     $('.lesson').load( strLesson , fLoadLesson );
 
