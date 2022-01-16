@@ -1,0 +1,338 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion03/L07_Footprint_D2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Footprint de D2
+[TITLE_ENGLISH]D2 footprint
+
+[MPPRO_SECTION_ES_EN]KiCad|KiCad
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet del led con un encapsulado 0805.
+[ENGLISH]This is the datasheet of the led with a 0805 package.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y aquí el footprint recomendado por el fabricante.
+[ENGLISH]And here is the footprint recommended by the manufacturer.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos al editor de footprints para ver si encontramos un led SMD de encapsulado 0805 en alguna librería.
+[ENGLISH]Let&#39s go to the footprint editor to see if we find a 0805 package SMD led in any library.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Si filtramos por 0805 aparecen varios footprints. El que nos interesa es el del led <b>LED_0805_2012Metric</b>.
+[ENGLISH]If we filter by 0805 several footprints appear. The one that interests us is the led <b>LED_0805_2012Metric</b>.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a copiar el footprint <b>LED_0805_2012Metric</b> de la librería <b>LED_SMD</b> en nuestra librería.
+[ENGLISH]I am going to copy the <b>LED_0805_2012Metric</b> footprint from the <b>LED_SMD</b> library into our library.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a conservar el nombre.
+[ENGLISH]We will keep the name.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y como destino nuestra librería.
+[ENGLISH]And as a destination our library.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver las dimensiones del footprint.
+[ENGLISH]Let&#39s see the dimensions of the footprint.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver comparadas las dimensiones del footprint de KiCad (en rosa) y las del datasheet (en verde). Las de Kicad son más pequeñas, así que <b>no</b> nos sirven.
+[ENGLISH]Here you can see the dimensions of the KiCad footprint (in pink) and the datasheet (in green). Kicad's are smaller, so they <b>don't</b> work for us.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a modificar las dimensiones del footprint. Empezamos por el pad 2.
+[ENGLISH]We are going to modify the footprint dimensions. We start with pad 2.
+[END_LIST]
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a poner las dimensiones que nos dice el datasheet.
+[ENGLISH]We are going to put the dimensions that the datasheet tells us.
+[END_LIST]
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como el nuevo pad es más grande, tenemos que modificar el contorno del footprint.
+[ENGLISH]As the new pad is larger, we have to modify the outline of the footprint.
+[END_LIST]
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a poner un grid más pequeño para tener más resolución.
+[ENGLISH]We are going to put a smaller grid to have more resolution.
+[END_LIST]
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como <b>Grid 1</b> voy a seleccionar 0.1mm
+[ENGLISH]As <b>Grid 1</b> I will select 0.1mm
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como ves el grid ahora mismo es de <b>2.54mm</b>
+[ENGLISH]As you can see the grid right now is <b>2.54mm</b>
+[END_LIST]
+[IMG]20.png
+
+[BEGIN_LIST]
+[SPANISH]Para activar el <b>Grid 1</b> hay que pulsar la tecla <b>Alt 1</b>.
+[ENGLISH]To activate the <b>Grid 1</b>, press the <b>Alt 1</b> key.
+[END_LIST]
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a medir la distancia del pad al borde.
+[ENGLISH]We are going to measure the distance from the pad to the edge.
+[END_LIST]
+[IMG]22.png
+
+[BEGIN_LIST]
+[SPANISH]La distancia horizontal es de <b>0.3mm</b>
+[ENGLISH]The horizontal distance is <b> 0.3mm </b>
+[END_LIST]
+[IMG]23.png
+
+[BEGIN_LIST]
+[SPANISH]Y la distancia vertical es de <b>0.3mm</b> también.
+[ENGLISH]And the vertical distance is <b>0.3mm</b> too.
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a mover el borde para que la distancia del pad al borde sea de 0.3mm.
+[ENGLISH]We are going to move the edge so that the distance from the pad to the edge is 0.3mm.
+[SPANISH]La línea blanca es el <b>courtyard</b> que sirve para que <b>KiCad</b> detecte el solapamiento de componentes.
+[ENGLISH]The white line is the <b>courtyard</b> that <b>KiCad</b> detects the overlap of components.
+[END_LIST]
+[IMG]25.png
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a cambiar el <b>Grid 1</b> a <b>0.05mm</b> para tener mayor resolución.
+[ENGLISH]I am going to change the <b>Grid 1</b> to <b>0.05mm</b> for higher resolution.
+[END_LIST]
+[IMG]29.png
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Tengo que bajar el borde superior.
+[ENGLISH]I have to lower the top edge.
+[END_LIST]
+[IMG]31.png
+[IMG]32.png
+[IMG]33.png
+[IMG]34.png
+[IMG]35.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora tengo que unir los tramos vertical y horizontal.
+[ENGLISH]Now I have to join the vertical and horizontal sections.
+[END_LIST]
+[IMG]36.png
+[IMG]37.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo mismo con el borde horizontal inferior.
+[ENGLISH]The same with the bottom horizontal edge.
+[END_LIST]
+[IMG]38.png
+[IMG]39.png
+[IMG]40.png
+[IMG]41.png
+[IMG]42.png
+[IMG]43.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora vamos a copiar las dimensiones del <b>Pad 2</b> en el <b>Pad 1</b>.
+[ENGLISH]Now we are going to copy the dimensions of <b>Pad 2</b> to <b>Pad 1</b>.
+[END_LIST]
+[IMG]44.png
+[IMG]45.png
+[IMG]46.png
+[IMG]47.png
+[IMG]48.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora tenemos que mover los bordes alrededor del <b>Pad 1</b>.
+[ENGLISH]Now we have to move the edges around the <b>Pad 1</b>.
+[END_LIST]
+[IMG]49.png
+[IMG]50.png
+[IMG]51.png
+[IMG]52.png
+[IMG]53.png
+[IMG]54.png
+[IMG]55.png
+[IMG]56.png
+[IMG]57.png
+[IMG]58.png
+[IMG]59.png
+[IMG]60.png
+[IMG]61.png
+[IMG]62.png
+[IMG]63.png
+[IMG]64.png
+[IMG]65.png
+[IMG]66.png
+[IMG]67.png
+[IMG]68.png
+[IMG]69.png
+[IMG]70.png
+[IMG]71.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como hemos modificado las dimensiones originales del led vamos a cambiar el nombre del footprint. Lo vamos a llamar como el <b>Part Number</b> del led.
+[ENGLISH]As we have modified the original dimensions of the led we are going to change the name of the footprint. We are going to call it as the <b>Part Number</b> of the led.
+[SPANISH]Ve a las propiedades del footprint.
+[ENGLISH] Go to the properties of the footprint.
+[END_LIST]
+[IMG]72.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y cambia los campos <b>Value</b> y <b>Footprint name</b>.
+[ENGLISH]And change the <b>Value</b> and <b>Footprint name</b> fields.
+[END_LIST]
+[IMG]73.png
+[IMG]74.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya tenemos listo el footprint.
+[ENGLISH]We already have the footprint ready.
+[END_LIST]
+[IMG]75.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guarda los cambios.
+[ENGLISH]Save the changes.
+[END_LIST]
+[IMG]76.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a asignar el footprint al símbolo. Ve al editor de símbolos.
+[ENGLISH]We are going to assign the footprint to the symbol. Go to the symbol editor.
+[END_LIST]
+[IMG]77.png
+[IMG]78.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y edita sus propiedades.
+[ENGLISH] And edit its properties.
+[END_LIST]
+[IMG]79.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el botón de asignar footprint.
+[ENGLISH] Click the assign footprint button.
+[END_LIST]
+[IMG]80.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y elige el footprint recién creado.
+[ENGLISH] And choose the newly created footprint.
+[END_LIST]
+[IMG]81.png
+[IMG]82.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Finalmente reordena el texto del símbolo y guarda los cambios.
+[ENGLISH] Finally rearrange the symbol text and save the changes.
+[END_LIST]
+[IMG]83.png
+[IMG]84.png
+[IMG]85.png
+[BLOCK_END]
+
+

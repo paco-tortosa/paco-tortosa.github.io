@@ -1,0 +1,89 @@
+        <div class="title">Toggle Flip Flop</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this project you will learn a new HW component, the Toggle Flip Flop.</div></li>
+               <li><div class="text">As you can see in the picture, the Toggle Flip Flop has 2 inputs and 1 output.</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Input</th>
+                    <th>Operation</th>
+                </tr>
+                <tr>
+                    <td><b>t</b></td>
+                    <td>enable (1) or disable (0) changes in the output pin <b>q</b></td>
+                </tr>
+                <tr>
+                    <td><b>clk</b></td>
+                    <td>If <b>t</b> = 1, a rising edge on this signal changes the output <b>q</b></td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/TFlipFlop.png">
+            <ul>
+               <li><div class="text">You are going to use the Toggle Flip Flop to toggle the Red LED every time SW2 is pressed.</div></li>
+            </ul>
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy the Workspace 4 and rename it as Workspace 5.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/03.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Delete the connection between Pin_SW2 and Pin_Rojo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Remember that the Switch Button SW2 gives a 0 value when pressed. As you need a rising edge for the Toggle Flip Flop, a NOT component is needed to invert the signal.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/005_Not.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the schematic and add it to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now the Toggle Flip Flop.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/09.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Set the input t to 1.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/11.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And connect the output of the Toggle Flip Flop to the Pin_Rojo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/13.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/005_Final.png">
+            <ul>
+               <li><div class="text">As always, build the project and transfer the program.</div></li>
+            </ul>
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion02/L05_TFF/downloads/WS005.zip">Download the project here (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

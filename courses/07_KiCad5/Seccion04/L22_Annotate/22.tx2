@@ -1,0 +1,31 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion04/L22_Annotate/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Anotación
+[TITLE_ENGLISH]Annotate
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para anotar todos los símbolos a la vez haz clic en la herramienta de anotación.
+[ENGLISH] To annotate all the symbols at once, click on the annotation tool.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay varias opciones para anotar, vamos a usar la que hay por defecto.
+[ENGLISH] There are several options to annotate, we are going to use the default one.
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como ves todos los símbolos tienen ya una referencia numerada.
+[ENGLISH] As you can see all the symbols already have a numbered reference.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+

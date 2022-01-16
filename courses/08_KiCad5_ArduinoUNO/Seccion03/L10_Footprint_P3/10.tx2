@@ -1,0 +1,54 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion03/L10_Footprint_P3/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Footprint de P3
+[TITLE_ENGLISH]P3 footprint
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a copiar el footprint <b>Socket_Strip_Arduino_1x10</b> de la librería <b>Socket_Arduino_Uno</b> en nuestra librería.
+[ENGLISH]Let&#39s copy the footprint <b>Socket_Strip_Arduino_1x10</b> from the library <b>Socket_Arduino_Uno</b> into our library.
+[SPANISH]Vamos al editor de footprints.
+[ENGLISH]Let&#39s go to the footprint editor.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Filtra por la palabra <b>socket_str</b> para encontrar el componente y en el menú contextual haz clic en la opción <b>guardar como...</b>
+[ENGLISH]Filter by the word <b>socket_str</b> to find the component and in the context menu click on the menu item <b>save as ...</b>
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Elige nuestra librería como destino.
+[ENGLISH]Choose our library as a destination.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora tenemos que asociar el símbolo y el componente.
+[ENGLISH]Now we have to associate the symbol and the component.
+[END_LIST]
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ordena los campos y guarda la librería.
+[ENGLISH]Sort the fields and save the library.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[IMG]11.png
+[BLOCK_END]
+

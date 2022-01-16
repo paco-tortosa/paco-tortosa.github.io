@@ -1,0 +1,60 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L30_X1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Conector X1
+[TITLE_ENGLISH]X1 Connector
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El conector <b>Jack X1</b> sirve para conectar a una alimentación externa.
+[ENGLISH]The <b>Jack X1</b> connector is used to connect to external power.
+[SPANISH]X1 está conectado a la entrada de un regulador lineal que genera <b>5V</b>. La entrada máxima de tensión es de <b>20V</b>.
+[ENGLISH]X1 is connected to the input of a linear regulator that generates <b>5V</b>. The maximum voltage input is <b>20V</b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el conector que he encontrado en Mouser. El fabricante es <b>Gravitech</b> y su part number es <b>CON-SOCJ-2155</b>.
+[ENGLISH]This is the connector that I found at Mouser. The manufacturer is <b>Gravitech</b> and its part number is <b>CON-SOCJ-2155</b>.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La librería <b>Connector</b> tiene el símbolo <b>Barrel_Jack_Switch</b>
+[ENGLISH]The library <b>Connector</b> has the symbol <b>Barrel_Jack_Switch</b>
+[END_LIST]
+[IMG]03.png
+
+[BEGIN_LIST]
+[SPANISH]Y lo he copiado en la librería JAVIERM_LIBS.
+[ENGLISH]And I have copied it in the JAVIERM_LIBS library.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería de footprints <b>Connector_BarrelJack</b> está el footprint <b>BarrelJack_Horizontal</b>
+[ENGLISH]In the footprint library <b>Connector_BarrelJack</b> is the footprint <b>BarrelJack_Horizontal</b>
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBF2</b>
+[ENGLISH]I have copied it to the <b>JAVIERM_LIBF2</b> library
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/0002.png;Datasheet
+[LINK_ENGLISH]downloads/0002.png;Datasheet
+[END_LIST]
+[BLOCK_END]

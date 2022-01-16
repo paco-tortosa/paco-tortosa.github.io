@@ -1,0 +1,86 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion03/L17_Footprint_J1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Footprint de J1
+[TITLE_ENGLISH]J1 footprint
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet del conector <b>1757019</b>.
+[ENGLISH]This is the datasheet for connector <b> 1757019 </b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos al editor de footprints para crear un footprint vacío para el conector.
+[ENGLISH]We go to the footprint editor to create an empty footprint for the connector.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cogemos cualquier footprint, por ejemplo de una <b>fiducial</b> y lo copiamos a nuestra librería con el nombre <b>null</b>.
+[ENGLISH]We take any footprint, for example from a <b> fiducial </b> and copy it to our library with the name <b> null </b>.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Borramos todo el footprint. Hay que seleccionar todo y borrar con la tecla <b>suprimir</b>.
+[ENGLISH]We delete all the footprint. You have to select everything and delete with the <b> delete </b> key.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ordenamos un poco.
+[ENGLISH]We order a little.
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y cambiamos el campo <b>REF</b> a la capa <b>F.Fab</b> que no vamos a usar en el PCB.
+[ENGLISH]And we change the <b> REF </b> field to the <b> F.Fab </b> layer that we are not going to use on the PCB.
+[END_LIST]
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guardamos el footprint.
+[ENGLISH]We save the footprint.
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y asignamos el footprint <b>null</b> al símbolo.
+[ENGLISH]And we assign the footprint <b> null </b> to the symbol.
+[END_LIST]
+[IMG]19.png
+[IMG]20.png
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[IMG]24.png
+[BLOCK_END]
+

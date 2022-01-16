@@ -1,0 +1,222 @@
+[LESSON_FOLDER]../courses/01_PSoC4/Seccion03/L11_UartLedsInt/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]UART y Leds (INT)
+[TITLE_ENGLISH]UART and LEDs (INT)
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En el proyecto anterior vimos cómo recibir datos del PC a través de la UART
+[ENGLISH]In the previous project, you saw how to receive data from PC via UART
+[SPANISH]En este vamos a hacer lo mismo pero usando interrupciones
+[ENGLISH]In this project you will do the same but using interrupts
+[SPANISH]Cada vez que llegue un carácter por la UART se generará una interrupción
+[ENGLISH]When a character is received via UART an interrupt is generated
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia el Workspace 10 y renómbralo como 11
+[ENGLISH]Copy the Workspace 10 and rename it as 11
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al esquemático para cambiar las propiedades de la UART
+[ENGLISH]Go to the schematics to change the properties of the UART component
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Habilita las interrupciones externas (esto hará que podamos usar una ISR en el programa)
+[ENGLISH]Enable the external interrupts (this will allow you to be able to use an ISR in the program)
+[SPANISH]Habilita la interrupción cuando la FIFO de recepción tenga algún dato
+[ENGLISH]Enable the interrupt when the RX-FIFO is not empty
+[SPANISH]La FIFO (First-In First-Out) es un buffer (zona de memoria) donde se almacenan los datos que llegan al PSoC por la UART
+[ENGLISH]The FIFO (First-In First-Out) is a buffer (memory zone) where the data that arrive to the PSoC via UART are stored
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade una interrupción al esquemático
+[ENGLISH]Add an interrupt to the schematic
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conéctala a la UART y renómbrala como UART_INT
+[ENGLISH]Connect it to the UART and rename it as UART_INT
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Genera la aplicación para que se creen las funciones asociadas a la interrupción recién añadida
+[ENGLISH]Generate the application to generate the functions related to the newly added interrupt
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve a main.c
+[ENGLISH]Go to main.c
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este era el programa SIN interrupciones
+[ENGLISH]This was the program WITHOUT interrupts
+[END_LIST]
+[IMG_SPANISH]11.png
+[IMG_ENGLISH]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el programa CON interrupciones
+[ENGLISH]This is the program WITH interrupts
+[END_LIST]
+[IMG]12.png
+[IMG_SPANISH]13.png
+[IMG_ENGLISH]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo que hemos hecho es básicamente mover el código que había en el bucle infinito dentro de la función main a la rutina de atención a la interrupción (ISR)
+[ENGLISH]What we have done is basically to move the code that was in the infinite loop inside the main function to the ISR (interrupt service routine)
+[END_LIST]
+[BLOCK_END]
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]12
+:code:#include <project.h>
+:code:
+:code:CY_ISR ( UART_Int_Handler )
+:key1:---------------------------
+:es__: La macro CY_ISR define a la función <b>UART_Int_Handler</b> como una rutina de atención a interrupción
+:en__: The macro CY_ISR defines the function <b>UART_Int_Handler</b> as ISR (Interrupt Service Routine)
+
+:code:{
+:code:    uint32  u32IntSource    =   UART_GetRxInterruptSource();
+:key2:                                ---------------------------
+:es__: Devuelve la causa de la interrupción
+:en__: It returns the source of the interrupt
+
+:code:    
+:code:    if ((u32IntSource & UART_INTR_RX_NOT_EMPTY) != 0)
+:key3:                        ----------------------
+:es__: Chequea si la causa de la interrupción es que la FIFO de recepción no está vacía (ha llegado un datos)
+:en__: It checks whether the interrupt source is that the RX-FIFO is not empty (a data has arrived)
+
+:code:    {
+:code:        char ch_rx  =   UART_UartGetChar();
+:key4:                        ------------------
+:es__: Lee el caracter recibido por UART (Si no recibe nada, devuelve el valor 0)
+:en__: Gets the character received via UART (if there is no character in the buffer, it returns the value 0)
+
+:code:
+:code:        
+:code:        if (ch_rx != 0)
+:code:        {
+:code:            Pin_Rojo_Write(1);
+:key5:            -----------------
+:es__: Apaga el led rojo
+:en__: Switch the red led
+
+:code:            Pin_Verde_Write(1);
+:key6:            -----------------
+:es__: Apaga el led verde
+:en__: Switch the green led
+
+:code:            Pin_Azul_Write(1);
+:key1:            -----------------
+:es__: Apaga el led azul
+:en__: Switch the blue led
+
+:code:
+:code:            if (ch_rx == '1')
+:key2:            -----------------
+:es__: Si el carácter recibido es el 1, enciende el led rojo
+:en__: If the received character is 1, the red LED is switched on
+
+:code:            {
+:code:                Pin_Rojo_Write(0);
+:code:            }
+:code:            else if (ch_rx == '2')
+:key3:            ----------------------
+:es__: Si el carácter recibido es el 2, enciende el led verde
+:en__: If the received character is 2, the green LED is switched on
+
+:code:            {
+:code:                Pin_Verde_Write(0);
+:code:            }
+:code:            else if (ch_rx == '3')
+:key4:            ----------------------
+:es__: Si el carácter recibido es el 3, enciende el led azul
+:en__: If the received character is 3, the blue LED is switched on
+
+:code:            {
+:code:                Pin_Azul_Write(0);
+:code:            }
+:code:        }
+:code:        UART_ClearRxInterruptSource(UART_INTR_RX_NOT_EMPTY);   
+:code:    }
+:code:}
+:code:
+:code:int main()
+:code:{
+:code:    CyGlobalIntEnable; /* Enable global interrupts. */
+:code:
+:code:    UART_Start();
+:key5:    ------------
+:es__: Inicializa el componente UART
+:en__: Initializes the UART component
+
+:code:    UART_INT_StartEx(UART_Int_Handler);
+:key6:    ----------------------------------
+:es__: Inicializa las interrupciones del componente UART, y configura la función <b>UART_Int_Handler</b> como la rutina de servicio de las interrupciones de la UART
+:en__: Initializes the interrupts of the UART component, and set the function <b>UART_Int_Handler</b> as the UART ISR
+
+:code:    UART_UartPutString("Send 1 for RED led, 2 for GREEN led and 3 for BLUE red \n");
+:key1:    -------------------------------------------------------------------------------
+:es__: Envía el mensaje inicial al ordenador por UART
+:en__: Sends the initial string to the PC via UART
+
+:code:
+:code:    for(;;)
+:code:    {
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS011es.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS011en.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]
+

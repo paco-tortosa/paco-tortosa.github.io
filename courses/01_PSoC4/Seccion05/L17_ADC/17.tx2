@@ -1,0 +1,416 @@
+[LESSON_FOLDER]../courses/01_PSoC4/Seccion05/L17_ADC/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]ADC
+[TITLE_ENGLISH]ADC
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el componente ADC (Analog to Digital Converter)
+[ENGLISH]In this project you will learn a new HW component, the ADC (Analog to Digital Converter) component
+[SPANISH]Sirve para leer señales analógicas y convertirlas a un valor digital
+[ENGLISH]It measures an analog signal and it converts it into a digital value
+[SPANISH]En este proyecto vamos a medir la señal analógica de un potenciómetro
+[ENGLISH]In this project you will measure the analog signal from a potentiometer
+[END_LIST]
+[IMG]Poti.png
+[IMG]P017_ADC.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Un potenciómetro es una resistencia variable. Tiene 3 terminales. Los terminales de los extremos se conectan a masa y alimentación. El terminal del centro da el valor variable
+[ENGLISH]A potentiometer is a variable resistor. It has 3 terminals. One end terminal is connected to Vdd (3.3V), the other end terminal to ground (0V) and the mid terminal is the variable voltage
+[END_LIST]
+[IMG]Poti2a.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a hacer un programa que lea continuamente el valor analógico del potenciómetro y lo convierte a voltaje
+[ENGLISH]You will make a program to read continously the analog value of a potentiometer and it will convert to voltage
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Crea un proyecto vacío y nómbralo como WS017
+[ENGLISH]Create an empty project and name it as WS017
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade una entrada digital
+[ENGLISH]Add a digital input
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Habilita el tipo "Analog" y habilita "External terminal" para poder conectarle un potenciómetro
+[ENGLISH]Enable the type "Analog" and enable also "External terminal" to connect it to a potentiometer
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade un potenciómetro (fíjate que es un componente "Off-Chip", es sólo para documentación)
+[ENGLISH]Add a potentiometer (note that this is an "Off-Chip" component, so it is only for documentation purposes)
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade alimentación
+[ENGLISH]Add power
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Pon el parámetro "Instance_Name_Visible" a "false"
+[ENGLISH]Set the "Instance_Name_Visible" parameter to "false"
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade masa
+[ENGLISH]Add ground
+[END_LIST]
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta el potenciómetro al pin de entrada
+[ENGLISH]Connect the potentiometer to the input pin
+[END_LIST]
+[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade el componente ADC
+[ENGLISH]Add the ADC component
+[END_LIST]
+[IMG]18.png
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hacemos SPS (Samples per seconds número de veces que queremos medir por segundo) = 1000. Habrá una nueva medida cada 1 milisegundo
+[ENGLISH]Make SPS (Samples per second, times you want to measure per second) = 1000. It will be a new measurement every 1 millisecond
+[END_LIST]
+[TABLE_BEGIN]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Parámetro
+[TABLE_ITEM_ENGLISH]Parameter
+[TABLE_ITEM_SPANISH]Valor
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Channel sample rate (SPS)
+[TABLE_ITEM_ENGLISH]Channel sample rate (SPS)
+[TABLE_ITEM_SPANISH]1000
+[TABLE_ITEM_ENGLISH]1000
+[TABLE_ITEM_SPANISH]Muestras por segundo
+[TABLE_ITEM_ENGLISH]Samples per second
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Vref select
+[TABLE_ITEM_ENGLISH]Vref select
+[TABLE_ITEM_SPANISH]VDDA (3.3V)
+[TABLE_ITEM_ENGLISH]VDDA (3.3V)
+[TABLE_ITEM_SPANISH]Voltaje máximo
+[TABLE_ITEM_ENGLISH]Maximum voltage
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Single ended negative input
+[TABLE_ITEM_ENGLISH]Single ended negative input
+[TABLE_ITEM_SPANISH]Vss (0v)
+[TABLE_ITEM_ENGLISH]Vss (0v)
+[TABLE_ITEM_SPANISH]Voltaje mínimo
+[TABLE_ITEM_ENGLISH]Minimum voltage
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Samples averaged
+[TABLE_ITEM_ENGLISH]Samples averaged
+[TABLE_ITEM_SPANISH]64
+[TABLE_ITEM_ENGLISH]64
+[TABLE_ITEM_SPANISH]Va a medir 64 veces y calculará la media
+[TABLE_ITEM_ENGLISH]It measures 64 times, and it calculates the average 
+[TABLE_ROW_END]
+[TABLE_END]
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[TABLE_BEGIN]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Parámetro
+[TABLE_ITEM_ENGLISH]Parameter
+[TABLE_ITEM_SPANISH]Valor
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Sequenced channels
+[TABLE_ITEM_ENGLISH]Sequenced channels
+[TABLE_ITEM_SPANISH]1
+[TABLE_ITEM_ENGLISH]1
+[TABLE_ITEM_SPANISH]Número de canales analógicos a medir
+[TABLE_ITEM_ENGLISH]Analog channels count to measure
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Channel
+[TABLE_ITEM_ENGLISH]Channel
+[TABLE_ITEM_SPANISH]0
+[TABLE_ITEM_ENGLISH]0
+[TABLE_ITEM_SPANISH]Canal ADC
+[TABLE_ITEM_ENGLISH]ADC channel
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Mode
+[TABLE_ITEM_ENGLISH]Mode
+[TABLE_ITEM_SPANISH]Single (single ended)
+[TABLE_ITEM_ENGLISH]Single (single ended)
+[TABLE_ITEM_SPANISH]La medida se realiza respecto a Vss (masa)
+[TABLE_ITEM_ENGLISH]The measure is refered to Vss (ground)
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]AVG (Average-media)
+[TABLE_ITEM_ENGLISH]AVG (Average)
+[TABLE_ITEM_SPANISH]Habilitado
+[TABLE_ITEM_ENGLISH]Enabled
+[TABLE_ITEM_SPANISH]Va a calcular la media
+[TABLE_ITEM_ENGLISH]It will calculate the average
+[TABLE_ROW_END]
+[TABLE_END]
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta la entrada "Vin" al componente ADC
+[ENGLISH]Connect the input "Vin" to the ADC component
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Asigna la entrada "Vin" al pin P2[0]
+[ENGLISH]Assign the input "Vin" to the pin P2[0]
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade el siguiente código a "main.c"
+[ENGLISH]Add the following code to "main.c"
+[END_LIST]
+[IMG]35.png
+[SOURCE_CODE_EX_BEGIN]12
+:code:#include <project.h>
+:code:
+:code:#define POT_CHAN    (0)
+:key1:        --------
+:es__: Define la constante POT_CHAN como 0 (es el canal ADC usado)
+:en__: Defines the constant POT_CHAN as 0 (it is the ADC channed used)
+
+:code:
+:code:int main()
+:code:{
+:code:    volatile int16  i16Counts;
+:key2:                    ---------
+:es__: Almacena el valor leído del ADC (0..2047)
+:en__: Stores the value read from ADC  (0..2047)
+
+:code:    volatile int16  i16mVolts;
+:key3:                    ---------
+:es__: Almacena el valor leído del ADC, convertido a milivoltios (0..3300)
+:en__: Stores the value read from ADC, converted into millivolts  (0..3300)
+
+:code:    
+:code:    CyGlobalIntEnable; /* Enable global interrupts. */
+:code:
+:code:    ADC_Start();
+:key4:    -----------
+:es__: Inicializa el componente ADC
+:en__: Initialize the ADC component
+
+:code:    ADC_StartConvert();
+:key5:    ------------------
+:es__: Comienza el proceso de conversión, lo hará de forma continua (Free Running Mode)
+:en__: Starts the conversion process, in a continuous mode (Free Running Mode)
+
+:code:
+:code:    for(;;)
+:code:    {
+:code:        i16Counts   =   ADC_GetResult16(POT_CHAN);
+:key6:                        ---------------
+:es__: Obtiene el último valor medido por el ADC
+:en__: Gets the last value measured by the ADC
+
+:code:        i16mVolts   =   ADC_CountsTo_mVolts(POT_CHAN,i16Counts);
+:key1:                        -------------------
+:es__: Convierte el valor a milivoltios
+:en__: Converts the value to millivolts
+
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Mueve el potenciómetro a la posición de masa
+[ENGLISH]Move the wiper to the ground position
+[END_LIST]
+[IMG]Poti2b.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Depura el proyecto y pon un breakpoint en la línea 30
+[ENGLISH]Debug the project and set a breakpoint on the line 30
+[SPANISH]La variable "i16Counts" vale -3, todos los valores por debajo de 0 son ruido
+[ENGLISH]The variable "i16Counts" is -3, all values under 0 are noise
+[END_LIST]
+[IMG]31.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La variable "i16mVolts" es -5 milivoltios
+[ENGLISH]The variable "i16mVolts" is -5 millivolts
+[END_LIST]
+[IMG]32.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Mueve el potenciómetro a la posición intermedia
+[ENGLISH]Move the wiper to the mid position
+[END_LIST]
+[IMG]Poti2a.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La variable "i16Counts" vale 1008 (que es aproximadamente la mitad del valor máximo que es 2047
+[ENGLISH]The variable "i16Counts" is 1008 (that is around the half of the maximum value that is 2047)
+[END_LIST]
+[IMG]27.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La variable "i16mVolts" es 1624 milivoltios (que es aproximadamente la mitad del valor máximo que es 3.3V)
+[ENGLISH]The variable "i16mVolts" is 1624 millivolts (around the half of the max value that is 3.3V)
+[END_LIST]
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Mueve el potenciómetro a la posición de Vdd
+[ENGLISH]Move the wiper to the Vdd position
+[END_LIST]
+[IMG]Poti2c.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La variable "i16Counts" vale 2047 (que es el valor máximo)
+[ENGLISH]The variable "i16Counts" is 2047 (max value)
+[END_LIST]
+[IMG]29.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La variable "i16mVolts" es 3298 milivoltios (que es casi el valor máximo 3300)
+[ENGLISH]The variable "i16mVolts" is 3298 millivolts (that is almost the max value 3300)
+[END_LIST]
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El valor máximo es 2047 que corresponde a 11 bits. ¿Por qué no se usan los 12 bits?
+[ENGLISH]The max value is 2047, that corresponds to 11 bits. Why are not used the 12 bits of the ADC?
+[SPANISH]Si miras en el datasheet del componente ADC :
+[ENGLISH]If you look in the datasheet :
+[END_LIST]
+[IMG]21a.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Puedes ver que el valor máximo para la configuración elegida es 0x07FF que corresponde a 11 bits
+[ENGLISH]You can see that the max value for the selected configuration is 0x07FF (11 bits)
+[END_LIST]
+[IMG]34.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS017.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS017.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]
+
+
+

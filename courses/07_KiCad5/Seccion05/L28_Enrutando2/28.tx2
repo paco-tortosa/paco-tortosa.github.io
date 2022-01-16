@@ -1,0 +1,74 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion05/L28_Enrutando2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Enrutando II
+[TITLE_ENGLISH]Routing II
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a ver la segunda manera de especificar el ancho de pistas. Es una manera más rápida y cómoda que la manera de la lección anterior.
+[ENGLISH]In this lesson we are going to see the second way to specify the track width. It is a faster and more convinient way than the way from the previous lesson.
+[SPANISH]Puedes ver que hay un <b>combobox</b> con diferentes anchos de pista.
+[ENGLISH]You can see that there is a <b>combobox</b> with different track widths.
+[END_LIST]
+[IMG]01.png
+
+[BEGIN_LIST]
+[SPANISH]Por defecto sólo hay un ancho de <b>0.25mm</b>
+[ENGLISH]By default there is only a width of <b>0.25mm</b>
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Vamos a añadir más.
+[ENGLISH]We are going to add more.
+[END_LIST]
+[IMG]03.png
+
+[BEGIN_LIST]
+[SPANISH]En esta ventana podemos añadir anchos de pista predefinidos, vamos a añadir <b>0.75mm</b> y <b>1mm</b>
+[ENGLISH]In this window we can add predefined track widths, we are going to add <b>0.75mm</b> and <b>1mm</b>
+[END_LIST]
+[IMG]04.png
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]En el <b>combobox</b> ya están los 3 anchos de pista que vamos a usar en nuestro diseño.
+[ENGLISH]In the <b>combobox</b> there are already the 3 track widths that we are going to use in our design.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a enrutar con <b>0.75mm</b>, seleccionamos <b>0.75mm</b> y enrutamos.
+[ENGLISH]We are going to route with <b>0.75mm</b>, select <b>0.75mm</b> and route.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora <b>0.25mm</b>
+[ENGLISH]Now <b>0.25mm</b>
+[END_LIST]
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y por último <b>1mm</b>
+[ENGLISH]And finally <b>1mm</b>
+[END_LIST]
+[IMG]16.png
+[IMG]17.png
+[IMG]18.png
+[BLOCK_END]
+

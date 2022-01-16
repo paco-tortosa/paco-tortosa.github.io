@@ -1,0 +1,173 @@
+[LESSON_FOLDER]../courses/04_STM32F0/Seccion04/L32_CopyProject/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Copiar un proyecto
+[TITLE_ENGLISH]Copy a project
+
+[MPPRO_SECTION_ES_EN]Video|Video
+[MPPRO_VIDEO]03_Camtasia\02_Video.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección voy a copiar el proyecto de la lección anterior y lo voy a modificar para que cuando el pulsador <b>B1</b> esté pulsado el led <b>LD2</b> se encienda.
+[ENGLISH]In this lesson I am going to copy the project from the previous lesson and I will modify it so that when the button <b>B1</b> is pressed the led <b>LD2</b> will switch on.
+[SPANISH]<b>Eclipse</b> suele ser un entorno en el que copiar proyectos no es fácil. Por eso está lección está dedicada a eso.
+[ENGLISH]<b>Eclipse</b> is not a friendly environment to copy projects. That is why this lesson is about copying projects.
+[SPANISH]En este video puedes ver el programa en funcionamiento.
+[ENGLISH]On this video you can see the program running.
+[END_LIST]
+
+[VIDEO_SPANISH]https://www.youtube.com/embed/ztx4ImWPqWw?rel=0
+[VIDEO_ENGLISH]https://www.youtube.com/embed/ztx4ImWPqWw?rel=0
+[BLOCK_END]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[MPPRO_SECTION_ES_EN]Copiar un proyecto|Copy a project
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el botón de nuevo (<b>New</b>) y selecciona la opción de crear proyecto nuevo desde un fichero <b>.ioc</b>.
+[ENGLISH]Click on the <b>New</b> button and select the menu-item to create a new project from a <b>.ioc</b> file.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el botón de <b>Browse</b> para buscar el fichero <b>.ioc</b>.
+[ENGLISH]Browse to find the file <b>.ioc</b>.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a seleccionar el fichero <b>.ioc</b> del proyecto <b>P14_HelloWorld</b>.
+[ENGLISH]Select the <b>.ioc</b> file from the project <b>P14_HelloWorld</b>.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a renombrar el proyecto como <b>P15_ButtonLed</b>.
+[ENGLISH]Rename the project as <b>P15_ButtonLed</b>.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora vamos a copiar los ficheros de código fuente del proyecto anterior.
+[ENGLISH]Now let&#39s copy the source code files from the previous project.
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a cerrar todos los proyectos excepto el <b>P15_ButtonLed</b>.
+[ENGLISH]Close all the projects but <b>P15_ButtonLed</b>.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a compilar el proyecto y depurarlo para ver si hay errores.
+[ENGLISH]Build and debug the project to search for errors.
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[IMG]17.png
+[BEGIN_LIST]
+[SPANISH]Todo ha ido bien. La creación del proyecto ha sido correcta.
+[ENGLISH]Everything was fine. The creation of the project was correct.
+[END_LIST]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a modificar el fichero <b>main.c</b> para agregar la nueva funcionalidad.
+[ENGLISH]Let&#39s modify the file <b>main.c</b> to add the new funcionality.
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el código fuente del proyecto anterior.
+[ENGLISH]This is the source code of the previous project.
+[END_LIST]
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y este el nuevo código fuente.
+[ENGLISH]And this is the new source code.
+[END_LIST]
+[IMG]20.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]Código fuente|Source code
+[MPPRO_VIDEO]03_Camtasia\03_cam.mp4|0
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]98
+:code:while (1)
+:code:{
+:code:  if(HAL_GPIO_ReadPin(ButtonB1_GPIO_Port, ButtonB1_Pin)==GPIO_PIN_RESET)
+:key2:     ----------------
+:es__:Con la función <b>HAL_GPIO_ReadPin</b> leemos el estado del pin <b>ButtonB1</b>.
+:en__:With the function <b>HAL_GPIO_ReadPin</b> the state of the pin <b>ButtonB1</b> is read.
+
+:key1:                                                         --------------
+:es__:Si el pulsador está pulsado el nivel del pin <b>ButtonB1</b> será <b>GPIO_PIN_RESET</b>.
+:en__:If the push-button is pressed the state of the pin <b>ButtonB1</b> will be <b>GPIO_PIN_RESET</b>.
+
+:code:  {
+:code:    HAL_GPIO_WritePin(Led2_GPIO_Port, Led2_Pin, GPIO_PIN_SET);
+:key3:    -----------------
+:es__:Si el pusador está pulsado, encendemos el led <b>Led2</b>.
+:en__:If the button is pressed, switch on the led <b>Led2</b>.
+
+:code:  }
+:code:  else
+:code:  {
+:code:    HAL_GPIO_WritePin(Led2_GPIO_Port, Led2_Pin, GPIO_PIN_RESET);
+:key4:    -----------------
+:es__:Si el pusador <b>no</b> está pulsado, apagamos el led <b>Led2</b>.
+:en__:If the button is <b>not</b> pressed, switch off the led <b>Led2</b>.
+
+:code:  }
+:code:  /* USER CODE END WHILE */
+:code:
+:code:  /* USER CODE BEGIN 3 */
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]Copiar un proyecto|Copy a project
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|156
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compilamos y depuramos el programa para verlo en funcionamiento.
+[ENGLISH]Build and debug the program to see it running.
+[END_LIST]
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]

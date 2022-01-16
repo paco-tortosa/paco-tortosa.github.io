@@ -1,0 +1,107 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion03/L10_Symbol_Reg1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Símbolo de Reg1
+[TITLE_ENGLISH]Reg1 Symbol
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver en esta lección cómo crear el símbolo para el regulador <b>Reg1</b>.
+[ENGLISH]We will see in this lesson how to create the symbol for the regulator <b>Reg1</b>.
+[END_LIST]
+[IMG]_FinalSCH_Reg1.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es el regulador que he elegido en Mouser. El part number es <b>LM7805MPX/NOPB</b>. Tiene una salida fija de <b>5V</b> y una entrada de como máximo <b>35V</b>.
+[ENGLISH]This is the regulator I have chosen at Mouser. The part number is <b>LM7805MPX / NOPB</b>. It has a fixed output of <b>5V</b> and an input of maximum <b>35V</b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El encapsulado es SMD <b>SOT-223-4</b>. 
+[ENGLISH]The package is SMD <b> SOT-223-4 </b>.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear un símbolo para el regulador. Abrimos el editor de símbolos y buscamos por <b>7805</b>.
+[ENGLISH]We are going to create a symbol for the regulator. We open the symbol editor and search for <b> 7805 </b>.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a copiarlo en nuestra librería.
+[ENGLISH]We are going to copy it into our library.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a conservar el nombre y seleccionar nuestra librería como destino.
+[ENGLISH]We will keep the name and select our library as a destination.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guardamos la librería.
+[ENGLISH]And save the library.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a editar las propiedades del símbolo.
+[ENGLISH]We are going to edit the properties of the symbol.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a cambiar la referencia a <b>Reg</b> porque me gusta más este nombre para los reguladores. Voy a añadir los campos <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> y <b>Manufacturer</b>.
+[ENGLISH]I am going to change the reference to <b> Reg </b> because I like this name better for regulators. I am going to add the <b> Value2Show </b>, <b> Mounted </b>, <b> MPN </b> and <b> Manufacturer </b> fields.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ordenar los campos para que no se solapen.
+[ENGLISH]We are going to order the fields so that they do not overlap.
+[SPANISH]Para ello usa una rejilla de <b>10mils</b>.
+[ENGLISH]To do this, use a <b> 10mils </b> grid.
+[END_LIST]
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Por último guarda la librería.
+[ENGLISH]Finally save the library.
+[END_LIST]
+[IMG]15.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/lm340.pdf;Datasheet
+[LINK_ENGLISH]downloads/lm340.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]

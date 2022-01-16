@@ -1,0 +1,188 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion05/L29_Enrutando3/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Enrutando III
+[TITLE_ENGLISH]Routing III
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a ver la forma óptima de enrutar. Vamos a usar las <b>Net classes</b>.
+[ENGLISH]In this lesson we will see the optimal way to route. We are going to use the <b>Net classes</b>.
+[SPANISH]Vamos al esquemático.
+[ENGLISH]Let&#39s go to the schematic.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a hacer un zoom para ver bien nuestros componentes.
+[ENGLISH]We are going to zoom in to see our components better.
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La idea consiste en darle nombre a las <b>nets</b> en el esquemático.
+[ENGLISH]The idea is to name the <b>nets</b> in the schematic.
+[SPANISH]Haz clic en la herramienta <b>Place net label</b>.
+[ENGLISH]Click on the <b>Place net label</b> tool.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la <b>net</b> de los 5V de salida y dale el nombre <b>5V</b>.
+[ENGLISH]Select the <b>net</b> of the output 5V and give it the name <b>5V</b>.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la <b>net</b> de los 24V de entrada y dale el nombre <b>24V</b>.
+[ENGLISH]Select the <b>net</b> of the 24V input and give it the name <b>24V</b>.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la <b>net</b> de los 24V del conector de entrada y dale el nombre <b>C24</b>.
+[ENGLISH]Select the <b>net</b> of the 24V of the input connector and give it the name <b>C24</b>.
+[END_LIST]
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo mismo con la <b>net</b> entre el led y la resistencia.
+[ENGLISH]The same with the <b>net</b> between the led and the resistance.
+[END_LIST]
+[IMG]16.png
+[IMG]17.png
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guarda el esquemático.
+[ENGLISH]Save the schematic.
+[END_LIST]
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Actualiza la PCB.
+[ENGLISH]Update the PCB.
+[END_LIST]
+[IMG]20.png
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a la configuración de la placa.
+[ENGLISH]Let&#39s go to the configuration of the board.
+[END_LIST]
+[IMG]24.png
+
+[BEGIN_LIST]
+[SPANISH]En la sección de <b>Net Classes</b> añade una <b>Net Class</b> nueva.
+[ENGLISH]In the <b>Net Classes</b> section add a new <b>Net Class</b>.
+[END_LIST]
+[IMG]25.png
+
+[BEGIN_LIST]
+[SPANISH]Llámala <b>Power</b> y dale un ancho de pista de <b>0.75mm</b>
+[ENGLISH]Give it the name <b>Power</b> and give it a track width of <b>0.75mm</b>
+[END_LIST]
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade otra <b>Net Class</b> con un ancho de pista de <b>1mm</b> y nombre <b>Gnd</b>
+[ENGLISH]Add another <b>Net Class</b> with a track width of <b>1mm</b> and name <b>Gnd</b>
+[END_LIST]
+[IMG]29.png
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora tenemos que asignar a las <b>nets</b> del esquemático la <b>Net Class</b> de la PCB.
+[ENGLISH]Now we have to assign the <b>nets</b> of the schematic to the <b>Net Class</b> of the PCB.
+[SPANISH]A la net <b>24V</b> le asignamos la net class <b>Power</b>
+[ENGLISH]To the net <b>24V</b> we assign the net class <b>Power</b>
+[END_LIST]
+[IMG]31.png
+[IMG]32.png
+[IMG]33.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Asignamos a las net <b>5V</b> y <b>C24</b> la net class <b>Power</b>, a la net <b>Led</b> la net class <b>Default</b> y a la net <b>GND</b> la net class <b>Gnd</b>.
+[ENGLISH]We assign the net <b>5V</b> and <b>C24</b> the net class <b>Power</b>, the net <b>Led</b> the net class <b>Default</b> and to the net <b>GND</b> the net class <b>Gnd</b>.
+[END_LIST]
+[IMG]34.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guardamos la PCB.
+[ENGLISH]And we save the PCB.
+[END_LIST]
+[IMG]35.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora podemos empezar a enrutar, pero antes nos aseguramos de que el enrutamiento va a coger el ancho de la <b>Net Class</b>
+[ENGLISH]Now we can start routing, but first we make sure that the routing is going to take the width of the <b>Net Class</b>
+[END_LIST]
+[IMG]37.png
+[IMG]38.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora podemos enrutar sin preocuparnos del ancho de pista porque va a ser seleccionado automáticamente dependiendo de la net que enrutemos.
+[ENGLISH]Now we can route without worrying about the track width because it will be automatically selected depending on the net we are routing.
+[END_LIST]
+[IMG]39.png
+[IMG]40.png
+[IMG]41.png
+[IMG]42.png
+[IMG]43.png
+[IMG]44.png
+[IMG]45.png
+[IMG]46.png
+[IMG]47.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya hemos enrutado nuestra placa, guarda la PCB antes de salir.
+[ENGLISH]We have already routed our board, save the PCB before leaving.
+[END_LIST]
+[IMG]48.png
+[BLOCK_END]
+

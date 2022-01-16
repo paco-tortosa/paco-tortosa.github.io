@@ -1,0 +1,101 @@
+[LESSON_FOLDER]../courses/01_PSoC4/Seccion05/L18_ADC_EOC/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]ADC - EOC
+[TITLE_ENGLISH]ADC - EOC
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En el proyecto anterior el conversor ADC estaba configurado para leer continuamente cada 1 milisegundo
+[ENGLISH]On the previous project the ADC component was configured to read continously every 1 millisecond
+[SPANISH]En la función "main" se leía continuamente el valor del ADC, por lo que todas las lecturas dentro del mismo milisegundo tenían el mismo valor
+[ENGLISH]Inside the function "main" an ADC value was read continously, that is why all read values during the same millisecond had the same value
+[SPANISH]Hay una señal de salida del componente ADC que indica que hay un nuevo dato disponible, es la llamada "eoc" (end of conversion - fin de conversión)
+[ENGLISH]There is an output signal of the ADC component to indicate that there is a new available measurement, it is the so-called "eoc" (end of conversion)
+[SPANISH]En este proyecto la idea es sacar esa señal por un pin de salida y medirla con el osciloscopio
+[ENGLISH]On this project the idea is to output this signal on an output pin and measure it with the oscilloscope
+[END_LIST]
+[IMG]P018_EOC.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia el Workspace 17 y renómbralo como 18
+[ENGLISH]Copy the Workspace 17 and rename it as 18.
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade una salida digital
+[ENGLISH]Add a digital output
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Renómbrala como "ADC_EOC"
+[ENGLISH]Rename it as "ADC_EOC"
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta la salida "eoc" del componente "ADC" con el pin de salida "ADC_EOC"
+[ENGLISH]Connect the output "eoc" of the "ADC" component with the output pin "ADC_EOC"
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Asigna el pin P0[2] a la salida digital "ADC_EOC"
+[ENGLISH]Assign the pin P0[2] to the digital output "ADC_EOC"
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta un canal del osciloscopio en el pin de salida P0[2]
+[ENGLISH]Connect an oscilloscope channel to the output pin P0[2]
+[END_LIST]
+[IMG]setup.png
+[IMG_SPANISH]P018_EOC_pins_es.png
+[IMG_ENGLISH]P018_EOC_pins_en.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En el osciloscopio puedes ver en la salida digital un pulso positivo cada 1 milisegundo
+[ENGLISH]On the oscilloscope you can see on the digital output a positive pulse every 1 millisecond
+[END_LIST]
+[IMG]TEK0001.JPG
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS018.zip;Descarga el proyecto aquí (PSoC Creator 4.0).
+[LINK_ENGLISH]downloads/WS018.zip;Download the project here (PSoC Creator 4.0).
+[END_LIST]
+[BLOCK_END]

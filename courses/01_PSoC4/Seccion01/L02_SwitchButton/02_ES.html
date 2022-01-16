@@ -1,0 +1,166 @@
+        <div class="title">Pulsador</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a usar el pulsador SW2 para encender el led RGB.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/18a.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Puedes ver toda la información sobre el kit CY8CKIT-042 en la guía de usuario (ve a la sección de <b>Descargas</b> de la lección 01)</div></li>
+            </ul>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático y abre el catálogo de componentes. Busca dentro del grupo de "Ports and Pins" la entrada digital ("Digital Input Pin").</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Arrástralo al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/16.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz doble clic en "Pin_1" para editar sus propiedades.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la guía de usuario vemos que el pulsador ("User Button") se llama SW2 y que está conectado al pin P0_7.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Modifica las siguientes propiedades :</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Propiedad</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>SW2</td>
+                </tr>
+                <tr>
+                    <td>HW connection</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>External terminal</td>
+                    <td>Sí</td>
+                </tr>
+                <tr>
+                    <td>Drive Mode</td>
+                    <td>Resistive pull up</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/20a.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En el catálogo de componentes selecciona pulsador (Switch).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Arrástralo al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En el catálogo de componentes selecciona masa (Ground).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Arrástrala al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona la herramienta para unir componentes.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/26.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/27.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz doble clic para renombrar el pulsador.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/29.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/30.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz doble clic en <b>Proyecto02.cydwr</b> para asignar un pin del PSoC al pulsador.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Arrastra el Pin_SW2 desde la parte derecha al pin P0_7.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/33.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/34.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/35.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Abre <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/36.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Modifica el código para activar el led azul cuando pulses el pulsador SW2.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/37.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/38.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/39.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">La función <b>Pin_SW2_Read()</b> devuelve 0 cuando el pulsador SW2 está pulsado.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/43.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando el pulsador SW2 no está cerrado hay un 1 lógico en la entrada digital P0_7 (debido a la resistencia pull-up interna), este 1 se lleva a la salida digital P0_3 y el LED no se enciende porque no hay diferencia de potencial entre sus patas.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/002_Open.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando el pulsador SW2 está cerrado hay un 0 lógico en la entrada digital P0_7, este 0 se lleva a la salida digital P0_3 y el LED se enciende.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/002_Close.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila el project.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/40.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/41.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y transfiere el programa.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion01/L02_SwitchButton/img/42.png">
+        </div>

@@ -1,0 +1,143 @@
+        <div class="title">Contador básico</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a conocer un nuevo componente hardware, el contador básico (Basic Counter).</div></li>
+               <li><div class="text">Como puedes ver en la imagen, el contador básico tiene 3 entradas y 1 salida.</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Entrada</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>en</td>
+                    <td>habilita (1) o deshabilita (0) el contador</td>
+                </tr>
+                <tr>
+                    <td>reset</td>
+                    <td>a 1 pone el contador a 0</td>
+                </tr>
+                <tr>
+                    <td>clk</td>
+                    <td>si "en" = 1, un flanco de subida en esta señal incrementa el valor del contador</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/BasicCounter2Bits.png">
+            <ul>
+               <li><div class="text">Vamos a usar el contador básico para activar los leds Rojo y Verde cada vez que pulsemos SW2</div></li>
+            </ul>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 4 y renómbralo como Workspace 6</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Borra la conexión entre Pin_SW2 y Pin_Rojo</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Recuerda que el pulsador SW2 da una entrada 0 cuando está cerrado. Y como para el contador básico necesitamos el flanco de subida, vamos a usar una puerta lógica NOT para invertirlo</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/005_Not.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al catálogo de componentes y añádelo al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/06.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora el contador básico</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/08.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta Pin_SW2 a la entrada "clock" (a través del componente NOT)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Pon la entrada "en" a 1 y la entrada "reset" a 0</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/11.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/12.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/13.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Activa la conexión del Pin_Verde al Hardware</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/15.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta la salida del contador básico a los leds Rojo y Verde</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/17.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/18.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/19.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Configura el contador básico como 2 bits</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/21.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/22.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila el proyecto</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Hay errores</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">La salida del contador es un bus de 2 bits, debemos indicar que bit va a qué led</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/26.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/27.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/28.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/29.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila el proyecto otra vez y transfiere el programa</div></li>
+               <li><div class="text">Los leds se activarán siguiendo la secuencia :</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L06_BasicCounter/img/006_Leds.png">
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion02/L06_BasicCounter/downloads/WS006.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

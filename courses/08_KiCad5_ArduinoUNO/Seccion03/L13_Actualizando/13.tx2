@@ -1,0 +1,168 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion03/L13_Actualizando/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Actualizar
+[TITLE_ENGLISH]Update
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a actualizar los componentes que traía la plantilla de <b>KiCad</b> con los componentes de nuestra nueva librería.
+[ENGLISH]In this lesson we are going to update the components that the <b>KiCad</b> template brought with the components of our new library.
+[SPANISH]Vamos a empezar por el esquemático.
+[ENGLISH]Let&#39s start with the schematic.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a empezar por <b>P1</b>, haz doble clic para acceder a las propiedades.
+[ENGLISH]Let&#39s start with <b>P1</b>, double click to access the properties.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Como ves no están los campos que hemos creado en nuestra librería. Tenemos la opción de actualizar los campos con el botón en rojo y de cambiar la referencia a la librería con el botón verde pero hay una forma más sencilla.
+[ENGLISH]As you can see there are no fields that we have created in our library. We have the option to update the fields with the red button and to change the reference to the library with the green button, but there is an easier way.
+[SPANISH]Cancela la edición de las propiedades y vuelve al esquemático.
+[ENGLISH]Cancel editing the properties and return to the schematic.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a reemplazar el componente <b>P1</b> por el componente <b>Conn_01x08</b> de nuestra librería.
+[ENGLISH]I am going to replace the <b>P1</b> component with the <b>Conn_01x08</b> component from our library.
+[SPANISH]Con la tecla rápida <b>A</b> añade el componente.
+[ENGLISH]With the shortcut key <b>A</b> add the component.
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Filtra por el nombre de la librería y selecciona el símbolo <b>Conn_01x08</b>.
+[ENGLISH]Filter by the name of the library and select the <b>Conn_01x08</b> symbol.
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]Haz doble clic para editar sus propiedades.
+[ENGLISH]Double click to edit its properties.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como <b>referencia</b> pon <b>P2</b> y como campo <b>Value2Show</b> el texto <b>Power</b>
+[ENGLISH]As <b>reference</b> set <b>P2</b> and as field <b>Value2Show</b> the text <b>Power</b>
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a recolocar los campos para que queden como en la plantilla.
+[ENGLISH]I am going to move the fields so that they are as in the template.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+
+[BEGIN_LIST]
+[SPANISH]Para mover la referencia sitúa el ratón sobre ella y con botón derecho accedes al menú contextual para moverlo.
+[ENGLISH]To move the reference, place the mouse over it and right-click to access the context menu to move it.
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+
+[BEGIN_LIST]
+[SPANISH]Lo mismo con el texto <b>Power</b>
+[ENGLISH]Do the same with the text <b>Power</b>
+[END_LIST]
+[IMG]14.png
+[IMG]15.png
+
+[BEGIN_LIST]
+[SPANISH]Puedes rotar el texto con la tecla rápida <b>R</b> mientras mueves el componente.
+[ENGLISH]You can rotate the text with the <b>R</b> hot key while moving the component.
+[END_LIST]
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona el componente de la plantilla y bórralo con la tecla <b>suprimir</b>
+[ENGLISH]Select the component of the template and delete it with the <b>delete</b> key
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Mueve el nuevo componente a la posición de la plantilla.
+[ENGLISH]Move the new component to the position of the template.
+[END_LIST]
+[IMG]19.png
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz lo mismo con los componentes P2 a P8.
+[ENGLISH]Do the same with components P2 to P8.
+[END_LIST]
+[IMG]21.png
+
+[BEGIN_LIST]
+[SPANISH]Y quedará algo así:
+[ENGLISH]And it will be something like this:
+[END_LIST]
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a actualizar la PCB.
+[ENGLISH]Let&#39s update the PCB.
+[END_LIST]
+[IMG]23.png
+
+[BEGIN_LIST]
+[SPANISH]Hay un error porque los componentes están bloqueados (<b>locked</b>) en la PCB.
+[ENGLISH]There is an error because the components are <b>locked</b> on the PCB.
+[END_LIST]
+[IMG]24.png
+
+[BEGIN_LIST]
+[SPANISH]Selecciona la opción <b>Re-associate footprints by reference</b> y haz clic en el botón <b>Update PCB</b>
+[ENGLISH]Select the <b>Re-associate footprints by reference</b> option and click the <b>Update PCB</b> button
+[END_LIST]
+[IMG]25.png
+
+[BEGIN_LIST]
+[SPANISH]Ahora ya no hay errores.
+[ENGLISH]Now there are no errors.
+[END_LIST]
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La colocación de los componentes en la PCB no ha cambiado.
+[ENGLISH]The placement of the components on the PCB has not changed.
+[SPANISH]Haz clic en el conector <b>P1</b> para ver sus propiedades.
+[ENGLISH]Click on the <b>P1</b> connector to see its properties.
+[END_LIST]
+[IMG]27.png
+
+[BEGIN_LIST]
+[SPANISH]Como ves la referencia es ya a nuestra librería de footprints.
+[ENGLISH]As you can see, the reference is already to our footprint library.
+[END_LIST]
+[IMG]28.png
+[BLOCK_END]
+
+

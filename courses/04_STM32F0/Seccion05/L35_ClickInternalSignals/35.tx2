@@ -1,0 +1,87 @@
+[LESSON_FOLDER]../courses/04_STM32F0/Seccion05/L35_ClickInternalSignals/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Señales internas
+[TITLE_ENGLISH]Internal signals
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Entre el kit de evaluación y el Click hay una señal de datos (<b>DIN</b>), 2 alimentaciones (<b>5V</b> y <b>3V3</b>) y la masa.
+[ENGLISH]Between the evaluation kit and the Click there is a data signal (<b>DIN</b>), 2 power supplies (<b>5V</b> y <b>3V3</b>) and ground.
+[SPANISH]La señal <b>DIN</b> tiene que llegar a todos los leds.
+[ENGLISH]The signal <b>DIN</b> has to go through all the leds.
+[SPANISH]Este es el esquemático del Click:
+[ENGLISH]This is the schematic of the Click:
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La señal <b>DIN</b> va del pin <b>IN1</b> del conector al pin <b>DIN</b> del primer led <b>WS2812</b>.
+[ENGLISH]The signal <b>DIN</b> goes from the pin <b>IN1</b> of the connector to the pin <b>DIN</b> of the first <b>WS2812</b>.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]La señal <b>DIN</b> sale del primer led <b>WS2812</b> por el pin <b>DOUT</b> al pin <b>DIN</b> del seegundo led <b>WS2812</b>.
+[ENGLISH]The signal <b>DIN</b> goes out of the first <b>WS2812</b> on the pin <b>DOUT</b> to the pin <b>DIN</b> of the second <b>WS2812</b>.
+[END_LIST]
+[IMG]03.png
+
+[BEGIN_LIST]
+[SPANISH]Y así sucesivamente hasta llegar a todos los leds.
+[ENGLISH]And so on, going through all the leds.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a explicar las alimentaciones de <b>3.3V</b> y <b>5v</b>. <br>Para que se vea mejor, aquí tienes sólo los 3 primeros leds.
+[ENGLISH]I am going to explain the <b>3.3V</b> and <b>5v</b> power supplies. <br>For the sake of clarity, here you have only the 3 first leds.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST].
+[SPANISH]Los <b>3.3V</b> del conector están conectados a <b>Vcc</b>.
+[ENGLISH]<b>3.3V</b> of the connector is connected to <b>Vcc</b>.
+[END_LIST]
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]Y <b>Vcc</b> al pin 3 de los leds <b>WS2812</b> que es la alimentación de su circuito de control del <b>WS2812</b>.
+[ENGLISH]And <b>Vcc</b> is connected to the pin 3 of the <b>WS2812</b> that is the power supply for its control circuit.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Los <b>5V</b> del conector están conectados a <b>Vcc-5V</b>.
+[ENGLISH]<b>5V</b> of the connector is connected to <b>Vcc-5V</b>.
+[END_LIST]
+[IMG]09.png
+
+[BEGIN_LIST]
+[SPANISH]<b>Vcc-5V</b> es la entrada al regulador <b>U1</b>.
+[ENGLISH]<b>Vcc-5V</b> is the input to the regulator <b>U1</b>.
+[END_LIST]
+[IMG]10.png
+
+[BEGIN_LIST]
+[SPANISH]La salida del regulador <b>U1</b> son 3.5 voltios (<b>Vcc-3.5V</b>).
+[ENGLISH]The output of the regulator <b>U1</b> is 3.5 volts (<b>Vcc-3.5V</b>).
+[END_LIST]
+[IMG]11.png
+
+[BEGIN_LIST]
+[SPANISH]Está conectados al pin 5 de los <b>WS2812</b> y alimentan los leds.
+[ENGLISH]It is connected to the pin 5 of <b>WS2812</b> and it powers the leds.
+[END_LIST]
+[IMG]12.png
+[BLOCK_END]
+
+

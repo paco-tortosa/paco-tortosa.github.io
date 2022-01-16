@@ -1,0 +1,139 @@
+[LESSON_FOLDER]../courses/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]PWM (HAL)
+[TITLE_ENGLISH]PWM (HAL)
+
+[MPPRO_SECTION_ES_EN]IDE|IDE
+[MPPRO_VIDEO]03_Camtasia\01_cam_IDE.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a hacer lo mismo que en la lección anterior (generar una señal PWM de período 100us y duty cycle del 25%) pero usando la HAL y el configurador MX.
+[ENGLISH]In this lesson we are going to do the same as in the previous lesson (generate a PWM signal of period 100us and duty cycle 25%) but this time using the HAL and the configurator MX.
+[END_LIST]
+[BLOCK_END]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Crea un proyecto nuevo basado en el kit de evaluación llamado <b>P22_TIM1_PWM_HAL</b>.
+[ENGLISH]Create a new project based on the evaluation kit with the name <b>P22_TIM1_PWM_HAL</b>.
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a configurar el <b>TIM1</b> con los mismos parámetros que en la lección anterior.
+[ENGLISH]Let&#39s configure the <b>TIM1</b> with the same parameters than in the previous lesson.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El reloj para el <b>TIM1</b> será el reloj interno de 48MHz.
+[ENGLISH]The clock for <b>TIM1</b> will be the MCU internal clock (48MHZ).
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a configurar el canal 1 como salida PWM.
+[ENGLISH]Configure the channel 1 as PWM output.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El prescaler debe ser 47 para conseguir una frecuencia de 1MHz a partir de los 48MHz del reloj de entrada, el modo contador ascendente y el registro <b>ARR</b> 99 que hace que el período sea 99+1=100 us.
+[ENGLISH]The prescaler must be 47 to get a frequency of 1MHz from the input clock of 48MHz, the counter mode as upcounting and the register <b>ARR</b> 99 that makes the period be 99+1=100 us.
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Fíjate que el pin <b>PA8</b> ha sido configurado como <b>TIM1_CH1</b>.
+[ENGLISH]Note that the pin <b>PA8</b> has been configured as <b>TIM1_CH1</b>. 
+[END_LIST]
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Habilita la función <b>auto-reload preload</b> .
+[ENGLISH]Set the <b>auto-reload preload</b> to <b>Enable</b>.
+[END_LIST]
+[IMG]14.png
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora es tiempo de establecer el <b>duty cycle</b> a 25us.
+[ENGLISH]Now is time to set the <b>duty cycle</b> to 25us.
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya puedes generar el código fuente de configuración.
+[ENGLISH]Now you can generate the source code for the configuration.
+[END_LIST]
+[IMG]19.png
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos al fichero <b>main.c</b>
+[ENGLISH]Go to the file <b>main.c</b>
+[END_LIST]
+[IMG]21.png
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a incluir aquí la activación del <b>TIM1</b>.
+[ENGLISH]Let&#39s add here the activation of <b>TIM1</b>.
+[END_LIST]
+[IMG]23.png
+
+[BEGIN_LIST]
+[SPANISH]Con la función <b>HAL_TIM_PWM_START</b> activamos el <b>TIM1</b> y empezamos a generar la señal PWM en el pin <b>PA8</b>.
+[ENGLISH]With the function <b>HAL_TIM_PWM_START</b> the <b>TIM1</b> is activated and the PWM signal is generated on the pin <b>PA8</b>.
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya puedes compilar y depurar el programa.
+[ENGLISH]You can build and debug the program.
+[END_LIST]
+[IMG]25.png
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[IMG]29.png
+[IMG]30.png
+[IMG]31.png
+[IMG]32.png
+[BLOCK_END]
+

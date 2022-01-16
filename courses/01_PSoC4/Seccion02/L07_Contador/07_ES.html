@@ -1,0 +1,229 @@
+        <div class="title">Contador</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a conocer un nuevo componente hardware, el contador (Counter)</div></li>
+               <li><div class="text">La secuencia que hay que programar es :</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/007_Counter_Explanation.png">
+            <ul>
+               <li><div class="text">Cada 3 pulsaciones de SW2 se va a generar una interrupción, y en esa interrupción vas a conmutar el estado del led verde</div></li>
+               <li><div class="text">Para hacer eso vas a usar un contador que vas a configurar con un valor inicial de 2. Cada vez que se pulse SW2 el contador será decrementado y cuando pase de 0 a 2 se generará la interrupción</div></li>
+            </ul>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 6 y renómbralo como Workspace 7</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Borra los componentes usados en el proyecto anterior</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como vas a controlar los leds (en este caso el verde) desde el programa tienes que deshabilitar la conexión HW</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/05.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/06.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/07.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/08.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un Timer Counter desde el catálogo de componentes</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/10.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Se necesita un reloj para la entrada "clock"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/12.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora hay que configurar el Timer Counter</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como "Counter"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Modifica los siguientes valores :</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Parámetro</th>
+                    <th>Valor</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Counter mode</td>
+                    <td>Down (Hacia abajo)</td>
+                    <td>En cada activación de la señal "count" se decrementará el contador</td>
+                </tr>
+                <tr>
+                    <td>Input "count"</td>
+                    <td>Habilitada y como flanco de bajada</td>
+                    <td>La entrada será activa en el flanco de bajada</td>
+                </tr>
+                <tr>
+                    <td>Period</td>
+                    <td>2</td>
+                    <td>Interrupción cada 2 + 1 pulsaciones de SW2</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta el pulsador "Pin_SW2" a la entrada "count"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una interrupción y conéctala a la salida "interrupt" del Timer Counter</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/27.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renombra la interrupción como "Counter_Int"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/29.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/30.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Genera la aplicación</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a "main.c"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L07_Contador/img/33.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el código :</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>CY_ISR( <span class="b1">Counter_Int_Handler<span class="tooltiptext"> Declara la función <b>Counter_Int_Handler</b> como una ISR (rutina de servicio a interrupción)</span></span>)</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b2">Pin_Verde_Write( ~ Pin_Verde_Read() )<span class="tooltiptext"> Cambia el estado del led verde</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    <span class="b3">Counter_ClearInterrupt( Counter_INTR_MASK_TC )<span class="tooltiptext"> Borra el flag de la interrupción</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    <span class="b4">Counter_Start()<span class="tooltiptext"> Inicializa el Timer Counter</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    <span class="b5">Counter_Int_StartEx(Counter_Int_Handler)<span class="tooltiptext"> Configura la función <b>Counter_Int_Handler</b> como ISR del Timer Counter</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion02/L07_Contador/downloads/WS007.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

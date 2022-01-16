@@ -1,0 +1,89 @@
+        <div class="title">Toggle Flip Flop</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a conocer un nuevo componente hardware, el biestable T (Toggle Flip Flop).</div></li>
+               <li><div class="text">Como puedes ver en la imagen, el biestable T tiene 2 entradas y 1 salida.</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Entrada</th>
+                    <th>Operación</th>
+                </tr>
+                <tr>
+                    <td><b>t</b></td>
+                    <td>habilita (1) o deshabilita (0) cambios en el pin de salida <b>q</b></td>
+                </tr>
+                <tr>
+                    <td><b>clk</b></td>
+                    <td>Si <b>t</b> = 1, un flanco de subida en esta señal cambia el nivel de la salida <b>q</b></td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/TFlipFlop.png">
+            <ul>
+               <li><div class="text">Vamos a usar el biestable T para conmutar el led Rojo cada vez que pulsemos SW2.</div></li>
+            </ul>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 4 y renómbralo como Workspace 5.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/03.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Borra la conexión entre Pin_SW2 y Pin_Rojo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Recuerda que el pulsador SW2 da una entrada 0 cuando está cerrado. Y como para el biestable T necesitamos el flanco de subida, vamos a usar una puerta lógica NOT para invertirlo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/005_Not.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al catálogo de componentes y añádelo al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora el biestable T.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/09.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Pon a 1 la entrada t.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/11.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y conecta la salida del biestable al Pin_Rojo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/13.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L05_TFF/img/005_Final.png">
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa.</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion02/L05_TFF/downloads/WS005.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

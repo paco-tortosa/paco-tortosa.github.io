@@ -1,0 +1,236 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion03/L05_Footprint_R1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Footprint de R1
+[TITLE_ENGLISH]R1 footprint
+
+[MPPRO_SECTION_ES_EN]KiCad|KiCad
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet de la resistencia, nuestra resistencia pertenece a la familia <b>ESR10</b> que tiene un encapsulado <b>0805</b>.
+[ENGLISH]This is the datasheet of the resistor, our resistor belongs to the <b> ESR10 </b> family which has a <b> 0805 </b> package.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El fabricante recomienda este footprint:
+[ENGLISH]The manufacturer recommends this footprint:
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos al editor de footprints para ver si encontramos una resistencia <b>SMD</b> de encapsulado <b><b>0805</b></b> en alguna librería.
+[ENGLISH]Let&#39s go to the footprint editor to see if we find a <b> SMD </b> encapsulation resistance <b><b>0805</b> </b> in some library.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Si filtramos por <b>0805</b> aparecen varios footprints. El que nos interesa es el de la resistencia <b>R_0805_2012Metric</b>.
+[ENGLISH]If we filter by <b> 0805 </b> several footprints appear. The one that interests us is the resistor <b> R_0805_2012Metric </b>.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear nuestra librería de footprints.
+[ENGLISH]We are going to create our footprint library.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La voy a llamar <b>JAVIERM_LIBF</b> y la voy a guardar en el directorio <b>libs</b>.
+[ENGLISH]I'm going to call it <b>JAVIERM_LIBF</b> and I am going to save it in the <b> libs </b> directory.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La voy a hacer disponible sólo para este proyecto.
+[ENGLISH]I will make it available only for this project.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a copiar el footprint <b>R_0805_2012Metric</b> de la librería <b>Resistor_SMD</b> en nuestra librería.
+[ENGLISH]I'm going to copy the <b> R_0805_2012Metric </b> footprint from the <b> Resistor_SMD </b> library into our library.
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a conservar el mismo nombre.
+[ENGLISH]I will keep the same name.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Filtro por el nombre <b>JAVI</b> para encontrar nuestra librería <b>JAVIERM_LIBF</b>.
+[ENGLISH]Filter by the name <b> JAVI </b> to find our library <b> JAVIERM_LIBF </b>.
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a buscar el nuevo footprint filtrando por la librería.
+[ENGLISH]I am going to find the new footprint by filtering through the library.
+[END_LIST]
+[IMG]14.png
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a hacer doble clic en el pad 2 para ver sus dimensiones.
+[ENGLISH]I am going to double-click on the pad 2 to see its dimensions.
+[END_LIST]
+[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver comparadas las dimensiones del footprint de KiCad (en rosa) y las del datasheet (en verde). Las de Kicad son más grandes, así que nos sirven.
+[ENGLISH]Here you can see the dimensions of the KiCad footprint (in pink) and the datasheet (in green). Those of Kicad are bigger, so they serve us.
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a asociar el símbolo y el footprint. Ve al editor de símbolos.
+[ENGLISH]I am going to associate the symbol and the footprint. Go to the symbol editor.
+[END_LIST]
+[IMG]19.png
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Buscamos nuestro componente filtrando por la librería.
+[ENGLISH]We search for our component by filtering through the library.
+[END_LIST]
+[IMG]21.png
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a editar las propiedades del símbolo.
+[ENGLISH]We are going to edit the properties of the symbol.
+[END_LIST]
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el botón de elegir footprint.
+[ENGLISH]Click the choose footprint button.
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí están todas las librerías y todos los footprints de KiCad.
+[ENGLISH]Here are all KiCad libraries and footprints.
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona el footprint <b>R_0805_2012Metric</b> de nuestra librería.
+[ENGLISH]Select the <b> R_0805_2012Metric </b> footprint from our library.
+[END_LIST]
+[IMG]26.png
+[IMG]27.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y haz clic en el botón.
+[ENGLISH]And click the button.
+[END_LIST]
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El footprint ya está enlazado al símbolo. 
+[ENGLISH]The footprint is already linked to the symbol.
+[END_LIST]
+[IMG]29.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a mover el texto del footprint abajo como hicimos anteriormente.
+[ENGLISH]We are going to move the footprint text down as we did previously.
+[END_LIST]
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para esto vamos a elegir la rejilla de <b>10mils</b>.
+[ENGLISH]For this we are going to choose the <b> 10mils </b> grid.
+[END_LIST]
+[IMG]31.png
+[IMG]32.png
+//[IMG]33.png
+[IMG]34.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Movemos el texto.
+[ENGLISH]We move the text.
+[END_LIST]
+//[IMG]36.png
+[IMG]37.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y volvemos a una rejilla estándar de <b>50mils</b>.
+[ENGLISH]And we go back to a standard grid of <b> 50mils </b>.
+[END_LIST]
+[IMG]38.png
+[IMG]39.png
+//[IMG]40.png
+[IMG]41.png
+[IMG]42.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Por último guarda los cambios.
+[ENGLISH]Finally save the changes.
+[END_LIST]
+[IMG]43.png
+[BLOCK_END]
+
+
+
+

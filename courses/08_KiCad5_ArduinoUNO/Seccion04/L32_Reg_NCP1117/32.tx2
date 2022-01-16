@@ -1,0 +1,68 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L32_Reg_NCP1117/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Regulador NCP1117
+[TITLE_ENGLISH]NCP1117 Regulator 
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El regulador <b>U1</b> genera <b>5V</b> a partir de la tensión de entrada en el <b>Jack X1</b> 
+[ENGLISH]The regulator <b>U1</b> generates <b>5V</b> from the input voltage at the <b>Jack X1</b>
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el regulador recomendado en el diseño de referencia de Arduino. El fabricante es <b>ON Semiconductor</b> y el part number es <b>NCP1117ST50T3G</b>
+[ENGLISH]This is the recommended regulator in the Arduino reference design. The manufacturer is <b>ON Semiconductor</b> and the part number is <b>NCP1117ST50T3G</b>
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Puede generar hasta <b>1A</b> y la tensión de salida es fija (<b>5V</b>)
+[ENGLISH]It can generate up to <b>1A</b> and the output voltage is fixed (<b>5V</b>)
+[SPANISH]La tensión máxima de entrada al regulador es <b>20V</b>
+[ENGLISH]The maximum input voltage to the regulator is <b>20V</b>
+[SPANISH]La tensión mínima de entrada al regulador será la tensión de salida (<b>5V</b>) más el dropout (alrededor de <b>1V</b>), es decir unos <b>6V</b>. 
+[ENGLISH]The minimum input voltage to the regulator will be the output voltage (<b>5V</b>) plus the dropout (around <b>1V</b>), that is, about <b>6V </b>.
+[SPANISH]Pero ten en cuenta que hemos puesto el diodo <b>D1</b> entre el <b>Jack</b> y el regulador, y que en <b>D1</b> caen aproximadamente <b>1V</b>. Por lo que la entrada mínima en el <b>Jack</b> será de unos <b>7V</b>.
+[ENGLISH]But note that we have placed the <b>D1</b> diode between the <b>Jack</b> and the regulator, and that <b>D1</b> drops approximately <b>1V</b>. So the minimum input on the <b>Jack</b> will be around <b>7V</b>.
+[SPANISH]Por lo que un buen alimentador para el Jack sería de <b>entre 9 y 12V</b>.
+[ENGLISH]So a good power supply for the Jack would be <b>between 9 and 12V</b>.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Regulator_Linear</b> he encontrado el símbolo <b>NCP1117-5.0_SOT223</b>
+[ENGLISH]In the library <b>Regulator_Linear</b> I found the symbol <b>NCP1117-5.0_SOT223</b>
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBS</b> y le he añadido los campos habituales en mis diseños.
+[ENGLISH]I have copied it to the <b>JAVIERM_LIBS</b> library and added the usual fields in my designs.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería de footprints <b>Package_TO_SOT_SMD</b> está el footprint <b>SOT-223-3_TabPin2</b> que es exactamente el footprint del regulador así que lo he copiado en la librería.
+[ENGLISH]In the footprint library <b>Package_TO_SOT_SMD</b> is the footprint <b>SOT-223-3_TabPin2</b> which is exactly the footprint of the regulator so I have copied it into the library.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/NCP1117-D-1595886.pdf;Datasheet
+[LINK_ENGLISH]downloads/NCP1117-D-1595886.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+

@@ -1,0 +1,122 @@
+        <div class="title">Registro de Control</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vamos a hacer parpadear el led rojo. Cada segundo vamos a cambiar automáticamente la frecuencia del parpadeo (de 5Hz a 20Hz). De esta manera veremos un parpadeo rápido y otro lento</div></li>
+               <li><div class="text">En el proyecto anterior (015) el cambio lo hacíamos pulsando SW2. Ahora lo vamos a hacer desde el programa cada segundo, mediante el componente Control Register</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/P016_Expl.png">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 15 y renómbralo como 16</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Borra el pulsador SW2</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un registro de control (Control Register)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo a "Control_Register" y pon el número de salidas a 1</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/07.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el siguiente código en "main.c"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L16_ControlRegister/img/09.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>        <span class="b1">Control_Register_Write(1)<span class="tooltiptext"> Pone a 1 la salida del registro de control. Este 1 selecciona la entrada 1 (20Hz) del multiplexor. El led parpadeará rápido</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>        <span class="b2">CyDelay(1000)<span class="tooltiptext"> Espera durante 1 segundo</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>        <span class="b3">Control_Register_Write(0)<span class="tooltiptext"> Pone a 0 la salida del registro de control. Este 0 selecciona la entrada 0 (5Hz) del multiplexor. El led parpadeará lento</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>        <span class="b4">CyDelay(1000)<span class="tooltiptext"> Espera durante 1 segundo</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion04/L16_ControlRegister/downloads/WS016.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

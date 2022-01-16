@@ -1,0 +1,31 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L39_R_10K/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Resistencias 10K
+[TITLE_ENGLISH]10K Resistors
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es la resistencia de <b>10K</b> con encapsulado <b>0603</b> que he encontrado en Mouser.
+[ENGLISH]This is the <b>10K</b> resistor with package <b>0603</b> that I found at Mouser.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copio la resistencia de <b>1M</b> con el nombre <b>R_10K_0603</b>, el footprint es el mismo.
+[ENGLISH]I copy the <b>1M</b> resistor with the name <b>R_10K_0603</b>, the footprint is the same.
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/AOA0000C301-1488782.pdf;Datasheet
+[LINK_ENGLISH]downloads/AOA0000C301-1488782.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]

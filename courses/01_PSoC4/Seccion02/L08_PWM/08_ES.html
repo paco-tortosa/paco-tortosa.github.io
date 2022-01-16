@@ -1,0 +1,191 @@
+        <div class="title">PWM</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a conocer un nuevo componente hardware, el componente PWM (Pulse Width Modulation)</div></li>
+               <li><div class="text">Sirve para generar una señal que tiene una frecuencia fija y una parte variable llamada "Duty Cycle" que es el tiempo que está a 1</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/PWM_Signal.png">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 7 y renómbralo como Workspace 8</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Borra el contador</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/04.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al catálogo de componentes y arrastra el componente PWM al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/06.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz doble clic para acceder a la configuración</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renombra el componente como PWM</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Modifica los siguientes valores :</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Parámetro</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Period</td>
+                    <td>Periodo de la señal</td>
+                    <td>10000</td>
+                </tr>
+                <tr>
+                    <td>Compare</td>
+                    <td>Duración del Duty Cycle</td>
+                    <td>5000</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Así, la señal tendrá 5000 pulsos de reloj de duración de Duty Cycle (tiempo de la señal a 1) y 10000 pulsos de reloj de período</div></li>
+               <li><div class="text">La señal de reloj es de 12 MHz</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/008_PWM.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Habilita la conexión HW del led Rojo</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/11.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta el led Rojo con la salida "line" del componente PWM</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Genera la aplicación</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a "main.c"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Borra el código del proyecto anterior</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade la función "PWM_Start()" para incializar el componente PWM que añadimos al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el siguiente código :</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/21.png">
+        </div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>15</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    PWM_Start();</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>        <span class="b1">PWM_WriteCompare(  500 )<span class="tooltiptext"> Cambia el Duty Cycle a 500</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        <span class="b2">CyDelay(1000)<span class="tooltiptext"> Espera 1000 mseg = 1 segundo</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>        <span class="b1">PWM_WriteCompare( 9500 )<span class="tooltiptext"> Cambia el Duty Cycle a 9500</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>        <span class="b2">CyDelay(1000)<span class="tooltiptext"> Espera 1000 mseg = 1 segundo</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion02/L08_PWM/img/008_PWM2.png">
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion02/L08_PWM/downloads/WS008.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

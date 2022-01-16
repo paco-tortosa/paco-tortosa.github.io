@@ -1,0 +1,575 @@
+        <div class="title">SPI (MAX7219)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vamos a usar el componente SPI (Serial Peripheral Interface)</div></li>
+               <li><div class="text">Vamos a comunicar el PSoC con el integrado MAX7219, que es un controlador de displays de 7 segmentos</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/2eCw920FlGg?rel=0" frameborder="0" allowfullscreen></iframe></div>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/Setup.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/P022_Pins.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En SPI hay un maestro y varios esclavos</div></li>
+               <li><div class="text">Cuando el maestro SPI quiere comunicar con un esclavo, lo primero que tiene que hacer es activar la señal SS (Slave Select o Chip Select) conectada a ese esclavo</div></li>
+               <li><div class="text">Para enviar datos al esclavo, el maestro usa la señal MOSI (Master-Output Slave-Input) acompañada de una señal de reloj (SCLK)</div></li>
+               <li><div class="text"><b>IMPORTANTE : </b>El reloj (SCLK) siempre es generado por el maestro SPI</div></li>
+               <li><div class="text">Para recibir datos del esclavo, el maestro debe enviar cualquier dato por la señal MOSI, junto con el reloj (SCLK). El esclavo enviará los datos al maestro usando la señal MISO (Master-Input Slave-Output)</div></li>
+               <li><div class="text">Este es el único punto en el que el bus SPI es un poco confuso. Para recibir un dato el maestro tiene que enviar otro al esclavo. Este dato no suele ser tenido en cuenta por el esclavo, de ahí que reciba el nombre en inglés de DUMMY</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/SPI_01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Aquí vamos a comunicar con un solo esclavo SPI (MAX7219) y no vamos a usar la señal MISO porque sólo vamos a escribir en los registros del esclavo</div></li>
+               <li><div class="text">El maestro envía información al esclavo, pero el esclavo nunca envía información al maestro</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_1.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cambia el jumper J9 para que los terminales 2 y 3 estén conectados. Así el kit funcionará a 5V. Esto es necesario porque el integrado MAX7219 funciona a 5 Voltios</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/P022_Jumper5V.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Esta es la configuración de SPI usada por el esclavo SPI MAX7219:</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Señal</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>SS (Slave Select)</td>
+                    <td>La señal SS es activa a nivel bajo</td>
+                </tr>
+                <tr>
+                    <td>SCLK (Reloj)</td>
+                    <td>En reposo la señal SCLK está a nivel bajo, y los datos se capturan en el flanco de subida</td>
+                </tr>
+                <tr>
+                    <td>MOSI</td>
+                    <td>Siempre vamos a mandar 2 bytes. El primero es el registro a escribir y el segundo el dato</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_8.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Los bits D8 a D11 van a contener la dirección del registro a escribir. <br>Los bits D0 a D7 el dato</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_2.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Hay 14 registros:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_3.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El registro "Decode Mode" (dirección 0x09) controla la codificación en BCD. Si enviamos un 1, el modo de decodificación en BCD se activa y podemos decir al MAX7219 que muestre un "1" en vez de tener que activar los leds que forman un digito uno a uno</div></li>
+               <li><div class="text">En la tabla siguiente se puede ver cómo se puede activar el modo BCD en ningún dígito, en el dígito 0, en los dígitos 0 a 3, o en todos</div></li>
+               <li><div class="text">En este proyecto vamos a codificar todos los dígitos en BCD, por lo que escribiremos 0xFF en el registro 0x09</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_4.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la siguiente tabla, se puede ver en rojo el carácter que se muestra y en verde el valor que hay que enviar para ello</div></li>
+               <li><div class="text">Si quisiéramos mostrar el carácter "1" en el dígito 2, tendremos que escribir en el registro "Digit 2" (dirección 0x03) el valor 0x01. <br>Si además quisiéramos mostrar el punto decimal en ese dígito el valor a escribir sería 0x81</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_9.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El registro de intensidad (dirección 0x0A) controla la intensidad de la luz de los diodos led del display</div></li>
+               <li><div class="text">En la tabla siguiente se puede ver que la intensidad se puede configurar desde el nivel mínimo (valor 0x00) al nivel máximo (valor 0x0F).<br> Nosotros usaremos el valor 0x02</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_5.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El registro de "Scan-Limit" (dirección 0x0B) controla qué digitos serán usados</div></li>
+               <li><div class="text">Queremos usar todos los dígitos por lo que el valor que debemos escribir en el registro es 0x07</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/MAX7219_6.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El registro de "Shutdown" (dirección 0x0C) sirve para configurar el display en modo normal</div></li>
+               <li><div class="text">Para modo normal de operación escribiremos el valor 1</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">La configuración de los registros quedará así :</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Registro</th>
+                    <th>Dirección</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Decode-Mode</td>
+                    <td>0x09</td>
+                    <td>0xFF</td>
+                </tr>
+                <tr>
+                    <td>Intensity</td>
+                    <td>0x0A</td>
+                    <td>0x02</td>
+                </tr>
+                <tr>
+                    <td>Scan-Limit</td>
+                    <td>0x0B</td>
+                    <td>0xFF</td>
+                </tr>
+                <tr>
+                    <td>Shutdown</td>
+                    <td>0x0C</td>
+                    <td>0x01</td>
+                </tr>
+            </table>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea un proyeto nuevo</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Basado en el kit CY8CKIT-042</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Con un esquemático vacío</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y nómbralo como workspace WS022</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el componente "SPI Master" al esquemático</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como "SPIM" y configura "Mode" como "CPHA=0, CPOL=0"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El tamaño del buffer de recepción (RX) y transmisión (TX) es 4</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/08.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una entrada digital</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como "Pin_MISO"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta "Pin_MISO" a la entrada "miso" del "SPIM"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una salida digital</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como "Pin_MOSI"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conéctala a la salida "mosi" de "SPIM"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia "Pin_MOSI" y pégala. Edita las propiedades de la nueva salida digital</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como "Pin_SCLK"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conéctala a la salida "sclk" de "SPIM"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade otra salida digital, pegando "Pin_MOSI".<br>Edita sus propiedades y renómbrala como "Pin_CS".<br>Deshabilita "HW connection" (será controlada por programa)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/21.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un reloj</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como "SPI_CLOCK" y pon 1Mhz como frecuencia.<br>La frecuencia de SCLK será la mitad = 500 KHz</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El esquemático queda así:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a la configuración de pines</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Asigna los pines para que queden así:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el siguiente código a "main.c" :</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/28.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include "project.h"</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>#define <span class="b1">CMD_DECODE_MODE<span class="tooltiptext"> Define la constante  CMD_DECODE_MODE como 0x09.<br>(Dirección del registro DECODE_MODE)</span></span> 0x09</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>#define <span class="b2">CMD_INTENSITY<span class="tooltiptext"> Define la constante  CMD_INTENSITY como 0x0A.<br>(Dirección del registro INTENSITY)</span></span>   0x0A</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>#define <span class="b3">CMD_SCAN_LIMIT<span class="tooltiptext"> Define la constante  CMD_SCAN_LIMIT como 0x0B.<br>(Dirección del registro SCAN_LIMIT)</span></span>  0x0B</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>#define <span class="b4">CMD_SHUTDOWN<span class="tooltiptext"> Define la constante  CMD_SHUTDOWN como 0x0C.<br>(Dirección del registro SHUTDOWN)</span></span>    0x0C</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>void <span class="b5">SendCommand<span class="tooltiptext"> La función <b>SendCommand</b> escribe en el registro con dirección <b>_u8Command</b> el byte <b>_u8Data</b></span></span> (  uint8   _u8Command,</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>                    uint8   _u8Data)</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    <span class="b6">Pin_CS_Write<span class="tooltiptext"> Pone la señal CS (Chip Select o Slave Select) a nivel bajo</span></span>(0);</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    <span class="b1">SPIM_WriteByte(_u8Command)<span class="tooltiptext"> Escribe en el buffer de transmisión SPI la dirección del registro</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    <span class="b2">SPIM_WriteByte(_u8Data)<span class="tooltiptext"> Escribe en el buffer de transmisión SPI el valor del registro</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    <span class="b3">while<span class="tooltiptext"> Espera hasta que el buffer de transmisión SPI está vacío (los dos bytes han sido enviados)</span></span>(0u == (SPIM_ReadTxStatus() & SPIM_STS_SPI_DONE))</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        // Wait while Master completes transaction</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>    }    </td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    <span class="b4">Pin_CS_Write<span class="tooltiptext"> Pone la señal CS (Chip Select o Slave Select) a nivel alto</span></span>(1);</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/29.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>35</td>
+                      <td>void <span class="b1">DisplayNumber<span class="tooltiptext"> La función <b>DisplayNumber</b> muestra un número de 8 dígitos en el display</span></span> (uint32 _u32Number)</td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>    <span class="b2">SendCommand<span class="tooltiptext"> Escribe en el registro   1 (Digit 0) <br>el primer dígito del número</span></span>(1, _u32Number             % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    <span class="b3">SendCommand<span class="tooltiptext"> Escribe en el registro   2 (Digit 1) <br>el  segundo dígito del número</span></span>(2,(_u32Number / 10)       % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>    <span class="b4">SendCommand<span class="tooltiptext"> Escribe en el registro   3 (Digit 2) <br>el  tercer dígito del número</span></span>(3,(_u32Number / 100)      % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>    SendCommand(4,(_u32Number / 1000)     % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>    SendCommand(5,(_u32Number / 10000)    % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>    SendCommand(6,(_u32Number / 100000)   % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>    SendCommand(7,(_u32Number / 1000000)  % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>    <span class="b5">SendCommand<span class="tooltiptext"> Escribe en el registro   8 (Digit 7) <br>el  octavo dígito del número</span></span>(8,(_u32Number / 10000000) % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>int main(void)</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>    uint32  <span class="b6">u32Counter<span class="tooltiptext"> Declara la variable de 32 bits <b>u32Counter</b> que almacena el valor a mostrar en el display y que es incrementada en la línea 63</span></span>  =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>    <span class="b1">SPIM_Start<span class="tooltiptext"> Inicializa el componente SPIM</span></span>();</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>    <span class="b2">Pin_CS_Write<span class="tooltiptext"> Pone la señal CS (Chip Select o Slave Select) a nivel alto</span></span>(1);</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>   </td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>    SendCommand(<span class="b3">CMD_SHUTDOWN<span class="tooltiptext"> Escribe el valor 0x01 en el registro SHUTDOWN. <br>Pone el display en modo normal</span></span>    ,1);    //Normal Operation</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>    SendCommand(<span class="b4">CMD_DECODE_MODE<span class="tooltiptext"> Escribe el valor 0xFF en el registro DECODE_MODE. <br>Todos los dígitos están codificados con BCD</span></span> ,0xFF); //BCD coded all digits</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>    SendCommand(<span class="b5">CMD_SCAN_LIMIT<span class="tooltiptext"> Escribe el valor 0x07 en el registro SCAN_LIMIT. <br>Todos los dígitos serán mostrados</span></span>  ,0x07); //All digits displayed</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>    SendCommand(<span class="b6">CMD_INTENSITY<span class="tooltiptext"> Escribe el valor 0x02 en el registro INTENSITY. <br>Intensidad 2 (baja)</span></span>   ,0x2);  //Intensity 0..15</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>        <span class="b1">DisplayNumber(u32Counter++)<span class="tooltiptext"> Muestra el valor de 8 dígitos en el display y lo incrementa</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>        <span class="b2">CyDelay(50)<span class="tooltiptext"> Espera 50 milisegundos</span></span>;        </td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Para medir las señales en el osciloscopio, conecta las sondas así:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/P022_OscilloscopeEs.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">La escritura en el registro "Decode-Mode" es :</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Registro</th>
+                    <th>Dirección</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Decode-Mode</td>
+                    <td>0x09</td>
+                    <td>0xFF</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/P022_Oscilloscope_01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">La escritura en el registro "Intensity" es :</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Registro</th>
+                    <th>Dirección</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Intensity</td>
+                    <td>0x0A</td>
+                    <td>0x02</td>
+                </tr>
+            </table>
+            <img class="img" src="../courses/01_PSoC4/Seccion06/L22_Max7219/img/P022_Oscilloscope_02.png">
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion06/L22_Max7219/downloads/WS022.zip">Descarga el proyecto aquí (PSoC Creator 4.0).</a></li>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion06/L22_Max7219/downloads/MAX7219-MAX7221.pdf">Descarga la información sobre MAX7219.</a></li>
+            </ul>
+        </div>

@@ -1,0 +1,402 @@
+[LESSON_FOLDER]../courses/04_STM32F0/Seccion05/L37_Program_ASM/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Programa (ASM)
+[TITLE_ENGLISH]Program (ASM)
+
+[MPPRO_SECTION_ES_EN]Video|Video
+[MPPRO_VIDEO]03_Camtasia\01_Video.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como puedes ver en el video, el programa de esta lección va a hacer lo mismo que el programa de la lección anterior.
+[ENGLISH]As you can see on the video, the program for this lesson is going to do the same as the program in the previous lesson.
+[SPANISH]Pero vamos a optimizar la función <b>SendByte</b>, la vamos a programar en lenguaje ensamblador.
+[ENGLISH]But, we are going to optimize the function <b>SendByte</b>, we are going to write it in assembly language.
+[END_LIST]
+[VIDEO_SPANISH]https://www.youtube.com/embed/MSyBh5-Im1c?rel=0
+[VIDEO_ENGLISH]https://www.youtube.com/embed/MSyBh5-Im1c?rel=0
+[BLOCK_END]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[MPPRO_SECTION_ES_EN]IDE|IDE
+[MPPRO_VIDEO]03_Camtasia\02_cam_IDE.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear un proyecto nuevo llamado <b>P17_Click4x4RGB_ASM</b> a partir del proyecto <b>P16_Click4x4RGB_HAL</b>.
+[ENGLISH]We are going to create a new project called <b>P17_Click4x4RGB_ASM</b> from the project <b>P16_Click4x4RGB_HAL</b>.
+[SPANISH]Usa la opción de crear un proyecto a partir de un fichero de configuración <b>.ioc</b>
+[ENGLISH]Use the menu item to create a project from a configuration file <b>.ioc</b>
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Busca el fichero <b>.ioc</b> del proyecto <b>P16_Click4x4RGB_HAL</b>.
+[ENGLISH]Search for the <b>.ioc</b> file of the project <b>P16_Click4x4RGB_HAL</b>.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Dale al nuevo proyecto el nombre <b>P17_Click4x4RGB_ASM</b>.
+[ENGLISH]Give to the new project the name <b>P17_Click4x4RGB_ASM</b>.
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver el nuevo proyecto.
+[ENGLISH]Here you can see the new project.
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia los ficheros de código fuente del proyecto <b>P16_Click4x4RGB_HAL</b>.
+[ENGLISH]Copy the source code files from the project <b>P16_Click4x4RGB_HAL</b>.
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y cierra los demás proyectos.
+[ENGLISH]And close the other projects.
+[END_LIST]
+[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a hacer las modificaciones en <b>main.c</b>.
+[ENGLISH]Let&#39s modify the file <b>main.c</b>.
+[END_LIST]
+[IMG]18.png
+[IMG]19.png
+[IMG]20.png
+[IMG]21.png
+[BEGIN_LIST]
+[SPANISH]He creado la variable <b>u32APP_GPIO_DIN_PORT</b> para que en ensamblador podamos acceder a la constante <b>LD2_GPIO_Port</b> y la variable <b>u32APP_GPIO_DIN_PIN</b> para acceder a la constante <b>LD2_Pin</b>.
+[ENGLISH]I have created the variable <b>u32APP_GPIO_DIN_PORT</b> in order to have access to the constant <b>LD2_GPIO_Port</b> in the assembly language file and the variable <b>u32APP_GPIO_DIN_PIN</b> to have access to <b>LD2_Pin</b>.
+[END_LIST]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a hacer las modificaciones en <b>AppClick4x4RGB.c</b>.
+[ENGLISH]Let&#39s modify the file <b>AppClick4x4RGB.c</b>.
+[END_LIST]
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]No necesitamos las funciones <b>write0</b>, <b>write1</b> ni <b>SendByte</b>.
+[ENGLISH]We do not need the functions <b>write0</b>, <b>write1</b> and <b>SendByte</b>.
+[END_LIST]
+[IMG]24.png
+[IMG]25.png
+[IMG]26.png
+[IMG]28.png
+[IMG]29.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añadimos el prototipo de la función <b>fSendByte</b> que implementaremos en lenguaje ensamblador.
+[ENGLISH]Add the prototype of the function <b>fSendByte</b> that we will implement in assembly language.
+[END_LIST]
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Reemplaza las llamadas a la función <b>SendByte</b> por llamadas a la función <b>fSendByte</b>.
+[ENGLISH]Replace the calls to the function <b>SendByte</b> for calls to the function <b>fSendByte</b>.
+[END_LIST]
+[IMG]31.png
+[IMG]32.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a añadir un fichero para nuestro código en ensamblador llamado <b>AppClick4x4ASM.s</b>
+[ENGLISH]Add a file for our assembly code called <b>AppClick4x4ASM.s</b>
+[END_LIST]
+[IMG]33.png
+[IMG]34.png
+[IMG]35.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Borro el contenido y copio el código en ensamblador que he preparado para esta lección.
+[ENGLISH]I delete the content and paste the source code that I have prepared in assembly code for this lesson.
+[END_LIST]
+[IMG]36.png
+[IMG]37.png
+
+[SOURCE_CODE_EX_BEGIN]1
+:code:    .syntax unified
+:code:    .thumb_func
+:code:    .text
+:code:
+:code:    .equ    BSRR_OFFSET,    0x18
+:key1:            -----------
+:es__:Este es el offset del registro BSRR dentro del puerto. El registro BSRR se utiliza para poner a 1 los bits del puerto A.
+:en__:This is the offset of the register BSRR inside the port. The register BSRR is used to set to 1 the bits of the port A.
+
+:code:    .equ    BRR_OFFSET,     0x28
+:key2:            ----------
+:es__:Este es el offset del registro BRR dentro del puerto. El registro BRR se utiliza para poner a 0 los bits del puerto A.
+:en__:This is the offset of the register BRR inside the port. The register BRR is used to clear the bits of the port A.
+[SOURCE_CODE_EX_END]
+
+[SOURCE_CODE_EX_BEGIN]8
+:code:/************************************************
+:code:    fSendByte
+:code:    void fSendByte( uint8_t _u8Value );
+:key3:    ----------------------------------
+:es__:La función <b>fSendByte</b> recibe el byte a enviar en el registro <b>r0</b>.
+:en__:The function <b>fSendByte</b> receives the byte to send in the register <b>r0</b>.
+
+:code:************************************************/
+:code:    .global fSendByte
+:code:    .func fSendByte
+:code:    .thumb_func
+:code:fSendByte:
+:code:    PUSH    {r4,r5,r6,LR}
+:key4:    ---------------------
+:es__:Guardamos en el stack los registros r4,r5,r6 y LR.
+:en__:Save to the stack the registers r4,r5,r6 and LR.
+
+:code:
+:code:    mov     r4,r0     //r4 is the parameter _u8Value
+:key5:    -------------
+:es__:Copiamos en r4 el valor a enviar.
+:en__:Copy to r4 the value to send.
+
+:code:
+:code:    LDR     r3,=u32APP_GPIO_DIN_PORT
+:key6:               ---------------------
+:es__:Copiamos en r3 la dirección de la variable <b>u32APP_GPIO_DIN_PORT</b> que es la dirección base de los registros del puerto A.
+:en__:Copy to r3 the address of the variable <b>u32APP_GPIO_DIN_PORT</b> that is the direction of the registers of port A.
+
+:code:    LDR     r1,[r3]
+:key1:    ---------------
+:es__:Copiamos en r1 el contenido de la dirección de la variable <b>u32APP_GPIO_DIN_PORT</b>. Es decir, copiamos en r1 el valor de la variable <b>u32APP_GPIO_DIN_PORT</b>.
+:en__:Copy to r1 the content of the address of the variable <b>u32APP_GPIO_DIN_PORT</b>. That is to say, copy to r1 the value of the variable <b>u32APP_GPIO_DIN_PORT</b>.
+
+:code:    LDR     r3,=u32APP_GPIO_DIN_PIN
+:key2:               --------------------
+:es__:Copiamos en r3 la dirección de la variable <b>u32APP_GPIO_DIN_PIN</b>.
+:en__:Copy to r3 the address of the variable <b>u32APP_GPIO_DIN_PIN</b>.
+
+:code:    LDR     r2,[r3]
+:key3:    ---------------
+:es__:Copiamos en r2 el contenido de la dirección de la variable <b>u32APP_GPIO_DIN_PIN</b>. Es decir copiamos en r2 el valor de la variable <b>u32APP_GPIO_DIN_PIN</b>.
+:en__:Copy to r2 the content of the address of the variable <b>u32APP_GPIO_DIN_PIN</b>. That is to say, copy to r2 the value of the variable <b>u32APP_GPIO_DIN_PIN</b>. 
+
+:code:
+:code:    movs    r5,#0x80  //r5 is u8Mask
+:key4:    ----------------
+:es__:r5 va a ser la máscara para recorrer los bits del valor a enviar. Lo inicializamos a 0x80 para empezar por el bit más alto.
+:en__:r5 will be the mask to walk through the bits of the value to send. It is initialized to the value 0x80 to begin from the most significant bit.
+
+:code:fSendByte_BeginLoop:
+:code:    cmp     r5,#0
+:key5:    -------------
+:es__:Comparamos r5 (la máscara) con 0.
+:en__:Compare r5 (the mask) to 0.
+
+:code:    beq     fSendByte_End
+:key6:    ---------------------
+:es__:Si la máscara es 0 hemos terminado y saltamos a la etiqueta <b>fSendByte_End</b>.
+:en__:If the mask is 0, we are done and jump to the label <b>fSendByte_End</b>.
+
+:code:    mov     r6,r5
+:key1:    -------------
+:es__:En las líneas 29 a 32 hacemos un <b>and</b> de la máscara y el valor, si es 1 tenemos que generar un 1, si no un 0.
+:en__:From the lines 29 to 32 we do and <b>and</b> of the mask and the value, if it is 1 we have to generate a 1, if not, a 0.
+
+:code:    ands    r6,r4
+:code:    cmp     r6,#0
+:code:    beq     fSendByte_0
+:key2:    -------------------
+:es__:Si es un 0 saltamos a la etiqueta <b>fSendByte_0</b> en línea 63, si no, seguimos en la línea 33.
+:en__:If it is 0, jump to the label <b>fSendByte_0</b> at the line 63, otherwise, continue to line 33.
+
+:code:fSendByte_1:
+:key3:-----------
+:es__:En las líneas 35 a 60 generamos un 1, que es 0.7us a nivel alto y 0.6us a nivel bajo.
+:en__:From the lines 35 to 60 a 1 is generated, that is 0.7us at high level and 0.6us at low level.
+
+:code:    //1
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:key4:    -----------------------------
+:es__:Pone a 1 el bit, del registro BSRR, correspondiente a la máscara, de esta manera ponemos un 1 en DIN. Vamos a ejecutar esta instrucción 17 veces para que el tiempo a nivel alto sea 0.7us.
+:en__:Set to 1 the bit, of the register BSRR, corresponding to the mask, this way we set a 1 on DIN. Let&#39s execute this instruction 17 times so that the time at high level is 0.7us.
+
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:key5:    ----------------------------
+:es__:Pone a 1 el bit, del registro BRR, correspondiente a la máscara, de esta manera ponemos un 0 en DIN. Vamos a ejecutar esta instrucción 7 veces para que el tiempo a nivel bajo sea 0.6us.
+:en__:Set to 1 the bit, of the register BRR, corresponding to the mask, this way we set a 0 on DIN. Let&#39s execute this instruction 7 times so that the time at high level is 0.6us.
+
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:
+:code:    b       fSendByte_EndLoop
+:key6:    -------------------------
+:es__:Saltamos a la etiqueta <b>fSendByte_EndLoop</b>
+:en__:Jump to the label <b>fSendByte_EndLoop</b>
+
+:code:fSendByte_0:
+:key1:-----------
+:es__:En las líneas 65 a 83 generamos un 0, que es 0.35us a nivel alto y 0.8us a nivel bajo.
+:en__:From the lines 65 to 83, a 0 is generated, that is 0.35us at high level and 0.8us at low level.
+
+:code:    //0
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:key2:    -----------------------------
+:es__:Pone a 1 el bit, del registro BSRR, correspondiente a la máscara, de esta manera ponemos un 1 en DIN. Vamos a ejecutar esta instrucción 8 veces para que el tiempo a nivel alto sea 0.35us.
+:en__:Set to 1 the bit, of the register BSRR, corresponding to the mask, this way we set a 1 on DIN. Let&#39s execute this instruction 8 times so that the time at high level is 0.35us.
+
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:    STR     r2,[r1, #BSRR_OFFSET]
+:code:
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:key3:    ----------------------------
+:es__:Pone a 1 el bit, del registro BRR, correspondiente a la máscara, de esta manera ponemos un 0 en DIN. Vamos a ejecutar esta instrucción 10 veces para que el tiempo a nivel bajo sea 0.8us.
+:en__:Set to 1 the bit, of the register BRR, corresponding to the mask, this way we set a 0 on DIN. Let&#39s execute this instruction 10 times so that the time at high level is 0.8us.
+
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:    STR     r2,[r1, #BRR_OFFSET]
+:code:
+:code:    b       fSendByte_EndLoop
+:key4:    -------------------------
+:es__:Saltamos a la etiqueta <b>fSendByte_EndLoop</b>
+:en__:Jump to the label <b>fSendByte_EndLoop</b>
+
+:code:fSendByte_EndLoop:
+:code:    lsrs    r5,r5,#1
+:key5:    ----------------
+:es__:Desplazamos un bit a la derecha la máscara.
+:en__:Shift one bit to the right the mask.
+
+:code:    b       fSendByte_BeginLoop
+:key6:    ---------------------------
+:es__:Saltamos al comienzo del bucle para hacer otra iteración.
+:en__:Jump to the beginning of the loop to do another iteration.
+
+:code:fSendByte_End:
+:code:    POP     {r4,r5,r6,PC}
+:key1:    ---------------------
+:es__:Restauramos los registros r4 a r6 y el PC para retornar de la función.
+:en__:Restore the registers r4 to r6 and PC to return from the function.
+
+:code:    .endfunc
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el proyecto.
+[ENGLISH]Build the project.
+[END_LIST]
+[IMG]38.png
+[IMG]39.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y depúralo.
+[ENGLISH]And debug it.
+[END_LIST]
+[IMG]40.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]Osciloscopio|Oscilloscope
+[MPPRO_VIDEO]03_Camtasia\03_Scope.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Estas son dos capturas, con el osciloscopio, de un 0 en la señal DIN.
+[ENGLISH]These are 2 screenshots, with the oscilloscope, of a 0 on the DIN signal 
+[SPANISH]El tiempo en ON es 0.35 microsegundos.
+[ENGLISH]The ON time is 0.35 us.
+[END_LIST]
+[IMG]03.png
+[BEGIN_LIST]
+[SPANISH]El tiempo en OFF es 0.8 microsegundo.
+[ENGLISH]The OFF time is 0.8 us.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Estas son dos capturas de un 1 en la señal DIN.
+[ENGLISH]These are 2 screenshots of a 1 on the DIN signal 
+[SPANISH]El tiempo en ON es 0.7 microsegundos.
+[ENGLISH]The ON time is 0.7 us.
+[END_LIST]
+[IMG]01.png
+[BEGIN_LIST]
+[SPANISH]El tiempo en OFF es 0.6 microsegundo.
+[ENGLISH]The OFF time is 0.6 us.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+
+

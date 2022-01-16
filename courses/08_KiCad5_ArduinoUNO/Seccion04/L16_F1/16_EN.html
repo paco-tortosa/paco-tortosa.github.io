@@ -1,0 +1,135 @@
+        <div class="title">F1 Fuse</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The <b>F1</b> fuse limits <b>500mA</b>, the current that the board can draw from the computer&#39s USB port.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the fuse that I found at Mouser. The manufacturer is <b>Bourns</b> and its part number is <b>MF-MSMF050-2</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/02.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the <b>Device</b> library I found the <b>Fuse_Small</b> symbol.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/04.png">
+            <ul>
+               <li><div class="text">And I have copied it in the <b>JAVIERM_LIBS</b> library.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the datasheet.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/06.png">
+            <ul>
+               <li><div class="text">Here you can see the dimensions.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/07.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the footprint library I have not found the exact footprint for this fuse so I have to take one and modify it.</div></li>
+               <li><div class="text">In lesson <b>07</b> of the <b>KiCad5</b> course we saw the traditional way of modifying a footprint, changing one by one all the dimensions of the elements of the footprint.</div></li>
+               <li><div class="text">Here I am going to show you another way, directly hacking the footprint file. It is more difficult but very fast.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy the component into our library.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/10.png">
+            <ul>
+               <li><div class="text">And give it the name of the component <b>MF-MSMF050</b></div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/11.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now we have the footprint in our library and we can modify it freely.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/13.png">
+            <ul>
+               <li><div class="text">Open the file <b>MF-MSMF050.kicad_mod</b> with a text editor.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/14.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In <b>red</b> you can see the rectangle of the <b>F.CrtYd</b> layer, which is the one used to detect component overlaps on the PCB.</div></li>
+               <li><div class="text">The rectangle is made up of 4 lines.</div></li>
+               <li><div class="text">In <b>green</b> you can see the 2 pads with their position and size.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Run the program that I have made in C# <b>KiCad_2Pads</b>. You also have the source code of the program in case you want to modify it.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/17.png">
+            <ul>
+               <li><div class="text">You have to specify the dimensions of the pad (<b>wx</b> and <b>wy</b>), the distance between them (<b>d</b>), and the distance <b > C</b> from the pad to the rectangle outline of the <b>Courtyard</b> layer which is usually <b>0.3mm</b></div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/18.png">
+            <ul>
+               <li><div class="text">Enter the dimensions of the footprint that appear in the datasheet in the fields inside the rectangle in red and in the text field below the beginning and end of the sides of the rectangle are calculated in green and the position in orange and pad size.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/19.png">
+            <ul>
+               <li><div class="text">Copy and paste in the footprint file.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/20.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/21.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/22.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/23.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/24.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/25.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/26.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/27.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/28.png">
+            <ul>
+               <li><div class="text">And save the file.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/29.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/30.png">
+            <ul>
+               <li><div class="text">If you double click on the footprint, the footprint is reloaded with the file data and you can see how our footprint looks.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/31.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/32.png">
+            <ul>
+               <li><div class="text">Now we measure to verify that the dimensions are correct.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/33.png">
+            <ul>
+               <li><div class="text">The distance between pads is correct (<b>2.7mm</b>)</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/34.png">
+            <ul>
+               <li><div class="text">Let&#39s see the dimensions of the pad.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/35.png">
+            <ul>
+               <li><div class="text">They are also correct.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/36.png">
+            <ul>
+               <li><div class="text">This is another way to modify a footprint. Choose the one you like.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/img/37.png">
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/08_KiCad5_ArduinoUNO/Seccion04/L16_F1/downloads/mfmsmf-772347.pdf">Datasheet</a></li>
+            </ul>
+        </div>

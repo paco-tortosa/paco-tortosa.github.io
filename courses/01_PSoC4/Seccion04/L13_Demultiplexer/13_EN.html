@@ -1,0 +1,185 @@
+        <div class="title">Demultiplexer</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this project you will learn a new HW component, the Demultiplexer component</div></li>
+               <li><div class="text">It connects an input signal to multiple output signals, depending on the value of the control signal</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Demux_Es.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If the control signal is 0, the input signal is connected to the output signal 0</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Demux0.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If the control signal is 1, the input signal is connected to the output signal 1</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Demux1.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If the control signal is 2, the input signal is connected to the output signal 2</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Demux2.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If the control signal is 3, the input signal is connected to the output signal 3</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Demux3.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The aim of this project is to change the led that is let, every time you push SW2</div></li>
+               <li><div class="text">In the initial state the control signal is 0, that is why the output singal 0 of the demultiplexer is activated. The other output signals remain to 0, and as there is a NOT gate the digital output connected to the LED is 1 (remember that you need a 0 to light the LED)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Expl0.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">On the first push of SW2 the counter value is incremented to 1 and the output signal 1 is activated, switching on the red LED</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Expl1.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">On the next push of SW2 the counter value is incremented to 2 and the output signal 2 is activated, switching on the green LED</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Expl2.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">On the next push of SW2 the counter value is incremented to 3 and the output signal 3 is activated, switching on the blue LED</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Expl3.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">On the next push of SW2 the counter value comes back to 0 and the output signal 0 is activated, no LED is on</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/P013_Expl4.png">
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create an empty project and name it as WS013</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/02.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/03.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a digital intput and 3 digital outputs</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/05.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/06.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename the digital input as SW2</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/08.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename the first digital output as Led_Red</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/10.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename the second digital output as Led_Green</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/12.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename the third digital output as Led_Blue</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/14.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/15.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the demultiplexer</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/17.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the NOT gates for the LEDs</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/19.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the outputs of the demultiplexer to the LEDs</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect a logical 1 to the input of the demultiplexer</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/22.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a basic counter</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/24.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename it as "BasicCounter" and give it a width of 2 bits (it counts from 0 to 3)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/27.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Set the <b>en</b> (enable) signal to 1 and the <b>reset</b> signal to 0</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the switch button SW2 to the clock input through a NOT gate. Remember that every push of SW2 generates a negative pulse, and the basic counter needs a positive pulse</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the output of the basic counter to the control signal of the demultiplexer</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the pins of the schematic to the PSoC pins</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/33.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/img/35.png">
+            <ul>
+               <li><div class="text">As always, build the project and transfer the program</div></li>
+            </ul>
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion04/L13_Demultiplexer/downloads/WS013.zip">Download the project here (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

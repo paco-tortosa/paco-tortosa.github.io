@@ -1,0 +1,78 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion03/L07_Symbol_P2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Símbolo de P2
+[TITLE_ENGLISH]P2 symbol
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para el componente <b>P2</b>, vamos a copiar el símbolo <b>Conn_01x06</b> de la librería <b>Connector_Generic</b> en nuestra librería.
+[ENGLISH]For the <b>P2</b> component, we are going to copy the <b>Conn_01x06</b> symbol from the <b>Connector_Generic</b> library into our library.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el conector que he encontrado en Mouser. El part number es <b>5-535541-4</b>.
+[ENGLISH]This is the connector that I found at Mouser. The part number is <b>5-535541-4</b>.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Es de <b>6</b> posiciones en <b>una fila</b> y con paso <b>2.54mm</b>.
+[ENGLISH]It is <b>6</b> positions in <b>one row</b> and with pitch <b>2.54mm</b>.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Abre el editor de símbolos.
+[ENGLISH]Open the symbol editor.
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo buscamos con el filtro y lo guardamos en nuestra librería.
+[ENGLISH]We look for it with the filter and we save it into our library.
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]Guarda la librería.
+[ENGLISH]Save the library.
+[END_LIST]
+[IMG]07.png
+
+[BEGIN_LIST]
+[SPANISH]Añade los campos <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> y <b>Manufacturer</b>.
+[ENGLISH]Add the <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> and <b>Manufacturer</b> fields.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ordena los campos en el símbolo (usa la rejilla de <b>10mils</b>)
+[ENGLISH]Order the fields in the symbol (use the <b>10mils</b> grid)
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guarda la librería.
+[ENGLISH]And save the library.
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+
+
+
+

@@ -1,0 +1,100 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L34_Reg_LP2985/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Regulador LP2985
+[TITLE_ENGLISH]LP2985 Regulator 
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El regulador <b>U2</b> genera <b>3V3</b> a partir de <b>5V</b>
+[ENGLISH]The <b>U2</b> regulator generates <b>3V3</b> from <b>5V</b>
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el regulador recomendado en el diseño de referencia de Arduino. El fabricante es <b>Texas Instruments</b> y el part number es <b>LP2985-33DBVR</b>
+[ENGLISH]This is the recommended regulator in the Arduino reference design. The manufacturer is <b>Texas Instruments</b> and the part number is <b>LP2985-33DBVR</b>
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Tiene un encapsulado <b>SOT-23-5</b> y puede generar hasta <b>150mA</b>
+[ENGLISH]It has an <b>SOT-23-5</b> package and can drive up to <b>150mA</b>
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Regulator_Linear</b> he encontrado el símbolo <b>LP2985-3.3</b>
+[ENGLISH]In the library <b>Regulator_Linear</b> I found the symbol <b>LP2985-3.3</b>
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBS</b> y le he añadido los campos habituales en mis diseños.
+[ENGLISH]I have copied it to the <b>JAVIERM_LIBS</b> library and added the usual fields in my designs.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Estas son las dimensiones en el datasheet.
+[ENGLISH]These are the dimensions in the datasheet.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería de footprints <b>Package_TO_SOT_SMD</b> está el footprint <b>SOT-23-5</b>.
+[ENGLISH]In the footprint library <b>Package_TO_SOT_SMD</b> is the footprint <b>SOT-23-5</b>.
+[END_LIST]
+[IMG]08.png
+
+[BEGIN_LIST]
+[SPANISH]Y el footprint <b>TSOT-23-5</b>.
+[ENGLISH]And the footprint <b>TSOT-23-5</b>.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esto es lo recomendado por el fabricante:
+[ENGLISH]This is what is recommended by the manufacturer:
+[END_LIST]
+[IMG]10.png
+
+[BEGIN_LIST]
+[SPANISH]Esto es usando el footprint <b>SOT-23-5</b> de KiCad: 
+[ENGLISH]This is using the KiCad <b>SOT-23-5</b> footprint:
+[END_LIST]
+[IMG]11.png
+
+[BEGIN_LIST]
+[SPANISH]Y esto usando el footprint <b>TSOT-23-5</b> de KiCad: 
+[ENGLISH]And this using the footprint <b>TSOT-23-5</b> of KiCad:
+[END_LIST]
+[IMG]12.png
+
+[BEGIN_LIST]
+[SPANISH]Voy a usar el footprint <b>TSOT-23-5</b> porque los pads son algo más grandes y serán mejores para soldar.
+[ENGLISH]I am going to use the footprint <b>TSOT-23-5</b> because the pads are somewhat bigger and will be better for soldering.
+[END_LIST]
+[IMG]13.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/lp2985.pdf;Datasheet
+[LINK_ENGLISH]downloads/lp2985.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+

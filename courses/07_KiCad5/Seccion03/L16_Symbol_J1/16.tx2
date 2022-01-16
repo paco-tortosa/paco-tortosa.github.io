@@ -1,0 +1,83 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion03/L16_Symbol_J1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Símbolo de J1
+[TITLE_ENGLISH]J1 symbol
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver en esta lección cómo crear el símbolo para el conector <b>J1</b>. J1 es el conector que va en el cable y que encaja con el conector J1.
+[ENGLISH] We will see in this lesson how to create the symbol for the <b> J1 </b> connector. J1 is the connector that goes on the cable and that fits with connector J1.
+[SPANISH]Este componente <b>NO</b> va a ir en el PCB, pero lo añado en el esquemático para que salga en la lista de componentes (<b>BOM</b>)
+[ENGLISH] This component is <b> NOT </b> going to be on the PCB, but I add it in the schematic so that it appears in the list of components (<b> BOM </b>)
+[END_LIST]
+[IMG]_FinalSCH_J1.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el conector en <b>Mouser</b>. El part number es <b>1757019</b>.
+[ENGLISH] This is the connector on <b> Mouser </b>. The part number is <b> 1757019 </b>.
+[SPANISH]La foto no se corresponde con el conector. <b>1757019</b> es de 2 polos, mientras que la foto es de 10 polos.
+[ENGLISH] The photo does not correspond to the connector. <b> 1757019 </b> is 2-pole, while the photo is 10-pole.
+[END_LIST]
+[IMG]01.png
+
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver que el conector es de 2 posiciones y que el paso es de 5.08mm
+[ENGLISH] Here you can see that the connector is 2 positions and that the pitch is 5.08mm
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Esta es la verdadera imagen del conector.
+[ENGLISH] This is the true image of the connector.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear un símbolo para el conector del cable. Abrimos el editor de símbolos y buscamos nuestro símbolo <b>Conn2P_PCB</b>.
+[ENGLISH]Let&#39s create a symbol for the cable connector. We open the symbol editor and look for our <b> Conn2P_PCB </b> symbol.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo duplicamos.
+[ENGLISH]Duplicate it.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y editamos sus propiedades, cambiando los campos <b>Value</b>, <b>Value2Show</b> y <b>MPN</b>.
+[ENGLISH] And we edit its properties, changing the <b> Value </b>, <b> Value2Show </b> and <b> MPN </b> fields.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como este componente no va a estar conectado eléctricamente borramos los pines.
+[ENGLISH] As this component is not going to be electrically connected, we delete the pins.
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/1757019.pdf;Datasheet
+[LINK_ENGLISH]downloads/1757019.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+
+

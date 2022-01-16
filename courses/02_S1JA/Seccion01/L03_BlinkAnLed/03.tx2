@@ -1,0 +1,129 @@
+[LESSON_FOLDER]../courses/02_S1JA/Seccion01/L03_BlinkAnLed/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Parpadeo de un led
+[TITLE_ENGLISH]Blinking an led
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a cargar un ejemplo que proporciona <b>Renesas</b> para parpadear el led que tiene el kit de evaluación como puedes ver en el video.
+[ENGLISH]In this lesson we will see a SW example from <b>Renesas</b> that blinks the led that the evaluation kit has on-board as you can see in the video.
+[END_LIST]
+[VIDEO_SPANISH]https://www.youtube.com/embed/ZmYImyaAjNk?rel=0
+[VIDEO_ENGLISH]https://www.youtube.com/embed/ZmYImyaAjNk?rel=0
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ejecuta e2 studio.
+[ENGLISH]Run e2 studio.
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona dónde crear el workspace. En mi caso va a ser en el directorio <b>workspace</b> de la unidad <b>j</b>.
+[ENGLISH]Specify where to create the workspace. In my case the folder <b>workspace</b> in the drive <b>j</b>.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el menú de crear nuevo proyecto Synergy en C.
+[ENGLISH]Click on the below menu item to create a new Synergy C project.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay varias opciones, selecciona la primera (ejecutable).
+[ENGLISH]There are several choices, select the first one (executable).
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Le voy a dar al proyecto el nombre <b>Led</b>.
+[ENGLISH]I am going to give the project the name <b>Led</b>.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a seleccionar el kit de evaluación. De esta manera el modelo de microcontrolador es seleccionado de forma automática y los pines usados en el kit son configurados de forma automática también.
+[ENGLISH]Select the evaluation kit. By doing this the MCU is selected automatically and the pins used in the kit are configured also automatically.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a seleccionar el ejemplo de parpadeo que se llama <b>Blinky</b>.
+[ENGLISH]Select the SW example named <b>Blinky</b>.
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Una vez cargado el ejemplo vamos a compilarlo.
+[ENGLISH]Once loaded the SW example, build the project.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como puedes ver no hay ningún error.
+[ENGLISH]As you can see there is no errors.
+[END_LIST]
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a depurar el programa.
+[ENGLISH]Debug the program.
+[END_LIST]
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Dale al botón <b>Resume</b> para comenzar la depuración.
+[ENGLISH]Click on the button <b>Resume</b> to start the debug session.
+[END_LIST]
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El punto de entrada al programa es la función <b>main()</b>. Ten en cuenta que el fichero <b>main.c</b> es generado automáticamente y no lo puedes modificar.
+[ENGLISH]The entry point to the program is the function <b>main()</b>. Be aware that the file <b>main.c</b> is auto-generated and you cannot modify it.
+
+[SPANISH]Dale otra vez a <b>Resume</b> para continuar la depuración.
+[ENGLISH]Click again on <b>Resume</b> to continue the debug session.
+[END_LIST]
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/workspace_led.zip;Workspace
+[LINK_ENGLISH]downloads/workspace_led.zip;Workspace
+[END_LIST]
+[BLOCK_END]
+
+

@@ -1,0 +1,220 @@
+[LESSON_FOLDER]../courses/01_PSoC4/Seccion03/L09_Uart/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Puerto serie (UART)
+[TITLE_ENGLISH]Serial Port (UART)
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el componente UART (Universal Asynchronous Receiver/Transmitter)
+[ENGLISH]In this project you will learn a new HW component, the UART component (Universal Asynchronous Receiver/Transmitter)
+[SPANISH]Hace años los ordenadores disponían de una UART y la comunicación con PSoC 4 podía ser así:
+[ENGLISH]Some years ago the personal computers had an UART and the communication with a PSoC 4 could be something like this :
+[END_LIST]
+[IMG]P009_UART1.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La configuración básica eran 3 hilos, uno para transmitir, otro para recibir y otro común (masa)
+[ENGLISH]The basic configuration was 3 wires, one for transmission, another for reception and one common wire for ground
+[SPANISH]Hoy en día los ordenadores no disponen de UART pero sí de USB
+[ENGLISH]Nowadays the personal computers do not have UART but USB
+[SPANISH]Hay conversores USB/UART, que proporcionan un puerto serie virtual en el PC
+[ENGLISH]There are USB/UART converters, that provide a virtual serial port on the PC
+[SPANISH]El kit CY8CKIT-042 tiene un PSoC 5 que hace de interfaz de programación del PSoC 4 y que además es un conversor USB/UART
+[ENGLISH]The CY8CKIT-042 kit has a PSoC5 that serves as an programming interface for the PSoC4 and additionally is a USB/UART converter
+[END_LIST]
+[IMG]P009_UART2.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta conexión entre PSoC5 y PSoC4 no está hecha en el kit, por lo que tienes que hacerla así :
+[ENGLISH]This connection between PSoC5 and PSoC4 is not made on the kit, so you have to do it as follow :
+[END_LIST]
+[IMG]P009_PSoC5_PSoC4.png
+[IMG]P009_PSoC5_PSoC4_2.png
+[BEGIN_LIST]
+[SPANISH]Vas a escribir un programa que envie por el puerto serie un mensaje cada vez que el PSoC 4 arranque
+[ENGLISH]You will write a program that sends through the serial port a text every time the PSoC 4 starts
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Crea un proyecto nuevo y llámalo WS009
+[ENGLISH]Create a new project and name it WS009
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona esquemático vacío
+[ENGLISH]Select empty schematic
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al esquemático
+[ENGLISH]Go to the schematic
+[SPANISH]Busca el componente UART (SCB mode)
+[ENGLISH]Search for the UART (SCB mode) component
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Arrastra el componente UART al esquemático y haz doble clic en él
+[ENGLISH]Drag the UART component to the schematic and double click on it
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Renómbralo como UART y selecciona 38400 como velocidad de transmisión
+[ENGLISH]Rename it as UART and select 38400 as baudrate
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic para acceder a la conexión de pines
+[ENGLISH]Double click to open the configuration window
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Asigna los pines UART del PSoC 4
+[ENGLISH]Assign the PSoC 4 UART pins
+[END_LIST]
+[IMG]15.png
+[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el proyecto
+[ENGLISH]Build the project
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve a "main.c" y añade el siguiente código :
+[ENGLISH]Go to "main.c" and add the following code :
+[END_LIST]
+[IMG]19.png
+[SOURCE_CODE_EX_BEGIN]12
+:code:#include <project.h>
+:code:
+:code:int main()
+:code:{
+:code:    CyGlobalIntEnable; /* Enable global interrupts. */
+:code:
+:code:    UART_Start();
+:key1:    ------------
+:es__: Inicializa el componente UART
+:en__: Initializes the UART component
+
+:code:    UART_UartPutString("Hello Uart \n");    
+:key2:    -----------------------------------
+:es__: Envía la cadena de texto "Hello Uart \n" por UART
+:en__: Send the string "Hello Uart \n" via UART
+
+:code:
+:code:    for(;;)
+:code:    {
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa
+[ENGLISH]As always, build the project and transfer the program
+[SPANISH]Ahora prepara el PC para recibir datos por USB desde el PSoC 4
+[ENGLISH]Now prepare the PC to receive data via ISB from the PSoC 4
+[SPANISH]Si tienes el kit conectado al PC puedes ver el puerto serie virtual
+[ENGLISH]If you have the kit connected to the PC, you can see the virtual serial port
+[END_LIST]
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El puerto serie asignado es COM5
+[ENGLISH]The assigned serial port is COM5
+[END_LIST]
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Abre un programa para recibir por el puerto serie (por ejemplo Tera Term)
+[ENGLISH]Open a program to receive from the serial port (e.g. Tera Term)
+[SPANISH]Y configúralo como COM5 y 38400 bps
+[ENGLISH]And configure it as COM5 and 38400 bps
+[END_LIST]
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Configura también el carácter de nueva línea
+[ENGLISH]Configure also the new line character
+[END_LIST]
+[IMG]25.png
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guarda los cambios
+[ENGLISH]And save the changes
+[END_LIST]
+[IMG]17_TeraTerm_SaveSetup.png
+[IMG]18_TeraTerm_SaveSetup.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cada vez que pulses el botón de reset PSoC 4 enviará el texto al ordenador
+[ENGLISH]Every time you press the reset button, PSoC 4 will send the string to the PC
+[END_LIST]
+[IMG]P009_PSoC5_PSoC4_Reset.png
+[IMG]28.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS009.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS009.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]
+
+
+
+

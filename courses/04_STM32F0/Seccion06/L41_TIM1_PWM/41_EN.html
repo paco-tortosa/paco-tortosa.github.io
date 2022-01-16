@@ -1,0 +1,291 @@
+        <div class="title">PWM</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this lesson we are going to see how the timer <b>TIM1</b> works in PWM output mode. </div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to generate a PWM signal of period 100us and <b>duty cycle</b> of 25%.</div></li>
+               <li><div class="text">The register <b>ARR</b> (Auto-reload) is the period - 1, that is to say, 99.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The register <b>CCR1</b> is going to be the <b>duty cycle</b>, as we want it to be 25% it will be 25.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The register <b>CNT</b> (counter) is going to be incremented from 0 to 99.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/29.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The PWM output signal is <b>TIM1_CH1</b>, that will be PA8.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">At every clock cycle the counter <b>CNT</b> is incremented by 1.</div></li>
+               <li><div class="text">While the register <b>CNT</b> is less than the register <b>CCR1</b> the output will be high level.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/31.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/32.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/33.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/34.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If the register <b>CNT</b> is greater or equal than the register <b>CCR1</b> the output will be low level.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/35.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/36.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/37.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/38.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And so on.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/39.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/40.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/41.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/42.png">
+        </div>
+        <div class="title">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create a new project based on the evaluation kit and give it the name 'P21_TIM1_PWM'.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/01.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/02.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/03.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/04.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/05.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The PWM output of the timer 1 is <b>TIM1_CH1</b> that is availabe on the pin <b>PA8</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/07.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Genere the initialization source code.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/09.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the file <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>MX_GPIO_INIT</b> initializes the pin <b>PA8</b> in order to be the PWM output of timer 1.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/12.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/13.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the source code that I am going to add to configure the timer 1 in PWM output mode.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/15.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>99</td>
+                      <td>  /* Infinite loop */</td>
+                  </tr>
+                  <tr>
+                      <td>100</td>
+                      <td>  /* USER CODE BEGIN WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>  //Enable clock for TIM1</td>
+                  </tr>
+                  <tr>
+                      <td>102</td>
+                      <td>  <span class="b1">RCC-&gtAPB2ENR    |=    RCC_APB2ENR_TIM1EN<span class="tooltiptext">Enable the system clock for <b>TIM1</b></span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>103</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>  //Disable TIM1</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>  <span class="b2">TIM1-&gtCR1       =    0<span class="tooltiptext">Disable the timer so that it can be configured.</span></span>;            </td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>  //Disable all TIM1 interrupts</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>  <span class="b3">TIM1-&gtDIER      =    0<span class="tooltiptext">Disable the interrupts for <b>TIM1</b></span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td>  //Configure prescaler to have 1MHz clock frequency</td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>  <span class="b4">TIM1-&gtPSC       =    47<span class="tooltiptext">Set to prescaler the value 48, getting so a 1-MHz clock.</span></span>;                        </td>
+                  </tr>
+                  <tr>
+                      <td>112</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>  <span class="b5">TIM1-&gtARR       =    99<span class="tooltiptext">The period of the PWM is 99 + 1 = 100 us.</span></span>;                        </td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td>  <span class="b6">TIM1-&gtCCR1      =    25<span class="tooltiptext">The duty cycle is 25us.</span></span>;                        </td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>  <span class="b1">TIM1-&gtCCMR1<span class="tooltiptext">Configure the timer in PWM mode.</span></span>     =    TIM_CCMR1_OC1M_2 |        </td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>                       TIM_CCMR1_OC1M_1 |        </td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>                       TIM_CCMR1_OC1PE;        </td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td>  <span class="b2">TIM1-&gtCCER      =    TIM_CCER_CC1E<span class="tooltiptext">The timer is configured as output</span></span>;         </td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td>  <span class="b3">TIM1-&gtBDTR      =    TIM_BDTR_MOE<span class="tooltiptext">Enable the output of the timer.</span></span>;       </td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>121</td>
+                      <td>  <span class="b4">TIM1-&gtCR1       =    TIM_CR1_CEN<span class="tooltiptext">Enable the timer.</span></span>;            </td>
+                  </tr>
+                  <tr>
+                      <td>122</td>
+                      <td>  <span class="b5">TIM1-&gtEGR       =    TIM_EGR_UG<span class="tooltiptext">Force an update event to start the PWM.</span></span>;     </td>
+                  </tr>
+                  <tr>
+                      <td>123</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>124</td>
+                      <td>  while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>125</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>126</td>
+                      <td>    /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>127</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>128</td>
+                      <td>    /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>129</td>
+                      <td>  }</td>
+                  </tr>
+                  <tr>
+                      <td>130</td>
+                      <td>  /* USER CODE END 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>131</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>132</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s see the register CCMR1.</div></li>
+               <li><div class="text">The field <b>OC1M</b> must be <b>110</b> to configure the timer in PWM mode.</div></li>
+               <li><div class="text">The bit <b>OC1PE</b> to 1 enables the <b>shadow</b> registers making the writings to the register synchronous to the start of the period.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The bit <b>CC1E</b> of the register <b>CCER</b> to 1 configures the timer as output.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The bit <b>MOE</b> of the register <b>BDTR</b> to 1 enables the timer output.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The bit <b>UG</b> of the register <b>EGR</b> force an update event to start the PWM.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build and debug the project.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/43.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/44.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/45.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Here you can see the connection of the evaluation kit to the oscilloscope and the PWM signal generated.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/47.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/img/46.png">
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/04_STM32F0/Seccion06/L41_TIM1_PWM/downloads/L41_HW_Connections.pdf">HW Connections</a></li>
+            </ul>
+        </div>

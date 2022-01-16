@@ -1,0 +1,107 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion08/L40_Texto/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Texto
+[TITLE_ENGLISH]Text
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a añadir un texto en la PCB para poner el autor y el modelo de la placa.
+[ENGLISH]We are going to add a text on the PCB to put the author and the model of the board.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la herramienta <b>Text</b> del menú <b>Place</b>
+[ENGLISH]Select the <b>Text</b> tool from the <b>Place</b> menu
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Selecciona la parte inferior de la placa para poner el tetxo.
+[ENGLISH]Select the bottom of the plate to put the text.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añadimos el texto y la capa que es la serigrafía de la capa TOP (<b>F.SilkS</b>)
+[ENGLISH]We add the text and the layer that is the silkscreen of the TOP layer (<b>F.SilkS</b>)
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Colocamos el texto en la PCB.
+[ENGLISH]We put the text on the PCB.
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a mover los fiduciales.
+[ENGLISH]I&#39m going to move the fiducials.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a utilizar la herramienta <b>Line</b> del menú <b>Place</b> para dibujar un rectángulo alrededor del texto.
+[ENGLISH]I&#39m going to use the <b>Line</b> tool from the <b>Place</b> menu to draw a rectangle around the text.
+[END_LIST]
+[IMG]15.png
+[IMG]16.png
+[IMG]17.png
+[IMG]18.png
+[IMG]19.png
+
+[BEGIN_LIST]
+[SPANISH]Selecciona la capa de serigrafía para todos los lados el rectángulo.
+[ENGLISH]Select the silkscreen layer for all sides of the rectangle.
+[END_LIST]
+[IMG]20.png
+[IMG]21.png
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay que unir los dos extremos del rectángulo.
+[ENGLISH]You have to join the two ends of the rectangle.
+[END_LIST]
+[IMG]23.png
+[IMG]24.png
+[IMG]25.png
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[IMG]29.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el resultado final.
+[ENGLISH]This is the end result.
+[END_LIST]
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guarda la PCB.
+[ENGLISH]Save the PCB.
+[END_LIST]
+[IMG]31.png
+[BLOCK_END]
+

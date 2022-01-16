@@ -1,0 +1,68 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion06/L30_Symbol_Hole/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Símbolo
+[TITLE_ENGLISH]Symbol
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear un símbolo para el agujero. Abrimos el editor de símbolos.
+[ENGLISH]Let&#39s create a symbol for the hole. We open the symbol editor.
+[END_LIST]
+[IMG]01.png
+
+[BEGIN_LIST]
+[SPANISH]Y buscamos por la palabra <b>hole</b>, agujero en inglés.
+[ENGLISH]And we look for the word <b>hole</b>.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Guardamos el símbolo en nuestra librería.
+[ENGLISH]We save the symbol into our library.
+[END_LIST]
+[IMG]03.png
+
+[BEGIN_LIST]
+[SPANISH]Le añado al nombre el sufijo <b>M3</b> que indica el tamaño del tornillo que puede pasar por el agujero que es 3mm.
+[ENGLISH]I add to the name the suffix <b>M3</b> that indicates the size of the screw that can go through the hole which is 3mm.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guardo la librería.
+[ENGLISH]I save the library.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a editar las propiedades del símbolo. En este caso al ser un símbolo que no tiene componente asociado vamos a definir sólo el campo <b>Mounted</b> y lo vamos a poner a <b>NO</b> para que no aparezca en la lista de materiales (<b>BOM</b>)
+[ENGLISH]I am going to edit the properties of the symbol. In this case, being a symbol that does not have an associated component, we are going to define only the <b>Mounted</b> field and we are going to set it to <b>NO</b> so that it does not appear in the material list ( <b>BOM</b>)
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ordenar los campos.
+[ENGLISH]We are going to order the fields.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guardar el símbolo.
+[ENGLISH]And save the symbol.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+

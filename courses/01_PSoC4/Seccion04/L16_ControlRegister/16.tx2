@@ -1,0 +1,126 @@
+[LESSON_FOLDER]../courses/01_PSoC4/Seccion04/L16_ControlRegister/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Registro de Control
+[TITLE_ENGLISH]Control Register
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este proyecto vamos a hacer parpadear el led rojo. Cada segundo vamos a cambiar automáticamente la frecuencia del parpadeo (de 5Hz a 20Hz). De esta manera veremos un parpadeo rápido y otro lento
+[ENGLISH]In this project you will blink the red LED. Every second the blinking frequency will change ( from 5 Hz to 20 Hz). Thus you will see a fast and a slow blinking
+[SPANISH]En el proyecto anterior (015) el cambio lo hacíamos pulsando SW2. Ahora lo vamos a hacer desde el programa cada segundo, mediante el componente Control Register
+[ENGLISH]In the previous project (015) the change was made by pushing SW2. Now it is going to be made automatically every second, by the use of the Control Register component
+[END_LIST]
+[IMG]P016_Expl.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia el Workspace 15 y renómbralo como 16
+[ENGLISH]Copy the Workspace 15 and rename it as 16
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al esquemático
+[ENGLISH]Go to the schematic
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Borra el pulsador SW2
+[ENGLISH]Remove SW2
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade un registro de control (Control Register)
+[ENGLISH]Add a Control Register component
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Renómbralo a "Control_Register" y pon el número de salidas a 1
+[ENGLISH]Rename it as "Control_Register" and set the output count to 1
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade el siguiente código en "main.c"
+[ENGLISH]Add the following code at "main.c"
+[END_LIST]
+[IMG]09.png
+
+[SOURCE_CODE_EX_BEGIN]12
+:code:#include <project.h>
+:code:
+:code:int main()
+:code:{
+:code:    CyGlobalIntEnable; /* Enable global interrupts. */
+:code:
+:code:    for(;;)
+:code:    {
+:code:        Control_Register_Write(1);
+:key1:        -------------------------
+:es__: Pone a 1 la salida del registro de control. Este 1 selecciona la entrada 1 (20Hz) del multiplexor. El led parpadeará rápido
+:en__: Set the output of the Control Register to 1. This 1 selects the input 1 (20 Hz) of the multiplexer. The red LED blinks fast
+
+:code:        CyDelay(1000);
+:key2:        -------------
+:es__: Espera durante 1 segundo
+:en__: Waits for 1 second
+
+:code:        Control_Register_Write(0);
+:key3:        -------------------------
+:es__: Pone a 0 la salida del registro de control. Este 0 selecciona la entrada 0 (5Hz) del multiplexor. El led parpadeará lento
+:en__: Set the output of the Control Register to 0. This 0 selects the input 0 (5 Hz) of the multiplexer. The red LED blinks slowly
+
+:code:        CyDelay(1000);
+:key4:        -------------
+:es__: Espera durante 1 segundo
+:en__: Waits for 1 second
+
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa
+[ENGLISH]As always, build the project and transfer the program
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS016.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS016.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]

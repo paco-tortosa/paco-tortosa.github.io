@@ -1,0 +1,41 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L38_R_1K/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Resistencias 1K
+[TITLE_ENGLISH]1K Resistors
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la lección 18 vimos que en el diseño original de Arduino se usan arrays de resistencias. Voy a usar arrays siempre que convenga, cuando no, usaré resistencias discretas.
+[ENGLISH]In lesson 18 we saw that in the original Arduino design resistor arrays are used. I will use arrays whenever it is convenient, when not, I will use discrete resistors.
+[SPANISH]En esta lección voy a añadir a la librería las resistencias de <b>1K</b> en formato <b>0603</b>.
+[ENGLISH]In this lesson I am going to add to the library the <b>1K</b> resistors in <b>0603</b> format.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es la resistencia que he encontrado en <b>Mouser</b>. 
+[ENGLISH]This is the resistor that I have found at <b>Mouser</b>.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como ya teníamos una resistencia de <b>1M</b> en la librería (ver <b>lección 23</b>), la copiamos con el nombre <b>R_1K_0603</b>, el footprint es el mismo.
+[ENGLISH]Since we already had a resistor of <b>1M</b> in the library (see <b>lesson 23</b>), we copied it with the name <b>R_1K_0603</b>, the footprint is the same.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/AOA0000C301-1488782.pdf;Datasheet
+[LINK_ENGLISH]downloads/AOA0000C301-1488782.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]

@@ -1,0 +1,1530 @@
+        <div class="title">Program (ASM)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">On the following video you can see the program, that I have written in assembly language, running</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/I9-fs8x0o_w?rel=0" frameborder="0" allowfullscreen></iframe></div>
+            <ul>
+               <li><div class="text">The structure of the project is the same as the program in C in the previous lesson, so I am going to focus on the explanation of each function in assembly language.</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The name of the project I have created is <b>P13_Click7Seg_ASM</b></div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The file <b>main.c</b> calls 2 functions written in assembly language, <b>AppClick7SegASM_fEnablePWM()</b> and <b>AppClick7SegASM_fShowNumber</b></div></li>
+               <li><div class="text">The first part of the name <b>AppClick7SegASM</b> is the file where it is defined and the second part <b>fEnablePWM</b> is the name of the function.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The file <b>AppClick7SegASM.s</b> contains all the source code in assembly language for this project.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/03.png">
+            <ul>
+               <li><div class="text">I am going to explain every function coded in assembly language.</div></li>
+               <li><div class="text">But, first, I am going to explain how the instructions <b>PUSH</b> and <b>POP</b> work</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text"><b>PUSH</b> is for saving the value of multiple registers to the <b>stack</b>.</div></li>
+               <li><div class="text"><b>PUSH</b> has, as argument, a list of registers. The registers can be from R0 to R7 and <b>LR</b> (r14). </div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/push.png">
+            <ul>
+               <li><div class="text"><b>POP</b> is for restoring the registers with the values previouly saved to the <b>stack</b> with <b>PUSH</b>.</div></li>
+               <li><div class="text"><b>POP</b> has, as argument, a list of registers. The registers can be from R0 to R7 and <b>PC</b> (r15).</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/pop.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to explain <b>PUSH</b> in detail with an example.</div></li>
+               <li><div class="text">Here you can see the STM32F0 RAM memory, at the bottom the position 0 (<b>Memory addr 0</b>) and at the top the highest position (<b>Max memory addr</b>). </div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/04.png">
+            <ul>
+               <li><div class="text">The linker is going to assign a position in memory as the start of the stack (<b>Beginning of stack</b>) and a maximum size for the <b>stack</b>.</div></li>
+               <li><div class="text">In the image I have chosen a random position.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/05.png">
+            <ul>
+               <li><div class="text">In the startup code of the MCU, the address of the beginning of the <b>stack</b> is loaded to the register <b>SP</b> (Stack Pointer). </div></li>
+               <li><div class="text">The register <b>SP</b> is actually the register <b>r13</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/06.png">
+            <ul>
+               <li><div class="text">Let's suppose that we want to execute the instruction <b>PUSH {R1,R3-R5}</b>.</div></li>
+               <li><div class="text">The list <b>{R1,R3-R5}</b> is equivalent to <b>{R1,R3,R4,R5}</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/07.png">
+            <ul>
+               <li><div class="text">After the execution of the instruction <b>PUSH</b>, the value of the registers R1,R3,R4 and R5 have been copied to the stack and the register <b>SP</b> is decremented by 16 (4 bytes per register, because the register are 32-bit wide).</div></li>
+               <li><div class="text">The order in which the registers are saved to the stack is predefined. The register with the lowest number occupies the lowest memory address in the stack.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let's see how <b>POP {R1,R3-R5}</b> works.</div></li>
+               <li><div class="text">In the stack you can see the values of R1,R3,R4 and R5 that we want to load back to the registers.</div></li>
+               <li><div class="text">SP points at the value of R1.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/12.png">
+            <ul>
+               <li><div class="text">After the execution of the instruction <b>POP</b>, the value of the stack is copied to the registers and SP is incremented by 16 to go back to the position prior to the execution of the instruction <b>PUSH</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>AppClick7Seg_ShowNumber</b> was in C (see the previous lesson):</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>112</td>
+                      <td>//  ---------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>//  AppClick7Seg_ShowNumber</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td>//  ---------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>void AppClick7Seg_ShowNumber(uint8_t _u8Number)</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>    ShowDigit(_u8Number % 10);</td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td>    ShowDigit(_u8Number / 10);</td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td>    GenerateLatch();</td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>8</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>9</td>
+                      <td>    AppClick7SegASM_fShowNumber</td>
+                  </tr>
+                  <tr>
+                      <td>10</td>
+                      <td>    void AppClick7SegASM_fShowNumber(uint8_t _u8Number);</td>
+                  </tr>
+                  <tr>
+                      <td>11</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>12</td>
+                      <td>    .global AppClick7SegASM_fShowNumber</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td>    .func AppClick7SegASM_fShowNumber</td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>AppClick7SegASM_fShowNumber:</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b1">PUSH    {r4,r5,r6,LR}<span class="tooltiptext">As we are going to use the registers r4,r5 and r6, we save them to the stack. We save also LR because we are going to use the instruction BL to call the functions <b>fDivision</b>, <b>fShowDigit</b> and <b>fGenerateLatch</b></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    <span class="b2">mov     r4,r0<span class="tooltiptext">We copy the register <b>r0</b>, that is the argument <b>_u8Number</b>, to <b>r4</b></span></span>       //r4 is the parameter _u8Number</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    <span class="b3">mov     r0,r4<span class="tooltiptext">We want to calculate <b>_u8Number/10</b>, so we have to call the function <b>fDivision</b>. The first argument <b>r0</b> must be <b>_u8Number</b> that is in <b>r4</b></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>    <span class="b4">movs    r1,#10<span class="tooltiptext">The second argument of the function <b>fDivision</b> is the divider (10) that we have to copy to the register <b>r1</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    <span class="b5">BL      fDivision<span class="tooltiptext">We call the function <b>fDivision</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    <span class="b6">mov     r5,r0<span class="tooltiptext">The function <b>fDivision</b> returns the quotient of the division on <b>r0</b> and the remainder on <b>r1</b>. Let's copy the quotient to the register <b>r5</b>. This way, <b>r5</b> is the tens of the number <b>_u8Number</b>.</span></span>       //r5 is the tens</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    <span class="b1">mov     r6,r1<span class="tooltiptext">Let's copy the remainder to the register <b>r6</b>. So, <b>r6</b> is the ones of the number <b>_u8Number</b>.</span></span>       //r6 is the ones</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    <span class="b2">mov     r0,r6<span class="tooltiptext">Let's copy to <b>r0</b> ( the first argument of the function <b>fShowDIgit</b> ) the ones.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    <span class="b3">BL      fShowDigit<span class="tooltiptext">And we call the function <b>fShowDIgit</b> in order to be shown on the right display.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>    <span class="b4">mov     r0,r5<span class="tooltiptext">Let's copy to <b>r0</b> ( the first argument of the function <b>fShowDIgit</b> ) the tens.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>    <span class="b5">BL      fShowDigit<span class="tooltiptext">And we call the function <b>fShowDIgit</b> in order to be shown on the left display.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    <span class="b6">BL      fGenerateLatch<span class="tooltiptext">We call the function <b>fGenerateLatch</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>    <span class="b1">POP     {r4,r5,r6,PC}<span class="tooltiptext">Let's restore the value of the registers <b>r4, r5 and r6</b>. Including the register <b>PC</b> in the instruction <b>POP</b> we copy to the register <b>PC</b> the value of <b>LR</b> previously stored to the stack with <b>PUSH</b> and this way we return from the function <b>AppClick7SegASM_fShowNumber</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">As you has noticed, we have not saved to the <b>stack</b> the registers from <b>r0</b> to <b>r3</b>. These register, according to the ABI (Application Binary Interface) don't need to be saved. </div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>CMP</b> that is for comparing 2 registers. It updates the flags for later use of the conditional branches with the instruction <b>B</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/CMP_02_Register.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>BCC</b> that will branch if, in the previous comparison, the first operand is less than the second one.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/B_01_Condition_b.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>SUBS</b> that is for substracting 2 registers.</div></li>
+               <li><div class="text">It does the operation <b>Rn</b> - <b>Rm</b> and writes the result to <b>Rd</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/SUB_03_Register.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text"><b>fDivision</b> is a new function to calculate the integer division and the modulo.</div></li>
+               <li><div class="text">It receives the dividend in the register <b>r0</b> and the divider in the register <b>r1</b>.</div></li>
+               <li><div class="text">There are 2 results from the division. The quotient is returned in <b>r0</b> and the remainder in <b>r1</b>.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>37</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    fDivision</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>    Parameters:</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>    r0 : Dividend</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>    r1 : Divisor</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>    Result:</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>    r0 : Quotient</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>    r1 : Remainder</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>    .global fDivision</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>    .func fDivision</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td><span class="b1">fDivision<span class="tooltiptext">The Cortex-M0 CPU does not have a divide instruction. On Internet you can find multiple algorithms to do the trick, but here I am going to implement it by using loops.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    PUSH    {r4,r5,r6,r7,LR}</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>    //Copy parameters to working registers</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>    <span class="b2">mov     r4,r0<span class="tooltiptext">Let's copy to <b>r4</b> the dividend of the division.</span></span>       //r4 is the Dividend</td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>    <span class="b3">mov     r5,r1<span class="tooltiptext">And to <b>r5</b> the divisor of the division.</span></span>       //r5 is the Divisor</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>    <span class="b4">movs    r6,#0<span class="tooltiptext"><b>r6</b> will be the quotient of the division, we initialize it to 0.</span></span>       //r6 is the Quotient</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>    <span class="b5">mov     r0,r4<span class="tooltiptext">The division is going to be implemented this way. We copy to <b>r0</b> the dividend, we substract from <b>r0</b> the value of the divisor, until <b>r0</b> is less than the divisor. Every time we decrement <b>r0</b> we have to increment the quotient (<b>r6</b>) by 1.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td><span class="b6">fDivision_DivisionBegin<span class="tooltiptext">This is the beginning of the loop that performs the division.</span></span>:    </td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>    <span class="b1">cmp     r0,r5<span class="tooltiptext">Compare <b>r0</b> to the divisor.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>    <span class="b2">bcc     fDivision_DivisionEnd<span class="tooltiptext">If <b>r0</b> is less than the divisor, we jump to the label <b>fDivision_DivisionEnd</b>, the operation is done.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td><span class="b3">fDivision_DivisionDo<span class="tooltiptext">This is the body of the loop.</span></span>:    </td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>    <span class="b4">adds    r6,#1<span class="tooltiptext">Increment the quotient of the division by 1.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>    <span class="b5">subs    r0,r0,r5<span class="tooltiptext">Substract from <b>r0</b> the value of the divisor.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>    <span class="b6">b       fDivision_DivisionBegin<span class="tooltiptext">Jump back to the beginning of the loop (línea 58).</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td><span class="b1">fDivision_DivisionEnd<span class="tooltiptext">When we reach this point, the division has completed.</span></span>:    </td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td>    <span class="b2">mov     r7,r0<span class="tooltiptext"><b>r0</b> contains the remainder of the division, we copy it to <b>r7</b>.</span></span>       //r7 is the Remainder    </td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>    //Copy result to returning registers</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>    <span class="b3">mov     r0,r6<span class="tooltiptext"><b>r0</b> is the register where the function returns the quotient. We copy <b>r6</b> to <b>r0</b>.</span></span>       </td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>    <span class="b4">mov     r1,r7<span class="tooltiptext"><b>r1</b> is the register where the function returns the remainder. We copy <b>r7</b> to <b>r1</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>    POP     {r4,r5,r6,r7,PC}</td>
+                  </tr>
+                  <tr>
+                      <td>72</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>BEQ</b> that will branch if in the previous comparison the first operand is equal to the second one.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/B_01_Condition_beq.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>LSRS</b> that shifts the register <b>Rm</b> to the right an amount of bit indicated by the number <b>imm5</b> and the result is copied to the register <b>Rd</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/LSR_01_Immediate.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>GenerateCode</b> was (in C):</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>84</td>
+                      <td>//  ---------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>85</td>
+                      <td>//  GenerateCode</td>
+                  </tr>
+                  <tr>
+                      <td>86</td>
+                      <td>//  ---------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>87</td>
+                      <td>void GenerateCode(uint8_t _u8Code)</td>
+                  </tr>
+                  <tr>
+                      <td>88</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>89</td>
+                      <td>    uint8_t    u8Mask    =    0x80;</td>
+                  </tr>
+                  <tr>
+                      <td>90</td>
+                      <td>    uint8_t    u8Idx    =    0;</td>
+                  </tr>
+                  <tr>
+                      <td>91</td>
+                      <td>    for(u8Idx=0; u8Idx&lt8; u8Idx++)</td>
+                  </tr>
+                  <tr>
+                      <td>92</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>93</td>
+                      <td>        GPIO_PinState _pinState  =    GPIO_PIN_RESET;</td>
+                  </tr>
+                  <tr>
+                      <td>94</td>
+                      <td>        if( _u8Code & u8Mask )</td>
+                  </tr>
+                  <tr>
+                      <td>95</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>96</td>
+                      <td>            _pinState            =    GPIO_PIN_SET;</td>
+                  </tr>
+                  <tr>
+                      <td>97</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>98</td>
+                      <td>        Generate01(_pinState);</td>
+                  </tr>
+                  <tr>
+                      <td>99</td>
+                      <td>        u8Mask        &gt&gt=    1;</td>
+                  </tr>
+                  <tr>
+                      <td>100</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>74</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>75</td>
+                      <td>    fGenerateCode</td>
+                  </tr>
+                  <tr>
+                      <td>76</td>
+                      <td>    void fGenerateCode(uint8_t _u8Code);</td>
+                  </tr>
+                  <tr>
+                      <td>77</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>78</td>
+                      <td>    .global fGenerateCode</td>
+                  </tr>
+                  <tr>
+                      <td>79</td>
+                      <td>    .func fGenerateCode</td>
+                  </tr>
+                  <tr>
+                      <td>80</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>81</td>
+                      <td><span class="b1">fGenerateCode<span class="tooltiptext">This function has a loop that walks through the 8 bits of the value <b>_u8Code</b> to load to the HC595 and calls the function <b>Generate01</b> to output it on the data pin and to generate a pulse on the clock pin.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>82</td>
+                      <td>    PUSH    {r4,r5,r6,r7,LR}</td>
+                  </tr>
+                  <tr>
+                      <td>83</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>84</td>
+                      <td>    //Copy parameters to working registers</td>
+                  </tr>
+                  <tr>
+                      <td>85</td>
+                      <td>    <span class="b2">mov     r4,r0<span class="tooltiptext"><b>r4</b> is the register where we store the value of the parameter <b>r0</b> that is the code <b>_u8Code</b>.</span></span>       //r4 is the parameter _u8Code</td>
+                  </tr>
+                  <tr>
+                      <td>86</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>87</td>
+                      <td>    <span class="b3">movs    r5,#0x80<span class="tooltiptext"> <b>r5</b> is the mask with an initial value of 0x80 that is for walking throught the bits of <b>_u8Code</b>. In the loop this variable will be <br>0x80 (1000 0000)<br>0x40 (0100 0000)<br>0x20 (0010 0000)<br>...<br>0x02 (0000 0010)<br>0x01 (0000 0001).</span></span>    //r5 is u8Mask</td>
+                  </tr>
+                  <tr>
+                      <td>88</td>
+                      <td>    <span class="b4">movs    r6,#8<span class="tooltiptext"><b>r6</b> is the register that contains the number of times the loop will be executed (8).</span></span>       //r6 is u8Idx    </td>
+                  </tr>
+                  <tr>
+                      <td>89</td>
+                      <td><span class="b5">fGenerateCode_BeginLoop<span class="tooltiptext">Here the loop starts.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>90</td>
+                      <td>    <span class="b6">cmp     r6,#0<span class="tooltiptext">When <b>r6</b> reaches 0, all the bits of <b>_u8Code</b> have been iterated and the program branches to <b>fGenerateCode_End</b> on the line 108. If it is not 0, the program continues on the line 92.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>91</td>
+                      <td>    beq     fGenerateCode_End</td>
+                  </tr>
+                  <tr>
+                      <td>92</td>
+                      <td>    <span class="b1">mov     r7,r5<span class="tooltiptext">In the lines 92 to 94 an <b>and</b> of the mask and <b>_u8Code</b> is performed, if it is 1, it branches to <b>fGenerateCode_1</b>, if not, it branches to <b>fGenerateCode_0</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>93</td>
+                      <td>    ands    r7,r4</td>
+                  </tr>
+                  <tr>
+                      <td>94</td>
+                      <td>    cmp     r7,#0</td>
+                  </tr>
+                  <tr>
+                      <td>95</td>
+                      <td>    beq     fGenerateCode_0</td>
+                  </tr>
+                  <tr>
+                      <td>96</td>
+                      <td>fGenerateCode_1:</td>
+                  </tr>
+                  <tr>
+                      <td>97</td>
+                      <td>    <span class="b2">movs    r0,#1<span class="tooltiptext">In order to generate a 1, we call the function <b>fGenerate01</b>, copying to the argument of the function (<b>r0</b>) the value 1.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>98</td>
+                      <td>    BL      fGenerate01</td>
+                  </tr>
+                  <tr>
+                      <td>99</td>
+                      <td>    b       fGenerateCode_EndLoop    </td>
+                  </tr>
+                  <tr>
+                      <td>100</td>
+                      <td>fGenerateCode_0:</td>
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>    <span class="b3">movs    r0,#0<span class="tooltiptext">In order to generate a 0, we call the function <b>fGenerate01</b>, copying to the argument of the function (<b>r0</b>) the value 0.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>102</td>
+                      <td>    BL      fGenerate01</td>
+                  </tr>
+                  <tr>
+                      <td>103</td>
+                      <td>    b       fGenerateCode_EndLoop    </td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td><span class="b4">fGenerateCode_EndLoop<span class="tooltiptext">This is the label where the loop has completed the iteration and the variables are prepared for the next iteration.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>    <span class="b5">lsrs    r5,r5,#1<span class="tooltiptext">Shift, one bit to the right, the register <b>r5</b> that is the mask. </span></span></td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>    <span class="b6">subs    r6,#1<span class="tooltiptext">And decrement by 1 the count of times left that the loop has to run.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>    <span class="b1">b       fGenerateCode_BeginLoop<span class="tooltiptext">Finally, branch to the beginning of the loop.</span></span>    </td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>fGenerateCode_End:</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td>    POP     {r4,r5,r6,r7,PC}</td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>Generate01</b> was (in C):</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>68</td>
+                      <td>//  -------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>//  Generate01</td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>//  -------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>void Generate01(GPIO_PinState _pinState)</td>
+                  </tr>
+                  <tr>
+                      <td>72</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>73</td>
+                      <td>    HAL_GPIO_WritePin(  APP_GPIO_DATA_PORT,</td>
+                  </tr>
+                  <tr>
+                      <td>74</td>
+                      <td>                        APP_GPIO_DATA_PIN,</td>
+                  </tr>
+                  <tr>
+                      <td>75</td>
+                      <td>                        _pinState);</td>
+                  </tr>
+                  <tr>
+                      <td>76</td>
+                      <td>    HAL_GPIO_WritePin(  APP_GPIO_CLOCK_PORT,</td>
+                  </tr>
+                  <tr>
+                      <td>77</td>
+                      <td>                        APP_GPIO_CLOCK_PIN,</td>
+                  </tr>
+                  <tr>
+                      <td>78</td>
+                      <td>                        GPIO_PIN_SET);</td>
+                  </tr>
+                  <tr>
+                      <td>79</td>
+                      <td>    HAL_GPIO_WritePin(  APP_GPIO_CLOCK_PORT,</td>
+                  </tr>
+                  <tr>
+                      <td>80</td>
+                      <td>                        APP_GPIO_CLOCK_PIN,</td>
+                  </tr>
+                  <tr>
+                      <td>81</td>
+                      <td>                        GPIO_PIN_RESET);</td>
+                  </tr>
+                  <tr>
+                      <td>82</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>112</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>    fGenerate01</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td>    void fGenerate01(uint32_t _pinState);</td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>    .global fGenerate01</td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>    .func fGenerate01</td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td><span class="b1">fGenerate01<span class="tooltiptext">The function <b>fGenerate01</b> output a 1 or a 0 on the data pin and generates a positive pulse on the Clock pin.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td>    PUSH    {LR}</td>
+                  </tr>
+                  <tr>
+                      <td>121</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>122</td>
+                      <td>    <span class="b2">//Set data value<span class="tooltiptext">A 1 or a 0 is put on the data pin with the function <b>fWritePin</b> (Line 128).</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>123</td>
+                      <td>    <span class="b3">MOVS    r2,r0<span class="tooltiptext"><b>r2</b> is the third argument of the function <b>fWritePin</b>. Let's copy to it the value 0-1 to output on the pin that is in <b>r0</b> because is the first parameter of the function <b>fGenerate01</b>. </span></span></td>
+                  </tr>
+                  <tr>
+                      <td>124</td>
+                      <td>    <span class="b4">LDR     r3,=u32APP_GPIO_DATA_PORT<span class="tooltiptext">We have to copy the value of the variable <b>u32APP_GPIO_DATA_PORT</b> (that is the port number where to write) to the register r0 (that is the first parameter of the function <b>fWritePin</b>). For that, we copy the address of the variable to the temporal register <b>r3</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>125</td>
+                      <td>    <span class="b5">LDR     r0,[r3]<span class="tooltiptext">And we copy the content of that memory address to <b>r0</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>126</td>
+                      <td>    <span class="b6">LDR     r3,=u32APP_GPIO_DATA_PIN<span class="tooltiptext">We have to copy the value of the variable <b>u32APP_GPIO_DATA_PIN</b> (that is the pin number to write) to the register r1 (that is the second parameter of the function <b>fWritePin</b>). For that, we copy the address of the variable to the temporal register <b>r3</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>127</td>
+                      <td>    <span class="b1">LDR     r1,[r3]<span class="tooltiptext">And copy the content of that memory address to <b>r1</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>128</td>
+                      <td>    <span class="b2">BL      fWritePin<span class="tooltiptext">Call the function <b>fWritePin</b> to write the value to the data pin.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>129</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>130</td>
+                      <td>    <span class="b3">//Set Clock to 1<span class="tooltiptext">Output a 1 on the Clock pin.</span></span> </td>
+                  </tr>
+                  <tr>
+                      <td>131</td>
+                      <td>    MOVS    r2,#1</td>
+                  </tr>
+                  <tr>
+                      <td>132</td>
+                      <td>    LDR     r3,=u32APP_GPIO_CLOCK_PORT</td>
+                  </tr>
+                  <tr>
+                      <td>133</td>
+                      <td>    LDR     r0,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>134</td>
+                      <td>    LDR     r3,=u32APP_GPIO_CLOCK_PIN</td>
+                  </tr>
+                  <tr>
+                      <td>135</td>
+                      <td>    LDR     r1,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>136</td>
+                      <td>    BL      fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>137</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>138</td>
+                      <td>    <span class="b4">//Set Clock to 0<span class="tooltiptext">Output a 0 on the Clock pin.</span></span> </td>
+                  </tr>
+                  <tr>
+                      <td>139</td>
+                      <td>    MOVS    r2,#0</td>
+                  </tr>
+                  <tr>
+                      <td>140</td>
+                      <td>    LDR     r3,=u32APP_GPIO_CLOCK_PORT</td>
+                  </tr>
+                  <tr>
+                      <td>141</td>
+                      <td>    LDR     r0,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>142</td>
+                      <td>    LDR     r3,=u32APP_GPIO_CLOCK_PIN</td>
+                  </tr>
+                  <tr>
+                      <td>143</td>
+                      <td>    LDR     r1,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>144</td>
+                      <td>    BL      fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>145</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>146</td>
+                      <td>    POP     {PC}</td>
+                  </tr>
+                  <tr>
+                      <td>147</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>GenerateLatch</b> was (in C):</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>55</td>
+                      <td>//  ----------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>//  GenerateLatch</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>//  ----------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>void GenerateLatch(void)</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>    HAL_GPIO_WritePin(  APP_GPIO_LATCH_PORT,</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>                        APP_GPIO_LATCH_PIN,</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>                        GPIO_PIN_SET);</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>    HAL_GPIO_WritePin(  APP_GPIO_LATCH_PORT,</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>                        APP_GPIO_LATCH_PIN,</td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>                        GPIO_PIN_RESET);</td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>149</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>150</td>
+                      <td>    fGenerateLatch</td>
+                  </tr>
+                  <tr>
+                      <td>151</td>
+                      <td>    void fGenerateLatch( void );</td>
+                  </tr>
+                  <tr>
+                      <td>152</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>153</td>
+                      <td>    .global fGenerateLatch</td>
+                  </tr>
+                  <tr>
+                      <td>154</td>
+                      <td>    .func fGenerateLatch</td>
+                  </tr>
+                  <tr>
+                      <td>155</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>156</td>
+                      <td><span class="b1">fGenerateLatch<span class="tooltiptext">The function <b>fGenerateLatch</b> generates a positive pulse on the Latch signal.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>157</td>
+                      <td>    PUSH    {LR}</td>
+                  </tr>
+                  <tr>
+                      <td>158</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>159</td>
+                      <td>    <span class="b2">//Set Latch to 1<span class="tooltiptext">Output a 1 on the Latch pin.</span></span> </td>
+                  </tr>
+                  <tr>
+                      <td>160</td>
+                      <td>    MOVS    r2,#1</td>
+                  </tr>
+                  <tr>
+                      <td>161</td>
+                      <td>    LDR     r3,=u32APP_GPIO_LATCH_PORT</td>
+                  </tr>
+                  <tr>
+                      <td>162</td>
+                      <td>    LDR     r0,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>163</td>
+                      <td>    LDR     r3,=u32APP_GPIO_LATCH_PIN</td>
+                  </tr>
+                  <tr>
+                      <td>164</td>
+                      <td>    LDR     r1,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>165</td>
+                      <td>    BL      fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>166</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>167</td>
+                      <td>    <span class="b3">//Set Latch to 0<span class="tooltiptext">Output a 0 on the Latch pin.</span></span> </td>
+                  </tr>
+                  <tr>
+                      <td>168</td>
+                      <td>    MOVS    r2,#0</td>
+                  </tr>
+                  <tr>
+                      <td>169</td>
+                      <td>    LDR     r3,=u32APP_GPIO_LATCH_PORT</td>
+                  </tr>
+                  <tr>
+                      <td>170</td>
+                      <td>    LDR     r0,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>171</td>
+                      <td>    LDR     r3,=u32APP_GPIO_LATCH_PIN</td>
+                  </tr>
+                  <tr>
+                      <td>172</td>
+                      <td>    LDR     r1,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>173</td>
+                      <td>    BL      fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>174</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>175</td>
+                      <td>    POP     {PC}</td>
+                  </tr>
+                  <tr>
+                      <td>176</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>AppClick7Seg_EnablePWM</b> was (in C):</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>45</td>
+                      <td>//  -------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>//  AppClick7Seg_EnablePWM</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>//  -------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>void AppClick7Seg_EnablePWM(void)</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    HAL_GPIO_WritePin(APP_GPIO_PWM_PORT,</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>                      APP_GPIO_PWM_PIN,</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>                      GPIO_PIN_SET);</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>178</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>179</td>
+                      <td>    AppClick7SegASM_fEnablePWM</td>
+                  </tr>
+                  <tr>
+                      <td>180</td>
+                      <td>    void AppClick7SegASM_fEnablePWM( void );</td>
+                  </tr>
+                  <tr>
+                      <td>181</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>182</td>
+                      <td>    .global AppClick7SegASM_fEnablePWM</td>
+                  </tr>
+                  <tr>
+                      <td>183</td>
+                      <td>    .func AppClick7SegASM_fEnablePWM</td>
+                  </tr>
+                  <tr>
+                      <td>184</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>185</td>
+                      <td><span class="b1">AppClick7SegASM_fEnablePWM<span class="tooltiptext">In this lesson we are not going to use PWM but a digital output that we will set to high level in order to have the transistors in the Click board always driving, later on the course we will come back to use PWM.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>186</td>
+                      <td>    PUSH    {LR}</td>
+                  </tr>
+                  <tr>
+                      <td>187</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>188</td>
+                      <td>    MOVS    r2,#1</td>
+                  </tr>
+                  <tr>
+                      <td>189</td>
+                      <td>    LDR     r3,=u32APP_GPIO_PWM_PORT</td>
+                  </tr>
+                  <tr>
+                      <td>190</td>
+                      <td>    LDR     r0,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>191</td>
+                      <td>    LDR     r3,=u32APP_GPIO_PWM_PIN</td>
+                  </tr>
+                  <tr>
+                      <td>192</td>
+                      <td>    LDR     r1,[r3]</td>
+                  </tr>
+                  <tr>
+                      <td>193</td>
+                      <td>    <span class="b2">BL      fWritePin<span class="tooltiptext">Output a 1 on the PWM pin.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>194</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>195</td>
+                      <td>    POP     {PC}</td>
+                  </tr>
+                  <tr>
+                      <td>196</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>fWritePin</b>:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>198</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>199</td>
+                      <td>    fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>200</td>
+                      <td>    void fWritePin( uint32_t    _u32PortBaseAddress,</td>
+                  </tr>
+                  <tr>
+                      <td>201</td>
+                      <td>                    uint32_t    _u32Bit,</td>
+                  </tr>
+                  <tr>
+                      <td>202</td>
+                      <td>                    uint32_t    _u32Value);</td>
+                  </tr>
+                  <tr>
+                      <td>203</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>204</td>
+                      <td>    .global fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>205</td>
+                      <td>    .func fWritePin</td>
+                  </tr>
+                  <tr>
+                      <td>206</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>207</td>
+                      <td><span class="b1">fWritePin<span class="tooltiptext">This function was already explained on the lesson 12 and 13.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>208</td>
+                      <td>    //r0: _u32PortBaseAddress</td>
+                  </tr>
+                  <tr>
+                      <td>209</td>
+                      <td>    //r1: _u32Bit</td>
+                  </tr>
+                  <tr>
+                      <td>210</td>
+                      <td>    //r2: _u32Value</td>
+                  </tr>
+                  <tr>
+                      <td>211</td>
+                      <td>    MOVS    r2,r2</td>
+                  </tr>
+                  <tr>
+                      <td>212</td>
+                      <td>    BEQ     fWritePin_0</td>
+                  </tr>
+                  <tr>
+                      <td>213</td>
+                      <td>fWritePin_1:</td>
+                  </tr>
+                  <tr>
+                      <td>214</td>
+                      <td>    STR     r1,[r0, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>215</td>
+                      <td>    B       fWritePin_End</td>
+                  </tr>
+                  <tr>
+                      <td>216</td>
+                      <td>fWritePin_0:</td>
+                  </tr>
+                  <tr>
+                      <td>217</td>
+                      <td>    STR     r1,[r0, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>218</td>
+                      <td>fWritePin_End:</td>
+                  </tr>
+                  <tr>
+                      <td>219</td>
+                      <td>    BX  lr</td>
+                  </tr>
+                  <tr>
+                      <td>220</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>ADR</b> that copies to the register <b>Rd</b> the address of the label <b>label</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/ADR.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the instruction <b>LDRB</b> that copies to the register <b>Rt</b> the value (1 byte) that is at the address that results from the sum of the registers <b>Rn</b> and <b>Rm</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion03/L28_7SegClick_ASM/img/LDRB_02_Register.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The array in C <b>au8CodedDigits</b>:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>22</td>
+                      <td>static uint8_t au8CodedDigits[] = { 0x7E,    //0</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>                                    0x0A,    //1</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>                                    0xB6,    //2</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>                                    0x9E,    //3</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>                                    0xCA,    //4</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>                                    0xDC,    //5</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>                                    0xFC,    //6</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>                                    0x0E,    //7</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>                                    0xFE,    //8</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>                                    0xCE};    //9</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>222</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>223</td>
+                      <td>    fGetCode</td>
+                  </tr>
+                  <tr>
+                      <td>224</td>
+                      <td>    uint8_t fGetCode(uint8_t _u8Digit);</td>
+                  </tr>
+                  <tr>
+                      <td>225</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>226</td>
+                      <td>    .global fGetCode</td>
+                  </tr>
+                  <tr>
+                      <td>227</td>
+                      <td>    .func fGetCode</td>
+                  </tr>
+                  <tr>
+                      <td>228</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>229</td>
+                      <td><span class="b1">fGetCode<span class="tooltiptext">This function implements the access to a data table in memory. It receives the index in the register <b>r0</b> and it returns the value in the same register (<b>r0</b>).</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>230</td>
+                      <td>    <span class="b2">ADR     r1,fGetCodeTable<span class="tooltiptext">With the instruction <b>ADR</b> the address of the table <b>fGetCodeTable</b> is copied to the register <b>r1</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>231</td>
+                      <td>    <span class="b3">LDRB    r0<span class="tooltiptext">With the instruction <b>LDRB</b> a byte is copied to the register <b>r0</b>.</span></span>,<span class="b4">[r1,r0]<span class="tooltiptext"><b>r0</b> containes the index of the array to copy. <b>[r1,r0]</b> is the content of the memory position whose address is the sum of <b>r0</b> and <b>r1</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>232</td>
+                      <td>    <span class="b5">BX  lr<span class="tooltiptext">The function returns.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>233</td>
+                      <td><span class="b6">.align 2<span class="tooltiptext">With the directive <b>align</b> we instruct the assembler that the following instruction has to be aligned, in this case, to an address multiple of 4.</span></span>    //alignment is 2^2 = 4</td>
+                  </tr>
+                  <tr>
+                      <td>234</td>
+                      <td>fGetCodeTable:</td>
+                  </tr>
+                  <tr>
+                      <td>235</td>
+                      <td>    <span class="b1">.byte<span class="tooltiptext">With the directive <b>byte</b> a byte in placed to memory, in this case, the value <b>0x7E</b>.</span></span>   0x7E    //0</td>
+                  </tr>
+                  <tr>
+                      <td>236</td>
+                      <td>    <span class="b2">.byte<span class="tooltiptext">At the next position we place the value 0x0A and this way the complete array.</span></span>   0x0A    //1</td>
+                  </tr>
+                  <tr>
+                      <td>237</td>
+                      <td>    .byte   0xB6    //2</td>
+                  </tr>
+                  <tr>
+                      <td>238</td>
+                      <td>    .byte   0x9E    //3</td>
+                  </tr>
+                  <tr>
+                      <td>239</td>
+                      <td>    .byte   0xCA    //4</td>
+                  </tr>
+                  <tr>
+                      <td>240</td>
+                      <td>    .byte   0xDC    //5</td>
+                  </tr>
+                  <tr>
+                      <td>241</td>
+                      <td>    .byte   0xFC    //6</td>
+                  </tr>
+                  <tr>
+                      <td>242</td>
+                      <td>    .byte   0x0E    //7</td>
+                  </tr>
+                  <tr>
+                      <td>243</td>
+                      <td>    .byte   0xFE    //8</td>
+                  </tr>
+                  <tr>
+                      <td>244</td>
+                      <td>    .byte   0xCE    //9</td>
+                  </tr>
+                  <tr>
+                      <td>245</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>ShowDigit</b> was (in C):</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>103</td>
+                      <td>//  ---------------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>//  ShowDigit</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>//  ---------------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>void ShowDigit(uint8_t _u8Digit)</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>    uint8_t    u8Code    =    au8CodedDigits[_u8Digit];</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td>    GenerateCode(u8Code);</td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">And in assembly language:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>247</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>248</td>
+                      <td>    fShowDigit</td>
+                  </tr>
+                  <tr>
+                      <td>249</td>
+                      <td>    void fShowDigit(uint8_t _u8Digit);</td>
+                  </tr>
+                  <tr>
+                      <td>250</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>251</td>
+                      <td>    .global fShowDigit</td>
+                  </tr>
+                  <tr>
+                      <td>252</td>
+                      <td>    .func fShowDigit</td>
+                  </tr>
+                  <tr>
+                      <td>253</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>254</td>
+                      <td><span class="b1">fShowDigit<span class="tooltiptext">This function gets the byte (to load to the HC595) corresponding to the number to show on the display and call the function <b>GenerateCode</b>. The digit to show is received in the register <b>r0</b>.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>255</td>
+                      <td>    PUSH    {LR}</td>
+                  </tr>
+                  <tr>
+                      <td>256</td>
+                      <td>    <span class="b2">BL      fGetCode<span class="tooltiptext">Call the function <b>fGetCode</b>. The digit is already in the register <b>r0</b> and the value to show is going to be returned in <b>r0</b>. </span></span></td>
+                  </tr>
+                  <tr>
+                      <td>257</td>
+                      <td>    <span class="b3">BL      fGenerateCode<span class="tooltiptext">Call the function <b>fGenerateCode</b>. The code to generate is already in the register <b>r0</b>.</span></span>   </td>
+                  </tr>
+                  <tr>
+                      <td>258</td>
+                      <td>    POP     {PC}</td>
+                  </tr>
+                  <tr>
+                      <td>259</td>
+                      <td>    <span class="b4">.endfunc<span class="tooltiptext">The pass of parameters and the return of results are done using the register <b>r0</b>, so as you see, it is very easy and elegant to call these 2 functions.</span></span></td>
+                  </tr>
+            </table>
+        </div>

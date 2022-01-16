@@ -1,0 +1,332 @@
+        <div class="title">Introduction to Verilog</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">On this project you will use the programmable logic inside PSoC with Verilog, to create a component <b>very</b> simple.</div></li>
+               <li><div class="text">It will have one input and two outputs. The output <b>OUT1</b> is connected directly to the input <b>IN1</b> and the output <b>OUT1n</b> is the negation of the input <b>IN1</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/P024_NewComponent.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the next simulation you can see how it will work :</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/EPWave2.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">As you can see in the following picture, <b>PSoC 4</b> has 4 <b>UDB</b> (Universal Digital Block).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/LP.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Each <b>UDB</b> has 2 <b>PLD</b> (Programmable Logic Device).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/UDB.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">A <b>PLD</b> has logical elements (AND, OR, INVERT and FLIP-FLOP).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/PLD.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">You will program the <b>UDB</b> with <b>Verilog</b> that is a hardware description language used to model electronic systems.</div></li>
+               <li><div class="text">In order to see the project running you must connect the input of the switch SW2 and the outputs of the leds Red and Green.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/P024_Board.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">When SW2 is pressed the Red led will be on, when SW2 is not pressed the Green led will be on.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/P024_Leds.png">
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/rKhCtNxQU2E?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">2 projects are needed. The first is a library where the new component is implemented. The second one, main project, will use the new component.</div></li>
+            </ul>
+        </div>
+        <div class="section">Project 1 : Library</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create a new project.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Type = <b>"Library project"</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Set as project name <b>LIB_024</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the components tab.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click on the right button of the mouse and select the option <b>Add Component Item...</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Name the component as <b>PSoC4_Logic_01</b> and select <b>Symbol Wizard</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add 3 terminals. One input called <b>in1</b> and 2 outputs called <b>out1</b> and <b>out1n</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click with the right button of the mouse on an empty place of the schematics.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click on <b>Properties</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the property <b>Doc.CatalogPlacement</b> click on the button with text <b>...</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the text <b>Community/Digital/Logic/PSoC4_Logic_01</b>. <br><b>PSoC4_Logic_01</b> is the name of the component.<br><b>Community</b> is the category in the component catalog.<br><b>Digital</b> and <b>Logic</b> are the subcategories.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Make the component wider so that the name fits in the box.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/13.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click with the right button of the mouse on an empty place of the schematics.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And generate the Verilog file.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click on the button <b>Generate</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The Verilog file has been created with a module called like the component <b>PSoC4_Logic_01</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the following lines of code:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/19.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>17</td>
+                      <td>module PSoC4_Logic_01 (</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    output  out1,</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    output  out1n,</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    input   in1</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>);</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>//`#start body` -- edit after this line, do not edit this line</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    <span class="b1">assign out1 = in1;<span class="tooltiptext"> Assign the input <b>in1</b> to the output <b>out1</b></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    <span class="b2">assign out1n = ! in1<span class="tooltiptext"> Assign the negation of the input <b>in1</b> to the output <b>out1n</b></span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>//`#end` -- edit above this line, do not edit this line</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>endmodule</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="section">Project 1 : Library</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create a new project.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Based on the <b>CY8CKIT-042</b> kit.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select empty schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Name it <b>P024</b> </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the tab <b>Components</b> click on <b>Dependencies...</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Check the option <b>LIB_024</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the components catalog search for <b>PSoC4_Logic_01</b> </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And copy it to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a digital output to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/29.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edit its properties.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And rename it as <b>Pin_LedRed</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/45.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy and paste <b>Pin_LedRed</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And rename the new pin as <b>Pin_LedGreen</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a new digital input to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/33.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/34.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edit its properties, rename it as <b>Pin_SW2</b> and select the mode <b>Resistive pull up</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/35.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/36.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to pins configuration. </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/38.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Assign the pins as follows:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/39.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build the project and transfer it to the PSoC.</div></li>
+            </ul>
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion07/L24_Introduction/downloads/WS024.zip">Download the workspace with the two projects here (PSoC Creator 4.0).</a></li>
+            </ul>
+        </div>

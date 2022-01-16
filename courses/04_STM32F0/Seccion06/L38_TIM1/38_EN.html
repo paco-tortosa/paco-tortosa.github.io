@@ -1,0 +1,227 @@
+        <div class="title">Square signal</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this lesson we are going to generate a square signal with a period of 300us using the timer 1 (<b>TIM1</b>).</div></li>
+               <li><div class="text">The MCU STM32F0 has several timers (TIM1, TIM3, TIM6, TIM7, and TIM14 to TIM17). The timer 1 is 16-bit wide.</div></li>
+               <li><div class="text">This is the diagram of the timer 1.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The 48MHz system clock is the clock for <b>TIM1</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The system clock reaches the prescaler.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to work with an internal clock of 1MHz, so the prescaler will be 48.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to use the <b>TIM1</b> in descending mode to toggle the pin <b>PA5</b>. </div></li>
+               <li><div class="text">As we are using a 1-MHz clock, the counter will be decremented every microsecond.</div></li>
+               <li><div class="text">We have to toggle the pin every 150us, so the AutoReload register (<b>ARR</b>) will be 150.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The register <b>CNT</b> (counter) is decremented every microsecond.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The bit <b>UIF</b> of the status register <b>TIM1_SR</b> is initially <b>0</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">When the <b>TIM1</b> starts, the value of the register <b>ARR</b> is copied to the register <b>CNT</b>.</div></li>
+               <li><div class="text">So CNT is now 150.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">At every clock cycle the register <b>CNT</b> is decremented.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/28.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/29.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">When the register <b>CNT</b> reaches 0, the bit <b>UIF</b> is set.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/31.png">
+            <ul>
+               <li><div class="text">And the register <b>ARR</b> is copied again to the register <b>CNT</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And the timer continues the operation.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/33.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">At any time we can clear the bit <b>UIF</b> from the program.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/34.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/36.png">
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create a new project.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/01.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select the evaluation kit.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/03.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/04.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/05.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/06.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The name I have chosen for this project is <b>P18_TIM1</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/08.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/09.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to add the inicialization of <b>TIM1</b>. </div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/11.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/12.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>102</td>
+                      <td>  <span class="b1">RCC-&gtAPB2ENR    |=  RCC_APB2ENR_TIM1EN;<span class="tooltiptext">Enable the clock for the timer <b>TIM1</b>.</span></span>     </td>
+                  </tr>
+                  <tr>
+                      <td>103</td>
+                      <td>  <span class="b2">TIM1-&gtCR1       =   0<span class="tooltiptext">Desable the timer <b>TIM1</b> so that it can be configured.</span></span>;                      </td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>  TIM1-&gtPSC       =   <span class="b3">48<span class="tooltiptext">Copy to the register <b>PSC</b> the prescaler value minus 1.</span></span> - 1;                 </td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>                                              </td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>  TIM1-&gtARR       =   <span class="b4">150<span class="tooltiptext">Copy to the register <b>PSC</b> the prescaler value minus 1.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>  TIM1-&gtCR1       =   <span class="b5">TIM_CR1_DIR<span class="tooltiptext">Set the bit <b>DIR</b> of the register <b>CR1</b> to select descending mode.</span></span> |           </td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>                      <span class="b6">TIM_CR1_CEN<span class="tooltiptext">Set the bit <b>CEN</b> of the register <b>CR1</b> to enable the operation of <b>TIM1</b>. </span></span>;            </td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And here the code to wait for the <b>TIM1</b> to expire and toggle the pin <b>PA5</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/13.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>110</td>
+                      <td>  while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>112</td>
+                      <td>      <span class="b1">TIM1-&gtSR    =   0<span class="tooltiptext">Clean the status register <b>SR</b> that contains the flags of <b>TIM1</b>, among them the flag <b>UIF</b>.</span></span>;                      </td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>      while( <span class="b2">(TIM1-&gtSR & TIM_SR_UIF)<span class="tooltiptext">With this <b>and</b> we get the value of the bit <b>UIF</b> of the status register <b>SR</b>.</span></span> == 0 )<span class="b3">;<span class="tooltiptext">While the flag is 0, we stay inside the loop. (<b>;</b> is an empty statement).</span></span>  //Wait for end-of-counting flag</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>      //Toggle LED</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>      <span class="b4">HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5)<span class="tooltiptext">We reach this instruction when the bit <b>UIF</b> is 1, indicating that the register <b>CNT</b> reached 0. Toggle the pin <b>PA5</b>.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>    /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td>    /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td>  }</td>
+                  </tr>
+                  <tr>
+                      <td>121</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build and debug the program.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/14.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/15.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Here you can see how to connect the oscilloscope to the evaluation kit.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion06/L38_TIM1/img/17.png">
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/04_STM32F0/Seccion06/L38_TIM1/downloads/L38_HW_Connections.pdf">HW connections</a></li>
+            </ul>
+        </div>

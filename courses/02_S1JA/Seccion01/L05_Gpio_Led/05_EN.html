@@ -1,0 +1,844 @@
+        <div class="title">GPIO-LED</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this lesson we are going to blink an led that will be connected to an output pin.</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/fAmrjAvT2oM?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Execute e2 studio</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select the folder for the workspace.</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/02.png">
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create a new project</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/04.png">
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to name it <b>Gpio_Led</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select the kit</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/07.png">
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select as template the BSP (Board Support Package) that has all the HW configuration for the kit </div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The new project is already created</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to use the pin P015 that is in the pin header J2</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go the pin configuration</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the pin P015</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/14.png">
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/15.png">
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I gave it the symbolic name <b>Led1</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The mode must be output (initial Low)</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">You can select the amount of current that the pin can supply.</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In <b>Low</b> mode the pin can supply up to 4mA, in <b>Middle</b> mode up to 8mA </div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to select <b>Medium</b> </div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">To generate the source code click on the folowing button:</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the file <b>r_ioport.c</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/23.png">
+            <ul>
+               <li><div class="text">There is a very important structure related to the GPIO.</div></li>
+               <li><div class="text">It contains pointers to the functions used to access the pins.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>113</td>
+                      <td>const ioport_api_t <span class="b1">g_ioport_on_ioport<span class="tooltiptext">This is the global structure that contains all the functions related to the <b>GPIO</b>.</span></span> =</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>    <span class="b2">.init<span class="tooltiptext">This is the function that is going to be executed to configure all the pins defined by the <b>Pin Configurator</b>.</span></span>                 = R_IOPORT_Init,</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>    .pinCfg               = R_IOPORT_PinCfg,</td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>    .pinsCfg              = R_IOPORT_PinsCfg,</td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td>    .pinDirectionSet      = R_IOPORT_PinDirectionSet,</td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td>    .pinEventInputRead    = R_IOPORT_PinEventInputRead,</td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td>    .pinEventOutputWrite  = R_IOPORT_PinEventOutputWrite,</td>
+                  </tr>
+                  <tr>
+                      <td>121</td>
+                      <td>    .pinEthernetModeCfg   = R_IOPORT_EthernetModeCfg,</td>
+                  </tr>
+                  <tr>
+                      <td>122</td>
+                      <td>    .pinRead              = R_IOPORT_PinRead,</td>
+                  </tr>
+                  <tr>
+                      <td>123</td>
+                      <td>    .pinWrite             = R_IOPORT_PinWrite,</td>
+                  </tr>
+                  <tr>
+                      <td>124</td>
+                      <td>    .portDirectionSet     = R_IOPORT_PortDirectionSet,</td>
+                  </tr>
+                  <tr>
+                      <td>125</td>
+                      <td>    .portEventInputRead   = R_IOPORT_PortEventInputRead,</td>
+                  </tr>
+                  <tr>
+                      <td>126</td>
+                      <td>    .portEventOutputWrite = R_IOPORT_PortEventOutputWrite,</td>
+                  </tr>
+                  <tr>
+                      <td>127</td>
+                      <td>    .portRead             = R_IOPORT_PortRead,</td>
+                  </tr>
+                  <tr>
+                      <td>128</td>
+                      <td>    .portWrite            = R_IOPORT_PortWrite,</td>
+                  </tr>
+                  <tr>
+                      <td>129</td>
+                      <td>    .versionGet           = R_IOPORT_VersionGet,</td>
+                  </tr>
+                  <tr>
+                      <td>130</td>
+                      <td>};</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the file <b>pin_data.c</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/24.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>6</td>
+                      <td>const ioport_pin_cfg_t <span class="b1">g_bsp_pin_cfg_data<span class="tooltiptext">Structure generated by the <b>Pin Configurator</b> with the information about the pins.</span></span>[] = {</td>
+                  </tr>
+                  <tr>
+                      <td>7</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>8</td>
+                      <td>        .pin = IOPORT_PORT_00_PIN_01,</td>
+                  </tr>
+                  <tr>
+                      <td>9</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_CTSU),</td>
+                  </tr>
+                  <tr>
+                      <td>10</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>11</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>12</td>
+                      <td>        .pin = IOPORT_PORT_00_PIN_03,</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_ANALOG_ENABLE),</td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>        .pin = <span class="b2">IOPORT_PORT_00_PIN_15<span class="tooltiptext">This is the pin <b>P015</b> that we have configured with the <b>Pin Configurator</b>.</span></span>,</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>        .pin_cfg = (<span class="b3">IOPORT_CFG_DRIVE_MID<span class="tooltiptext">Maximum current of 8mA</span></span> | <span class="b5">IOPORT_CFG_PORT_DIRECTION_OUTPUT<span class="tooltiptext">It is a digital output.</span></span> | <span class="b4">IOPORT_CFG_PORT_OUTPUT_LOW<span class="tooltiptext">The initial value when the MCU starts is low level.</span></span>),</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>        .pin = IOPORT_PORT_01_PIN_08,</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_DEBUG),</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        .pin = IOPORT_PORT_01_PIN_11,</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_RSPI),</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>        .pin = IOPORT_PORT_01_PIN_12,</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_RSPI),</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>        .pin = IOPORT_PORT_02_PIN_01,</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PORT_DIRECTION_INPUT),</td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>        .pin = IOPORT_PORT_02_PIN_04,</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_SCI0_2_4_6_8),</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>        .pin = IOPORT_PORT_02_PIN_05,</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PORT_DIRECTION_OUTPUT | IOPORT_CFG_PORT_OUTPUT_LOW),</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>        .pin = IOPORT_PORT_02_PIN_06,</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_IRQ_ENABLE | IOPORT_CFG_PORT_DIRECTION_INPUT),</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>        .pin = IOPORT_PORT_03_PIN_00,</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_DEBUG),</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>        .pin = IOPORT_PORT_03_PIN_03,</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_RSPI),</td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>        .pin = IOPORT_PORT_03_PIN_04,</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_RSPI),</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>        .pin = IOPORT_PORT_04_PIN_07,</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_USB_FS),</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>        .pin = IOPORT_PORT_04_PIN_09,</td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_CTSU),</td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>        .pin = IOPORT_PORT_04_PIN_11,</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_SCI0_2_4_6_8),</td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>72</td>
+                      <td>        .pin = IOPORT_PORT_09_PIN_14,</td>
+                  </tr>
+                  <tr>
+                      <td>73</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_USB_FS),</td>
+                  </tr>
+                  <tr>
+                      <td>74</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>75</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>76</td>
+                      <td>        .pin = IOPORT_PORT_09_PIN_15,</td>
+                  </tr>
+                  <tr>
+                      <td>77</td>
+                      <td>        .pin_cfg = (IOPORT_CFG_PERIPHERAL_PIN | IOPORT_PERIPHERAL_USB_FS),</td>
+                  </tr>
+                  <tr>
+                      <td>78</td>
+                      <td>    },</td>
+                  </tr>
+                  <tr>
+                      <td>79</td>
+                      <td>};</td>
+                  </tr>
+                  <tr>
+                      <td>80</td>
+                      <td>const ioport_cfg_t <span class="b6">g_bsp_pin_cfg<span class="tooltiptext">This is the structure generated by the <b>Pin Configurator</b>.</span></span> = {</td>
+                  </tr>
+                  <tr>
+                      <td>81</td>
+                      <td>    .number_of_pins = sizeof(g_bsp_pin_cfg_data)/sizeof(ioport_pin_cfg_t),</td>
+                  </tr>
+                  <tr>
+                      <td>82</td>
+                      <td>    .p_pin_cfg_data = <span class="b1">&g_bsp_pin_cfg_data[0]<span class="tooltiptext">It contains a pointer to the structure at the line 6 with information about the pins.</span></span>,</td>
+                  </tr>
+                  <tr>
+                      <td>83</td>
+                      <td>};</td>
+                  </tr>
+                  <tr>
+                      <td>84</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let us see where the pin configuration is executed.</div></li>
+               <li><div class="text">Go to the file <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And we are going to see where the function <b>main</b> is called</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/26.png">
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The function <b>Reset_Handler</b> is executed at the start of the MCU</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/28.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>59</td>
+                      <td>void <span class="b1">Reset_Handler<span class="tooltiptext">This function is executed at the startup.</span></span> (void)</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>    /* Initialize system using BSP. */</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>    <span class="b2">SystemInit<span class="tooltiptext">This function contains the initialization of peripherals, clock, pins, ...</span></span>();</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>    /* Call user application. */</td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>    <span class="b3">main<span class="tooltiptext">Call the function <b>main</b>.</span></span>();</td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td>    while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>        /* Infinite Loop. */</td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the definition of the function <b>SystemInit</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this function the pin initialization function is called</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/31.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>138</td>
+                      <td>void <span class="b1">SystemInit<span class="tooltiptext">Function <b>SystemInit</b></span></span> (void)</td>
+                  </tr>
+                  <tr>
+                      <td>139</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>140</td>
+                      <td>    /* Call Pre C runtime initialization hook. */</td>
+                  </tr>
+                  <tr>
+                      <td>141</td>
+                      <td>    R_BSP_WarmStart(BSP_WARM_START_PRE_C);</td>
+                  </tr>
+                  <tr>
+                      <td>142</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>143</td>
+                      <td>    /* Initialize register protection. */</td>
+                  </tr>
+                  <tr>
+                      <td>144</td>
+                      <td>    bsp_register_protect_open();</td>
+                  </tr>
+                  <tr>
+                      <td>145</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>146</td>
+                      <td>    /* Initialize grouped interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>147</td>
+                      <td>    bsp_group_interrupt_open();</td>
+                  </tr>
+                  <tr>
+                      <td>148</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>149</td>
+                      <td>    /* Initialize FMI. */</td>
+                  </tr>
+                  <tr>
+                      <td>150</td>
+                      <td>    g_fmi_on_fmi.init();</td>
+                  </tr>
+                  <tr>
+                      <td>151</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>152</td>
+                      <td>    /* Configure system clocks using CGC module. */</td>
+                  </tr>
+                  <tr>
+                      <td>153</td>
+                      <td>    bsp_clock_init();</td>
+                  </tr>
+                  <tr>
+                      <td>154</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>155</td>
+                      <td>    /* To prevent an undesired current draw, this MCU requires a reset of the TRNG circuit subsequent to having the clocks initialized */</td>
+                  </tr>
+                  <tr>
+                      <td>156</td>
+                      <td>    bsp_reset_trng_circuit();</td>
+                  </tr>
+                  <tr>
+                      <td>157</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>158</td>
+                      <td>    /* Temporary fix to initialize ioport reference counter to 0, needed before C runtime init. This will be removed</td>
+                  </tr>
+                  <tr>
+                      <td>159</td>
+                      <td>     * in the next release in favor of a more complete solution. */</td>
+                  </tr>
+                  <tr>
+                      <td>160</td>
+                      <td>    HW_IOPORT_Init_Reference_Counter();</td>
+                  </tr>
+                  <tr>
+                      <td>161</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>162</td>
+                      <td>    /* Initialize pins. */</td>
+                  </tr>
+                  <tr>
+                      <td>163</td>
+                      <td>    <span class="b2">g_ioport_on_ioport<span class="tooltiptext">Global structure with the functions related to GPIO.</span></span>.<span class="b3">init<span class="tooltiptext">Function to initialize the GPIO.</span></span>(&g_bsp_pin_cfg);</td>
+                  </tr>
+                  <tr>
+                      <td>164</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>165</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now it is time to write the source code needed to blink the led</div></li>
+               <li><div class="text">But the <b>main.c</b> is generated automatically, so we cannot write to it</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The file where we can write our source code is called <b>hal_entry.c</b></div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/33.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the following source code:</div></li>
+            </ul>
+            <img class="img" src="../courses/02_S1JA/Seccion01/L05_Gpio_Led/img/34.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>1</td>
+                      <td>/* HAL-only entry function */</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>#include "hal_data.h"</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td>void delay(void);</td>
+                  </tr>
+                  <tr>
+                      <td>6</td>
+                      <td>void <span class="b1">delay<span class="tooltiptext"> Function to do a delay of around 40ms</span></span>(void)</td>
+                  </tr>
+                  <tr>
+                      <td>7</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>8</td>
+                      <td>    <span class="b2">volatile<span class="tooltiptext"> Prevent the variable <b>i</b> to be optimized out by the compiler</span></span> int32_t i;</td>
+                  </tr>
+                  <tr>
+                      <td>9</td>
+                      <td>    for(i=0;</td>
+                  </tr>
+                  <tr>
+                      <td>10</td>
+                      <td>        i &lt 100000;</td>
+                  </tr>
+                  <tr>
+                      <td>11</td>
+                      <td>        i++);</td>
+                  </tr>
+                  <tr>
+                      <td>12</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>void hal_entry(void)</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b3">for(;;)<span class="tooltiptext"> Infinite loop</span></span> {</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>        g_ioport_on_ioport.<span class="b4">pinWrite<span class="tooltiptext"> Set the pin P015 to a high value</span></span>(IOPORT_PORT_00_PIN_15,</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>                                    IOPORT_LEVEL_HIGH);</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>        <span class="b5">delay()<span class="tooltiptext"> Wait for 40ms</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>        g_ioport_on_ioport.<span class="b6">pinWrite<span class="tooltiptext"> Set the pin P015 to a low value</span></span>(IOPORT_PORT_00_PIN_15,</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>                                    IOPORT_LEVEL_LOW);</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>        <span class="b1">delay()<span class="tooltiptext"> Wait for 40ms</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/02_S1JA/Seccion01/L05_Gpio_Led/downloads/workspace_gpio_led.7z">Download the workspace here</a></li>
+            </ul>
+        </div>

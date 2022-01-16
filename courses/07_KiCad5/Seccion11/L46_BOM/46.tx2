@@ -1,0 +1,54 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion11/L46_BOM/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]BOM
+[TITLE_ENGLISH]BOM
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para obtener la lista de materiales (<b>BOM</b>) vamos al editor de esquemáticos.
+[ENGLISH]To get the list of materials (<b>BOM</b>) we go to the schematic editor.
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En el menú <b>Tools</b> está la opción de generar la lista de materiales (<b>Generate Bill of Materials...</b>)
+[ENGLISH]In the <b>Tools</b> menu there is the option to generate the bill of materials (<b>Generate Bill of Materials ...</b>)
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay varios plugins para obtener distintas modalidades de BOM.
+[ENGLISH]There are several plugins to obtain different BOM types.
+[SPANISH]Vamos a generar el BOM con el plugin <b>boom_csv_grouped_by_value</b>
+[ENGLISH]We are going to generate the BOM with the plugin <b>boom_csv_grouped_by_value</b>
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Se ha generado un fichero <b>xml</b>. Lo abrimos con excel.
+[ENGLISH]A <b>xml</b> file has been generated. We open it with excel.
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Sale un BOM un poco raro. En la siguiente lección os voy a mostrar un programa en C# para obtener un BOM en formato csv.
+[ENGLISH]A slightly strange BOM comes out. In the next lesson I am going to show you a C # program to get a BOM in csv format.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[BLOCK_END]
+

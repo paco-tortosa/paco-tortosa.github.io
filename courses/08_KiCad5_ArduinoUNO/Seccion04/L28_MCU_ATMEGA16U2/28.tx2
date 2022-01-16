@@ -1,0 +1,67 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L28_MCU_ATMEGA16U2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]MCU ATMEGA16U2
+[TITLE_ENGLISH]MCU ATMEGA16U2
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para las comunicaciones USB con el ordenador vamos a usar otro microcontrolador de Microchip/Atmel, el <b>ATMEGA16U2</b>.
+[ENGLISH]For USB communications with the computer we are going to use another Microchip/Atmel microcontroller, the <b>ATMEGA16U2</b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es la página web de Mouser donde puedes ver el <b>ATMEGA16U2</b>. El part number es <b>ATMEGA16U2-AU</b>
+[ENGLISH]This is the Mouser website where you can see the <b>ATMEGA16U2</b>. Its full part number is <b>ATMEGA16U2-AU</b>
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]He elegido el encapsulado <b>TQPF-32</b> porque lo voy a soldar a mano.
+[ENGLISH]I have chosen the <b>TQPF-32</b> package because I am going to solder it by hand.
+[SPANISH]Como al <b>ATMEGA328P</b> lo vamos a alimentar a 5V.
+[ENGLISH]As <b>ATMEGA328P</b> we are going to power it with 5V.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>MCU_Microchip_ATmega</b> he encontrado el símbolo <b>ATMEGA16U2-AU</b>
+[ENGLISH]In the library <b>MCU_Microchip_ATmega</b> I found the symbol <b>ATMEGA16U2-AU</b>
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBS</b> y le he añadido los campos habituales en mis diseños.
+[ENGLISH]I have copied it in the <b>JAVIERM_LIBS</b> library and added the usual fields in my designs.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería de footprints <b>Package_QFP</b> está el footprint <b>TQFP-32_7x7mm_P0.8mm</b>
+[ENGLISH]In the footprint library <b>Package_QFP</b> is the footprint <b>TQFP-32_7x7mm_P0.8mm</b>
+[END_LIST]
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBF2</b>
+[ENGLISH]I have copied it to the <b>JAVIERM_LIBF2</b> library
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/doc7799-1315152.pdf;Datasheet
+[LINK_ENGLISH]downloads/doc7799-1315152.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+

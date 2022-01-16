@@ -1,0 +1,215 @@
+[LESSON_FOLDER]../courses/01_PSoC4/Seccion04/L14_StatusRegister/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Registro de estado
+[TITLE_ENGLISH]Status Register
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el componente Registro de Estado (Status Register)
+[ENGLISH]In this project you will learn a new HW component, the Status Register component
+[SPANISH]Con él, vas a poder saber en el firmware lo que está pasando en el hardware
+[ENGLISH]With it, you can know in the firmware what it is happening in the hardware
+[SPANISH]Si al proyecto anterior (013-Demultiplexor) añades un Registro de estado, podrás saber en el firmware el valor de la señal de salida del contador básico
+[ENGLISH]If you add a Status Register to the previous project (013-Demultiplexer), you will be able to know in the firmware the value of the outpus of the basis counter
+[END_LIST]
+[IMG]14a.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia el Workspace 13 y renómbralo como 14
+[ENGLISH]Copy the Workspace 13 and rename it as 14
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade un componente "Status Register" (Registro de estado)
+[ENGLISH]Add a Status Register component
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Renómbralo como "StatusRegister" y configura 2 entradas
+[ENGLISH]Rename it as "StatusRegister" and configure 2 inputs
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta un 1 lógico en la entrada de reloj
+[ENGLISH]Connect a logial 1 in the clock input
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta la señal de salida del contador básico a la entrada del registro de estado
+[ENGLISH]Connect the output signal of the basic counter to the input of the Status Register
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como es un bus hay que seleccionar que bit quieres conectar a la entrada
+[ENGLISH]As this is a bus, you have to select which bit you want to connect to the input
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El esquemático está terminado
+[ENGLISH]The schematic is done
+[END_LIST]
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve a "main.c" y añade el siguiente código:
+[ENGLISH]Go to "main.c" and add the following code:
+[END_LIST]
+[IMG]15.png
+
+[SOURCE_CODE_EX_BEGIN]12
+:code:#include <project.h>
+:code:
+:code:int main()
+:code:{
+:code:    volatile    uint8   u8OldStatus =   0;
+:key1:    --------
+:es__: La palabra clave <b>volatile</b> hace que el compilador no optimice el uso de estas variables
+:en__: The keyword <b>volatile</b> makes the compiler not to optimize these variables
+
+:code:    volatile    uint8   u8Status    =   0;
+:code:    volatile    uint8   u8Times     =   0;
+:code:
+:code:    CyGlobalIntEnable; /* Enable global interrupts. */
+:code:
+:code:    for(;;)
+:code:    {
+:code:        u8Status        =   StatusRegister_Read();
+:key2:                            ---------------------
+:es__: Devuelve el valor de las entradas del componente StatusRegister
+:en__: It returns the value of the inputs of the StatusRegister component
+
+:code:        if (u8Status != u8OldStatus)
+:key3:        ----------------------------
+:es__: Chequea si ha habido un cambio en el valor del status
+:en__: Check if there was a change in the status value
+
+:code:        {
+:code:            u8Times++;
+:key4:            ---------
+:es__: Incrementa la variable u8Times (sólo sirve para que veas su valor en la depuración)
+:en__: Increments the variable u8Times (only useful for you to check its value during the debug session)
+
+:code:            u8OldStatus =   u8Status;
+:code:        }
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En vez de transferir el programa y ejecutarlo, vas a depurarlo (debug)
+[ENGLISH]Instead of transfering the program and execute it, you will debug it
+[END_LIST]
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El programa se para en la primera línea de código
+[ENGLISH]The program will stop on the first line of code
+[END_LIST]
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Pon un breakpoint en la línea 27, al llegar ahí el programa parará
+[ENGLISH]Place a breakpoint on the line 27, the program will stop there
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Dale a ejecutar
+[ENGLISH]Click on "Resume Execution"
+[END_LIST]
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cada vez que pulsemos SW2, el programa llegará a la línea 27
+[ENGLISH]Every time you press SW2, the program will reach the line 27
+[END_LIST]
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Si pasas el ratón por encima de una variable podrás ver su valor
+[ENGLISH]If you place the mouse over a variable you can see its value
+[END_LIST]
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Puedes quitar el breakpoint y dejarlo correr
+[ENGLISH]You can remove the breakpoint and let the program run
+[END_LIST]
+[IMG]23.png
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para terminar la sesión de depuración : 
+[ENGLISH]To finish the debug session:
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS014.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS014.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]
+
+
+

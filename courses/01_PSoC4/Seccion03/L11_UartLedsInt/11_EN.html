@@ -1,0 +1,268 @@
+        <div class="title">UART and LEDs (INT)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the previous project, you saw how to receive data from PC via UART</div></li>
+               <li><div class="text">In this project you will do the same but using interrupts</div></li>
+               <li><div class="text">When a character is received via UART an interrupt is generated</div></li>
+            </ul>
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy the Workspace 10 and rename it as 11</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the schematics to change the properties of the UART component</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Enable the external interrupts (this will allow you to be able to use an ISR in the program)</div></li>
+               <li><div class="text">Enable the interrupt when the RX-FIFO is not empty</div></li>
+               <li><div class="text">The FIFO (First-In First-Out) is a buffer (memory zone) where the data that arrive to the PSoC via UART are stored</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add an interrupt to the schematic</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect it to the UART and rename it as UART_INT</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/06.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/07.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Generate the application to generate the functions related to the newly added interrupt</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to main.c</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This was the program WITHOUT interrupts</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the program WITH interrupts</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/12.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">What we have done is basically to move the code that was in the infinite loop inside the main function to the ISR (interrupt service routine)</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td><span class="b1">CY_ISR ( UART_Int_Handler )<span class="tooltiptext"> The macro CY_ISR defines the function <b>UART_Int_Handler</b> as ISR (Interrupt Service Routine)</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    uint32  u32IntSource    =   <span class="b2">UART_GetRxInterruptSource()<span class="tooltiptext"> It returns the source of the interrupt</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    if ((u32IntSource & <span class="b3">UART_INTR_RX_NOT_EMPTY<span class="tooltiptext"> It checks whether the interrupt source is that the RX-FIFO is not empty (a data has arrived)</span></span>) != 0)</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>        char ch_rx  =   <span class="b4">UART_UartGetChar()<span class="tooltiptext"> Gets the character received via UART (if there is no character in the buffer, it returns the value 0)</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>        </td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>        if (ch_rx != 0)</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>            <span class="b5">Pin_Rojo_Write(1)<span class="tooltiptext"> Switch the red led</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>            <span class="b6">Pin_Verde_Write(1<span class="tooltiptext"> Switch the green led</span></span>);</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>            <span class="b1">Pin_Azul_Write(1)<span class="tooltiptext"> Switch the blue led</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>            <span class="b2">if (ch_rx == '1')<span class="tooltiptext"> If the received character is 1, the red LED is switched on</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>            {</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>                Pin_Rojo_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>            }</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>            <span class="b3">else if (ch_rx == '2')<span class="tooltiptext"> If the received character is 2, the green LED is switched on</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>            {</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>                Pin_Verde_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>            }</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>            <span class="b4">else if (ch_rx == '3')<span class="tooltiptext"> If the received character is 3, the blue LED is switched on</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>            {</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>                Pin_Azul_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>            }</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>        UART_ClearRxInterruptSource(UART_INTR_RX_NOT_EMPTY);   </td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    <span class="b5">UART_Start()<span class="tooltiptext"> Initializes the UART component</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>    <span class="b6">UART_INT_StartEx(UART_Int_Handler)<span class="tooltiptext"> Initializes the interrupts of the UART component, and set the function <b>UART_Int_Handler</b> as the UART ISR</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>    <span class="b1">UART_UartPutString("Send 1 for RED led, 2 for GREEN led and 3 for BLUE red \n")<span class="tooltiptext"> Sends the initial string to the PC via UART</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion03/L11_UartLedsInt/downloads/WS011en.zip">Download the project here (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

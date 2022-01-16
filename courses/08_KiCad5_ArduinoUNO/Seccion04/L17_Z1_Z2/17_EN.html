@@ -1,0 +1,51 @@
+        <div class="title">Z1,Z2 Zeners</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The <b>Z1</b> and <b>Z2</b> zeners are connected between the USB data lines <b>D +</b> and <b>D-</b> and chassis to protect the PCB from electrostatic discharges.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the recommended TVS in the Arduino reference design. The manufacturer is <b>Bourns</b> and its part number is <b>CG0603MLC-05E</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/02.png">
+            <ul>
+               <li><div class="text">The working voltage of this zener is equal to or less than 5V. The signals of the lines <b>D +</b> and <b>D-</b> for <b>USB1.1</b> and <b>USB2.0</b> do not exceed <b > 3.3V</b> so this TVS is perfect.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the library <b>Device</b> I found the symbol <b>D_TVS_ALT</b></div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/04.png">
+            <ul>
+               <li><div class="text">I have copied it to the <b>JAVIERM_LIBS</b> library and added the usual fields in my designs.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the datasheet with its dimensions</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/06.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the KiCad libraries I have not found a footprint for a TVS with package 0603, but the one for the capacitor works for us. Since as you can see the KiCad symbol is somewhat larger than what the datasheet recommends.</div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/10.png">
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/11.png">
+            <ul>
+               <li><div class="text">So I have copied the footprint to our library giving it the name <b>TVS_0603</b></div></li>
+            </ul>
+            <img class="img" src="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/img/12.png">
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/08_KiCad5_ArduinoUNO/Seccion04/L17_Z1_Z2/downloads/cg0603mlc-05e_cg0603mlc-12e-1313440.pdf">Datasheet</a></li>
+            </ul>
+        </div>

@@ -1,0 +1,72 @@
+        <div class="title">ERC</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora tenemos que ver si nuestro esquemático contiene errores. La herramienta se llama <b>ERC</b> (Electrical Rules Checker)</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/01.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como ves hay dos errores, vamos a resolver el primero.</div></li>
+               <li><div class="text">El pin 1 del regulador <b>L7805</b> está definido en la librería como <b>Power Input</b> y está conectado al cátodo de un diodo que no es <b>Power Output</b>.</div></li>
+               <li><div class="text">Este error es muy fácil de resolver, hay un símbolo en la librería <b>power</b> llamado <b>PWR_FLAG</b> que es un pin definido como <b>Power Output</b>. Vamos a añadirlo y conectarlo al pin1 del regulador.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/03.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/04.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/05.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/06.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/07.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a ejecutar otra vez la herramienta <b>ERC</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/09.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/10.png">
+            <ul>
+               <li><div class="text">El primer error se ha ido. El segundo es del mismo tipo pero con el símbolo <b>GND</b> que añadimos.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a duplicar el símbolo <b>PWR_FLAG</b> y lo conectamos a <b>GND</b>. Duplicar se hace con la tecla rápida <b>C</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/12.png">
+            <ul>
+               <li><div class="text">Ponemos el ratón sobre el símbolo que queremos duplicar y pulsamos la tecla <b>C</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/13.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/14.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/15.png">
+            <ul>
+               <li><div class="text">Rotamos el nuevo componente mientras lo movemos con la tecla <b>R</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/16.png">
+            <ul>
+               <li><div class="text">Y finalmente lo conectamos a <b>GND</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Si ejecutamos otra vez <b>ERC</b> vemos que ya no tenemos errores.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/18.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/19.png">
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Nuestro esquemático no tiene errores.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ya podemos guardarlo.</div></li>
+            </ul>
+            <img class="img" src="../courses/07_KiCad5/Seccion04/L23_ERC/img/22.png">
+        </div>

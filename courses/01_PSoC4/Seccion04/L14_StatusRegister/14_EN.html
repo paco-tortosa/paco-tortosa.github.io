@@ -1,0 +1,207 @@
+        <div class="title">Status Register</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this project you will learn a new HW component, the Status Register component</div></li>
+               <li><div class="text">With it, you can know in the firmware what it is happening in the hardware</div></li>
+               <li><div class="text">If you add a Status Register to the previous project (013-Demultiplexer), you will be able to know in the firmware the value of the outpus of the basis counter</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/14a.png">
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy the Workspace 13 and rename it as 14</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/01.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/02.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a Status Register component</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edit its properties</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename it as "StatusRegister" and configure 2 inputs</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/06.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect a logial 1 in the clock input</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the output signal of the basic counter to the input of the Status Register</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">As this is a bus, you have to select which bit you want to connect to the input</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/10.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/11.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/12.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The schematic is done</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to "main.c" and add the following code:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/15.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b1">volatile<span class="tooltiptext"> The keyword <b>volatile</b> makes the compiler not to optimize these variables</span></span>    uint8   u8OldStatus =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    volatile    uint8   u8Status    =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    volatile    uint8   u8Times     =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        u8Status        =   <span class="b2">StatusRegister_Read()<span class="tooltiptext"> It returns the value of the inputs of the StatusRegister component</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>        <span class="b3">if (u8Status != u8OldStatus)<span class="tooltiptext"> Check if there was a change in the status value</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>            <span class="b4">u8Times++<span class="tooltiptext"> Increments the variable u8Times (only useful for you to check its value during the debug session)</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>            u8OldStatus =   u8Status;</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Instead of transfering the program and execute it, you will debug it</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The program will stop on the first line of code</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Place a breakpoint on the line 27, the program will stop there</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click on "Resume Execution"</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Every time you press SW2, the program will reach the line 27</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If you place the mouse over a variable you can see its value</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">You can remove the breakpoint and let the program run</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/23.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">To finish the debug session:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion04/L14_StatusRegister/img/25.png">
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion04/L14_StatusRegister/downloads/WS014.zip">Download the project here (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

@@ -1,0 +1,509 @@
+        <div class="title">Program (ASM)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">As you can see on the video, the program for this lesson is going to do the same as the program in the previous lesson.</div></li>
+               <li><div class="text">But, we are going to optimize the function <b>SendByte</b>, we are going to write it in assembly language.</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/MSyBh5-Im1c?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <div class="title">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to create a new project called <b>P17_Click4x4RGB_ASM</b> from the project <b>P16_Click4x4RGB_HAL</b>.</div></li>
+               <li><div class="text">Use the menu item to create a project from a configuration file <b>.ioc</b></div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Search for the <b>.ioc</b> file of the project <b>P16_Click4x4RGB_HAL</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/06.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Give to the new project the name <b>P17_Click4x4RGB_ASM</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/08.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Here you can see the new project.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy the source code files from the project <b>P16_Click4x4RGB_HAL</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/11.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/12.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/13.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/14.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And close the other projects.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/16.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s modify the file <b>main.c</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/18.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/19.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/20.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/21.png">
+            <ul>
+               <li><div class="text">I have created the variable <b>u32APP_GPIO_DIN_PORT</b> in order to have access to the constant <b>LD2_GPIO_Port</b> in the assembly language file and the variable <b>u32APP_GPIO_DIN_PIN</b> to have access to <b>LD2_Pin</b>.</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s modify the file <b>AppClick4x4RGB.c</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/22.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We do not need the functions <b>write0</b>, <b>write1</b> and <b>SendByte</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/24.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/25.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/26.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/28.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/29.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the prototype of the function <b>fSendByte</b> that we will implement in assembly language.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Replace the calls to the function <b>SendByte</b> for calls to the function <b>fSendByte</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/31.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a file for our assembly code called <b>AppClick4x4ASM.s</b></div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/33.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/34.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/35.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I delete the content and paste the source code that I have prepared in assembly code for this lesson.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/36.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/37.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>1</td>
+                      <td>    .syntax unified</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>    .text</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td>    .equ    <span class="b1">BSRR_OFFSET<span class="tooltiptext">This is the offset of the register BSRR inside the port. The register BSRR is used to set to 1 the bits of the port A.</span></span>,    0x18</td>
+                  </tr>
+                  <tr>
+                      <td>6</td>
+                      <td>    .equ    <span class="b2">BRR_OFFSET<span class="tooltiptext">This is the offset of the register BRR inside the port. The register BRR is used to clear the bits of the port A.</span></span>,     0x28</td>
+                  </tr>
+            </table>
+            <table class="source-code-table">
+                  <tr>
+                      <td>8</td>
+                      <td>/************************************************</td>
+                  </tr>
+                  <tr>
+                      <td>9</td>
+                      <td>    fSendByte</td>
+                  </tr>
+                  <tr>
+                      <td>10</td>
+                      <td>    <span class="b3">void fSendByte( uint8_t _u8Value )<span class="tooltiptext">The function <b>fSendByte</b> receives the byte to send in the register <b>r0</b>.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>11</td>
+                      <td>************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>12</td>
+                      <td>    .global fSendByte</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td>    .func fSendByte</td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>    .thumb_func</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>fSendByte:</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b4">PUSH    {r4,r5,r6,LR}<span class="tooltiptext">Save to the stack the registers r4,r5,r6 and LR.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    <span class="b5">mov     r4,r0<span class="tooltiptext">Copy to r4 the value to send.</span></span>     //r4 is the parameter _u8Value</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    LDR     r3,<span class="b6">=u32APP_GPIO_DIN_PORT<span class="tooltiptext">Copy to r3 the address of the variable <b>u32APP_GPIO_DIN_PORT</b> that is the direction of the registers of port A.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>    <span class="b1">LDR     r1,[r3]<span class="tooltiptext">Copy to r1 the content of the address of the variable <b>u32APP_GPIO_DIN_PORT</b>. That is to say, copy to r1 the value of the variable <b>u32APP_GPIO_DIN_PORT</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    LDR     r3,<span class="b2">=u32APP_GPIO_DIN_PIN<span class="tooltiptext">Copy to r3 the address of the variable <b>u32APP_GPIO_DIN_PIN</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    <span class="b3">LDR     r2,[r3]<span class="tooltiptext">Copy to r2 the content of the address of the variable <b>u32APP_GPIO_DIN_PIN</b>. That is to say, copy to r2 the value of the variable <b>u32APP_GPIO_DIN_PIN</b>. </span></span></td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    <span class="b4">movs    r5,#0x80<span class="tooltiptext">r5 will be the mask to walk through the bits of the value to send. It is initialized to the value 0x80 to begin from the most significant bit.</span></span>  //r5 is u8Mask</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>fSendByte_BeginLoop:</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    <span class="b5">cmp     r5,#0<span class="tooltiptext">Compare r5 (the mask) to 0.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>    <span class="b6">beq     fSendByte_End<span class="tooltiptext">If the mask is 0, we are done and jump to the label <b>fSendByte_End</b>.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>    <span class="b1">mov     r6,r5<span class="tooltiptext">From the lines 29 to 32 we do and <b>and</b> of the mask and the value, if it is 1 we have to generate a 1, if not, a 0.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>    ands    r6,r4</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>    cmp     r6,#0</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    <span class="b2">beq     fSendByte_0<span class="tooltiptext">If it is 0, jump to the label <b>fSendByte_0</b> at the line 63, otherwise, continue to line 33.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td><span class="b3">fSendByte_1<span class="tooltiptext">From the lines 35 to 60 a 1 is generated, that is 0.7us at high level and 0.6us at low level.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>    //1</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>    <span class="b4">STR     r2,[r1, #BSRR_OFFSET]<span class="tooltiptext">Set to 1 the bit, of the register BSRR, corresponding to the mask, this way we set a 1 on DIN. Let&#39s execute this instruction 17 times so that the time at high level is 0.7us.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>    <span class="b5">STR     r2,[r1, #BRR_OFFSET]<span class="tooltiptext">Set to 1 the bit, of the register BRR, corresponding to the mask, this way we set a 0 on DIN. Let&#39s execute this instruction 7 times so that the time at high level is 0.6us.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>    <span class="b6">b       fSendByte_EndLoop<span class="tooltiptext">Jump to the label <b>fSendByte_EndLoop</b></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td><span class="b1">fSendByte_0<span class="tooltiptext">From the lines 65 to 83, a 0 is generated, that is 0.35us at high level and 0.8us at low level.</span></span>:</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>    //0</td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>    <span class="b2">STR     r2,[r1, #BSRR_OFFSET]<span class="tooltiptext">Set to 1 the bit, of the register BSRR, corresponding to the mask, this way we set a 1 on DIN. Let&#39s execute this instruction 8 times so that the time at high level is 0.35us.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>72</td>
+                      <td>    STR     r2,[r1, #BSRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>73</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>74</td>
+                      <td>    <span class="b3">STR     r2,[r1, #BRR_OFFSET]<span class="tooltiptext">Set to 1 the bit, of the register BRR, corresponding to the mask, this way we set a 0 on DIN. Let&#39s execute this instruction 10 times so that the time at high level is 0.8us.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>75</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>76</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>77</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>78</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>79</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>80</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>81</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>82</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>83</td>
+                      <td>    STR     r2,[r1, #BRR_OFFSET]</td>
+                  </tr>
+                  <tr>
+                      <td>84</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>85</td>
+                      <td>    <span class="b4">b       fSendByte_EndLoop<span class="tooltiptext">Jump to the label <b>fSendByte_EndLoop</b></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>86</td>
+                      <td>fSendByte_EndLoop:</td>
+                  </tr>
+                  <tr>
+                      <td>87</td>
+                      <td>    <span class="b5">lsrs    r5,r5,#1<span class="tooltiptext">Shift one bit to the right the mask.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>88</td>
+                      <td>    <span class="b6">b       fSendByte_BeginLoop<span class="tooltiptext">Jump to the beginning of the loop to do another iteration.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>89</td>
+                      <td>fSendByte_End:</td>
+                  </tr>
+                  <tr>
+                      <td>90</td>
+                      <td>    <span class="b1">POP     {r4,r5,r6,PC}<span class="tooltiptext">Restore the registers r4 to r6 and PC to return from the function.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>91</td>
+                      <td>    .endfunc</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build the project.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/38.png">
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/39.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And debug it.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/40.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">These are 2 screenshots, with the oscilloscope, of a 0 on the DIN signal </div></li>
+               <li><div class="text">The ON time is 0.35 us.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/03.png">
+            <ul>
+               <li><div class="text">The OFF time is 0.8 us.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">These are 2 screenshots of a 1 on the DIN signal </div></li>
+               <li><div class="text">The ON time is 0.7 us.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/01.png">
+            <ul>
+               <li><div class="text">The OFF time is 0.6 us.</div></li>
+            </ul>
+            <img class="img" src="../courses/04_STM32F0/Seccion05/L37_Program_ASM/img/02.png">
+        </div>

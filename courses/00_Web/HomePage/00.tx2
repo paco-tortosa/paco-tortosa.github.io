@@ -1,0 +1,56 @@
+[LESSON_FOLDER]../courses/00_Web/HomePage/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Bienvenido a <b>Embedded-Learning Academy</b>
+[TITLE_ENGLISH]Welcome to <b>Embedded-Learning Academy</b> 
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]<b>Muchas gracias</b> por visitar mi web-page.
+[ENGLISH]<b>Many thanks</b> for visiting my web-page.
+
+[SPANISH]Me llamo <b>Javier Martínez</b> y soy Ingeniero de Telecomunicación.
+[ENGLISH]My name is <b>Javier Martínez</b> and I am a Telecommunication Engineer.
+
+[SPANISH]Aquí podrás encontrar <b>CURSOS</b> sobre microcontroladores.
+[ENGLISH]Here you can find <b>COURSES</b> on MCU.
+
+[SPANISH]Mi email es<a class="email" href = "mailto: javierm@embedded-learning.academy">javierm@embedded-learning.academy</a>
+[ENGLISH]My email is<a class="email" href = "mailto: javierm@embedded-learning.academy">javierm@embedded-learning.academy</a>
+
+[SPANISH]La página web está optimizada para <b>Google Chrome</b> y <b>Firefox</b>.
+[ENGLISH]The webpage is optimized for <b>Google Chrome</b> and <b>Firefox</b>.
+
+//[SPANISH]La página web está optimizada para <b>Google Chrome</b>, <b>Firefox</b> y <b>Microsoft Edge</b>.
+//[ENGLISH]The webpage is optimized for <b>Google Chrome</b>, <b>Firefox</b> and <b>Microsoft Edge</b>.
+
+[END_LIST]
+[BLOCK_END]
+
+[END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Curso sobre <b>Cypress-Infineon</b> PSoC 4
+[ENGLISH]Course on <b>Cypress-Infineon</b> PSoC 4
+[END_LIST]
+[IMG_SPANISH]C002_ES_CourseImage.png
+[IMG_ENGLISH]C002_EN_CourseImage.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Curso sobre <b>Renesas</b> S1JA
+[ENGLISH]Course on <b>Renesas</b> S1JA
+[END_LIST]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Curso sobre <b>ST</b> STM32F0
+[ENGLISH]Course on <b>ST</b> STM32F0
+[END_LIST]
+[BLOCK_END]
+
+
+

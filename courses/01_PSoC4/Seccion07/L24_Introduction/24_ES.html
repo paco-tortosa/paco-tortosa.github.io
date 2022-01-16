@@ -1,0 +1,332 @@
+        <div class="title">Introducción a Verilog</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vamos a usar la lógica programable que hay dentro de PSoC con Verilog para crear un componente <b>muy</b> sencillo.</div></li>
+               <li><div class="text">Va a tener una entrada y dos salidas. La salida <b>OUT1</b> está conectada directamente a la entrada <b>IN1</b> y la salida <b>OUT1n</b> es la negada de la entrada <b>IN1</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/P024_NewComponent.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la siguiente simulación se puede ver cómo queremos que funcione : </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/EPWave2.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como se puede ver en la siguiente figura, <b>PSoC 4</b> tiene 4 <b>UDB</b> (Universal Digital Block - Bloque Digital Universal).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/LP.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cada <b>UDB</b> tiene 2 <b>PLD</b> (Programmable Logic Device - Dispositivo Lógico Programable).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/UDB.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Una <b>PLD</b> contiene elementos lógicos (AND, OR, INVERT y FLIP-FLOP).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/PLD.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a programar los <b>UDB</b> con <b>Verilog</b> que es un lenguaje de descripción de hardware usado para modelar sistemas electrónicos.</div></li>
+               <li><div class="text">Para ver el proyecto en funcionamiento vamos a conectar la entrada al pulsador SW2 y las salidas a los leds Rojo y Verde.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/P024_Board.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando SW2 esté pulsado se encenderá el led rojo, cuando no esté pulsado se encenderá el led verde.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/P024_Leds.png">
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/rKhCtNxQU2E?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a necesitar 2 proyectos. El primero será una librería donde implementamos el nuevo componente. El segundo, proyecto principal, usará el nuevo componente.</div></li>
+            </ul>
+        </div>
+        <div class="section">Proyecto 1 : Librería</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea un proyecto nuevo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Tipo = <b>"Library project"</b> (Librería de componentes)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Asigna como nombre de proyecto <b>LIB_024</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a la pestaña de componentes.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz clic con el botón derecho del ratón y selecciona la opción <b>Add Component Item...</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Nombra el componente como <b>PSoC4_Logic_01</b> y selecciona el <b>Symbol Wizard</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade 3 terminales. Una entrada llamada <b>in1</b> y dos salidas llamadas <b>out1</b> y <b>out1n</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz clic con el botón derecho del ratón en una zona sin componentes del panel.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz clic en <b>Properties</b> (propiedades).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la propiedad <b>Doc.CatalogPlacement</b> haz clic en el botón con texto <b>...</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el texto <b>Community/Digital/Logic/PSoC4_Logic_01</b>. <br><b>PSoC4_Logic_01</b> es el nombre que le queremos dar a nuestro componente.<br><b>Community</b> es la categoría dentro del catálogo de componentes.<br><b>Digital</b> y <b>Logic</b> son las subcategorías dentro del catálogo de componentes.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz el componente más ancho para que todo el nombre quepa en la caja.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/13.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz clic con el botón derecho del ratón en una zona sin componentes del panel.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y genera el fichero de verilog.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz clic en el botón <b>Generate</b> (generar).</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El fichero de verilog se ha creado con un módulo llamado como el componente <b>PSoC4_Logic_01</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade las líneas de código siguientes :</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/19.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>17</td>
+                      <td>module PSoC4_Logic_01 (</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    output  out1,</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    output  out1n,</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    input   in1</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>);</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>//`#start body` -- edit after this line, do not edit this line</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    <span class="b1">assign out1 = in1;<span class="tooltiptext"> Asigna la entrada <b>in1</b> a la salida <b>out1</b></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    <span class="b2">assign out1n = ! in1<span class="tooltiptext"> Asigna a la salida <b>out1n</b> la negada de la entrada <b>in1</b></span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>//`#end` -- edit above this line, do not edit this line</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>endmodule</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="section">Proyecto 1 : Librería</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea un proyecto nuevo.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Basado en el kit <b>CY8CKIT-042</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona esquemático vacío.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Dale el nombre <b>P024</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la pestaña <b>Components</b> (componentes) haz clic en <b>Dependencies...</b> (dependencias)</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Marca la opción <b>LIB_024</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En el catálogo de componentes busca el componente <b>PSoC4_Logic_01</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y arrástralo al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una salida digital al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/29.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y renómbrala como <b>Pin_LedRed</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/45.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia y pega <b>Pin_LedRed</b> </div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y renombra el nuevo pin como <b>Pin_LedGreen</b></div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una entrada digital al esquemático.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/33.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/34.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades, renómbrala como <b>Pin_SW2</b> y selecciona el modo <b>Resistive pull up</b>.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/35.png">
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/36.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a la configuración de pines.</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/38.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Asigna los pines así:</div></li>
+            </ul>
+            <img class="img" src="../courses/01_PSoC4/Seccion07/L24_Introduction/img/39.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila el proyecto y transfiérelo.</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../courses/01_PSoC4/Seccion07/L24_Introduction/downloads/WS024.zip">Descarga el workspace con los dos proyectos aquí (PSoC Creator 4.0).</a></li>
+            </ul>
+        </div>

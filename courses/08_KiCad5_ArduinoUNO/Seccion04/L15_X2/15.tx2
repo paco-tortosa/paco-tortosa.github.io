@@ -1,0 +1,89 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L15_X2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Conector X2
+[TITLE_ENGLISH]X2 Connector
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El conector USB <b>X2</b> es de tipo USB 2.0 tipo B.
+[ENGLISH]The USB <b>X2</b> connector is USB 2.0 type B.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el conector que he encontrado en Mouser. El fabricante es <b>CUI Devices</b> y su part number es <b>UJ2-BH-1-TH</b>.
+[ENGLISH]This is the connector that I found at Mouser. The manufacturer is <b>CUI Devices</b> and its part number is <b>UJ2-BH-1-TH</b>.
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta sección no voy a mostrar todos los pasos para copiar los componentes de las librerías de KiCad en la mía ya que eso lo hemos visto ya en la sección 3.
+[ENGLISH]In this section I am not going to show all the steps to copy the components of the KiCad libraries into mine since we have already seen that in section 3.
+[SPANISH]En la librería <b>Connector</b> he encontrado el símbolo <b>USB_B</b>.
+[ENGLISH]In the <b>Connector</b> library I found the <b>USB_B</b> symbol.
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Y lo he copiado en la librería <b>JAVIERM_LIBS</b> (También he añadido los campos <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> y <b>Manufacturer</b>)
+[ENGLISH]And I have copied it in the <b>JAVIERM_LIBS</b> library (I have also added the fields <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> and <b>Manufacturer</b>)
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet del conector USB de Mouser.
+[ENGLISH]This is the datasheet of the Mouser USB connector.
+[END_LIST]
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]Y estas sus dimensiones.
+[ENGLISH]And these are its dimensions.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería de footprints <b>Connector_USB</b> está el símbolo <b>USB_B_OST_USB-B1HSxx_Horizontal</b>
+[ENGLISH]The <b>Connector_USB</b> footprint library contains the <b>USB_B_OST_USB-B1HSxx_Horizontal</b> symbol
+[END_LIST]
+[IMG]08.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBF2</b>
+[ENGLISH]I have copied it to the <b>JAVIERM_LIBF2</b> library
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El datasheet y el footprint de KiCad tiene exactamente las mismas dimensiones, así que no tenemos que hacer ningún cambio en el footprint de <b>JAVIERM_LIBF</b>
+[ENGLISH]The KiCad datasheet and footprint have exactly the same dimensions, so we don&#39t have to make any changes to the <b>JAVIERM_LIBF</b> footprint
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/uj2-bh-th-1779177.pdf;Datasheet
+[LINK_ENGLISH]downloads/uj2-bh-th-1779177.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L18_ArrayResistors/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Array de resistencias
+[TITLE_ENGLISH]Array Resistors
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la placa vamos a tener arrays de 4 resistencias de diferentes valores. Van a haber 1 de 22R, 2 de 1K y 1 de 10K.
+[ENGLISH]On the board we will have arrays of 4 resistors of different values. There will be 1 of 22R, 2 of 1K and 1 of 10K.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el array de 4 resistencias de 22 ohmios en Mouser.
+[ENGLISH]This is the array of 4 22ohm resistors at Mouser.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Este es el array de 4 resistencias de 1K ohmios en Mouser.
+[ENGLISH]This is the array of 4 1Kohm resistors at Mouser.
+[END_LIST]
+[IMG]03.png
+
+[BEGIN_LIST]
+[SPANISH]Este es el array de 4 resistencias de 10K ohmios en Mouser.
+[ENGLISH]This is the array of 4 10Kohm resistors at Mouser.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Device</b> he encontrado el símbolo <b>R_Pack04</b>
+[ENGLISH]In the <b>Device</b> library I found the <b>R_Pack04</b> symbol
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]Lo voy a copiar 3 veces para crear los símbolos <b>RN_22R_0603</b>, <b>RN_1K_0603</b> y <b>RN_10K_0603</b>.
+[ENGLISH]I am going to copy it 3 times to create the symbols <b>RN_22R_0603</b>, <b>RN_1K_0603</b> and <b>RN_10K_0603</b>.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet con las dimensiones.
+[ENGLISH]This is the datasheet with the dimensions.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Las dimensiones del datasheet coinciden con las del footprint <b>R_Array_Convex_4x0603</b> de la librería <b>Resistor_SMD</b>, así que lo copio en nuestra librería.
+[ENGLISH]The dimensions of the datasheet match those of the footprint <b>R_Array_Convex_4x0603</b> from the <b>Resistor_SMD</b> library, so I copy it into our library.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/CATCAY-777361.pdf;Datasheet
+[LINK_ENGLISH]downloads/CATCAY-777361.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+
+
+
+

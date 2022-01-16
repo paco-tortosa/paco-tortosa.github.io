@@ -1,0 +1,168 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion08/L41_Serigrafia/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Serigrafía
+[TITLE_ENGLISH]Silkscreen
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a ordenar la serigrafía de la PCB.
+[ENGLISH]I&#39m going to order the silkscreen on the PCB.
+[SPANISH]Como la capa de cobre en el top (<b>F.Cu</b>) está seleccionada el texto C2 no ve, está tapado por la pista de cobre.
+[ENGLISH]As the copper layer at the top (<b>F.Cu</b>) is selected, the text C2 does not see, it is covered by the copper track.
+[END_LIST]
+[IMG]01.png
+
+[BEGIN_LIST]
+[SPANISH]Voy a seleccionar la capa de serigrafía del top <b>F.SilkS</b> para poder ver los textos.
+[ENGLISH]I am going to select the silkscreen layer of the top <b>F.SilkS</b> to be able to see the texts.
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Primero voy a mover los agujeros <b>H1</b> y <b>H2</b> para que estén alineados con el conector <b>J2</b>.
+[ENGLISH]First I&#39m going to move the <b>H1</b> and <b>H2</b> holes so that they are aligned with the <b>J2</b> connector.
+[SPANISH]Selecciono <b>H1</b> con el ratón.
+[ENGLISH]I select <b>H1</b> with the mouse.
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Añado <b>J2</b> a la selección con el ratón manteniendo presionada la tecla <b>Mayúsculas</b> o <b>Shift</b> en inglés.
+[ENGLISH]I add <b>J2</b> to the selection with the mouse holding down the <b>Shift</b> key.
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]Y lo mismo con <b>H2</b>.
+[ENGLISH]And the same with <b>H2</b>.
+[END_LIST]
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]Para que la referencia de la alineación sea <b>J2</b> pongo el ratón en <b>J2</b> y con el botón derecho del ratón selecciono la herramienta de alinear a la izquierda (<b>Align to Left</b>)
+[ENGLISH]For the alignment reference to be <b>J2</b> I put the mouse on <b>J2</b> and with the right mouse button I select the tool to align to the left (<b>Align to Left</b>)
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Muevo el logo a la derecha.
+[ENGLISH]I move the logo to the right.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Muevo el fiducial <b>FID1</b> para que no se solape con <b>H2</b>
+[ENGLISH]I move the fiducial <b>FID1</b> so that it does not overlap with <b>H2</b>
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Muevo el rectángulo ahora.
+[ENGLISH]I move the rectangle now.
+[END_LIST]
+[IMG]15.png
+[IMG]16.png
+[IMG]17.png
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Los texto <b>H1</b> y <b>H3</b> los movemos hacia abajo.
+[ENGLISH]We move the text <b>H1</b> and <b>H3</b> down.
+[END_LIST]
+[IMG]19.png
+[IMG]20.png
+[IMG]21.png
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Muevo el texto <b>J2</b>.
+[ENGLISH]I move the text <b>J2</b>.
+[END_LIST]
+[IMG]23.png
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Movemos el texto <b>C1</b>
+[ENGLISH]We move the text <b>C1</b>
+[END_LIST]
+[IMG]25.png
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Movemos el texto <b>FID1</b>
+[ENGLISH]We move the text <b>FID1</b>
+[END_LIST]
+[IMG]27.png
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añadimos texto al conector <b>J2</b> para identificar los polos. Un texto será <b>24V</b> y el otro <b>Gnd</b>.
+[ENGLISH]We add text to the <b>J2</b> connector to identify the poles. One text will be <b>24V</b> and the other <b>Gnd</b>.
+[END_LIST]
+[IMG]29.png
+[IMG]30.png
+[IMG]31.png
+[IMG]32.png
+[IMG]33.png
+[IMG]34.png
+[IMG]35.png
+[IMG]36.png
+[IMG]37.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Movemos el texto <b>FID2</b>
+[ENGLISH]We move the text <b>FID2</b>
+[END_LIST]
+[IMG]38.png
+[IMG]39.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añadimos texto al conector <b>J3</b> para identificar los polos. Un texto será <b>5V</b> y el otro <b>Gnd</b>.
+[ENGLISH]We add text to the <b>J3</b> connector to identify the poles. One text will be <b>5V</b> and the other <b>Gnd</b>.
+[END_LIST]
+[IMG]40.png
+[IMG]41.png
+[IMG]42.png
+[IMG]43.png
+[IMG]44.png
+[IMG]45.png
+[IMG]46.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya hemos terminado, guarda la PCB.
+[ENGLISH]We are done, save the PCB.
+[END_LIST]
+[IMG]47.png
+[BLOCK_END]
+

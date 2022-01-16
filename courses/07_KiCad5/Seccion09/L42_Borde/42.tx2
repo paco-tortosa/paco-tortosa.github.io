@@ -1,0 +1,99 @@
+[LESSON_FOLDER]../courses/07_KiCad5/Seccion09/L42_Borde/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Borde
+[TITLE_ENGLISH]Edge
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a dibujar el borde de la placa. Primero tenemos que seleccionar la capa <b>Edge.Cuts</b>
+[ENGLISH]Let&#39s draw the edge of the PCB. First we have to select the layer <b>Edge.Cuts</b>
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la herramienta para dibujar líneas.
+[ENGLISH]Select the tool for drawing lines.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Dibuja un rectángulo.
+[ENGLISH]Draw a rectangle.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora hay que unir los extremos.
+[ENGLISH]Now we have to join the ends.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver la placa en 3D.
+[ENGLISH]Let&#39s see the PCB in 3D.
+[END_LIST]
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a acercar el texto de los agujeros a los pads.
+[ENGLISH]I&#39m going to move the text of the holes closer to the pads.
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[IMG]19.png
+[IMG]20.png
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como ves los textos <b>24V</b>, <b>Gnd</b> y el <b>logo</b> están muy cerca del borde:
+[ENGLISH]As you can see the texts <b>24V</b>, <b>Gnd</b> and the <b>logo</b> are very close to the edge:
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a moverlos.
+[ENGLISH]I&#39m going to move them.
+[END_LIST]
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[IMG]29.png
+[IMG]30.png
+[IMG]31.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el resultado final:
+[ENGLISH]This is the end result:
+[END_LIST]
+[IMG]32.png
+[BLOCK_END]
+

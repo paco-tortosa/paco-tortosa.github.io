@@ -1,0 +1,73 @@
+[LESSON_FOLDER]../courses/08_KiCad5_ArduinoUNO/Seccion04/L19_L1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Ferrita L1
+[TITLE_ENGLISH]L1 Ferrite
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La ferrita <b>L1</b> conecta la masa del conector USB con el chasis.
+[ENGLISH]The <b>L1</b> ferrite connects the ground of the USB connector with the chassis.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es la ferrita recomendada en el diseño de referencia de Arduino. El fabricante es <b>Murata</b> y el part number es <b>BLM21PG600SN1D</b>
+[ENGLISH]This is the recommended ferrite in the Arduino reference design. The manufacturer is <b>Murata</b> and the part number is <b>BLM21PG600SN1D</b>
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Device</b> he encontrado el símbolo <b>Ferrite_Bead_Small</b>
+[ENGLISH]In the library <b>Device</b> I found the symbol <b>Ferrite_Bead_Small</b>
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBS</b> y le he añadido los campos habituales en mis diseños.
+[ENGLISH]I have copied it in the <b>JAVIERM_LIBS</b> library and added the usual fields in my designs.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Estas son las dimensiones del datasheet
+[ENGLISH]These are the dimensions of the datasheet
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En las librerías de KiCad no he encontrado un footprint para una ferrita de encapsulado 0805, pero el del condensador nos sirve. Ya que como ves el símbolo de KiCad es algo mayor que lo que recomienda el datasheet.
+[ENGLISH]In the KiCad libraries I have not found a footprint for a 0805 package ferrite, but the one for the capacitor works for us. Since as you can see the KiCad symbol is somewhat larger than what the datasheet recommends.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+
+[BEGIN_LIST]
+[SPANISH]Así que he copiado el footprint a nuestra librería dándole el nombre <b>Ferrite_0805</b>
+[ENGLISH]So I have copied the footprint to our library giving it the name <b>Ferrite_0805</b>
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/BLM21PG600SN1_23-928751.pdf;Datasheet
+[LINK_ENGLISH]downloads/BLM21PG600SN1_23-928751.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+
+
+
+
+
