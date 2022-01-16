@@ -1,0 +1,131 @@
+[IMG_FOLDER]img/027_P016_ControlRegister/
+
+[TITLE_SPANISH]016 - Registro de Control (Control Register)
+[TITLE_ENGLISH]016 - Control Register
+[TITLE_DEUTSCH]016 - Control Register
+
+[SPANISH]En este proyecto vamos a hacer parpadear el led rojo. Cada segundo vamos a cambiar automáticamente la frecuencia del parpadeo (de 5Hz a 20Hz). De esta manera veremos un parpadeo rápido y otro lento.
+[ENGLISH]In this project you will blink the red LED. Every second the blinking frequency will change ( from 5 Hz to 20 Hz). Thus you will see a fast and a slow blinking.
+[DEUTSCH]In this project you will blink the red LED. Every second the blinking frequency will change ( from 5 Hz to 20 Hz). Thus you will see a fast and a slow blinking.
+
+[SPANISH]En el proyecto anterior (015) el cambio lo hacíamos pulsando SW2. Ahora lo vamos a hacer desde el programa cada segundo, mediante el componente Control Register.
+[ENGLISH]In the previous project (015) the change was made by pushing SW2. Now it is going to be made automatically every second, by the use of the Control Register component.
+[DEUTSCH]In the previous project (015) the change was made by pushing SW2. Now it is going to be made automatically every second, by the use of the Control Register component.
+
+[IMG]P016_Expl.png;90
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 15 y renómbralo como 16.
+[ENGLISH]Copy the Workspace 15 and rename it as 16.
+[DEUTSCH]Copy the Workspace 15 and rename it as 16.
+
+[IMG]01.png;60
+[IMG]02.png;60
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]03.png;90
+
+[SPANISH]Borra el pulsador SW2.
+[ENGLISH]Remove SW2.
+[DEUTSCH]Remove SW2.
+
+[IMG]04.png;90
+
+[SPANISH]Añade un registro de control (Control Register).
+[ENGLISH]Add a Control Register component.
+[DEUTSCH]Add a Control Register component.
+
+[IMG]05.png;60
+
+[SPANISH]Edita sus propiedades.
+[ENGLISH]Edit its properties.
+[DEUTSCH]Edit its properties.
+
+[IMG]06.png;90
+
+[SPANISH]Renómbralo a "Control_Register" y pon el número de salidas a 1.
+[ENGLISH]Rename it as "Control_Register" and set the output count to 1.
+[DEUTSCH]Rename it as "Control_Register" and set the output count to 1.
+
+[IMG]07.png;90
+[IMG]08.png;90
+
+[SPANISH]Añade el siguiente código en "main.c".
+[ENGLISH]Add the following code at "main.c".
+[DEUTSCH]Add the following code at "main.c".
+
+[IMG]09.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 20 (Control_Register_Write(1))
+[TABLE_ITEM_ENGLISH]Line  20 (Control_Register_Write(1))
+[TABLE_ITEM_DEUTSCH]Line  20 (Control_Register_Write(1))
+
+[TABLE_ITEM_SPANISH]Pone a 1 la salida del registro de control. Este 1 selecciona la entrada 1 (20Hz) del multiplexor. El led parpadeará rápido.
+[TABLE_ITEM_ENGLISH]Set the output of the Control Register to 1. This 1 selects the input 1 (20 Hz) of the multiplexer. The red LED blinks fast.
+[TABLE_ITEM_DEUTSCH]Set the output of the Control Register to 1. This 1 selects the input 1 (20 Hz) of the multiplexer. The red LED blinks fast.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 21 (CyDelay(1000))
+[TABLE_ITEM_ENGLISH]Line  21 (CyDelay(1000))
+[TABLE_ITEM_DEUTSCH]Line  21 (CyDelay(1000))
+
+[TABLE_ITEM_SPANISH]Espera durante 1 segundo.
+[TABLE_ITEM_ENGLISH]Waits for 1 second.
+[TABLE_ITEM_DEUTSCH]Waits for 1 second.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 22 (Control_Register_Write(0))
+[TABLE_ITEM_ENGLISH]Line  22 (Control_Register_Write(0))
+[TABLE_ITEM_DEUTSCH]Line  22 (Control_Register_Write(0))
+
+[TABLE_ITEM_SPANISH]Pone a 0 la salida del registro de control. Este 0 selecciona la entrada 0 (5Hz) del multiplexor. El led parpadeará lento.
+[TABLE_ITEM_ENGLISH]Set the output of the Control Register to 0. This 0 selects the input 0 (5 Hz) of the multiplexer. The red LED blinks slowly.
+[TABLE_ITEM_DEUTSCH]Set the output of the Control Register to 0. This 0 selects the input 0 (5 Hz) of the multiplexer. The red LED blinks slowly.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 23 (CyDelay(1000))
+[TABLE_ITEM_ENGLISH]Line  23 (CyDelay(1000))
+[TABLE_ITEM_DEUTSCH]Line  23 (CyDelay(1000))
+
+[TABLE_ITEM_SPANISH]Espera durante 1 segundo.
+[TABLE_ITEM_ENGLISH]Waits for 1 second.
+[TABLE_ITEM_DEUTSCH]Waits for 1 second.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa.
+[ENGLISH]As always, build the project and transfer the program.
+[DEUTSCH]As always, build the project and transfer the program.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS016.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS016.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS016.zip;Download the project here (PSoC Creator 3.3).
+
+[END]

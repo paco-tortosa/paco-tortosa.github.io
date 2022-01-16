@@ -1,0 +1,178 @@
+        <div class="title">Multiplexor</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a conocer un nuevo componente hardware, el componente Multiplexer (multiplexor)</div></li>
+               <li><div class="text">Sirve para conectar múltiples señales de entrada a una señal de salida, dependiendo del valor de una señal de control</div></li>
+               <li><div class="text">En este proyecto, vas a cambiar con el pulsador SW2 qué señal ( 5Hz o 20Hz ) proporcionamos al led rojo</div></li>
+               <li><div class="text">A partir de una señal de reloj de 100 Hz vas a generar dos señales (una de 5 Hz y otra de 20 Hz) por medio de divisores de frecuencia</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/P015_Expl0.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El multiplexor funciona así (supongamos un multiplexor de 2 bits) :</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/P015_Expl2.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando la señal de control es 0, la salida está conectada a la entrada 0</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/P015_Expl3.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando la señal de control es 1, la salida está conectada a la entrada 1</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/P015_Expl4.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando la señal de control es 2, la salida está conectada a la entrada 2</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/P015_Expl5.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cuando la señal de control es 3, la salida está conectada a la entrada 3</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/P015_Expl6.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto usarás un multiplexor de 1 bit. Tendrá 2 entradas</div></li>
+            </ul>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea un proyecto vacío y nómbralo como WS015</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/02.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/03.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un salida digital</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como Led_Red (led rojo)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/06.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/07.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un multiplexador</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como "MUX" y configura el número de entradas a 2</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/10.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/11.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una entrada digital</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como SW2</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/14.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conéctalos</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un divisor de frecuencia</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/17.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como "FreqDiv_20" y configura el divisor como 20</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta un 1 en la entrada de enable (habilitar) y un 0 en la de reset</div></li>
+               <li><div class="text">Cópialo</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y pégalo</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renombra el nuevo divisor de frecuencia como "FreqDiv_5" y configura el divisor como 5</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/25.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta ambos divisores de frecuencia al multiplexor</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un reloj</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y configúralo a 100 Hz</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/29.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conéctalo a los divisores de frecuencia. Y ya está terminado el esquemático</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Configura los pines del PSoC</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/32.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/img/33.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion04/L15_Multiplexer/downloads/WS015.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

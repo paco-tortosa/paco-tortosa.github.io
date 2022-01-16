@@ -1,0 +1,25 @@
+[LESSON_FOLDER]../_cursos/01_PSoC4/Seccion01/L00_Presentacion_PSoCCreator/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Presentación
+[TITLE_ENGLISH]Presentation
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este video de presentación es de mi curso en Udemy:
+[ENGLISH]This presentation video is from my course on Udemy:
+[END_LIST]
+
+[VIDEO_SPANISH]https://www.youtube.com/embed/qrZGHnty_Cw?rel=0
+[VIDEO_ENGLISH]https://www.youtube.com/embed/FdR6IkVvNgo?rel=0
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este video (también de Udemy) es sobre PSoC Creator:
+[ENGLISH]This video (also from Udemy) is about PSoC Creator:
+[END_LIST]
+
+[VIDEO_SPANISH]https://www.youtube.com/embed/8WOHgZgUb4A?rel=0
+[VIDEO_ENGLISH]https://www.youtube.com/embed/qrZGHnty_Cw?rel=0
+[BLOCK_END]

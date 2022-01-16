@@ -1,0 +1,70 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion03/L15_Footprint_J2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Footprint de J2
+[TITLE_ENGLISH]J2 footprint
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet del conector <b>1746978</b>.
+[ENGLISH]This is the datasheet for connector <b> 1746978 </b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y estas son las dimensiones.
+[ENGLISH]And these are the dimensions.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos al editor de footprints para ver si encontramos algún conector similar.
+[ENGLISH]We go to the footprint editor to see if we find any similar connectors.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a filtrar por la serie del conector <b>MSTBA</b>. Tenemos suerte, <b>KiCad</b> tiene el footprint exacto de este conector.
+[ENGLISH]We are going to filter by the <b> MSTBA </b> connector string. We are lucky, <b> KiCad </b> has the exact footprint of this connector.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a copiarlo en nuestra librería.
+[ENGLISH]Let&#39s copy it in our library.
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a asociar el símbolo con el footprint.
+[ENGLISH] We are going to associate the symbol with the footprint.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como siempre reordeno los textos y guardo la librería.
+[ENGLISH] As always I reorder the texts and save the library.
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+

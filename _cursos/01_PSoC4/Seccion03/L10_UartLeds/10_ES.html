@@ -1,0 +1,246 @@
+        <div class="title">UART y Leds</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a usar el interfaz UART para encender los leds</div></li>
+               <li><div class="text">PSoC enviará un mensaje al ordenador así :</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Si envías un carácter entre 1 y 3 desde el ordenador, se encenderá un led según la siguiente tabla:</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Carácter</th>
+                    <th>LED</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>rojo</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>verde</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Azul</td>
+                </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta el kit como en el proyecto 009-Uart</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/P009_PSoC5_PSoC4_2.png">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 1 y renómbralo como 10</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve al esquemático</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/03.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Busca el componente UART (SCB mode)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Arrastra el componente UART al esquemático y haz doble clic en él</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como UART y selecciona 38400 como velocidad de transmisión</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Genera la aplicación para generar la API (funciones) del nuevo componente</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Asigna los pines UART del PSoC 4</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/22.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/14.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/15.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a "main.c" y borra el código antiguo:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/10.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/11.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el siguiente código :</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/img/19.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    <span class="b1">UART_Start()<span class="tooltiptext"> Inicializa el componente UART</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    <span class="b2">UART_UartPutString("Send 1 for RED led, 2 for GREEN led and 3 for BLUE red \n")<span class="tooltiptext"> Envía el mensaje inicial al ordenador por UART</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>        char ch_rx  =   <span class="b3">UART_UartGetChar()<span class="tooltiptext"> Lee el caracter recibido por UART (Si no recibe nada, devuelve el valor 0)</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        </td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>        if (ch_rx != 0)</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>            <span class="b4">Pin_Rojo_Write(1)<span class="tooltiptext"> Apaga el led rojo</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>            <span class="b5">Pin_Verde_Write(1<span class="tooltiptext"> Apaga el led verde</span></span>);</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>            <span class="b6">Pin_Azul_Write(1)<span class="tooltiptext"> Apaga el led azul</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>            <span class="b1">if (ch_rx == '1')<span class="tooltiptext"> Si el carácter recibido es el 1, enciende el led rojo</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>            {</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>                Pin_Rojo_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>            }</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>            <span class="b2">else if (ch_rx == '2')<span class="tooltiptext"> Si el carácter recibido es el 2, enciende el led verde</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>            {</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>                Pin_Verde_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>            }</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>            <span class="b3">else if (ch_rx == '3')<span class="tooltiptext"> Si el carácter recibido es el 3, enciende el led azul</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>            {</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>                Pin_Azul_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>            }</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion03/L10_UartLeds/downloads/WS010es.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

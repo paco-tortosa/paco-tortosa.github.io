@@ -1,0 +1,145 @@
+        <div class="title"></div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>1</td>
+                      <td>Um ein <span class="b1">lauffähiges<span class="tooltiptext"></span></span> C-Programm zu <span class="b1">erzeugen<span class="tooltiptext"></span></span>, muss <span class="b1">zunächst<span class="tooltiptext"></span></span> mit einem Texteditor eine</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>Quelltext-Datei <span class="b2">angelegt<span class="tooltiptext"></span></span> und mit Code gefüllt werden. <span class="b1">Anschließend<span class="tooltiptext"></span></span> wird ein Compiler</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>gestartet, der den Quellcode in Maschinen-Code übersetzt und ein lauffähiges Programm</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td><span class="b1">erstellt<span class="tooltiptext"></span></span>.</td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td>Als klassisches Beispiel soll <span class="b1">hierzu<span class="tooltiptext"></span></span> ein minimales Programm <span class="b1">dienen<span class="tooltiptext"></span></span>, das <span class="b1">lediglich<span class="tooltiptext"></span></span> "Hallo,</td>
+                  </tr>
+                  <tr>
+                      <td>6</td>
+                      <td>Welt!" auf dem <span class="b1">Bildschirm<span class="tooltiptext"></span></span> <span class="b1">ausgibt<span class="tooltiptext"></span></span>. Hierzu wird mit einem Texteditor folgender Code in</td>
+                  </tr>
+                  <tr>
+                      <td>7</td>
+                      <td>eine (neue) Datei hallo.c geschrieben:</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>1</td>
+                      <td>// Datei: hallo.c         /* 1. */</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td># include &ltstdio.h&gt       /* 2. */</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>void main()               /* 3. */</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td>printf("Hallo, Welt!\n"); /* 4. */</td>
+                  </tr>
+                  <tr>
+                      <td>6</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>1</td>
+                      <td>Das <span class="b1">obige<span class="tooltiptext"></span></span> Programm enthält folgende Komponenten:</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>1. Eine mit // eingeleitete <span class="b1">Zeile<span class="tooltiptext"></span></span> am Dateianfang <span class="b1">stellt einen Kommentar dar<span class="tooltiptext"></span></span>. Sie wird</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      <td>beim Übersetzen durch den Compiler ignoriert und <span class="b1">dient<span class="tooltiptext"></span></span> lediglich <span class="b1">der besseren Lesbarkeit<span class="tooltiptext"></span></span>.</td>
+                  </tr>
+                  <tr>
+                      <td>5</td>
+                      <td>Ebenso werden <span class="b1">Textbereiche<span class="tooltiptext"></span></span>, <span class="b1">die durch /* und */ begrenzt sind<span class="tooltiptext"></span></span>, als Kommentare</td>
+                  </tr>
+                  <tr>
+                      <td>6</td>
+                      <td>für Erklärungen oder Hinweise genutzt</td>
+                  </tr>
+                  <tr>
+                      <td>7</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>8</td>
+                      <td>2. Mit der <span class="b1">Anweisung<span class="tooltiptext"></span></span> #include &ltstdio.h&gt wird dem Compiler <span class="b1">mitgeteilt<span class="tooltiptext"></span></span>, die</td>
+                  </tr>
+                  <tr>
+                      <td>9</td>
+                      <td>Standard-Input-Output-Bibliothek stdio.h zu laden. Diese von vielen C-Programmen</td>
+                  </tr>
+                  <tr>
+                      <td>10</td>
+                      <td>genutzte „Sammlung“ an Quellcode stellt <span class="b1">u.a.<span class="tooltiptext"></span></span> Funktionen für die Aus-</td>
+                  </tr>
+                  <tr>
+                      <td>11</td>
+                      <td>gabe von Text auf dem Bildschirm bereit.</td>
+                  </tr>
+                  <tr>
+                      <td>12</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td>3. Die Funktion main() startet das Hauptprogramm, das sich innerhalb der folgenden</td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td><span class="b1">geschweiften Klammern<span class="tooltiptext"></span></span> befindet. Jedes C-Programm <span class="b1">verfügt über<span class="tooltiptext"></span></span> eine <span class="b1">derartige<span class="tooltiptext"></span></span></td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>main()-Funktion.</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>4. <span class="b1">Durch den Aufruf der<span class="tooltiptext"></span></span> Funktion printf() wird auf dem Bildschirm der in doppelten</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td><span class="b1">Hochkommata<span class="tooltiptext"></span></span> stehende Text ausgegeben. Die <span class="b1">Zeichenfolge<span class="tooltiptext"></span></span> \n <span class="b2">steht dabei<span class="tooltiptext"></span></span> als</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>Zeichen für eine neue Zeile. Der Aufruf der Funktion muss, wie jede C-Anweisung,</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>mit einem <span class="b1">Strichpunkt<span class="tooltiptext"></span></span> ; beendet werden.</td>
+                  </tr>
+            </table>
+        </div>

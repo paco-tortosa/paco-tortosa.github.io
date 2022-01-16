@@ -1,0 +1,202 @@
+[IMG_FOLDER]img/025_P014_StatusRegister/
+
+[TITLE_SPANISH]014 - Registro de estado (Status Register)
+[TITLE_ENGLISH]014 - Status Register
+[TITLE_DEUTSCH]014 - Status Register
+
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el componente Registro de Estado (Status Register).
+[ENGLISH]In this project you will learn a new HW component, the Status Register component.
+[DEUTSCH]In this project you will learn a new HW component, the Status Register component.
+
+[SPANISH]Con él, vas a poder saber en el firmware lo que está pasando en el hardware.
+[ENGLISH]With it, you can know in the firmware what it is happening in the hardware.
+[DEUTSCH]With it, you can know in the firmware what it is happening in the hardware.
+
+[SPANISH]Si al proyecto anterior (013-Demultiplexor) añades un Registro de estado, podrás saber en el firmware el valor de la señal de salida del contador básico.
+[ENGLISH]If you add a Status Register to the previous project (013-Demultiplexer), you will be able to know in the firmware the value of the outpus of the basis counter.
+[DEUTSCH]If you add a Status Register to the previous project (013-Demultiplexer), you will be able to know in the firmware the value of the outpus of the basis counter.
+
+[IMG]14a.png;80
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 13 y renómbralo como 14.
+[ENGLISH]Copy the Workspace 13 and rename it as 14.
+[DEUTSCH]Copy the Workspace 13 and rename it as 14.
+
+[IMG]01.png;60
+[IMG]02.png;60
+[IMG]03.png;90
+
+[SPANISH]Añade un componente "Status Register" (Registro de estado).
+[ENGLISH]Add a Status Register component.
+[DEUTSCH]Add a Status Register component.
+
+[IMG]04.png;60
+
+[SPANISH]Edita sus propiedades.
+[ENGLISH]Edit its properties.
+[DEUTSCH]Edit its properties.
+
+[IMG]05.png;60
+
+[SPANISH]Renómbralo como "StatusRegister" y configura 2 entradas.
+[ENGLISH]Rename it as "StatusRegister" and configure 2 inputs.
+[DEUTSCH]Rename it as "StatusRegister" and configure 2 inputs.
+
+[IMG]06.png;90
+[IMG]07.png;90
+
+[SPANISH]Conecta un 1 lógico en la entrada de reloj.
+[ENGLISH]Connect a logial 1 in the clock input.
+[DEUTSCH]Connect a logial 1 in the clock input.
+
+[IMG]08.png;90
+
+[SPANISH]Conecta la señal de salida del contador básico a la entrada del registro de estado.
+[ENGLISH]Connect the output signal of the basic counter to the input of the Status Register.
+[DEUTSCH]Connect the output signal of the basic counter to the input of the Status Register.
+
+[IMG]09.png;90
+
+[SPANISH]Como es un bus hay que seleccionar que bit quieres conectar a la entrada.
+[ENGLISH]As this is a bus, you have to select which bit you want to connect to the input.
+[DEUTSCH]As this is a bus, you have to select which bit you want to connect to the input.
+
+[IMG]10.png;90
+[IMG]11.png;90
+[IMG]12.png;90
+[IMG]13.png;90
+
+[SPANISH]El esquemático está terminado.
+[ENGLISH]The schematic is done.
+[DEUTSCH]The schematic is done.
+
+[IMG]14.png;90
+
+[SPANISH]Ve a "main.c" y añade el siguiente código:
+[ENGLISH]Go to "main.c" and add the following code:
+[DEUTSCH]Go to "main.c" and add the following code:
+
+[IMG]15.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 16 a 18
+[TABLE_ITEM_ENGLISH]Lines 16 to 18
+[TABLE_ITEM_DEUTSCH]Lines 16 to 18
+
+[TABLE_ITEM_SPANISH]La palabra clave "volatile" hace que el compilador no optimice el uso de estas variables.
+[TABLE_ITEM_ENGLISH]The key word "volatile" makes the compiler not to optimize these variables.
+[TABLE_ITEM_DEUTSCH]The key word "volatile" makes the compiler not to optimize these variables.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 24 (StatusRegister_Read())
+[TABLE_ITEM_ENGLISH]Line  24 (StatusRegister_Read())
+[TABLE_ITEM_DEUTSCH]Line  24 (StatusRegister_Read())
+
+[TABLE_ITEM_SPANISH]Devuelve el valor de las entradas del componente StatusRegister.
+[TABLE_ITEM_ENGLISH]It returns the value of the inputs of the StatusRegister component.
+[TABLE_ITEM_DEUTSCH]It returns the value of the inputs of the StatusRegister component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 25
+[TABLE_ITEM_ENGLISH]Line  25
+[TABLE_ITEM_DEUTSCH]Line  25
+
+[TABLE_ITEM_SPANISH]Chequea si ha habido un cambio en el valor del status.
+[TABLE_ITEM_ENGLISH]Check if there was a change in the status value.
+[TABLE_ITEM_DEUTSCH]Check if there was a change in the status value.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 27
+[TABLE_ITEM_ENGLISH]Line  27
+[TABLE_ITEM_DEUTSCH]Line  27
+
+[TABLE_ITEM_SPANISH]Incrementa la variable u8Times (sólo sirve para que veas su valor en la depuración).
+[TABLE_ITEM_ENGLISH]Increments the variable u8Times (only useful for you to check its value during the debug session).
+[TABLE_ITEM_DEUTSCH]Increments the variable u8Times (only useful for you to check its value during the debug session).
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]En vez de transferir el programa y ejecutarlo, vas a depurarlo (debug).
+[ENGLISH]Instead of transfering the program and execute it, you will debug it.
+[DEUTSCH]Instead of transfering the program and execute it, you will debug it.
+
+[IMG]16.png;60
+
+[SPANISH]El programa se para en la primera línea de código.
+[ENGLISH]The program will stop on the first line of code.
+[DEUTSCH]The program will stop on the first line of code.
+
+[IMG]17.png;90
+
+[SPANISH]Pon un breakpoint en la línea 27, al llegar ahí el programa parará.
+[ENGLISH]Place a breakpoint on the line 27, the program will stop there.
+[DEUTSCH]Place a breakpoint on the line 27, the program will stop there.
+
+[IMG]18.png;90
+
+[SPANISH]Dale a ejecutar.
+[ENGLISH]Click on "Resume Execution".
+[DEUTSCH]Click on "Resume Execution".
+
+[IMG]19.png;60
+
+[SPANISH]Cada vez que pulsemos SW2, el programa llegará a la línea 27.
+[ENGLISH]Every time you press SW2, the program will reach the line 27.
+[DEUTSCH]Every time you press SW2, the program will reach the line 27.
+
+[IMG]20.png;90
+
+[SPANISH]Si pasas el ratón por encima de una variable podrás ver su valor.
+[ENGLISH]If you place the mouse over a variable you can see its value.
+[DEUTSCH]If you place the mouse over a variable you can see its value.
+
+[IMG]21.png;90
+
+//[SPANISH]
+//[ENGLISH]
+//[DEUTSCH]
+//
+//[IMG]22.png;50
+
+[SPANISH]Puedes quitar el breakpoint y dejarlo correr.
+[ENGLISH]You can remove the breakpoint and let the program run.
+[DEUTSCH]You can remove the breakpoint and let the program run.
+
+[IMG]23.png;90
+[IMG]24.png;90
+
+[SPANISH]Para terminar con la sesión de depuración : 
+[ENGLISH]To finish the debug session:
+[DEUTSCH]To finish the debug session:
+
+[IMG]25.png;50
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS014.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS014.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS014.zip;Download the project here (PSoC Creator 3.3).
+
+[END]

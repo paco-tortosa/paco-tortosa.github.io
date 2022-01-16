@@ -1,0 +1,265 @@
+        <div class="title">Debouncer</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this project you will learn a new HW component, the Debouncer component</div></li>
+               <li><div class="text">I have connected an external switch button to the pin P1[0] of PSoC</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/Setup.jpg">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_Pins_en.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">When the switch button is closed, on the digital input P1[0] there is ground, i.e. a logical 0</div></li>
+               <li><div class="text">When the switch button is open, as the digital input P1[0] has an internal pull-up, there will be Vdd, i.e. a logical 1</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_PullUp.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I have chosen this external switch button because it is very "noisy"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/Setup_Pulsador.jpg">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In theory there would be a signal like (on the pin P1[0]) :</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_NoisySignal.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">But there is a signal with bounces, both on the falling and rising edge:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_NoisySignal2.png">
+            <ul>
+               <li><div class="text">The Debouncer component will remove the bounces and clean the signal</div></li>
+            </ul>
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create an empty project and name it as WS012</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/02.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/03.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create the following schematic :</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the component catalog, search for digital input and add it to the schematic</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/06.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">As you will use as external switch button rename it as "External SW"</div></li>
+               <li><div class="text">Make sure to enable both "HW connection" and "External Terminal"</div></li>
+               <li><div class="text">Additionally, the internal pull-up resistor must be enabled</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the components "Ground" and "Switch"</div></li>
+               <li><div class="text">"Ground" and "Switch" are "off-chip" components, used only for documentation</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/09.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename SW_1 as SW</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/11.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect Vss (Ground), SW and the "External_SW" pin</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add a digital output</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And rename it as "Pin_Oscilloscope_Yellow". Make sure that "HW connection" is enabled</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copy it and paste it twice</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/16.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/17.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename it the pasted pins as "Pin_Oscilloscope_Blue" and "Pin_Oscilloscope_Violet"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the schematic you will have the digital input from the external switch button and 3 digital outputs</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the digital input to the digital output "Pin_Oscilloscope_Yellow"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Add the "Debouncer" component from the component catalog</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Double click on it to edit its properties</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Disable the generation of outputs on edge detection and rename the component as "Debouncer"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the digital input to the input <b>d</b> of the Debouncer</div></li>
+               <li><div class="text">Connect the output <b>q</b> of the Debouncer to the digital output <b>Pin_Oscilloscope_Blue</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">A clock for the debouncer is needed</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edit the properties of the clock</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Name it as <b>ClockDebouncer</b> and set the frequency to 50 Hz</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/28.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/29.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Connect the clock to the digital output <b>Pin_Oscilloscope_Violet</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build the project</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">There is an error on the digital output <b>Pin_Oscilloscope_Violet</b>. In PSoC4 to connect a clock signal to a digital output you have to do something else</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the properties of the digital output</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/33.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select <b>Output mode</b> as <b>Clock</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/34.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select <b>Output clocking</b> as <b>External</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/35.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The digital output needs now a logical 1</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/36.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">It will be so:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/37.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now you have to configure which pins are connected to the digital outputs and to the digital input</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/38.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/39.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/40.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">You do not need firmware for this project</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/42.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build the project and transfer the program</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/43.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The following pictures are taken from the oscilloscope used for watching the digital outputs</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_OscExplanation.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the following picture, you can see how the input signal (yellow) has bounces</div></li>
+               <li><div class="text">The blue signal is already filtered, without bounces</div></li>
+               <li><div class="text">The 50-Hz clock is active on the rising edge. Thatis why the filtered signal (blue) is synchronized with the rising edges of the clock signal</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_Oscilloscope1.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the following picture, you can see how, if the input signal from the switch is shorter as the clock period (20 msec) there will be no signal generated</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/img/P012_Oscilloscope2.png">
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion04/L12_Debouncer/downloads/WS012.zip">Download the project here (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

@@ -1,0 +1,302 @@
+[IMG_FOLDER]img/022_P012_Debouncer/
+
+[TITLE_SPANISH]012 - Eliminador de rebotes (Debouncer)
+[TITLE_ENGLISH]012 - Debouncer
+[TITLE_DEUTSCH]012 - Debouncer
+
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el componente Debouncer (Eliminador de rebotes).
+[ENGLISH]In this project you will learn a new HW component, the Debouncer component.
+[DEUTSCH]In this project you will learn a new HW component, the Debouncer component.
+
+[SPANISH]He conectado un pulsador externo al pin P1[0] del PSoC.
+[ENGLISH]I have connected an external switch button to the pin P1[0] of PSoC.
+[DEUTSCH]I have connected an external switch button to the pin P1[0] of PSoC.
+
+[IMG]Setup.jpg;90
+[IMG_SPANISH]P012_Pins_es.png;90
+[IMG_ENGLISH]P012_Pins_en.png;90
+[IMG_DEUTSCH]P012_Pins_en.png;90
+
+[SPANISH]Cuando el pulsador esté cerrado, en la entrada P1[0] habrá masa (gnd), es decir, un 0 lógico.
+[ENGLISH]When the switch button is closed, on the digital input P1[0] there is ground, i.e. a logical 0.
+[DEUTSCH]When the switch button is closed, on the digital input P1[0] there is ground, i.e. a logical 0.
+
+[SPANISH]Cuando el pulsador esté abierto, como la entrada P1[0] tiene un pull-up interno (resistencia a Vdd) habrá Vdd, es decir, un 1 lógico.
+[ENGLISH]When the switch button is open, as the digital input P1[0] has an internal pull-up, there will be Vdd, i.e. a logical 1. 
+[DEUTSCH]When the switch button is open, as the digital input P1[0] has an internal pull-up, there will be Vdd, i.e. a logical 1. 
+
+[IMG]P012_PullUp.png;80
+
+[SPANISH]He elegido este pulsador externo porque es muy "ruidoso".
+[ENGLISH]I have chosen this external switch button because it is very "noisy".
+[DEUTSCH]I have chosen this external switch button because it is very "noisy".
+
+[IMG]Setup_Pulsador.jpg;40
+
+[SPANISH]En teoría debería haber una señal así (en el pin P1[0]) :
+[ENGLISH]In theory there would be a signal like (on the pin P1[0]) :
+[DEUTSCH]In theory there would be a signal like (on the pin P1[0]) :
+
+[IMG]P012_NoisySignal.png;80
+
+[SPANISH]Pero hay una señal con rebotes, tanto en el flanco de bajada como en el de subida :
+[ENGLISH]But there is a signal with bounces, both on the falling and rising edge:
+[DEUTSCH]But there is a signal with bounces, both on the falling and rising edge:
+
+[IMG]P012_NoisySignal2.png;80
+
+[SPANISH]El componente Debouncer va a quitar los rebotes y así habrá una señal limpia.
+[ENGLISH]The Debouncer component will remove the bounces and clean the signal.
+[DEUTSCH]The Debouncer component will remove the bounces and clean the signal.
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Crea un proyecto vacío y nómbralo como WS012.
+[ENGLISH]Create an empty project and name it as WS012.
+[DEUTSCH]Create an empty project and name it as WS012.
+
+[IMG]01.png;60
+[IMG]02.png;90
+[IMG]03.png;90
+[IMG]04.png;90
+
+[SPANISH]Crea el siguiente esquemático :
+[ENGLISH]Create the following schematic :
+[DEUTSCH]Create the following schematic :
+
+[IMG]05.png;90
+
+[SPANISH]En el catálogo de componentes, busca la entrada digital y añádela al esquemático.
+[ENGLISH]In the component catalog, search for digital input and add it to the schematic.
+[DEUTSCH]In the component catalog, search for digital input and add it to the schematic.
+
+[IMG]06.png;70
+[IMG]07.png;70
+
+[SPANISH]Como la vas a utilizar con un pulsador externo nómbrala como "External SW" (external switch button - pulsador externo)
+[ENGLISH]As you will use as external switch button rename it as "External SW".
+[DEUTSCH]As you will use as external switch button rename it as "External SW".
+
+[SPANISH]Asegúrate de que tanto "HW connection" como "External Terminal" están habilitados.
+[ENGLISH]Make sure to enable both "HW connection" and "External Terminal".
+[DEUTSCH]Make sure to enable both "HW connection" and "External Terminal".
+
+[SPANISH]Además, debe tener habilitada la resitencia de pull-up.
+[ENGLISH]Additionally, the internal pull-up resistor must be enabled .
+[DEUTSCH]Additionally, the internal pull-up resistor must be enabled .
+
+[IMG]08.png;90
+
+[SPANISH]Añade desde el catálogo de componentes los componentes "Ground" y "Switch".
+[ENGLISH]Add the components "Ground" and "Switch".
+[DEUTSCH]Add the components "Ground" and "Switch".
+
+[SPANISH]"Ground" y "Switch" son componentes "off-chip", usados sólo como documentación.
+[ENGLISH]"Ground" and "Switch" are "off-chip" components, used only for documentation.
+[DEUTSCH]"Ground" and "Switch" are "off-chip" components, used only for documentation.
+
+[IMG]09.png;70
+[IMG]10.png;50
+
+[SPANISH]Renombra SW_1 como SW. (Sólo queremos indicar que es un SW -Switch-)
+[ENGLISH]Rename SW_1 as SW.
+[DEUTSCH]Rename SW_1 as SW.
+
+[IMG]11.png;90
+[IMG]12.png;50
+
+[SPANISH]Conecta Vss (Ground), SW y el pin "External_SW".
+[ENGLISH]Connect Vss (Ground), SW and the "External_SW" pin.
+[DEUTSCH]Connect Vss (Ground), SW and the "External_SW" pin.
+
+[IMG]13.png;90
+
+[SPANISH]Añade una salida digital.
+[ENGLISH]Add a digital output.
+[DEUTSCH]Add a digital output.
+
+[IMG]14.png;70
+
+[SPANISH]Y renómbrala como "Pin_Oscilloscope_Yellow". Asegúrate de que "HW connection" está habilitada.
+[ENGLISH]And rename it as "Pin_Oscilloscope_Yellow". Make sure that "HW connection" is enabled.
+[DEUTSCH]And rename it as "Pin_Oscilloscope_Yellow". Make sure that "HW connection" is enabled.
+
+[IMG]15.png;90
+
+[SPANISH]Cópiala y pégala dos veces.
+[ENGLISH]Copy it and paste it twice.
+[DEUTSCH]Copy it and paste it twice.
+
+[IMG]16.png;70
+[IMG]17.png;70
+[IMG]18.png;90
+
+[SPANISH]Renombra los dos pines pegados como "Pin_Oscilloscope_Blue" y "Pin_Oscilloscope_Violet".
+[ENGLISH]Rename it the pasted pins as "Pin_Oscilloscope_Blue" and "Pin_Oscilloscope_Violet".
+[DEUTSCH]Rename it the pasted pins as "Pin_Oscilloscope_Blue" and "Pin_Oscilloscope_Violet".
+
+[IMG]19.png;90
+
+[SPANISH]En el esquemático estarán la entrada digital que viene del pulsador externo y 3 salidas digitales.
+[ENGLISH]In the schematic you will have the digital input from the external switch button and 3 digital outputs.
+[DEUTSCH]In the schematic you will have the digital input from the external switch button and 3 digital outputs.
+
+[IMG]20.png;90
+
+[SPANISH]Conecta la entrada digital con la salida digital "Pin_Oscilloscope_Yellow".
+[ENGLISH]Connect the digital input to the digital output "Pin_Oscilloscope_Yellow".
+[DEUTSCH]Connect the digital input to the digital output "Pin_Oscilloscope_Yellow".
+
+[IMG]21.png;90
+
+[SPANISH]Añade el componente "Debouncer" (Eliminador de rebotes) desde el catálogo de componentes.
+[ENGLISH]Add the "Debouncer" componente from the component catalog.
+[DEUTSCH]Add the "Debouncer" componente from the component catalog.
+
+[IMG]22.png;70
+
+[SPANISH]Haz doble clic para editar sus propiedades.
+[ENGLISH]Double click on it to edit its properties.
+[DEUTSCH]Double click on it to edit its properties.
+
+[IMG]23.png;70
+
+[SPANISH]Deshabilita la generación de salidas en la detección de flancos y renombra el componente como "Debouncer".
+[ENGLISH]Disable the generation of outputs on edge detection and rename the component as "Debouncer".
+[DEUTSCH]Disable the generation of outputs on edge detection and rename the component as "Debouncer".
+
+[IMG]24.png;90
+
+[SPANISH]Conecta la entrada digital a la señal de entrada "d" del Debouncer.
+[ENGLISH]Connect the digital input to the input "d" of the Debouncer.
+[DEUTSCH]Connect the digital input to the input "d" of the Debouncer.
+
+[SPANISH]Conecta la salida "q" del Debouncer a la salida digital "Pin_Oscilloscope_Blue".
+[ENGLISH]Connect the output "q" of the Debouncer to the digital output "Pin_Oscilloscope_Blue".
+[DEUTSCH]Connect the output "q" of the Debouncer to the digital output "Pin_Oscilloscope_Blue".
+
+[IMG]25.png;90
+
+[SPANISH]Se necesita un reloj para el Debouncer.
+[ENGLISH]A clock for the debouncer is needed.
+[DEUTSCH]A clock for the debouncer is needed.
+
+[IMG]26.png;70
+
+[SPANISH]Edita las propiedades del reloj.
+[ENGLISH]Edit the properties of the clock.
+[DEUTSCH]Edit the properties of the clock.
+
+[IMG]27.png;70
+
+[SPANISH]Nómbralo "ClockDebouncer" y pon 50 Hz como frecuencia.
+[ENGLISH]Name it as "ClockDebouncer" and set the frequency to 50 Hz.
+[DEUTSCH]Name it as "ClockDebouncer" and set the frequency to 50 Hz. 
+
+[IMG]28.png;90
+[IMG]29.png;90
+
+[SPANISH]Conecta el reloj a la salida digital "Pin_Oscilloscope_Violet".
+[ENGLISH]Connect the clock to the digital output "Pin_Oscilloscope_Violet".
+[DEUTSCH]Connect the clock to the digital output "Pin_Oscilloscope_Violet".
+
+[IMG]30.png;90
+
+[SPANISH]Compila el proyecto.
+[ENGLISH]Build the project.
+[DEUTSCH]Build the project.
+
+[IMG]31.png;70
+
+[SPANISH]Hay un error en la salida digital "Pin_Oscilloscope_Violet". En PSoC 4 para conectar una señal de reloj a un pin de salida hay que hacer algo más.
+[ENGLISH]There is an error on the digital output "Pin_Oscilloscope_Violet". In PSoC4 to connect a clock signal to a digital output you have to do something else.
+[DEUTSCH]There is an error on the digital output "Pin_Oscilloscope_Violet". In PSoC4 to connect a clock signal to a digital output you have to do something else.
+
+[IMG]32.png;90
+
+[SPANISH]Ve a las propiedades de la salida digital.
+[ENGLISH]Go to the properties of the digital output.
+[DEUTSCH]Go to the properties of the digital output.
+
+[IMG]33.png;70
+
+[SPANISH]Selecciona "Output mode" como "Clock" (modo de salida como reloj).
+[ENGLISH]Select "Output mode" as "Clock".
+[DEUTSCH]Select "Output mode" as "Clock".
+
+[IMG]34.png;90
+
+[SPANISH]Selecciona "Output clocking" como "External".
+[ENGLISH]Select "Output clocking" as "External".
+[DEUTSCH]Select "Output clocking" as "External".
+
+[IMG]35.png;90
+
+[SPANISH]La salida digital necesita ahora que le conectes un 1 (cógelo del catálogo de componentes)
+[ENGLISH]The digital output needs now a logical 1.
+[DEUTSCH]The digital output needs now a logical 1.
+
+[IMG]36.png;70
+
+[SPANISH]Quedará así :
+[ENGLISH]It will be so:
+[DEUTSCH]It will be so:
+
+[IMG]37.png;90
+
+[SPANISH]Ahora tienes que configurar qué pines vas a conectar a las salidas digitales y a la entrada digital.
+[ENGLISH]Now you have to configure which pins are connected to the digital outputs and to the digital input.
+[DEUTSCH]Now you have to configure which pins are connected to the digital outputs and to the digital input.
+
+[IMG]38.png;70
+[IMG]39.png;90
+[IMG]40.png;90
+
+[SPANISH]No necesitas firmware en este proyecto.
+[ENGLISH]You do not need firmware for this project.
+[DEUTSCH]You do not need firmware for this project.
+
+[IMG]42.png;90
+
+[SPANISH]Compila el proyecto y transfiere el programa.
+[ENGLISH]Build the project and transfer the program.
+[DEUTSCH]Build the project and transfer the program.
+
+[IMG]43.png;90
+
+[SPANISH]Las siguientes images está tomadas del osciloscopio usado para ver las salidas digitales.
+[ENGLISH]The following pictures are taken from the oscilloscope used for watching the digital outputs.
+[DEUTSCH]The following pictures are taken from the oscilloscope used for watching the digital outputs.
+
+[IMG]P012_OscExplanation.png;90
+
+[SPANISH]En la siguiente imagen, se puede ver como la señal de entrada (yellow-amarillo) tiene rebotes.
+[ENGLISH]In the following picture, you can see how the input signal (yellow) has bounces.
+[DEUTSCH]In the following picture, you can see how the input signal (yellow) has bounces.
+
+[SPANISH]La señal azul está ya filtrada sin rebotes.
+[ENGLISH]The blue signal is already filtered, without bounces.
+[DEUTSCH]The blue signal is already filtered, without bounces.
+
+[SPANISH]El reloj de 50 Hz es activo en el flanco de subida. Por lo que la señal filtrada (azul) está sincronizada con los flancos de subida del reloj.
+[ENGLISH]The 50-Hz clock is active on the rising edge. That's why the filtered signal (blue) is synchronized with the rising edges of the clock signal.
+[DEUTSCH]The 50-Hz clock is active on the rising edge. That's why the filtered signal (blue) is synchronized with the rising edges of the clock signal.
+
+[IMG]P012_Oscilloscope1.png;90
+
+[SPANISH]En la siguiente imagen, se puede ver como si la entrada del pulsador es más corta que el período del reloj (20 mseg) no se genera ninguna señal.
+[ENGLISH]In the following picture, you can see how, if the input signal from the switch is shorter as the clock period (20 msec) there will be no signal generated.
+[DEUTSCH]In the following picture, you can see how, if the input signal from the switch is shorter as the clock period (20 msec) there will be no signal generated.
+
+[IMG]P012_Oscilloscope2.png;90
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS012.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS012.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS012.zip;Download the project here (PSoC Creator 3.3).
+

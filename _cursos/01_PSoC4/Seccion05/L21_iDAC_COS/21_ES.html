@@ -1,0 +1,138 @@
+        <div class="title">iDAC (COS)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vamos a usar el componente IDAC para generar una señal COS (coseno)</div></li>
+               <li><div class="text">Vamos a utilizar el mismo hardware que en el proyecto anterior (020-iDAC)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/img/Setup.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/img/P021_IDAC_pins_es.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Esta es la señal a generar</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/img/TEK0001.JPG">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el proyecto anterior y renómbralo como WS021</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el siguiente código en "main.c"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/img/03.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include "project.h"</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>const uint8 <span class="b1">au8Signal[]<span class="tooltiptext"> Declara la variable <b>au8Signal</b> que almacena la señal coseno (ver hoja excel)</span></span> = {255,255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,240,238,237,235,234,232,230,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,193,190,188,185,182,179,176,173,170,167,165,162,158,155,152,149,146,143,140,137,134,131,128,124,121,118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,52,49,47,44,42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,1,1,1,0,0,0,0,0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,35,37,40,42,44,47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,115,118,121,124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,182,185,188,190,193,196,198,201,203,206,208,211,213,215,218,220,222,224,226,228,230,232,234,235,237,238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,255}</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>int main(void)</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    uint16  <span class="b2">u16Index<span class="tooltiptext"> Declara la variable <b>u16Index</b> que servirá como índice para recorrer el array <b>au8Signal</b></span></span>    =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    <span class="b3">IDAC_Start()<span class="tooltiptext"> Inicializa el componente IDAC</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>        uint8   <span class="b4">u8Value<span class="tooltiptext"> Declara la variable <b>u8Value</b> que almacena el valor digital de la corriente a generar en el componente IDAC</span></span> =   <span class="b5">au8Signal[u16Index++]<span class="tooltiptext"> Coge el siguiente valor a generar del array <b>au8Signal</b></span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>        </td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>        <span class="b6">IDAC_SetValue(u8Value)<span class="tooltiptext"> Pone el valor en el componente IDAC</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        </td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>        <span class="b1">if (u16Index &gt= sizeof(au8Signal))<span class="tooltiptext"> Si el índice del array es mayor que su tamaño se pone a cero</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>            u16Index = 0;</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como siempre, compila el proyecto y transfiere el programa</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion05/L21_iDAC_COS/downloads/WS021.zip">Descarga el proyecto aquí (PSoC Creator 4.0) y la hoja excel para calcular los valores del coseno.</a></li>
+            </ul>
+        </div>

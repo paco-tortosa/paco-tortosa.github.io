@@ -1,0 +1,118 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion03/L06_Symbol_D2/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Símbolo de D2
+[TITLE_ENGLISH]D2 symbol
+
+[MPPRO_SECTION_ES_EN]Símbolo de D2|D2 Symbol
+[MPPRO_VIDEO]03_Camtasia\02_cam_FinalSCH.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver el esquemático final del proyecto. Vamos a ver en esta lección cómo crear el símbolo para el led <b>D2</b>.
+[ENGLISH]Here you can see the final schematic of the project. We are going to see in this lesson how to create the symbol for the led <b>D2</b>.
+[END_LIST]
+[IMG]_FinalSCH_D2.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]KiCad|KiCad
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es el led que he elegido en Mouser. El part number es <b>APT2012SRCPRV</b>.
+[ENGLISH]This is the led that I have chosen at Mouser. The part number is <b> APT2012SRCPRV </b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Es de color <b>rojo</b> y con encapsulado SMD de tamaño <b>0805</b>.
+[ENGLISH]It is <b> red </b> and with SMD package of size <b> 0805 </b>.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear un símbolo para el led. Abrimos el editor de símbolos y buscamos un led.
+[ENGLISH]We are going to create a symbol for the led. We open the symbol editor and look for an led.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a copiar el símbolo en nuestra librería.
+[ENGLISH]We are going to copy the symbol into our library.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a conservar el nombre (<b>LED</b>), selecciona nuestra librería (<b>JAVIERM_LIBS</b>) y guarda.
+[ENGLISH]Let&#39s keep the name (<b>LED</b>), select our library (<b>JAVIERM_LIBS</b>) and save.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Una vez el símbolo en nuestra librería guarda la librería.
+[ENGLISH]Once the symbol in our library save the library.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a editar las propiedades del símbolo.
+[ENGLISH]We are going to edit the properties of the symbol.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a añadir los campos <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> y <b>Manufacturer</b>.
+[ENGLISH]We are going to add the <b>Value2Show</b>, <b>Mounted</b>, <b>MPN</b> and <b>Manufacturer</b> fields.
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como en la lección 4 reordena los campos para quedar algo así:
+[ENGLISH]As in lesson 4, rearrange the fields to look something like this:
+[END_LIST]
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Por último guarda la librería.
+[ENGLISH]Finally save the library.
+[END_LIST]
+[IMG]15.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/APT2012SRCPRV-56885.pdf;Datasheet
+[LINK_ENGLISH]downloads/APT2012SRCPRV-56885.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+
+
+
+
+

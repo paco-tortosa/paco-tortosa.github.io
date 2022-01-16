@@ -1,0 +1,1079 @@
+        <div class="title">Programa (HAL)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Esto es lo que hace el programa que vamos a ver en esta lección. Cuando arranca el microcontrolador parpadea todos los leds 3 veces.</div></li>
+               <li><div class="text">Cada línea tendrá un color, la primera será blanca, la segunda azul, la tercera verde y la cuarta roja.</div></li>
+               <li><div class="text">Después del parpadeo habrá una fila de color azul que se moverá verticalmente.</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/MSyBh5-Im1c?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <div class="title">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Abre STM32CubeIDE.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/01.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona la unidad lógica <b>m</b> como directorio para el <b>Workspace</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a crear un proyecto nuevo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona el kit.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/05.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/06.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/07.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Le voy a dar al proyecto el nombre <b>P16_Click4x4RGB_HAL</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/09.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/10.png">
+            <ul>
+               <li><div class="text">Aquí ves el proyecto ya creado:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a utilizar el pin conectado al led LD2 (<b>PA5</b>) para la señal <b>DIN</b> al Click.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a comprobar que el compilador no va a aplicar optimizaciones al código ensamblador generado.</div></li>
+               <li><div class="text">Esto es importante porque el <b>timing</b> de las señales va a venir determinado por las instrucciones que genere el compilador.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/13.png">
+            <ul>
+               <li><div class="text">El nivel de optimización (<b>Optimization level</b>) por defecto es <b>None</b> (ninguno). Lo conservamos así.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/14.png">
+        </div>
+        <div class="title">main.c</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a insertar en <b>main.c</b> el código que he preparado. Aquí hay que ser cauteloso porque <b>main.c</b> es un fichero que va a ser modificado por el IDE.</div></li>
+               <li><div class="text">Así que tengo que añadir mi código en sitios muy concretos.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a añadir las variables en la línea 47:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/28.png">
+            <ul>
+               <li><div class="text">Quedando el código así:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/29.png">
+            <ul>
+               <li><div class="text">Vamos a tener varios arrays de enteros de 8 bits sin signo con todos los colores de los leds.</div></li>
+               <li><div class="text">Por ejemplo, en la variable array <b>au8Colors</b>[] vamos a tener los colores para el parpadeo inicial, una fila roja, una verde, una azul y la última blanca.</div></li>
+               <li><div class="text">La línea <b>67</b> tiene los colores RGB para el <b>led 01</b>,<br>la línea <b>68</b> para el <b>led 02</b> y <br>así hasta la línea <b>82</b> para el <b>led 16</b>.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>66</td>
+                      <td>const uint8_t <span class="b6">au8Colors<span class="tooltiptext">Array <b>au8Colors</b></span></span>[]= {</td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td>                      <span class="b2">0xFF<span class="tooltiptext">Intensidad (de 0 a 255) del led Rojo del led RGB 01 (Como es 0xFF = 255, el led rojo está encendido a máxima intensidad)</span></span>,<span class="b3">0x00<span class="tooltiptext">Intensidad (de 0 a 255) del led Verde del led RGB 01 (Como es cero no se enciende el led verde).</span></span>,<span class="b1">0x00<span class="tooltiptext">Intensidad (de 0 a 255) del led Azul del led RGB 01 (Como es cero no se enciende el led azul).</span></span>,   <span class="b4">//R,G,B Led 01<span class="tooltiptext">Como sólo hay una intensidad distinta de cero (el color Rojo), el color final del led será Rojo.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>                      0xFF,0x00,0x00,   //R,G,B Led 02</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>                      0xFF,0x00,0x00,   //R,G,B Led 03</td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>                      0xFF,0x00,0x00,   //R,G,B Led 04</td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>                      0x00,<span class="b3">0xFF<span class="tooltiptext">Intensidad del led Verde del led RGB 05.</span></span>,0x00,   <span class="b5">//R,G,B Led 05<span class="tooltiptext">Como sólo hay una intensidad distinta de cero (el color Verde), el color final del led será Verde.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>72</td>
+                      <td>                      0x00,0xFF,0x00,   //R,G,B Led 06</td>
+                  </tr>
+                  <tr>
+                      <td>73</td>
+                      <td>                      0x00,0xFF,0x00,   //R,G,B Led 07</td>
+                  </tr>
+                  <tr>
+                      <td>74</td>
+                      <td>                      0x00,0xFF,0x00,   //R,G,B Led 08</td>
+                  </tr>
+                  <tr>
+                      <td>75</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Intensidad del led Azul del led RGB 09.</span></span>,   <span class="b6">//R,G,B Led 09<span class="tooltiptext">Como sólo hay una intensidad distinta de cero (el color Azul), el color final del led será Azul.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>76</td>
+                      <td>                      0x00,0x00,0xFF,   //R,G,B Led 10</td>
+                  </tr>
+                  <tr>
+                      <td>77</td>
+                      <td>                      0x00,0x00,0xFF,   //R,G,B Led 11</td>
+                  </tr>
+                  <tr>
+                      <td>78</td>
+                      <td>                      0x00,0x00,0xFF,   //R,G,B Led 12</td>
+                  </tr>
+                  <tr>
+                      <td>79</td>
+                      <td>                      0xFF,0xFF,0xFF,   <span class="b1">//R,G,B Led 13<span class="tooltiptext">Como las 3 intensidades son iguales, el color final del led 13 será Blanco.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>80</td>
+                      <td>                      0xFF,0xFF,0xFF,   //R,G,B Led 14</td>
+                  </tr>
+                  <tr>
+                      <td>81</td>
+                      <td>                      0xFF,0xFF,0xFF,   //R,G,B Led 15</td>
+                  </tr>
+                  <tr>
+                      <td>82</td>
+                      <td>                      0xFF,0xFF,0xFF    //R,G,B Led 16</td>
+                  </tr>
+                  <tr>
+                      <td>83</td>
+                      <td>                    };</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">El array <b>au8Off</b>[] va a apagar todos los leds. Todos los colores están a 0:</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>47</td>
+                      <td>const uint8_t <span class="b6">au8Off<span class="tooltiptext">Array <b>au8Off</b></span></span>[]= {</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 01</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 02</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 03</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 04</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 05</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 06</td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 07</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 08</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 09</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 10</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 11</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 12</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 13</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 14</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 15</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>                      0x00,0x00,0x00    //R,G,B Led 16</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>                    };</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">El array <b>au8Colors0</b>[] va a encender de color azul la primera fila de leds. Todos los demás apagados.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>85</td>
+                      <td>const uint8_t <span class="b6">au8Colors0<span class="tooltiptext">Array <b>au8Colors0</b></span></span>[]= {</td>
+                  </tr>
+                  <tr>
+                      <td>86</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 01.</span></span>,   //R,G,B Led 01</td>
+                  </tr>
+                  <tr>
+                      <td>87</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 02.</span></span>,   //R,G,B Led 02</td>
+                  </tr>
+                  <tr>
+                      <td>88</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 03.</span></span>,   //R,G,B Led 03</td>
+                  </tr>
+                  <tr>
+                      <td>89</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 04.</span></span>,   //R,G,B Led 04</td>
+                  </tr>
+                  <tr>
+                      <td>90</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 05</td>
+                  </tr>
+                  <tr>
+                      <td>91</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 06</td>
+                  </tr>
+                  <tr>
+                      <td>92</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 07</td>
+                  </tr>
+                  <tr>
+                      <td>93</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 08</td>
+                  </tr>
+                  <tr>
+                      <td>94</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 09</td>
+                  </tr>
+                  <tr>
+                      <td>95</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 10</td>
+                  </tr>
+                  <tr>
+                      <td>96</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 11</td>
+                  </tr>
+                  <tr>
+                      <td>97</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 12</td>
+                  </tr>
+                  <tr>
+                      <td>98</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 13</td>
+                  </tr>
+                  <tr>
+                      <td>99</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 14</td>
+                  </tr>
+                  <tr>
+                      <td>100</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 15</td>
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>                      0x00,0x00,0x00    //R,G,B Led 16</td>
+                  </tr>
+                  <tr>
+                      <td>102</td>
+                      <td>                    };</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">El array <b>au8Colors1</b>[] va a encender de color azul la segunda fila de leds. Todos los demás apagados.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>104</td>
+                      <td>const uint8_t <span class="b6">au8Colors1<span class="tooltiptext">Array <b>au8Colors1</b></span></span>[]= {</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 01</td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 02</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 03</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 04</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 05.</span></span>,   //R,G,B Led 05</td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 06.</span></span>,   //R,G,B Led 06</td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 07.</span></span>,   //R,G,B Led 07</td>
+                  </tr>
+                  <tr>
+                      <td>112</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 08.</span></span>,   //R,G,B Led 08</td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 09</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 10</td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 11</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 12</td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 13</td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 14</td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 15</td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td>                      0x00,0x00,0x00    //R,G,B Led 16</td>
+                  </tr>
+                  <tr>
+                      <td>121</td>
+                      <td>                    };</td>
+                  </tr>
+                  <tr>
+                      <td>122</td>
+                      <td></td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">El array <b>au8Colors2</b>[] va a encender de color azul la tercera fila de leds. Todos los demás apagados.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>123</td>
+                      <td>const uint8_t <span class="b6">au8Colors2<span class="tooltiptext">Array <b>au8Colors2</b></span></span>[]= {</td>
+                  </tr>
+                  <tr>
+                      <td>124</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 01</td>
+                  </tr>
+                  <tr>
+                      <td>125</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 02</td>
+                  </tr>
+                  <tr>
+                      <td>126</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 03</td>
+                  </tr>
+                  <tr>
+                      <td>127</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 04</td>
+                  </tr>
+                  <tr>
+                      <td>128</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 05</td>
+                  </tr>
+                  <tr>
+                      <td>129</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 06</td>
+                  </tr>
+                  <tr>
+                      <td>130</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 07</td>
+                  </tr>
+                  <tr>
+                      <td>131</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 08</td>
+                  </tr>
+                  <tr>
+                      <td>132</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 09.</span></span>,   //R,G,B Led 09</td>
+                  </tr>
+                  <tr>
+                      <td>133</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 10.</span></span>,   //R,G,B Led 10</td>
+                  </tr>
+                  <tr>
+                      <td>134</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 11.</span></span>,   //R,G,B Led 11</td>
+                  </tr>
+                  <tr>
+                      <td>135</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 12.</span></span>,   //R,G,B Led 12</td>
+                  </tr>
+                  <tr>
+                      <td>136</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 13</td>
+                  </tr>
+                  <tr>
+                      <td>137</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 14</td>
+                  </tr>
+                  <tr>
+                      <td>138</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 15</td>
+                  </tr>
+                  <tr>
+                      <td>139</td>
+                      <td>                      0x00,0x00,0x00    //R,G,B Led 16</td>
+                  </tr>
+                  <tr>
+                      <td>140</td>
+                      <td>                    };</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">El array <b>au8Colors3</b>[] va a encender de color azul la cuarta fila de leds. Todos los demás apagados.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>142</td>
+                      <td>const uint8_t <span class="b6">au8Colors3<span class="tooltiptext">Array <b>au8Colors3</b></span></span>[]= {</td>
+                  </tr>
+                  <tr>
+                      <td>143</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 01</td>
+                  </tr>
+                  <tr>
+                      <td>144</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 02</td>
+                  </tr>
+                  <tr>
+                      <td>145</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 03</td>
+                  </tr>
+                  <tr>
+                      <td>146</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 04</td>
+                  </tr>
+                  <tr>
+                      <td>147</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 05</td>
+                  </tr>
+                  <tr>
+                      <td>148</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 06</td>
+                  </tr>
+                  <tr>
+                      <td>149</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 07</td>
+                  </tr>
+                  <tr>
+                      <td>150</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 08</td>
+                  </tr>
+                  <tr>
+                      <td>151</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 09</td>
+                  </tr>
+                  <tr>
+                      <td>152</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 10</td>
+                  </tr>
+                  <tr>
+                      <td>153</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 11</td>
+                  </tr>
+                  <tr>
+                      <td>154</td>
+                      <td>                      0x00,0x00,0x00,   //R,G,B Led 12</td>
+                  </tr>
+                  <tr>
+                      <td>155</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 13.</span></span>,   //R,G,B Led 13</td>
+                  </tr>
+                  <tr>
+                      <td>156</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 14.</span></span>,   //R,G,B Led 14</td>
+                  </tr>
+                  <tr>
+                      <td>157</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 15.</span></span>,   //R,G,B Led 15</td>
+                  </tr>
+                  <tr>
+                      <td>158</td>
+                      <td>                      0x00,0x00,<span class="b1">0xFF<span class="tooltiptext">Color azul para el Led 16.</span></span>    //R,G,B Led 16</td>
+                  </tr>
+                  <tr>
+                      <td>159</td>
+                      <td>                    };</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a añadir el código fuente que se va a ejecutar antes del bucle infinito. Va a realizar el parpadeo de todos los leds.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/30.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/31.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>214</td>
+                      <td>  <span class="b2">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors )<span class="tooltiptext">Envía el array <b>au8Colors</b>, que pone la primera fila roja, la segunda verde, la tercera azul y la cuarta blanca.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>215</td>
+                      <td>  <span class="b1">HAL_Delay(500)<span class="tooltiptext">Espera medio segundo.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>216</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>217</td>
+                      <td>  <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Off )<span class="tooltiptext">Envía el array <b>au8Off</b>, que apaga todos los leds.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>218</td>
+                      <td>  <span class="b1">HAL_Delay(500)<span class="tooltiptext">Espera medio segundo.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>219</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>220</td>
+                      <td>  <span class="b2">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors )<span class="tooltiptext">Envía el array <b>au8Colors</b>, que pone la primera fila roja, la segunda verde, la tercera azul y la cuarta blanca.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>221</td>
+                      <td>  <span class="b1">HAL_Delay(500)<span class="tooltiptext">Espera medio segundo.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>222</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>223</td>
+                      <td>  <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Off )<span class="tooltiptext">Envía el array <b>au8Off</b>, que apaga todos los leds.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>224</td>
+                      <td>  <span class="b1">HAL_Delay(500)<span class="tooltiptext">Espera medio segundo.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>225</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>226</td>
+                      <td>  <span class="b2">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors )<span class="tooltiptext">Envía el array <b>au8Colors</b>, que pone la primera fila roja, la segunda verde, la tercera azul y la cuarta blanca.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>227</td>
+                      <td>  <span class="b1">HAL_Delay(500)<span class="tooltiptext">Espera medio segundo.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>228</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>229</td>
+                      <td>  <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Off )<span class="tooltiptext">Envía el array <b>au8Off</b>, que apaga todos los leds.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>230</td>
+                      <td>  <span class="b1">HAL_Delay(500)<span class="tooltiptext">Espera medio segundo.</span></span>;</td>
+                  </tr>
+            </table>
+            <ul>
+               <li><div class="text">Este mismo parpadeo se podría haber hecho con un bucle for.</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a añadir el código que se va a ejecutar de manera continua dentro del bucle infinito.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/32.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/33.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>232</td>
+                      <td>  while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>233</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>234</td>
+                      <td>      <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors0 )<span class="tooltiptext">Envía el array <b>au8Colors0</b>, que enciende la <b>primera</b> fila de azul, apagando los demás.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>235</td>
+                      <td>      <span class="b1">HAL_Delay(200)<span class="tooltiptext">Espera 200 ms.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>236</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>237</td>
+                      <td>      <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors1 )<span class="tooltiptext">Envía el array <b>au8Colors1</b>, que enciende la <b>segunda</b> fila de azul, apagando los demás.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>238</td>
+                      <td>      <span class="b1">HAL_Delay(200)<span class="tooltiptext">Espera 200 ms.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>239</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>240</td>
+                      <td>      <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors2 )<span class="tooltiptext">Envía el array <b>au8Colors2</b>, que enciende la <b>tercera</b> fila de azul, apagando los demás.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>241</td>
+                      <td>      <span class="b1">HAL_Delay(200)<span class="tooltiptext">Espera 200 ms.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>242</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>243</td>
+                      <td>      <span class="b6">AppClick4x4RGB_sendColors( (uint8_t*) au8Colors3 )<span class="tooltiptext">Envía el array <b>au8Colors3</b>, que enciende la <b>cuarta</b> fila de azul, apagando los demás.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>244</td>
+                      <td>      <span class="b1">HAL_Delay(200)<span class="tooltiptext">Espera 200 ms.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>245</td>
+                      <td>    /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>246</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>247</td>
+                      <td>    /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>248</td>
+                      <td>  }</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y por último incluir el fichero <b>AppClick4x4RGB.h</b> para tener acceso a la función <b>AppClick4x4RGB_sendColors</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/34.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/35.png">
+        </div>
+        <div class="title">AppClick4x4RGB.c|h</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a añadir 2 ficheros vacíos al proyecto : <b>AppClick4x4RGB.c</b> y <b>AppClick4x4RGB.h</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/15.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/17.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/18.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/19.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/20.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/21.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a copiar en <b>AppClick4x4RGB.h</b> el código que he preparado. </div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/23.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/24.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>25</td>
+                      <td>/////////////////////////////////////////////////////////////</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>// Global function definitions</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>/////////////////////////////////////////////////////////////</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td><span class="b2">extern<span class="tooltiptext">Como la función <b>AppClick4x4RGB_sendColors</b> va a ser usada en otros ficheros ( en <b>main.c</b> ) debemos hacer externa su declaración.</span></span> void AppClick4x4RGB_sendColors( uint8_t* _au8Colors );</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a copiar en <b>AppClick4x4RGB.c</b> el código que he preparado. </div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/25.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/26.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>78</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>79</td>
+                      <td>//  AppClick4x4RGB_sendColors</td>
+                  </tr>
+                  <tr>
+                      <td>80</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>81</td>
+                      <td>void <span class="b1">AppClick4x4RGB_sendColors<span class="tooltiptext">La función <b>AppClick4x4RGB_sendColors</b> envía el array <b>_au8Colors</b> de datos a los 16 leds RGB.</span></span>(    uint8_t* _au8Colors)</td>
+                  </tr>
+                  <tr>
+                      <td>82</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>83</td>
+                      <td>    for(int iLed = 0;</td>
+                  </tr>
+                  <tr>
+                      <td>84</td>
+                      <td>            iLed &lt <span class="b2">3 * 16<span class="tooltiptext">A cada led hay que mandarle 3 bytes, por lo que en total hay que enviar 3 bytes * 16 leds =  <b>48 bytes</b>.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>85</td>
+                      <td>            iLed <span class="b3">+= 3<span class="tooltiptext">En cada iteración del bucle vamos a enviar 3 bytes, por lo que incrementamos la variable <b>iLed</b> en 3.</span></span>)</td>
+                  </tr>
+                  <tr>
+                      <td>86</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>87</td>
+                      <td>        uint8_t u8Green   =    _au8Colors[<span class="b4">iLed + 1<span class="tooltiptext">Como hemos visto antes, el color verde es el segundo valor (de los 3 que hay por línea). Por eso le sumamos un 1 para acceder a él.</span></span>];</td>
+                  </tr>
+                  <tr>
+                      <td>88</td>
+                      <td>        SendByte( <span class="b5">u8Green<span class="tooltiptext">Como veremos más adelante el WS2812 tiene que recibir 3 bytes con la intensidad de los leds. El primero debe ser el Verde.</span></span> );</td>
+                  </tr>
+                  <tr>
+                      <td>89</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>90</td>
+                      <td>        uint8_t u8Red     =    _au8Colors[iLed];</td>
+                  </tr>
+                  <tr>
+                      <td>91</td>
+                      <td>        SendByte( <span class="b5">u8Red<span class="tooltiptext">El segundo byte a enviar es el color Rojo.</span></span> );</td>
+                  </tr>
+                  <tr>
+                      <td>92</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>93</td>
+                      <td>        uint8_t u8Blue    =    _au8Colors[<span class="b4">iLed + 2<span class="tooltiptext">Como el color azul es el tercer valor (de los 3 que hay por fila), le sumamos un 2 para acceder a él.</span></span>];</td>
+                  </tr>
+                  <tr>
+                      <td>94</td>
+                      <td>        SendByte( <span class="b5">u8Blue<span class="tooltiptext">El tercer byte a enviar es el color Azul.</span></span> );</td>
+                  </tr>
+                  <tr>
+                      <td>95</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>96</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Esta es una captura del datasheet (que te puedes descargar en la sección de descargas) del WS2812.</div></li>
+               <li><div class="text">Como puedes ver, primero hay que enviar los 8 bits del color verde (G), luego los 8 bits del color rojo (R) y por último los 8 bits del color azul (B).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/42.png">
+        </div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>42</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>//  SendByte</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>void <span class="b1">SendByte<span class="tooltiptext">La función <b>SendByte</b> recorre todos los bits del byte <b>_u8Data</b> y llama a las funciones <b>write0</b> y <b>write1</b> para enviarlo por el pin <b>PA5</b>.</span></span>( uint8_t _u8Data )</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>    for(int i=<span class="b2">0x80<span class="tooltiptext">La variable <b>i</b> va a ser la máscara para recorrer todos los bits del byte, desde el bit 7 (valor <b>0x80</b>) hasta el bit 0 (valor <b>0x01</b>).</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>            <span class="b3">i != 0<span class="tooltiptext">El bucle terminadrá cuando la variable <b>i</b> valga 0.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>            i = i <span class="b4">&gt&gt 1<span class="tooltiptext">Desplazamos la máscara un bit a la derecha.</span></span>)</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>        if( ( _u8Data & i) != 0 )</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>            <span class="b5">write1<span class="tooltiptext">Generamos un <b>1</b> en el pin <b>PA5</b>.</span></span>();</td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>        else</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>            <span class="b6">write0<span class="tooltiptext">Generamos un <b>0</b> en el pin <b>PA5</b>.</span></span>();</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Estas son las señales que hay generar para enviar un <b>0</b>, un <b>1</b> y un <b>reset</b>.</div></li>
+               <li><div class="text">La señal de reset hay que generada antes de enviar la secuencia de colores para los leds. Hay que tener el pin <b>PA5</b> a <b>0</b> durante al menos <b>50us</b>. </div></li>
+               <li><div class="text">La señal de reset la vamos a hacer haciendo simplemente una espera con la función <b>HAL_Delay</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/43.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Veamos cómo generar un 1.</div></li>
+               <li><div class="text">Vamos a escribir 4 veces en el registro <b>BSRR</b> para poner a 1 el pin <b>PA5</b>. Estas 4 escrituras tardarán un tiempo de aproximadamente 0.7 microsec. Según el datasheet del WS2812 hay una tolerancia de 0.15 microsec.</div></li>
+               <li><div class="text">Después escribimos en el registro <b>BSRR</b> para poner a 0 el pin <b>PA5</b>.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>45</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>//  write1</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td>void write1()</td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>      GPIOA-&gtBSRR   |=  <span class="b5">GPIO_BSRR_BS_5<span class="tooltiptext">Ponemos el bit 5 (<b>GPIO_BSRR_BS_5</b>) a 1 del registro <b>BSRR</b> del puerto A para poner a 1 el pin <b>PA5</b>.</span></span>;         //Set PA5</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>      GPIOA-&gtBSRR   |=  GPIO_BSRR_BS_5;         //Set PA5</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>      GPIOA-&gtBSRR   |=  GPIO_BSRR_BS_5;         //Set PA5</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>      GPIOA-&gtBSRR   |=  GPIO_BSRR_BS_5;         //Set PA5</td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>      GPIOA-&gtBSRR   |=  <span class="b6">GPIO_BSRR_BR_5<span class="tooltiptext">Ponemos el bit 21 (<b>GPIO_BSRR_BR_5</b>) a 1 del registro <b>BSRR</b> del puerto A para poner a 0 el pin <b>PA5</b>.</span></span>;         //Clear PA5</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Veamos cómo generar un 0.</div></li>
+               <li><div class="text">Vamos a escribir 2 veces en el registro <b>BSRR</b> para poner a 1 el pin <b>PA5</b>. Estas 2 escrituras tardarán un tiempo de aproximadamente 0.35 microsec. Según el datasheet del WS2812 hay una tolerancia de 0.15 microsec.</div></li>
+               <li><div class="text">Después escribimos en el registro <b>BSRR</b> para poner a 0 el pin <b>PA5</b>.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>34</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>//  write0</td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>//  ----------------------------------------------</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>void write0()</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>      GPIOA-&gtBSRR   |=  <span class="b5">GPIO_BSRR_BS_5<span class="tooltiptext">Ponemos el bit 5 (<b>GPIO_BSRR_BS_5</b>) a 1 del registro <b>BSRR</b> del puerto A para poner a 1 el pin <b>PA5</b>.</span></span>;         //Set PA5</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>      GPIOA-&gtBSRR   |=  GPIO_BSRR_BS_5;         //Set PA5</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>      GPIOA-&gtBSRR   |=  <span class="b6">GPIO_BSRR_BR_5<span class="tooltiptext">Ponemos el bit 21 (<b>GPIO_BSRR_BR_5</b>) a 1 del registro <b>BSRR</b> del puerto A para poner a 0 el pin <b>PA5</b>.</span></span>;         //Clear PA5</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ya puedo compilar y depurar el programa.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/36.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/37.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/38.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/39.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/40.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/41.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Estas son dos capturas, con el osciloscopio, de un 0 en la señal DIN.</div></li>
+               <li><div class="text">El tiempo en ON es 0.44 microsegundos.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/44.png">
+            <ul>
+               <li><div class="text">El tiempo en OFF es 1 microsegundo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/45.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Estas son dos capturas de un 1 en la señal DIN.</div></li>
+               <li><div class="text">El tiempo en ON es 0.85 microsegundos.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/46.png">
+            <ul>
+               <li><div class="text">El tiempo en OFF es 1 microsegundo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/img/47.png">
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/04_STM32F0/Seccion05/L36_Program_HAL/downloads/WS2812.pdf">Datasheet del WS2812</a></li>
+            </ul>
+        </div>

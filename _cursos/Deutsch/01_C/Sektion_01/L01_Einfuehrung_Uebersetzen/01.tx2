@@ -1,0 +1,116 @@
+[LESSON_FOLDER]
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]
+[TITLE_ENGLISH]Einführung: Editieren und Übersetzen
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]1
+:code:Um ein lauffähiges C-Programm zu erzeugen, muss zunächst mit einem Texteditor eine
+:key1:                                                --------
+:en__: primero
+:key1:                                 --------
+:en__: producir
+:key1:       -----------
+:en__: ejecutable
+
+:code:Quelltext-Datei angelegt und mit Code gefüllt werden. Anschließend wird ein Compiler
+:key1:                                                      ------------
+:en__: después
+:key2:                --------
+:en__: ???
+
+:code:gestartet, der den Quellcode in Maschinen-Code übersetzt und ein lauffähiges Programm
+:code:erstellt.
+:key1:--------
+:en__: crear, generar
+:code:Als klassisches Beispiel soll hierzu ein minimales Programm dienen, das lediglich "Hallo,
+:key1:                                                            ------
+:en__: servir
+:key1:                              ------
+:en__: para esto
+:key1:                                                                        ---------
+:en__: sólamente
+
+:code:Welt!" auf dem Bildschirm ausgibt. Hierzu wird mit einem Texteditor folgender Code in
+:key1:               ----------
+:en__: pantalla
+:key1:                          -------
+:en__: saca
+:code:eine (neue) Datei hallo.c geschrieben:
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]1
+:code:// Datei: hallo.c         /* 1. */
+:code:# include <stdio.h>       /* 2. */
+:code:void main()               /* 3. */
+:code:{
+:code:printf("Hallo, Welt!\n"); /* 4. */
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]1
+:code:Das obige Programm enthält folgende Komponenten:
+:key1:    -----
+:en__: de arriba
+:code:
+:code:1. Eine mit // eingeleitete Zeile am Dateianfang stellt einen Kommentar dar. Sie wird
+:key1:                            -----
+:en__: línea
+:key1:                                                 --------------------------
+:en__: representa un comentario
+:code:beim Übersetzen durch den Compiler ignoriert und dient lediglich der besseren Lesbarkeit.
+:key1:                                                                 -----------------------
+:en__: a una mejor legibilidad
+:key1:                                                 -----
+:en__: sirve
+:code:Ebenso werden Textbereiche, die durch /* und */ begrenzt sind, als Kommentare
+:key1:                            ---------------------------------
+:en__: que están limitadas por /* y */
+:key1:              ------------
+:en__: áreas de texto
+:code:für Erklärungen oder Hinweise genutzt
+:code:
+:code:2. Mit der Anweisung #include <stdio.h> wird dem Compiler mitgeteilt, die
+:key1:                                                          ----------
+:en__: mitteilen : comunicar, hacer saber
+:key1:           ---------
+:en__: instrucción
+:code:Standard-Input-Output-Bibliothek stdio.h zu laden. Diese von vielen C-Programmen
+:code:genutzte „Sammlung“ an Quellcode stellt u.a. Funktionen für die Aus-
+:key1:                                        ----
+:en__:unter anderen
+:code:gabe von Text auf dem Bildschirm bereit.
+:code:
+:code:3. Die Funktion main() startet das Hauptprogramm, das sich innerhalb der folgenden
+:code:geschweiften Klammern befindet. Jedes C-Programm verfügt über eine derartige
+:key1:                                                                   ---------
+:en__: tal, semejante, del estilo
+:key1:                                                 ------------
+:en__: tiene
+:key1:---------------------
+:en__: llaves
+:code:main()-Funktion.
+:code:
+:code:4. Durch den Aufruf der Funktion printf() wird auf dem Bildschirm der in doppelten
+:key1:   --------------------
+:en__: Mediante la llamada a
+:code:Hochkommata stehende Text ausgegeben. Die Zeichenfolge \n steht dabei als
+:key2:                                                          -----------
+:en__: ???
+:key1:                                          ------------
+:en__: Secuencia de caracteres
+:key1:-----------
+:en__: Comillas dobles (literal : comillas de arriba)
+:code:Zeichen für eine neue Zeile. Der Aufruf der Funktion muss, wie jede C-Anweisung,
+:code:mit einem Strichpunkt ; beendet werden.
+:key1:          -----------
+:en__: Punto y coma (;)
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+

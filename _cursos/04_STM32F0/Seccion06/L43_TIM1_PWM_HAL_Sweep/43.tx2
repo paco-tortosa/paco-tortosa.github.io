@@ -1,0 +1,108 @@
+[LESSON_FOLDER]../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]PWM (HAL) con barrido
+[TITLE_ENGLISH]PWM (HAL) with sweep
+
+[MPPRO_SECTION_ES_EN]IDE|IDE
+[MPPRO_VIDEO]03_Camtasia\02_cam_IDE.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a modificar el proyecto de la lección anterior para hacer un barrido en la señal de PWM, el <b>Duty Cycle</b> variará de 0 a 100% incrementándose cada 25 ms.
+[ENGLISH]In this lesson we are going to modify the project of the previous lesson to make a sweep on the PWM signal, the <b>Duty Cycle</b> will range from 0 to 100% being incremented every 25 ms.
+[END_LIST]
+[BLOCK_END]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Abre el fichero <b>main.c</b> del proyecto <b>P22_TIM1_PWM_HAL</b>.
+[ENGLISH]Open the file <b>main.c</b> of the project <b>P22_TIM1_PWM_HAL</b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y añade el siguiente código fuente:
+[ENGLISH]And add the folowing source code:
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Pasa el ratón sobre la zona coloreada para ver la explicación.
+[ENGLISH]Hover the mouse over the highlighted area to see the explanation.
+[END_LIST]
+
+[SOURCE_CODE_EX_BEGIN]103
+:code:  /* Infinite loop */
+:code:  /* USER CODE BEGIN WHILE */
+:code:  HAL_TIM_PWM_Start( &htim1 , TIM_CHANNEL_1 );
+:code:  uint16_t  u16DutyCycle    =   25;
+:key1:            ------------
+:es__:La variable <b>u16DutyCycle</b> va a variar de 0 a 100 y va a ser el <b>Duty cycle</b> o tiempo en el que la señal está a nivel alto.
+:en__:The variable <b>u16DutyCycle</b> will range from 0 to 100 and it will be the <b>Duty cycle</b>, that is to say, the time the signal is at high level.
+
+:code:  while (1)
+:code:  {
+:code:      __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, u16DutyCycle );
+:key2:      ---------------------
+:es__:Con la macro <b>__HAL_TIM_SET_COMPARE</b> escribimos en el registro CCR1 el valor de la variable <b>u16DutyCycle</b>.
+:en__:With the macro <b>__HAL_TIM_SET_COMPARE</b> we write to the register CCR1 the value of the variable <b>u16DutyCycle</b>.
+
+:code:
+:code:      u16DutyCycle++;
+:key3:      --------------
+:es__:Incrementamos en 1 la variable <b>u16DutyCycle</b>.
+:en__:Increment the variable <b>u16DutyCycle</b> by 1.
+
+:code:      if( u16DutyCycle > 100 )
+:key4:      ------------------------
+:es__:Si la variable <b>u16DutyCycle</b> es mayor que 100 la ponemos a 0.
+:en__:If the variable <b>u16DutyCycle</b> is greater than 100 we set it to 0.
+
+:code:      {
+:code:          u16DutyCycle      =   0;
+:code:      }
+:code:      HAL_Delay(25);
+:key5:      -------------
+:es__:Esperamos 25ms.
+:en__:We wait for 25ms.
+
+:code:    /* USER CODE END WHILE */
+:code:
+:code:    /* USER CODE BEGIN 3 */
+:code:  }
+:code:
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila y depura el programa.
+[ENGLISH]Build and debug the program.
+[END_LIST]
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]Video|Video
+[MPPRO_VIDEO]03_Camtasia\01_cam_scope.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este video puedes ver cómo cambia el duty cycle de la señal PWM.
+[ENGLISH]On this video you can see how the duty cycle changes.
+[END_LIST]
+
+[VIDEO_SPANISH]https://www.youtube.com/embed/_-AqXrr1wrA?rel=0
+[VIDEO_ENGLISH]https://www.youtube.com/embed/_-AqXrr1wrA?rel=0
+[BLOCK_END]

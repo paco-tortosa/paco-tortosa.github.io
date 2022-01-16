@@ -1,0 +1,285 @@
+[IMG_FOLDER]img/030_P019_ADC_LEDs/
+
+[TITLE_SPANISH]019 - ADC - LEDs
+[TITLE_ENGLISH]019 - ADC - LEDs
+[TITLE_DEUTSCH]019 - ADC - LEDs
+
+[SPANISH]En este proyecto vamos a usar el potenciómetro conectado al componente ADC para encender los leds rojo, verde y azul.
+[ENGLISH]On this project you will use a potentiometer connected to the ADC component to switch on the red, green and blue LEDs.
+[DEUTSCH]On this project you will use a potentiometer connected to the ADC component to switch on the red, green and blue LEDs.
+
+[SPANISH]El valor del componente ADC variará entre 0 y 2047 (11 bits). Cuando el valor esté por debajo de 682 (un tercio del valor máximo) se encenderá el led azul. Cuando el valor esté entre 683 y 1364 (entre un tercio y 2 tercios del valor máximo) se encenderá el led verde. Y cuando el valor sea mayor que 1365 (dos tercios del valor máximo) se encenderá el led rojo.
+[ENGLISH]The value of the ADC component will vary from 0 to 2047 (11 bits). When the value is under 682 (a third of the max value) the blue LED will be on. When the value is between 683 and 1364 (between a third a 2 thirds of the max vlue) the green will be on. And when the value is greater than 1365 ( 2 thirds of the max value) the red LED will be on. 
+[DEUTSCH]The value of the ADC component will vary from 0 to 2047 (11 bits). When the value is under 682 (a third of the max value) the blue LED will be on. When the value is between 683 and 1364 (between a third a 2 thirds of the max vlue) the green will be on. And when the value is greater than 1365 ( 2 thirds of the max value) the red LED will be on. 
+
+[IMG]Setup.png;90
+//[IMG]P019_ADC_pins.png;90
+[IMG_SPANISH]P019_ADC_pins_es.png;90
+[IMG_ENGLISH]P019_ADC_pins_en.png;90
+[IMG_DEUTSCH]P019_ADC_pins_en.png;90
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 18 y renómbralo como 19.
+[ENGLISH]Copy the Workspace 18 and rename it as 19.
+[DEUTSCH]Copy the Workspace 18 and rename it as 19.
+
+[IMG]01.png;50
+[IMG]02.png;50
+
+[SPANISH]Añade una interrupción.
+[ENGLISH]Add an interrupt.
+[DEUTSCH]Add an interrupt.
+
+[IMG]03.png;50
+[IMG]04.png;90
+
+[SPANISH]Edita sus propiedades.
+[ENGLISH]Edit its properties.
+[DEUTSCH]Edit its properties.
+
+[IMG]05.png;50
+
+[SPANISH]Renómbrala como "ISR_ADC_EOC".
+[ENGLISH]Rename it as "ISR_ADC_EOC". 
+[DEUTSCH]Rename it as "ISR_ADC_EOC". 
+
+[IMG]06.png;90
+[IMG]07.png;90
+
+[SPANISH]Conecta la interrupción a la salida "eoc" del componente "ADC".
+[ENGLISH]Connect the interrupt to the output "eoc" of the "ADC" component.
+[DEUTSCH]Connect the interrupt to the output "eoc" of the "ADC" component.
+
+[IMG]08.png;90
+
+[SPANISH]Edita las propiedades de la salida digital "ADC_EOC".
+[ENGLISH]Edit the properties of the digital output "ADC_EOC".
+[DEUTSCH]Edit the properties of the digital output "ADC_EOC".
+
+[IMG]09.png;50
+
+[SPANISH]Como va a ser controlada por el programa, deshabilita la opción "HW connection".
+[ENGLISH]As it is going to be controlled by the program, disable the option "HW connection".
+[DEUTSCH]As it is going to be controlled by the program, disable the option "HW connection".
+
+[IMG]10.png;90
+[IMG]11.png;90
+
+[SPANISH]Cambia de sitio la interrupción y la salida en el esquemático.
+[ENGLISH]Rearrange the interrupt and the output in the schematic.
+[DEUTSCH]Rearrange the interrupt and the output in the schematic.
+
+[IMG]12.png;90
+
+[SPANISH]Crea 3 nuevas salidas (para los leds) copiando la salida "ADC_EOC" tres veces.
+[ENGLISH]Create 3 new outputs (for the LEDs) by copying the output "ADC_EOC" three times.
+[DEUTSCH]Create 3 new outputs (for the LEDs) by copying the output "ADC_EOC" three times.
+
+[IMG]13.png;90
+
+[SPANISH]Y renómbralas como "LED_RED", "LED_GREEN" y "LED_BLUE".
+[ENGLISH]And rename them as "LED_RED", "LED_GREEN" and "LED_BLUE".
+[DEUTSCH]And rename them as "LED_RED", "LED_GREEN" and "LED_BLUE".
+
+[IMG]14.png;90
+
+[SPANISH]Conecta las salidas a los pines del PSoC.
+[ENGLISH]Connect the outputs to the PSoC pins.
+[DEUTSCH]Connect the outputs to the PSoC pins.
+
+[IMG]15.png;90
+
+[SPANISH]Añade el siguiente código en "main.c".
+[ENGLISH]Add the following code in "main.c".
+[DEUTSCH]Add the following code in "main.c".
+
+[IMG]16.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 14
+[TABLE_ITEM_ENGLISH]Line  14
+[TABLE_ITEM_DEUTSCH]Line  14
+
+[TABLE_ITEM_SPANISH]Define la constante POT_CHAN como 0 (es el canal ADC usado).
+[TABLE_ITEM_ENGLISH]Defines the constant POT_CHAN as 0 (it is the ADC channed used).
+[TABLE_ITEM_DEUTSCH]Defines the constant POT_CHAN as 0 (it is the ADC channed used).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 15
+[TABLE_ITEM_ENGLISH]Line  15
+[TABLE_ITEM_DEUTSCH]Line  15
+
+[TABLE_ITEM_SPANISH]Define la constante  MAX_ADC_VALUE como 0x7FF (2047, máximo valor para 11 bits).
+[TABLE_ITEM_ENGLISH]Defines the constant MAX_ADC_VALUE as   0x7FF (2047, max value for 11 bits).
+[TABLE_ITEM_DEUTSCH]Defines the constant MAX_ADC_VALUE as   0x7FF (2047, max value for 11 bits).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 17
+[TABLE_ITEM_ENGLISH]Line  17
+[TABLE_ITEM_DEUTSCH]Line  17
+
+[TABLE_ITEM_SPANISH]Define la función "ISR_ADC_EOC_Handler" como una ISR (Rutina de servicio de interrupción).
+[TABLE_ITEM_ENGLISH]Defines the function "ISR_ADC_EOC_Handler" as an ISR (Interrupt Service Routine).
+[TABLE_ITEM_DEUTSCH]Defines the function "ISR_ADC_EOC_Handler" as an ISR (Interrupt Service Routine).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 22 <br>(ADC_GetResult16())
+[TABLE_ITEM_ENGLISH]Line  22 <br>(ADC_GetResult16())
+[TABLE_ITEM_DEUTSCH]Line  22 <br>(ADC_GetResult16())
+
+[TABLE_ITEM_SPANISH]Obtiene el último valor medido por el ADC.
+[TABLE_ITEM_ENGLISH]Gets the last value measured by the ADC.
+[TABLE_ITEM_DEUTSCH]Gets the last value measured by the ADC.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 23 <br>(ADC_CountsTo_mVolts())
+[TABLE_ITEM_ENGLISH]Line  23 <br>(ADC_CountsTo_mVolts())
+[TABLE_ITEM_DEUTSCH]Line  23 <br>(ADC_CountsTo_mVolts())
+
+[TABLE_ITEM_SPANISH]Convierte el valor a milivoltios.
+[TABLE_ITEM_ENGLISH]Converts the value to millivolts.
+[TABLE_ITEM_DEUTSCH]Converts the value to millivolts.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 25
+[TABLE_ITEM_ENGLISH]Line  25
+[TABLE_ITEM_DEUTSCH]Line  25
+
+[TABLE_ITEM_SPANISH]Conmuta el estado de la salida "ADC_EOC" (para ser vista en el osciloscopio)
+[TABLE_ITEM_ENGLISH]Toggles the state of the output "ADC_EOC" (to be seen on the oscilloscope)
+[TABLE_ITEM_DEUTSCH]Toggles the state of the output "ADC_EOC" (to be seen on the oscilloscope)
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 27 a 32
+[TABLE_ITEM_ENGLISH]Lines  27 to 32
+[TABLE_ITEM_DEUTSCH]Lines  27 to 32
+
+[TABLE_ITEM_SPANISH]Si el valor del ADC es menor que 682 enciende el led azul.
+[TABLE_ITEM_ENGLISH]If the ADC value is less than 682 the blue LED is on.
+[TABLE_ITEM_DEUTSCH]If the ADC value is less than 682 the blue LED is on.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 33 a  38
+[TABLE_ITEM_ENGLISH]Lines  33 to 38
+[TABLE_ITEM_DEUTSCH]Lines  33 to 38
+
+[TABLE_ITEM_SPANISH]Si el valor del ADC está en el rango [683,1364] enciende el led verde.
+[TABLE_ITEM_ENGLISH]If the ADC value is in the range [683,1364] the green LED is on.
+[TABLE_ITEM_DEUTSCH]If the ADC value is in the range [683,1364] the green LED is on.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 39 a  44
+[TABLE_ITEM_ENGLISH]Lines  39 to 44
+[TABLE_ITEM_DEUTSCH]Lines  39 to 44
+
+[TABLE_ITEM_SPANISH]Si el valor del ADC es mayor de 1365 enciende el led rojo.
+[TABLE_ITEM_ENGLISH]If the ADC value is over 1365 the red LED is on.
+[TABLE_ITEM_DEUTSCH]If the ADC value is over 1365 the red LED is on.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 46
+[TABLE_ITEM_ENGLISH]Line  46
+[TABLE_ITEM_DEUTSCH]Line  46
+
+[TABLE_ITEM_SPANISH]Borra el flag de la interrupción.
+[TABLE_ITEM_ENGLISH]Clears the interrupt flag.
+[TABLE_ITEM_DEUTSCH]Clears the interrupt flag.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]17.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 52 <br> (CyGlobalIntEnable)
+[TABLE_ITEM_ENGLISH]Line  52 <br> (CyGlobalIntEnable)
+[TABLE_ITEM_DEUTSCH]Line  52 <br> (CyGlobalIntEnable)
+
+[TABLE_ITEM_SPANISH]Habilita interrupciones.
+[TABLE_ITEM_ENGLISH]Enables global interrupts.
+[TABLE_ITEM_DEUTSCH]Enables global interrupts.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 54 <br> (ADC_Start)
+[TABLE_ITEM_ENGLISH]Line  54 <br> (ADC_Start)
+[TABLE_ITEM_DEUTSCH]Line  54 <br> (ADC_Start)
+
+[TABLE_ITEM_SPANISH]Inicializa el componente ADC.
+[TABLE_ITEM_ENGLISH]Initializes the ADC component.
+[TABLE_ITEM_DEUTSCH]Initializes the ADC component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 55
+[TABLE_ITEM_ENGLISH]Line  55
+[TABLE_ITEM_DEUTSCH]Line  55
+
+[TABLE_ITEM_SPANISH]Inicializa la interrupción ISR_ADC_EOC y configura la función ISR_ADC_EOC_Handler como su ISR.
+[TABLE_ITEM_ENGLISH]Initializes the ISR_ADC_EOC interrupt and configures the function ISR_ADC_EOC_Handler as its ISR.
+[TABLE_ITEM_DEUTSCH]Initializes the ISR_ADC_EOC interrupt and configures the function ISR_ADC_EOC_Handler as its ISR.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 56 <br> (ADC_StartConvert())
+[TABLE_ITEM_ENGLISH]Line  56 <br> (ADC_StartConvert())
+[TABLE_ITEM_DEUTSCH]Line  56 <br> (ADC_StartConvert())
+
+[TABLE_ITEM_SPANISH]Comienza la conversión del componente ADC de forma continua.
+[TABLE_ITEM_ENGLISH]Starts the conversions of the ADC component in a continuous way.
+[TABLE_ITEM_DEUTSCH]Starts the conversions of the ADC component in a continuous way.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]Además podrás ver en el osciloscopio la señal que cambia cada vez que se genera una interrupción del ADC (main.c línea 25).
+[ENGLISH]Additionally you can see on the oscilloscope the signal that changes every time that the ADC EOC interrupt is generated (main.c line 25).
+[DEUTSCH]Additionally you can see on the oscilloscope the signal that changes every time that the ADC EOC interrupt is generated (main.c line 25).
+
+[IMG]TEK0000.JPG;90
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS019.zip;Descarga el proyecto aquí (PSoC Creator 4.0).
+[LINK_ENGLISH]downloads/WS019.zip;Download the project here (PSoC Creator 4.0).
+[LINK_DEUTSCH]downloads/WS019.zip;Download the project here (PSoC Creator 4.0).
+
+[END]

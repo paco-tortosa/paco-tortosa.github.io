@@ -1,0 +1,303 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion03/L04_Symbol_R1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Símbolo de R1
+[TITLE_ENGLISH]R1 symbol
+
+[MPPRO_SECTION_ES_EN]Esquemático final|Final schematic
+[MPPRO_VIDEO]03_Camtasia\02_cam_FinalSch.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver el esquemático final del proyecto. Vamos a ver en esta lección cómo crear el símbolo para la resistencia <b>R1</b>.
+[ENGLISH]Here you can see the final schematic of the project. We are going to see in this lesson how to create the symbol for the resistor <b>R1</b>.
+[END_LIST]
+[IMG]_FinalSCH_R1.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]KiCad|KiCad
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es la resistencia que he elegido en <b>Mouser</b>. El <b>part number</b> es <b>ESR10EZPJ102</b>.
+[ENGLISH]This is the resistor that I have chosen at <b>Mouser</b>. The <b>part number</b> is <b>ESR10EZPJ102</b>.
+[END_LIST]
+[IMG]01.png
+
+[BEGIN_LIST]
+[SPANISH]El valor óhmico es de <b>1K</b> ohmios, una potencia de <b>400mW</b>, una tolerancia de <b>5%</b> y un encapsulado SMD de tamaño <b>0805</b>.
+[ENGLISH]The resistance is <b>1K</b> ohms, the power is <b>400mW</b>, the tolerance is <b>5%</b> and the SMT package is <b>0805</b>.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear un símbolo para la resistencia <b>R1</b>. Abre el editor de símbolos.
+[ENGLISH]We are going to create a symbol for the resistor <b>R1</b>. Open the Symbol Editor.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En vez de partir de 0, vamos a buscar un símbolo que haya en alguna librería de KiCad que podamos copiar.
+[ENGLISH]Instead of doing it from scratch, we are going to search for a symbol of any library of Kicad that could be suitable for the job.
+[SPANISH]En la librería <b>Device</b> hay una resistencia llamada <b>R_Small</b> que nos puede servir.
+[ENGLISH]In the library <b>Device</b> there is a resistor called <b>R_Small</b> that can fit.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear nuestra propia librería.
+[ENGLISH]We are going to create our own library.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El nombre de la librería es <b>JAVIERM_LIBS</b> y va a estar en el directorio <b>libs</b>.
+[ENGLISH]The name of the library is <b>JAVIERM_LIBS</b> and is going to be in the folder <b>libs</b>.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay que decir si la librería va a estar disponible en todos los projectos (<b>Global</b>) o sólo para este proyecto (<b>Project</b>). Voy a seleccionar <b>Project</b>.
+[ENGLISH]We have to specify if the library is going to be available for all the projects (<b>Global</b>) or only for this project (<b>Project</b>). I am going to select <b>Project</b>.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a copiar el símbolo <b>R_Small</b> de la librería <b>Device</b> en nuestra librería recién creada (<b>JAVIERM_LIBS</b>).
+[ENGLISH]I am going to copy the symbol <b>R_Small</b> of the library <b>Device</b> to our just create library (<b>JAVIERM_LIBS</b>).
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Le voy a cambiar el nombre al símbolo, el nuevo será <b>R_1K</b>
+[ENGLISH]I am going to change the name of the symbol, the new name will be <b>R_1K</b>
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Le tengo que decir en qué librería copiarla. El textbox de abajo es un filtro, escribimos <b>JAV</b> y en la lista de librerías sólo queda la nuestra <b>JAVIERM_LIBS</b>.
+[ENGLISH]You have to specify to which library to copy. The below textbox is a filter, we write <b>JAV</b> and in the library list there is only our library <b>JAVIERM_LIBS</b> left.
+[END_LIST]
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciono nuestra librería.
+[ENGLISH]Select our library.
+[END_LIST]
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y hago clic en el botón de salvar.
+[ENGLISH]And click on the <b>Save</b> button.
+[END_LIST]
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para encontrar nuestro nuevo componente, utilizo el filtro de librerías y escribo <b>JAVIER</b>.
+[ENGLISH]In order to find our new component, I use the library filter and write <b>JAVIER</b>.
+[END_LIST]
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guardo la librería.
+[ENGLISH]And save the library.
+[END_LIST]
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a editar el símbolo, haz clic en el botón <b>Edit symbol properties</b>.
+[ENGLISH]Edit the symbol, click on the button <b>Edit symbol properties</b>.
+[END_LIST]
+[IMG]18.png
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a añadir un nuevo campo, su nombre <b>Value2Show</b> con el valor <b>1K</b>. Lo usaré en el esquemático para mostrar el valor óhmico de la resistencia.
+[ENGLISH]Add a new field with a name <b>Value2Show</b> and value <b>1K</b>. We will use it in the schematic to show the resistance value.
+[END_LIST]
+[IMG]20.png
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El siguiente campo que voy a añadir se llama <b>Mounted</b> y sirve para indicar si el componente se va a montar en la placa final o no.
+[ENGLISH]The name of the following field to add is <b>Mounted</b> and is to indicate if the component is going to be populated on the board or not.
+[END_LIST]
+[IMG]25.png
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El campo <b>MPN</b> (Manufacturer Part Number) será el nombre que el fabricante da al componente.
+[ENGLISH]The field <b>MPN</b> (Manufacturer Part Number) is the name that the manufacturer gives to the component.
+[END_LIST]
+[IMG]27.png
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El último campo se llama <b>Manufacturer</b> y es el nombre del fabricante.
+[ENGLISH]The last field is <b>Manufacturer</b> and is the name of the manufacturer.
+[END_LIST]
+[IMG]65.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Sólo quiero que se muestren en el esquemático los campos <b>Reference</b> y <b>Value2Show</b>.
+[ENGLISH]I only want to show in the schematic the fields <b>Reference</b> and <b>Value2Show</b>.
+[END_LIST]
+[IMG]29.png
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La alineación de los campos va a ser <b>left</b> (izquierda) y <b>Bottom</b> (inferior).
+[ENGLISH]The alignment of the fields is going to be <b>left</b> and <b>Bottom</b>.
+[END_LIST]
+[IMG]31.png
+[IMG]32.png
+[IMG]33.png
+[IMG]34.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a ordenar los campos en el editor de símbolos para que no se solapen.
+[ENGLISH]I am going to sort the fields in the symbol editor so they do not overlap.
+[END_LIST]
+[IMG]35.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para ello voy a establecer la rejilla (<b>grid</b>) a <b>10mils</b>.
+[ENGLISH]For this I am going to set the <b>grid</b> to <b> 10mils </b>.
+[END_LIST]
+[IMG]36.png
+[IMG]37.png
+[IMG]38.png
+[IMG]39.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a mover algunos campos abajo.
+[ENGLISH]I am going to move some fields down.
+[END_LIST]
+[IMG]41.png
+[IMG]42.png
+[IMG]43.png
+[IMG]44.png
+[IMG]45.png
+[IMG]46.png
+[IMG]47.png
+[IMG]48.png
+[IMG]49.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Me voy a centrar en los que se van a mostrar; <b>Reference</b> y <b>Value2Show</b>.
+[ENGLISH]I am going to focus on the ones that are going to be shown; <b>Reference</b> and <b>Value2Show</b>.
+[END_LIST]
+[IMG]50.png
+[IMG]51.png
+[IMG]52.png
+[IMG]53.png
+[IMG]54.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya están perfectos.
+[ENGLISH]They are already perfect.
+[END_LIST]
+[IMG]55.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a poner también el campo <b>Mounted</b> cerca del componente.
+[ENGLISH]I am also going to put the <b>Mounted</b> field near the component.
+[END_LIST]
+[IMG]56.png
+[IMG]57.png
+[IMG]66.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya he terminado, voy a volver a poner la rejilla a <b>50mils</b>.
+[ENGLISH]I am done, I am going to put the grid back to <b> 50mils </b>.
+[END_LIST]
+[IMG]58.png
+[IMG]59.png
+[IMG]60.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora voy a añadir información relativa al componente en el campo descripción.
+[ENGLISH]Now I am going to add information related to the component in the description field.
+[END_LIST]
+[IMG]62.png
+[IMG]63.png
+[IMG]64.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Por último guardo la librería.
+[ENGLISH]Finally save the library.
+[END_LIST]
+[IMG]61.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/esr-e-1139161.pdf;Datasheet
+[LINK_ENGLISH]downloads/esr-e-1139161.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]
+

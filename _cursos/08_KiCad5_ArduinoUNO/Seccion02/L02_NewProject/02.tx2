@@ -1,0 +1,102 @@
+[LESSON_FOLDER]../_cursos/08_KiCad5_ArduinoUNO/Seccion02/L02_NewProject/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Nuevo proyecto
+[TITLE_ENGLISH]New project
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Abre <b>KiCad</b>
+[ENGLISH]Open <b>KiCad</b>
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear el proyecto basado en la plantilla de <b>Arduino UNO</b>.
+[ENGLISH]We are going to create the project based on the <b>Arduino UNO</b> template.
+[END_LIST]
+[IMG]02.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El nombre del proyecto va a ser <b>002_ArduinoUNO</b>.
+[ENGLISH]The name of the project will be <b>002_ArduinoUNO</b>.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como ves en el panel de la izquierda se han añadido varios archivos al proyecto.
+[ENGLISH]As you can see in the left panel, several files have been added to the project.
+[SPANISH]También se han generado el esquemático y la PCB.
+[ENGLISH]The schematic and the PCB have also been generated.
+[SPANISH]Vamos a ir al esquemático.
+[ENGLISH]Let&#39s go to the schematic.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]<b>KiCad</b> ha añadido los conectores y los agujeros de la placa. Vamos a hacer un zoom.
+[ENGLISH]<b>KiCad</b> has added the connectors and holes for the board. We are going to zoom.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+
+[BEGIN_LIST]
+[SPANISH]Como ves se han añadido los conectores, los agujeros y además se han creado las nets.
+[ENGLISH]As you can see the connectors have been added, the holes and also the nets have been created.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a editar las propiedades de la página.
+[ENGLISH]You are going to edit the page properties.
+[END_LIST]
+[IMG]09.png
+
+[BEGIN_LIST]
+[SPANISH]Primero la fecha del proyecto.
+[ENGLISH]First the date of the project.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+
+[BEGIN_LIST]
+[SPANISH]Luego la versión, el título y el autor.
+[ENGLISH]Then the version, the title and the author.
+[END_LIST]
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver la caja del esquemático.
+[ENGLISH]Let&#39s see the schematic box.
+[END_LIST]
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos ahora a la PCB para ver qué contiene la plantilla.
+[ENGLISH]Now let&#39s go to the PCB to see what the template contains.
+[END_LIST]
+[IMG]17.png
+
+[BEGIN_LIST]
+[SPANISH]Como ves tiene el borde de la placa, los conectores y los agujeros. Un montón de trabajo ya listo.
+[ENGLISH]As you can see it has the edge of the board, the connectors and the holes. Lots of work already done.
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]

@@ -1,0 +1,154 @@
+        <div class="title">Señal cuadrada (HAL)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En esta lección vamos a ver otra manera de implementar el programa de la lección anterior, esta vez usando la HAL.</div></li>
+            </ul>
+        </div>
+        <div class="title">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea un proyecto nuevo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona el kit de evaluación.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/02.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/03.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El nombre para el proyecto será <b>P19_TIM1_HAL</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/05.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a la configuración de <b>TIM1</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona como fuente de reloj el reloj interno.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En el panel inferior se pueden configurar los parámetros del <b>TIM1</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Configura el <b>Prescaler</b> como 47, el <b>Counter mode</b> como descendente y el <b>Counter period</b> como 150.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Hay que generar el código de inicialización.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/11.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos al fichero <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/13.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Se ha geneado automáticamente una función llamada <b>MX_TIM1_Init</b> para inicializar el <b>TIM1</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Puedes ver en el código los parámetros que introdujimos en el configurador.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a añadir nuestro código.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/17.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/18.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>103</td>
+                      <td>  /* Infinite loop */</td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>  /* USER CODE BEGIN WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>  <span class="b1">HAL_TIM_Base_Start<span class="tooltiptext">La función <b>HAL_TIM_Base_Start</b> inicializa el timer <b>TIM1</b>.</span></span>( &<span class="b2">htim1<span class="tooltiptext">Los parámetros de configuración están en <b>htim1</b> </span></span> );</td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>  while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>      <span class="b3">__HAL_TIM_CLEAR_FLAG( &htim1, TIM_FLAG_UPDATE)<span class="tooltiptext">Pone a 0 el flag <b>UIF</b>.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td>      while( <span class="b4">__HAL_TIM_GET_FLAG( &htim1, TIM_FLAG_UPDATE)<span class="tooltiptext">Con la función <b>__HAL_TIM_GET_FLAG</b> obtenemos el valor del bit <b>UIF</b> del registro de status <b>SR</b>.</span></span> == RESET )<span class="b5">;<span class="tooltiptext">Mientras el flag sea 0 permanecemos en el bucle. (<b>;</b> es una sentencia en C vacía).</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>      //Toggle LED</td>
+                  </tr>
+                  <tr>
+                      <td>112</td>
+                      <td>      <span class="b6">HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5)<span class="tooltiptext">Aquí llegamos cuando el bit <b>UIF</b> está a uno, indicando que el registro <b>CNT</b> ha llegado a 0. Conmutamos el pin <b>PA5</b>.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>    /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>    /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>  }</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila y depura el programa.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/19.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/20.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/21.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/22.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/23.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L39_TIM1_HAL/img/24.png">
+        </div>

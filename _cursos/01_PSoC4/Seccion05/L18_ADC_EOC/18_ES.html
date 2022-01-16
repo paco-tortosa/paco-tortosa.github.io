@@ -1,0 +1,69 @@
+        <div class="title">ADC - EOC</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En el proyecto anterior el conversor ADC estaba configurado para leer continuamente cada 1 milisegundo</div></li>
+               <li><div class="text">En la función "main" se leía continuamente el valor del ADC, por lo que todas las lecturas dentro del mismo milisegundo tenían el mismo valor</div></li>
+               <li><div class="text">Hay una señal de salida del componente ADC que indica que hay un nuevo dato disponible, es la llamada "eoc" (end of conversion - fin de conversión)</div></li>
+               <li><div class="text">En este proyecto la idea es sacar esa señal por un pin de salida y medirla con el osciloscopio</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/P018_EOC.png">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 17 y renómbralo como 18</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una salida digital</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como "ADC_EOC"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/05.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/06.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta la salida "eoc" del componente "ADC" con el pin de salida "ADC_EOC"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Asigna el pin P0[2] a la salida digital "ADC_EOC"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/08.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta un canal del osciloscopio en el pin de salida P0[2]</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/setup.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/P018_EOC_pins_es.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En el osciloscopio puedes ver en la salida digital un pulso positivo cada 1 milisegundo</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/img/TEK0001.JPG">
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion05/L18_ADC_EOC/downloads/WS018.zip">Descarga el proyecto aquí (PSoC Creator 4.0).</a></li>
+            </ul>
+        </div>

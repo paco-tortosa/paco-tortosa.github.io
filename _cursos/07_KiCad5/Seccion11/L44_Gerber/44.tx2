@@ -1,0 +1,52 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion11/L44_Gerber/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Gerber
+[TITLE_ENGLISH]Gerber
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para poder fabricar nuestra PCB tenemos que enviar los ficheros GERBER y los ficheros de taladros al fabricante.
+[ENGLISH]In order to manufacture our PCB we have to send the GERBER files and the drill files to the manufacturer.
+[SPANISH]Ejecuta la herramienta <b>Plot</b>
+[ENGLISH]Run the <b>Plot</b> tool
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona el subdirectorio donde colocar los ficheros. Lo voy a llamar <b>Gerber</b>.
+[ENGLISH]Select the subdirectory where to place the files. I&#39m going to call it <b>Gerber</b>.
+[SPANISH]Haz clic en el botón <b>Plot</b> para generar los ficheros.
+[ENGLISH]Click on the <b>Plot</b> button to generate the files.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora hay que generar los ficheros de taladros (<b>drills</b>). Haz clic en el botón <b>Generate Drill Files...</b>
+[ENGLISH]Now we have to generate the drill files (<b>drills</b>). Click the <b>Generate Drill Files ...</b> button
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Selecciona el subdirectorio donde colocar los ficheros (Los voy a poner en el mismo subdirectorio <b>Gerber</b>).
+[ENGLISH]Select the subdirectory where to place the files (I&#39m going to put them in the same <b>Gerber</b> subdirectory).
+[SPANISH]Haz clic en el botón <b>Generate Drill File</b> para generar los ficheros.
+[ENGLISH]Click on the <b>Generate Drill File</b> button to generate the files.
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Puedes ver los ficheros generados en el subdirectorio <b>Gerber</b>:
+[ENGLISH]You can see the generated files in the <b>Gerber</b> subdirectory:
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+

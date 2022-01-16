@@ -1,0 +1,16 @@
+[IMG_FOLDER]img/011_004aExercise/
+[TITLE_SPANISH]Ejercicio 004a
+[TITLE_ENGLISH]Exercise 004a
+
+[SPANISH]Ahora que ya sabes cómo controlar un led mediante un pulsador via hardware, intenta hacer la siguiente secuencia :
+[ENGLISH]Now that you know how to control an led with a switch button via hardware, try to do the following sequence :
+
+[BEGIN_LIST]
+[SPANISH]Haz que el led rojo se encienda cuando SW2 esté cerrado (pulsado).
+[ENGLISH]Switch on the red LED when SW2 is pressed.
+
+[SPANISH]Haz que el led verde se encienda cuando SW2 esté abierto (no pulsado).
+[ENGLISH]Switch on the green LED when SW2 is not pressed.
+[END_LIST]
+
+[IMG]004_Exercise.png;90

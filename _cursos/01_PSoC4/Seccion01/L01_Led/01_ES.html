@@ -1,0 +1,244 @@
+        <div class="title">Led</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este primer proyecto vamos a hacer parpadear un led.</div></li>
+               <li><div class="text">Para ello vamos a utilizar el kit <b>CY8CKIT-042</b> que trae un led RGB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/22.png">
+            <ul>
+               <li><div class="text">Se llama 'led RGB' porque realmente son 3 leds en el mismo encapsulado. Uno R (<b>red-rojo</b>), otro G (<b>green-verde</b>) y otro B (<b>blue-azul</b>).</div></li>
+               <li><div class="text">En este primer proyecto vamos a usar sólamente el color azul y lo vamos a hacer parpadear cada medio segundo.</div></li>
+            </ul>
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ejecuta <b>PSoC Creator</b> y crea un proyecto nuevo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona el hardware que vamos a usar (nuestro kit <b>CY8CKIT-042</b>).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona esquemático vacío (empty schematic).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Introducimos dónde queremos guardar el proyecto y el workspace en nuestro ordenador.</div></li>
+               <li><div class="text">El workspace o espacio de trabajo puede contener muchos proyectos, que normalmente tendrán una relación entre sí.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora ya tenemos nuestro proyecto creado (y vacío).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la parte de la derecha hay una pestaña llamada <b>Component Catalog</b> (catálogo de componentes).</div></li>
+               <li><div class="text">La abrimos haciendo clic y seleccionamos el grupo de <b>Ports and Pins</b> (puertos y pines).</div></li>
+               <li><div class="text">La idea es configurar un pin del PSoC como salida y conectarlo al led azul.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Selecciona la opción de <b>Digital Output Pin</b> (Pin de salida digital)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/25.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Lo arrastramos con el ratón hacia el esquemático.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz doble clic en el pin para modificar sus propiedades.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/27.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como quieras (en mi caso <b>Pin_Verde</b>) y borramos la selección que había en <b>HW connection</b> de esta manera podremos controlar esa salida desde el programa. Además seleccionamos el estado inicial <b>Initial drive state</b> como alto (valor 1).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Esto último requiere un poco de aclaración. Si observamos el esquemático del kit vemos cómo están conectados los leds RGB. El ánodo común a los 3 leds está conectado a la tensión P4_VDD (que puede ser 3.3V o 5V según el estado del jumper J9, por defecto está a 3.3V)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/37a.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Por ello para encender el led tendremos que poner un 0 en la salida del PSoC. Como en el arranque del programa no queremos que el led esté encendindo ponemos como valor inicial 'Initial drive state' el valor 1.</div></li>
+               <li><div class="text">Debes hacer lo mismo para los leds rojo y azul. Para ello selecciona el pin recién creado en el esquemático (pin_verde) y cópialo para luego pegarlos.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/30.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/31.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Haz doble clic en él para renombrarlo y modificar sus propiedades.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/33.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Lo mismo debes hacer con el rojo.</div></li>
+               <li><div class="text">Ya tienes los 3 pines en el esquemático.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/34.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Pero si te das cuenta no hemos dicho todavía a qué pines vamos a conectarlos.</div></li>
+               <li><div class="text">Para ello haz doble clic en <b>Proyecto01.cydwr</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/35.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y se nos abre una pestaña con los elementos del esquemático a la derecha y los pines del PSoC a la izquierda.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/36.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En la guía de usuario del kit podemos ver a qué pines están conectados.</div></li>
+            </ul>
+            <table class="standard-table">
+                <tr>
+                    <th>Led</th>
+                    <th>Pin</th>
+                </tr>
+                <tr>
+                    <td>Rojo</td>
+                    <td>P1_6</td>
+                </tr>
+                <tr>
+                    <td>Verde</td>
+                    <td>P0_2</td>
+                </tr>
+                <tr>
+                    <td>Azul</td>
+                    <td>P0_3</td>
+                </tr>
+            </table>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/37.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Arrastra los pines desde el panel de la derecha a los correspondientes pines del panel de la izquierda.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/38.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y así con los 3.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/40.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila el project.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/41.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y comprueba que no hay ningún error (panel inferior).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/42.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Lo que has hecho hasta ahora, ha sido simplemente definir los pines, que están conectados en el kit a los leds como salidas digitales. Ahora tienes que programar la activación del led azul cada medio segundo. Vamos al fichero <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/44.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Una vez abierto, vemos que hay una zona reservada para que escribamos nuestro código.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/45.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Necesitas llamar a una función que se llama <b>Pin_Azul_Write</b> que va a servir para activar o desactivar la salida digital del PSoC. Cuando empieces a escribir el nombre de esta función la función de autocompletar de PSoC Creator va a sugerir funciones disponibles.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/46.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">También se necesita la función <b>CyDelay</b> que va a esperar una cantidad de tiempo expresada en milisegundos. Para medio segundo habrá que llamarla con el valor 500 (500 milisegundos = medio segundo).</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>20</td>
+                      <td>    <span class="b2">for<span class="tooltiptext">El bucle infinito hará parpadear el led azul cada medio segundo.</span></span>(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>        <span class="b1">Pin_Azul_Write<span class="tooltiptext">Apagamos el led azul.</span></span>(1);</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>        <span class="b4">CyDelay<span class="tooltiptext">Esperamos medio segundo.</span></span>(500);</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        <span class="b1">Pin_Azul_Write<span class="tooltiptext">Encendemos el led azul.</span></span>(0);</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>        <span class="b4">CyDelay<span class="tooltiptext">Esperamos medio segundo.</span></span>(500);</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    }</td>
+                  </tr>
+            </table>
+            <div class="text"><small>(Pasa el ratón sobre las palabras resaltadas para obtener más información)</small></div>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila el proyecto.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/48.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora sólo tienes que conectar el kit al ordenador por USB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/49.png">
+            <ul>
+               <li><div class="text">Y transfiere el programa.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L01_Led/img/51.png">
+            <ul>
+               <li><div class="text">El led azul parpadea cada medio segundo.</div></li>
+            </ul>
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion01/L01_Led/downloads/WS001.zip">Descarga el proyecto aquí (<b>PSoC Creator 3.3</b>).</a></li>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion01/L01_Led/downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf">Guía de usuario</a></li>
+            </ul>
+        </div>

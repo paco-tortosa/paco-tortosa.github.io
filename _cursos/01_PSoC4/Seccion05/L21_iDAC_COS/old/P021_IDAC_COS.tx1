@@ -1,0 +1,141 @@
+[IMG_FOLDER]img/032_P021_IDAC_COS/
+
+[TITLE_SPANISH]021 - iDAC (COS)
+[TITLE_ENGLISH]021 - iDAC (COS)
+[TITLE_DEUTSCH]021 - iDAC (COS)
+
+[SPANISH]En este proyecto vamos a usar el componente IDAC para generar una señal COS (coseno)
+[ENGLISH]On this project you will use the ADC component to generate a COS (cosine) signal.
+[DEUTSCH]On this project you will use the ADC component to generate a COS (cosine) signal.
+
+[SPANISH]Vamos a utilizar el mismo hardware que en el proyecto anterior (020-iDAC).
+[ENGLISH]You will use the same hardware as on the previous project (020-iDAC).
+[DEUTSCH]You will use the same hardware as on the previous project (020-iDAC).
+
+[IMG]Setup.png;80
+
+//[IMG]P021_IDAC_pins.png;80
+[IMG_SPANISH]P021_IDAC_pins_es.png;90
+[IMG_ENGLISH]P021_IDAC_pins_en.png;90
+[IMG_DEUTSCH]P021_IDAC_pins_en.png;90
+
+[SPANISH]Esta es la señal a generar.
+[ENGLISH]This is the signal to generate.
+[DEUTSCH]This is the signal to generate.
+
+[IMG]TEK0001.JPG;80
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el proyecto anterior y renómbralo como WS021.
+[ENGLISH]Copy the previous project and rename it as WS021.
+[DEUTSCH]Copy the previous project and rename it as WS021.
+
+[IMG]01.png;50
+[IMG]02.png;50
+
+[SPANISH]Añade el siguiente código en "main.c".
+[ENGLISH]Add the following code in "main.c".
+[DEUTSCH]Add the following code in "main.c".
+
+[IMG]03.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 14
+[TABLE_ITEM_ENGLISH]Line  14
+[TABLE_ITEM_DEUTSCH]Line  14
+
+[TABLE_ITEM_SPANISH]Define la variable "au8Signal" que almacena la señal coseno (ver hoja excel).
+[TABLE_ITEM_ENGLISH]Defines the variable "au8Signal" that stores the values of the cosine signal.
+[TABLE_ITEM_DEUTSCH]Defines the variable "au8Signal" that stores the values of the cosine signal.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 18
+[TABLE_ITEM_ENGLISH]Line  18
+[TABLE_ITEM_DEUTSCH]Line  18
+
+[TABLE_ITEM_SPANISH]Define la variable "u8Current" que almacena el valor digital de la corriente a generar en el componente IDAC.
+[TABLE_ITEM_ENGLISH]Defines the variable "u8Current" that stores the digital value of the current to generate with the IDAC component.
+[TABLE_ITEM_DEUTSCH]Defines the variable "u8Current" that stores the digital value of the current to generate with the IDAC component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 20
+[TABLE_ITEM_ENGLISH]Line  20
+[TABLE_ITEM_DEUTSCH]Line  20
+
+[TABLE_ITEM_SPANISH]Habilita interrupciones.
+[TABLE_ITEM_ENGLISH]Enable global interrupts.
+[TABLE_ITEM_DEUTSCH]Enable global interrupts.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 22
+[TABLE_ITEM_ENGLISH]Line  22
+[TABLE_ITEM_DEUTSCH]Line  22
+
+[TABLE_ITEM_SPANISH]Inicializa el componente IDAC.
+[TABLE_ITEM_ENGLISH]Initializes the IDAC component.
+[TABLE_ITEM_DEUTSCH]Initializes the IDAC component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 26 <br>(u8Current++)
+[TABLE_ITEM_ENGLISH]Line  26 <br>(u8Current++)
+[TABLE_ITEM_DEUTSCH]Line  26 <br>(u8Current++)
+
+[TABLE_ITEM_SPANISH]Coge el siguiente valor a generar del array "au8Signal".
+[TABLE_ITEM_ENGLISH]Gets the following value to generate from the array "au8Signal".
+[TABLE_ITEM_DEUTSCH]Gets the following value to generate from the array "au8Signal".
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 28 <br>(IDAC_SetValue())
+[TABLE_ITEM_ENGLISH]Line  28 <br>(IDAC_SetValue())
+[TABLE_ITEM_DEUTSCH]Line  28 <br>(IDAC_SetValue())
+
+[TABLE_ITEM_SPANISH]Poner el valor en el componente IDAC.
+[TABLE_ITEM_ENGLISH]Sets the value on the IDAC component.
+[TABLE_ITEM_DEUTSCH]Sets the value on the IDAC component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 30 a 33
+[TABLE_ITEM_ENGLISH]Lines  30 to 33
+[TABLE_ITEM_DEUTSCH]Lines  30 to 33
+
+[TABLE_ITEM_SPANISH]Si el índice del array es mayor que su tamaño se pone a cero.
+[TABLE_ITEM_ENGLISH]If the index of the array is greater than the size it is set to zero.
+[TABLE_ITEM_DEUTSCH]If the index of the array is greater than the size it is set to zero.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa.
+[ENGLISH]As always, build the project and transfer the program.
+[DEUTSCH]As always, build the project and transfer the program.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS021.zip;Descarga el proyecto aquí (PSoC Creator 4.0) y la hoja excel para calcular los valores del coseno.
+[LINK_ENGLISH]downloads/WS021.zip;Download the project here (PSoC Creator 4.0) and the excel sheet to calculate the cosine values.
+[LINK_DEUTSCH]downloads/WS021.zip;Download the project here (PSoC Creator 4.0) and the excel sheet to calculate the cosine values.
+
+[END]

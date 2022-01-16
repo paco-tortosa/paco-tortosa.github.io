@@ -1,0 +1,111 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion11/L47_BOM_C/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]BOM - C#
+[TITLE_ENGLISH]BOM - C#
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a abrir con un editor de textos el fichero del esquemático (<b>.sch</b>).
+[ENGLISH]We are going to open with a text editor the schematic file (<b>.sch</b>).
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cada componente en el esquemático tiene toda la información delimitada por una línea que empieza con <b>$Comp</b> y por otra línea que empieza con <b>$EndComp</b>
+[ENGLISH]Each component in the schematic has all the information delimited by a line that begins with <b>$Comp</b> and by another line that begins with <b>$EndComp</b>
+[SPANISH]El programa en C# lee todo el fichero y extrae toda la información de los componentes.
+[ENGLISH]The C# program reads the entire file and extracts all the component information.
+[SPANISH]Puedes bajarte el código fuente y el ejecutable para Windows de la sección de descargas de la lección 1.
+[ENGLISH]You can download the source code and the executable for Windows from the download section of the lesson 1.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El programa se llama <b>KiCad_BOM.exe</b>, ejecútalo.
+[ENGLISH]The program is called <b>KiCad_BOM.exe</b>, run it.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Dale al botón <b>...</b> para seleccionar el directorio donde están los ficheros <b>.sch</b>
+[ENGLISH]Click on the <b>...</b> button to select the directory where the <b>.sch</b> files are
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el botón de generar.
+[ENGLISH]Click on the generate button.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El programa ha leido todos los ficheros <b>.sch</b> del directorio y ha generado el BOM en el fichero <b>BOM.csv</b>
+[ENGLISH]The program has read all the <b>.sch</b> files in the directory and has generated the BOM in the <b>BOM.csv</b> file
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ejecutar Excel.
+[ENGLISH]We are going to run Excel.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Creamos un fichero nuevo.
+[ENGLISH]We create a new file.
+[END_LIST]
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a importar los datos desde el fichero csv.
+[ENGLISH]We are going to import the data from the csv file.
+[END_LIST]
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya tenemos el BOM de nuestra placa con los campos de cada componente.
+[ENGLISH]We already have the BOM of our board with the fields of each component.
+[SPANISH]Vamos a guardarlo como hoja excel.
+[ENGLISH]Let&#39s save it as an excel sheet.
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya tenemos el BOM en formato excel.
+[ENGLISH]We already have the BOM in excel format.
+[END_LIST]
+[IMG]20.png
+[IMG]21.png
+[BLOCK_END]
+
+
+

@@ -1,0 +1,90 @@
+[LESSON_FOLDER]../_cursos/08_KiCad5_ArduinoUNO/Seccion03/L03_Components/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Componentes I
+[TITLE_ENGLISH]Components I
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta sección vamos a ver los componentes que trae la plantilla.
+[ENGLISH]In this section we are going to see the components that comes with the template.
+[SPANISH]En esta lección vamos a ver los 6 símbolos que ha añadido <b>KiCad</b> en la plantilla.
+[ENGLISH]In this lesson we are going to see the 6 symbols that <b>KiCad</b> have added in the template.
+[SPANISH]Empecemos por el conector <b>P1</b>.
+[ENGLISH]Let&#39s start with the <b>P1</b> connector.
+[END_LIST]
+[IMG]01.png
+
+[BEGIN_LIST]
+[SPANISH]El símbolo (en rojo) se llama <b>Conn_01x08</b> y está en la librería <b>Connector_Generic</b>.
+[ENGLISH]The symbol (in red) is called <b>Conn_01x08</b> and is in the <b>Connector_Generic</b> library.
+[SPANISH]El footprint (en verde) se llama <b>Socket_Strip_Arduino_1x08</b> y está en la librería <b>Socket_Arduino_Uno</b>.
+[ENGLISH]The footprint (in green) is called <b>Socket_Strip_Arduino_1x08</b> and is in the <b>Socket_Arduino_Uno</b> library.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Veamos ahora el conector <b>P3</b>.
+[ENGLISH]Now let&#39s see the <b>P3</b> connector.
+[END_LIST]
+[IMG]03.png
+
+[BEGIN_LIST]
+[SPANISH]El símbolo (en rojo) se llama <b>Conn_01x10</b> y está en la librería <b>Connector_Generic</b>.
+[ENGLISH]The symbol (in red) is called <b>Conn_01x10</b> and is in the <b>Connector_Generic</b> library.
+[SPANISH]El footprint (en verde) se llama <b>Socket_Strip_Arduino_1x10</b> y está en la librería <b>Socket_Arduino_Uno</b>.
+[ENGLISH]The footprint (in green) is called <b>Socket_Strip_Arduino_1x10</b> and is in the library <b>Socket_Arduino_Uno</b>.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Veamos ahora el conector <b>P2</b>.
+[ENGLISH]Now let&#39s see the <b>P2</b> connector.
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]El símbolo (en rojo) se llama <b>Conn_01x06</b> y está en la librería <b>Connector_Generic</b>.
+[ENGLISH]The symbol (in red) is called <b>Conn_01x06</b> and is in the <b>Connector_Generic</b> library.
+[SPANISH]El footprint (en verde) se llama <b>Socket_Strip_Arduino_1x06</b> y está en la librería <b>Socket_Arduino_Uno</b>.
+[ENGLISH]The footprint (in green) is called <b>Socket_Strip_Arduino_1x06</b> and is in the <b>Socket_Arduino_Uno</b> library.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Veamos ahora el conector <b>P4</b>.
+[ENGLISH]Now let&#39s see the <b>P4</b> connector.
+[END_LIST]
+[IMG]07.png
+
+[BEGIN_LIST]
+[SPANISH]El símbolo (en rojo) se llama <b>Conn_01x08</b> y está en la librería <b>Connector_Generic</b>.
+[ENGLISH]The symbol (in red) is called <b>Conn_01x08</b> and is in the <b>Connector_Generic</b> library.
+[SPANISH]El footprint (en verde) se llama <b>Socket_Strip_Arduino_1x08</b> y está en la librería <b>Socket_Arduino_Uno</b>.
+[ENGLISH]The footprint (in green) is called <b>Socket_Strip_Arduino_1x08</b> and is in the <b>Socket_Arduino_Uno</b> library.
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Veamos ahora los agujeros.
+[ENGLISH]Now let&#39s see the holes.
+[END_LIST]
+[IMG]09.png
+
+[BEGIN_LIST]
+[SPANISH]El símbolo (en rojo) se llama <b>Conn_01x01</b> y está en la librería <b>Connector_Generic</b>.
+[ENGLISH]The symbol (in red) is called <b>Conn_01x01</b> and is in the <b>Connector_Generic</b> library.
+[SPANISH]El footprint (en verde) se llama <b>Arduino_1pin</b> y está en la librería <b>Socket_Arduino_Uno</b>.
+[ENGLISH]The footprint (in green) is called <b>Arduino_1pin</b> and is in the <b>Socket_Arduino_Uno</b> library.
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+

@@ -1,0 +1,67 @@
+[LESSON_FOLDER]
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Título
+[TITLE_ENGLISH]Title
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]1
+:code:Diese Zeilen schreibe ich Ihnen von meinem Esstisch aus. 
+:code:Wir waren in Österreich, im Salzburger Land, weit weg vom Infektionsherd Ischgl. 
+:key2:                                                          --------------
+:es__:
+:en__:???
+
+:code:Und dennoch kam am letzten Tag unserer Reise die Maßgabe, dass alle Österreich-Urlauber nach ihrer Rückkehr zwei Wochen zu Hause bleiben. 
+:key2:    -------
+:es__:
+:en__:???
+
+:key2:                                                 -------
+:es__:
+:en__:???
+
+:key2:                                                                                                   -------- 
+:es__:
+:en__:???
+
+:code:Und da bin ich nun, im Homeoffice.
+:key2:                    -------------
+:es__:
+:en__:homeoffice
+
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[SOURCE_CODE_EX_BEGIN]1
+:code:Der 11. September 2001 hat die Welt verändert, tief greifend. 
+:key2:---
+:es__:
+:en__:El
+
+:key2:                                               -------------
+:es__:
+:en__:
+
+:code:Und doch waren das Veränderungen, die aus unserer deutschen Sicht eher weit entfernt waren. 
+:key2:                                                            -----
+:es__:
+:en__:
+
+:code:Corona trifft uns mitten im Alltag und erschüttert unser Leben von Grund auf. 
+:key2:       ------
+:es__:
+:en__:
+
+:key2:                                       -----------
+:es__:
+:en__:
+
+:key2:                  ------
+:es__:
+:en__:
+
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+

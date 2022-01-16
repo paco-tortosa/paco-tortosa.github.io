@@ -1,0 +1,118 @@
+        <div class="title">PWM (HAL) con barrido</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En esta lección vamos a modificar el proyecto de la lección anterior para hacer un barrido en la señal de PWM, el <b>Duty Cycle</b> variará de 0 a 100% incrementándose cada 25 ms.</div></li>
+            </ul>
+        </div>
+        <div class="title">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Abre el fichero <b>main.c</b> del proyecto <b>P22_TIM1_PWM_HAL</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y añade el siguiente código fuente:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/02.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Pasa el ratón sobre la zona coloreada para ver la explicación.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>103</td>
+                      <td>  /* Infinite loop */</td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>  /* USER CODE BEGIN WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>  HAL_TIM_PWM_Start( &htim1 , TIM_CHANNEL_1 );</td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>  uint16_t  <span class="b1">u16DutyCycle<span class="tooltiptext">La variable <b>u16DutyCycle</b> va a variar de 0 a 100 y va a ser el <b>Duty cycle</b> o tiempo en el que la señal está a nivel alto.</span></span>    =   25;</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>  while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td>      <span class="b2">__HAL_TIM_SET_COMPARE<span class="tooltiptext">Con la macro <b>__HAL_TIM_SET_COMPARE</b> escribimos en el registro CCR1 el valor de la variable <b>u16DutyCycle</b>.</span></span>(&htim1, TIM_CHANNEL_1, u16DutyCycle );</td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>      <span class="b3">u16DutyCycle++<span class="tooltiptext">Incrementamos en 1 la variable <b>u16DutyCycle</b>.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>112</td>
+                      <td>      <span class="b4">if( u16DutyCycle &gt 100 )<span class="tooltiptext">Si la variable <b>u16DutyCycle</b> es mayor que 100 la ponemos a 0.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>113</td>
+                      <td>      {</td>
+                  </tr>
+                  <tr>
+                      <td>114</td>
+                      <td>          u16DutyCycle      =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>115</td>
+                      <td>      }</td>
+                  </tr>
+                  <tr>
+                      <td>116</td>
+                      <td>      <span class="b5">HAL_Delay(25)<span class="tooltiptext">Esperamos 25ms.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>117</td>
+                      <td>    /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>118</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>119</td>
+                      <td>    /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>120</td>
+                      <td>  }</td>
+                  </tr>
+                  <tr>
+                      <td>121</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Compila y depura el programa.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/04.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/05.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/06.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L43_TIM1_PWM_HAL_Sweep/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este video puedes ver cómo cambia el duty cycle de la señal PWM.</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/_-AqXrr1wrA?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>

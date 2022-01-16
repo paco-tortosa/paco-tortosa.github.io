@@ -1,0 +1,202 @@
+[LESSON_FOLDER]../_cursos/01_PSoC4/Seccion02/L06_BasicCounter/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Contador básico
+[TITLE_ENGLISH]Basic counter
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el contador básico (Basic Counter).
+[ENGLISH]In this project you will learn a new HW component, the Basic Counter.
+
+[SPANISH]Como puedes ver en la imagen, el contador básico tiene 3 entradas y 1 salida.
+[ENGLISH]As you can see in the picture, the Basic Counter has 3 inputs and 1 output.
+[END_LIST]
+
+[TABLE_BEGIN]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Entrada
+[TABLE_ITEM_ENGLISH]Input
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]en
+[TABLE_ITEM_ENGLISH]en
+[TABLE_ITEM_SPANISH]habilita (1) o deshabilita (0) el contador
+[TABLE_ITEM_ENGLISH]enable (1) or disable (0) the counter.
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]reset
+[TABLE_ITEM_ENGLISH]reset
+[TABLE_ITEM_SPANISH]a 1 pone el contador a 0
+[TABLE_ITEM_ENGLISH]when 1 resets the counter value to 0
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]clk
+[TABLE_ITEM_ENGLISH]clk
+[TABLE_ITEM_SPANISH]si "en" = 1, un flanco de subida en esta señal incrementa el valor del contador
+[TABLE_ITEM_ENGLISH]If "en" = 1, a rising edge on this signal increments the counter value
+[TABLE_ROW_END]
+[TABLE_END]
+
+[IMG]BasicCounter2Bits.png
+
+[BEGIN_LIST]
+[SPANISH]Vamos a usar el contador básico para activar los leds Rojo y Verde cada vez que pulsemos SW2
+[ENGLISH]You are going to use the Basic Counter to activate the Red and Green LEDs every time SW2 is pressed
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia el Workspace 4 y renómbralo como Workspace 6
+[ENGLISH]Copy the Workspace 4 and rename it as Workspace 6
+[END_LIST]
+[IMG]01.png
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al esquemático
+[ENGLISH]Go to the schematic
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Borra la conexión entre Pin_SW2 y Pin_Rojo
+[ENGLISH]Delete the connection between Pin_SW2 and Pin_Rojo.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Recuerda que el pulsador SW2 da una entrada 0 cuando está cerrado. Y como para el contador básico necesitamos el flanco de subida, vamos a usar una puerta lógica NOT para invertirlo
+[ENGLISH]Remember that the Switch Button SW2 gives a 0 value when pressed. As you need a rising edge for the Basic Counter, a NOT component is needed to invert the signal
+[END_LIST]
+[IMG]005_Not.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al catálogo de componentes y añádelo al esquemático
+[ENGLISH]Go to the schematic and add it to the schematic
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora el contador básico
+[ENGLISH]Now the Basic Counter
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta Pin_SW2 a la entrada "clock" (a través del componente NOT)
+[ENGLISH]Connect Pin_SW2 to the input "clock" (through the NOT component)
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Pon la entrada "en" a 1 y la entrada "reset" a 0
+[ENGLISH]Set the input "en" to 1 and the input "reset" to 0
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Activa la conexión del Pin_Verde al Hardware
+[ENGLISH]Enable the "HW connection" for Pin_Verde
+[END_LIST]
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta la salida del contador básico a los leds Rojo y Verde
+[ENGLISH]Connect the output of the Basic Counter to the Red and Green LEDs
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[IMG]19.png
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Configura el contador básico como 2 bits
+[ENGLISH]Configure the Basic Counter as 2-bit width
+[END_LIST]
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el proyecto
+[ENGLISH]Build the project
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay errores
+[ENGLISH]There are some errors
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La salida del contador es un bus de 2 bits, debemos indicar que bit va a qué led
+[ENGLISH]The output of the counter is a 2-bit bus, you must configure which bit goes to which led
+[END_LIST]
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[IMG]29.png
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el proyecto otra vez y transfiere el programa
+[ENGLISH]Build the project again and transfer the program
+[SPANISH]Los leds se activarán siguiendo la secuencia :
+[ENGLISH]The LEDs will be activated following the sequence : 
+[END_LIST]
+[IMG]006_Leds.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS006.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS006.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]
+

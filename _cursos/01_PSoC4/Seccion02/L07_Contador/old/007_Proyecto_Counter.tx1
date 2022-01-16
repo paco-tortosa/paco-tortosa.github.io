@@ -1,0 +1,264 @@
+[IMG_FOLDER]img/015_007Project_Counter/
+
+[TITLE_SPANISH]007 - Counter (Contador)
+[TITLE_ENGLISH]007 - Counter
+[TITLE_DEUTSCH]007 - Counter
+
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el contador (Counter).
+[ENGLISH]In this project you will learn a new HW component, the Counter.
+[DEUTSCH]In this project you will learn a new HW component, the Counter.
+
+[SPANISH]La secuencia que hay que programar es :
+[ENGLISH]The sequence you have to program is :
+[DEUTSCH]The sequence you have to program is :
+
+[IMG]007_Counter_Explanation.png;90
+
+[SPANISH]Cada 3 pulsaciones de SW2 se va a generar una interrupción, y en esa interrupción vas a conmutar el estado del led verde.
+[ENGLISH]Every 3 pushes of SW2 an interrupt will be generated and inside this interrupt you will toggle the green LED.
+[DEUTSCH]Every 3 pushes of SW2 an interrupt will be generated and inside this interrupt you will toggle the green LED.
+
+[SPANISH]Para hacer eso vas a usar un contador que vas a configurar con un valor inicial de 2. Cada vez que se pulse SW2 el contador será decrementado y cuando pase de 0 a 2 se generará la interrupción.
+[ENGLISH]To do this, you will use a counter, that must be configured with an initial value of 2. Every time you press SW2 the counter value will be decremented and when it passes from 0 to 2 an interrupt will be raised.
+[DEUTSCH]To do this, you will use a counter, that must be configured with an initial value of 2. Every time you press SW2 the counter value will be decremented and when it passes from 0 to 2 an interrupt will be raised.
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 6 y renómbralo como Workspace 7.
+[ENGLISH]Copy the Workspace 6 and rename it as Workspace 7.
+[DEUTSCH]Copy the Workspace 6 and rename it as Workspace 7.
+
+[IMG]01.png;50
+[IMG]02.png;50
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]03.png;50
+
+[SPANISH]Borra los componentes usados en el proyecto anterior.
+[ENGLISH]Remove the old stuff.
+[DEUTSCH]Remove the old stuff.
+
+[IMG]04.png;90
+
+[SPANISH]Como vas a controlar los leds (en este caso el verde) desde el programa tienes que deshabilitar la conexión HW.
+[ENGLISH]As the leds (in this case the green one) will be controlled by the program, the "HW connection" must be disabled.
+[DEUTSCH]As the leds (in this case the green one) will be controlled by the program, the "HW connection" must be disabled.
+
+[IMG]05.png;90
+[IMG]06.png;90
+[IMG]07.png;90
+[IMG]08.png;90
+[IMG]09.png;90
+
+[SPANISH]Añade un Timer Counter desde el catálogo de componentes.
+[ENGLISH]Add a Timer Counter from the Component Catalog.
+[DEUTSCH]Add a Timer Counter from the Component Catalog.
+
+[IMG]10.png;50
+[IMG]11.png;90
+
+[SPANISH]Se necesita un reloj para la entrada "clock".
+[ENGLISH]A clock is necessary.
+[DEUTSCH]A clock is necessary.
+
+[IMG]12.png;50
+[IMG]13.png;90
+
+[SPANISH]Ahora hay que configurar el Timer Counter.
+[ENGLISH]Now it is time to configure the Timer Counter.
+[DEUTSCH]Now it is time to configure the Timer Counter.
+
+[IMG]14.png;50
+
+[SPANISH]Renómbralo como "Counter".
+[ENGLISH]Rename it as "Counter".
+[DEUTSCH]Rename it as "Counter".
+
+[IMG]15.png;90
+
+[SPANISH]Modifica los siguientes valores :
+[ENGLISH]Modify the following values : 
+[DEUTSCH]Modify the following values : 
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Parámetro
+[TABLE_ITEM_ENGLISH]Parameter
+[TABLE_ITEM_DEUTSCH]Parameter
+
+[TABLE_ITEM_SPANISH]Valor
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ITEM_DEUTSCH]Value
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Counter mode
+[TABLE_ITEM_ENGLISH]Counter mode
+[TABLE_ITEM_DEUTSCH]Counter mode
+
+[TABLE_ITEM_SPANISH]Down (Hacia abajo)
+[TABLE_ITEM_ENGLISH]Down
+[TABLE_ITEM_DEUTSCH]Down
+
+[TABLE_ITEM_SPANISH]En cada activación de la señal "count" se decrementará el contador.
+[TABLE_ITEM_ENGLISH]At every activation of the input "count" the counter value will be decremented.
+[TABLE_ITEM_DEUTSCH]At every activation of the input "count" the counter value will be decremented.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Input "count"
+[TABLE_ITEM_ENGLISH]Input "count"
+[TABLE_ITEM_DEUTSCH]Input "count"
+
+[TABLE_ITEM_SPANISH]Habilitada y como flanco de bajada.
+[TABLE_ITEM_DEUTSCH]Enabled and as falling edge.
+[TABLE_ITEM_ENGLISH]Enabled and as falling edge.
+
+[TABLE_ITEM_SPANISH]La entrada será activa en el flanco de bajada.
+[TABLE_ITEM_ENGLISH]The input will be active at the falling edge.
+[TABLE_ITEM_DEUTSCH]The input will be active at the falling edge.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Period
+[TABLE_ITEM_ENGLISH]Period
+[TABLE_ITEM_DEUTSCH]Period
+
+[TABLE_ITEM_SPANISH]2
+[TABLE_ITEM_ENGLISH]2
+[TABLE_ITEM_DEUTSCH]2
+
+[TABLE_ITEM_SPANISH]Interrupción cada 2 + 1 pulsaciones de SW2.
+[TABLE_ITEM_ENGLISH]Interrupt every 2 + 1 pushes of SW2.
+[TABLE_ITEM_DEUTSCH]Interrupt every 2 + 1 pushes of SW2.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]24.png;90
+
+[SPANISH]Conecta el pulsador "Pin_SW2" a la entrada "count".
+[ENGLISH]Connect the switch button "Pin_SW2" to the input "count".
+[DEUTSCH]Connect the switch button "Pin_SW2" to the input "count".
+
+[IMG]26.png;80
+
+[SPANISH]Añade una interrupción y conéctala a la salida "interrupt" del Timer Counter.
+[ENGLISH]Add an interrupt component and connect it to the output "interrupt" of the Timer Counter.
+[DEUTSCH]Add an interrupt component and connect it to the output "interrupt" of the Timer Counter.
+
+[IMG]27.png;50
+[IMG]28.png;50
+
+[SPANISH]Renombra la interrupción como "Counter_Int".
+[ENGLISH]Rename the interrupt as "Counter_Int".
+[DEUTSCH]Rename the interrupt as "Counter_Int".
+
+[IMG]29.png;70
+[IMG]30.png;90
+[IMG]31.png;90
+
+[SPANISH]Genera la aplicación.
+[ENGLISH]Generate the application.
+[DEUTSCH]Generate the application.
+
+[IMG]32.png;70
+
+[SPANISH]Ve a "main.c".
+[ENGLISH]Go to "main.c".
+[DEUTSCH]Go to "main.c".
+
+[IMG]33.png;50
+
+[SPANISH]Añade el código :
+[ENGLISH]Add the code :
+[DEUTSCH]Add the code :
+
+[IMG]39.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 14
+[TABLE_ITEM_ENGLISH]Line 14
+[TABLE_ITEM_DEUTSCH]Line 14
+
+[TABLE_ITEM_SPANISH]Declara la función "Counter_Int_Handler" como una ISR (rutina de servicio a interrupción)
+[TABLE_ITEM_ENGLISH]Declares the function "Counter_Int_Handler" as ISR (interrupt service routine)
+[TABLE_ITEM_DEUTSCH]Declares the function "Counter_Int_Handler" as ISR (interrupt service routine)
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 16
+[TABLE_ITEM_ENGLISH]Line  16
+[TABLE_ITEM_DEUTSCH]Line  16
+
+[TABLE_ITEM_SPANISH]Cambia el estado del led verde.
+[TABLE_ITEM_ENGLISH]Toggles the green LED.
+[TABLE_ITEM_DEUTSCH]Toggles the green LED.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 18
+[TABLE_ITEM_ENGLISH]Line  18
+[TABLE_ITEM_DEUTSCH]Line  18
+
+[TABLE_ITEM_SPANISH]Borra el flag de la interrupción. 
+[TABLE_ITEM_ENGLISH]Clears the interrupt flag.
+[TABLE_ITEM_DEUTSCH]Clears the interrupt flag.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 25
+[TABLE_ITEM_ENGLISH]Line  25
+[TABLE_ITEM_DEUTSCH]Line  25
+
+[TABLE_ITEM_SPANISH]Inicializa el Timer Counter.
+[TABLE_ITEM_ENGLISH]Initializes the Timer Counter.
+[TABLE_ITEM_DEUTSCH]Initializes the Timer Counter.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 26
+[TABLE_ITEM_ENGLISH]Line  26
+[TABLE_ITEM_DEUTSCH]Line  26
+
+[TABLE_ITEM_SPANISH]Configura la función "Counter_Int_Handler" como ISR del Timer Counter.
+[TABLE_ITEM_ENGLISH]Configures the function "Counter_Int_Handler" as ISR of the Timer Counter.
+[TABLE_ITEM_DEUTSCH]Configures the function "Counter_Int_Handler" as ISR of the Timer Counter.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa.
+[ENGLISH]As always, build the project and transfer the program.
+[DEUTSCH]As always, build the project and transfer the program.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS007.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS007.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS007.zip;Download the project here (PSoC Creator 3.3).
+

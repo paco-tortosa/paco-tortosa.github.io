@@ -1,0 +1,53 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion07/L37_Esquemático/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Esquemático
+[TITLE_ENGLISH]Schematic
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Tenemos que añadir 3 fiduciales en la capa TOP y 3 fiduciales en la capa BOTTOM. Pero como no tenemos componentes SMT en la capa BOTTOM sólo vamos a poner fiduciales en la capa TOP.
+[ENGLISH]We have to add 3 fiducials in the TOP layer and 3 fiducials in the BOTTOM layer. But since we don&#39t have SMT components in the BOTTOM layer we are just going to put fiducials in the TOP layer.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Con la tecla rápida <b>A</b> vamos a añadir el fiducial.
+[ENGLISH]With the hotkey <b>A</b> we are going to add the fiducial.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]En la librería <b>JAVIERM_LIBS</b> selecciona el fiducial.
+[ENGLISH]In the library <b>JAVIERM_LIBS</b> select the fiducial.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]En total necesitamos 3.
+[ENGLISH]In total we need 3.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Anota el esquemático para numerar los fiduciales.
+[ENGLISH]Annotate the schematic to number the fiducials.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guarda los cambios y actualiza la PCB.
+[ENGLISH]Save the changes and update the PCB.
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+

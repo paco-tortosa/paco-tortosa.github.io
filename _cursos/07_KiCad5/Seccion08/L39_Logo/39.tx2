@@ -1,0 +1,158 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion08/L39_Logo/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Logo
+[TITLE_ENGLISH]Logo
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a añadir un logo en la PCB. <b>KiCad</b> tiene un conversor de bitmap a componente.
+[ENGLISH]We are going to add a logo on the PCB. <b>KiCad</b> has a bitmap to component converter.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a cargar el bitmap de mi logo.
+[ENGLISH]I&#39m going to load the bitmap of my logo.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Cuanta más resolución mejor. Voy a abrir la imagen de 334x334 pixels.
+[ENGLISH]The more resolution the better. I&#39m going to open the 334x334 pixel image.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona las opciones para generar un <b>footprint</b> y que la capa donde se genera el logo sea la <b>serigrafía</b> de la capa top.
+[ENGLISH]Select the options to generate a <b>footprint</b> and that the layer where the logo is generated is the <b>silkscreen</b> of the top layer.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Quiero que el logo sea <b>10mm x 10mm</b>
+[ENGLISH]I want the logo to be <b>10mm x 10mm</b>
+[SPANISH]Hay que calcular la resolución en DPI. La fórmula es el tamaño en pixels del bitmap original (<b>334px</b>), dividido entre el tamaño que queremos en mm (<b>10mm</b>) y multiplicado por <b>25.4</b>, que son los mm que tiene una pulgada.
+[ENGLISH]You have to calculate the resolution in DPI. The formula is the size in pixels of the original bitmap (<b>334px</b>), divided by the size we want in mm (<b>10mm</b>) and multiplied by <b>25.4</b> , which are the mm that an inch has.
+[SPANISH]La resolución es de <b>848</b>
+[ENGLISH]The resolution is <b>848</b>
+[END_LIST]
+[IMG]05.png
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora hay que exportar.
+[ENGLISH]Now we have to export.
+[END_LIST]
+[IMG]08.png
+
+[BEGIN_LIST]
+[SPANISH]Ve al directorio de la librería y dale el nombre <b>logo</b> al componente.
+[ENGLISH]Go to the library directory and give the <b>logo</b> name to the component.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a editar nuestro nuevo símbolo al editor de footprints.
+[ENGLISH]We are going to edit our new symbol to the footprint editor.
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ordenar los campos del footprint.
+[ENGLISH]We are going to order the fields of the footprint.
+[END_LIST]
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Los campos del logo los vamos a poner en la capa <b>F.Fab</b> que no usamos en nuestro diseño.
+[ENGLISH]We will put the fields of the logo in the <b>F.Fab</b> layer that we do not use in our design.
+[SPANISH]Primero el campo <b>Value</b>.
+[ENGLISH]First the <b>Value</b> field.
+[END_LIST]
+[IMG]17.png
+[IMG]18.png
+[IMG]19.png
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y ahora el campo <b>Reference</b>.
+[ENGLISH]And now the <b>Reference</b> field.
+[END_LIST]
+[IMG]21.png
+[IMG]22.png
+[IMG]23.png
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guarda el footprint.
+[ENGLISH]Save the footprint.
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a añadir ahora el footprint en la PCB.
+[ENGLISH]Now we are going to add the footprint on the PCB.
+[END_LIST]
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve a la opción <b>Footprint</b> del menú <b>Place</b>.
+[ENGLISH]Go to the <b>Footprint</b> option of the <b>Place</b> menu.
+[END_LIST]
+[IMG]27.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Elige un lugar en la PCB.
+[ENGLISH]Choose a place on the PCB.
+[END_LIST]
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y selecciona el logo en nuestra librería.
+[ENGLISH]And select the logo in our library.
+[END_LIST]
+[IMG]29.png
+[IMG]30.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Guarda la PCB.
+[ENGLISH]Save the PCB.
+[END_LIST]
+[IMG]31.png
+[BLOCK_END]
+

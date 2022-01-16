@@ -1,0 +1,299 @@
+        <div class="title">ADC - LEDs</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vamos a usar el potenciómetro conectado al componente ADC para encender los leds rojo, verde y azul</div></li>
+               <li><div class="text">El valor del componente ADC variará entre 0 y 2047 (11 bits). Cuando el valor esté por debajo de 682 (un tercio del valor máximo) se encenderá el led azul. Cuando el valor esté entre 683 y 1364 (entre un tercio y 2 tercios del valor máximo) se encenderá el led verde. Y cuando el valor sea mayor que 1365 (dos tercios del valor máximo) se encenderá el led rojo</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/Setup.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/P019_ADC_pins_es.png">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 18 y renómbralo como 19</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade una interrupción</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/03.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbrala como "ISR_ADC_EOC"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/06.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta la interrupción a la salida "eoc" del componente "ADC"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita las propiedades de la salida digital "ADC_EOC"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como va a ser controlada por el programa, deshabilita la opción "HW connection"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/10.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cambia de sitio la interrupción y la salida en el esquemático</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea 3 nuevas salidas (para los leds) copiando la salida "ADC_EOC" tres veces</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Y renómbralas como "LED_RED", "LED_GREEN" y "LED_BLUE"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta las salidas a los pines del PSoC</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade el siguiente código en "main.c"</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/16.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>#define <span class="b1">POT_CHAN<span class="tooltiptext"> Define la constante POT_CHAN como 0 (es el canal ADC usado)</span></span>        (0)</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>#define <span class="b2">MAX_ADC_VALUE<span class="tooltiptext"> Define la constante  MAX_ADC_VALUE como 0x7FF (2047, máximo valor para 11 bits)</span></span>   0x7FF</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td><span class="b3">CY_ISR(ISR_ADC_EOC_Handler)<span class="tooltiptext"> Define la función "ISR_ADC_EOC_Handler" como una ISR (Rutina de servicio de interrupción)</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td>    volatile int16  i16Counts;</td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    volatile int16  i16mVolts;</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    i16Counts   =   <span class="b4">ADC_GetResult16<span class="tooltiptext"> Obtiene el último valor medido por el ADC</span></span>(POT_CHAN);</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    i16mVolts   =   <span class="b5">ADC_CountsTo_mVolts<span class="tooltiptext"> Convierte el valor a milivoltios</span></span>(POT_CHAN,i16Counts);</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>    <span class="b6">ADC_EOC_Write( ~ ADC_EOC_Read())<span class="tooltiptext"> Conmuta el estado de la salida "ADC_EOC" (para ser vista en el osciloscopio)</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    <span class="b1">if (i16Counts &lt MAX_ADC_VALUE / 3)<span class="tooltiptext"> Si el valor del ADC es menor que 682 enciende el led azul</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        LED_RED_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>        LED_GREEN_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>        LED_BLUE_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>    <span class="b2">else if (i16Counts &lt 2 * MAX_ADC_VALUE / 3)<span class="tooltiptext"> Si el valor del ADC está en el rango [683,1364] enciende el led verde</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>        LED_RED_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>        LED_GREEN_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>        LED_BLUE_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>    <span class="b3">else<span class="tooltiptext"> Si el valor del ADC es mayor de 1365 enciende el led rojo</span></span> </td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>        LED_RED_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>        LED_GREEN_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>        LED_BLUE_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>    ISR_ADC_EOC_ClearPending();</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/17.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>49</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>    </td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>    <span class="b1">CyGlobalIntEnable<span class="tooltiptext"> Habilita interrupciones</span></span>; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td>    <span class="b2">ADC_Start()<span class="tooltiptext"> Inicializa el componente ADC</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>    <span class="b3">ISR_ADC_EOC_StartEx(ISR_ADC_EOC_Handler)<span class="tooltiptext"> Inicializa la interrupción ISR_ADC_EOC y configura la función ISR_ADC_EOC_Handler como su ISR</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>    <span class="b4">ADC_StartConvert()<span class="tooltiptext"> Comienza la conversión del componente ADC de forma continua</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Además podrás ver en el osciloscopio la señal que cambia cada vez que se genera una interrupción del ADC (main.c línea 25)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/img/TEK0000.JPG">
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion05/L19_ADC_LEDs/downloads/WS019.zip">Descarga el proyecto aquí (PSoC Creator 4.0).</a></li>
+            </ul>
+        </div>

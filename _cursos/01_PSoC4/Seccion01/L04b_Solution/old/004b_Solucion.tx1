@@ -1,0 +1,67 @@
+[IMG_FOLDER]img/012_004bSolution/
+[TITLE_SPANISH]Solución al ejercicio 004a
+[TITLE_ENGLISH]Solution to the Exercise 004a
+
+[SPANISH]Copia el workspace WS004 y renómbralo como WS004b.
+[ENGLISH]Copy the workspace WS004 and rename it as WS004b.
+[DEUTSCH]Copy the workspace WS004 and rename it as WS004b.
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]01.png;50
+
+[SPANISH]Haz doble clic en el Pin_Verde.
+[ENGLISH]Double click on Pin_Verde.
+[DEUTSCH]Double click on Pin_Verde.
+
+[IMG]02.png;90
+
+[SPANISH]Habilita la opción de "HW connection".
+[ENGLISH]Check the "HW connection" option. 
+[DEUTSCH]Check the "HW connection" option. 
+
+[IMG]03.png;60
+
+[SPANISH]Busca el componente "Not".
+[ENGLISH]Search for the "Not" component.
+[DEUTSCH]Search for the "Not" component.
+
+[IMG]07.png;60
+
+[SPANISH]Arrástralo al esquemático.
+[ENGLISH]Drag it to the schematic.
+[DEUTSCH]Drag it to the schematic.
+
+[IMG]09.png;90
+
+[SPANISH]Conéctalo con la señal que sale de "Pin_SW2".
+[ENGLISH]Connect it with the signal coming from "Pin_SW2".
+[DEUTSCH]Connect it with the signal coming from "Pin_SW2".
+
+[SPANISH]De esta manera estamos dando a "Pin_Verde" la señal invertida de "Pin_SW2".
+[ENGLISH]Thus you are given to "Pin_Verde" the inverted signal of "Pin_SW2".
+[DEUTSCH]Thus you are given to "Pin_Verde" the inverted signal of "Pin_SW2".
+
+[IMG]10.png;90
+
+[SPANISH]Compila el proyecto.
+[ENGLISH]Build the project.
+[DEUTSCH]Build the project.
+
+[IMG]11.png;50
+
+[SPANISH]Y transfiere el programa.
+[ENGLISH]And transfer the program.
+[DEUTSCH]And transfer the program.
+
+[IMG]12.png;50
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS004b.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS004b.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS004b.zip;Download the project here (PSoC Creator 3.3).

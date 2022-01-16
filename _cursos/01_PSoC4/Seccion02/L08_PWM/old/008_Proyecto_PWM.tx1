@@ -1,0 +1,222 @@
+[IMG_FOLDER]img/016_008Project_PWM/
+
+[TITLE_SPANISH]008 - Modulación por anchura de pulso (PWM)
+[TITLE_ENGLISH]008 - Pulse Width Modulation (PWM)
+[TITLE_DEUTSCH]008 - Pulse Width Modulation (PWM)
+
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el componente PWM (Pulse Width Modulation).
+[ENGLISH]In this project you will learn a new HW component, the PWM component.
+[DEUTSCH]In this project you will learn a new HW component, the PWM component.
+
+[SPANISH]Sirve para generar una señal que tiene una frecuencia fija y una parte variable llamada "Duty Cycle" que es el tiempo que está a 1.
+[ENGLISH]You can generate a signal with a fixed frequency and a variable part called "Duty Cycle" that it is the time the signal is high.
+[DEUTSCH]You can generate a signal with a fixed frequency and a variable part called "Duty Cycle" that it is the time the signal is high.
+
+[IMG]PWM_Signal.png;90
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 7 y renómbralo como Workspace 8.
+[ENGLISH]Copy the Workspace 7 and rename it as Workspace  8.
+[DEUTSCH]Copy the Workspace 7 and rename it as Workspace  8.
+
+[IMG]01.png;50
+[IMG]02.png;50
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]03.png;50
+
+[SPANISH]Borra el contador.
+[ENGLISH]Remove the counter.
+[DEUTSCH]Remove the counter.
+
+[IMG]04.png;90
+[IMG]05.png;90
+
+[SPANISH]Ve al catálogo de componentes y arrastra el componente PWM al esquemático.
+[ENGLISH]Go to the schematic and drag the PWM componente to the schematic.
+[DEUTSCH]Go to the schematic and drag the PWM componente to the schematic.
+
+[IMG]06.png;60
+[IMG]07.png;90
+
+[SPANISH]Haz doble clic para acceder a la configuración.
+[ENGLISH]Double click to open the configuration window.
+[DEUTSCH]Double click to open the configuration window.
+
+[IMG]08.png;70
+
+[SPANISH]Renombra el componente como PWM.
+[ENGLISH]Rename the component as PWM.
+[DEUTSCH]Rename the component as PWM.
+
+[IMG]09.png;90
+
+[SPANISH]Modifica los siguientes valores :
+[ENGLISH]Modify the following values : 
+[DEUTSCH]Modify the following values : 
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Parámetro
+[TABLE_ITEM_ENGLISH]Parameter
+[TABLE_ITEM_DEUTSCH]Parameter
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+
+[TABLE_ITEM_SPANISH]Valor
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ITEM_DEUTSCH]Value
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Period
+[TABLE_ITEM_ENGLISH]Period
+[TABLE_ITEM_DEUTSCH]Period
+
+[TABLE_ITEM_SPANISH]Periodo de la señal.
+[TABLE_ITEM_ENGLISH]Signal period.
+[TABLE_ITEM_DEUTSCH]Signal period.
+
+[TABLE_ITEM_SPANISH]10000
+[TABLE_ITEM_ENGLISH]10000
+[TABLE_ITEM_DEUTSCH]10000
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Compare
+[TABLE_ITEM_ENGLISH]Compare
+[TABLE_ITEM_DEUTSCH]Compare
+
+[TABLE_ITEM_SPANISH]Duración del Duty Cycle.
+[TABLE_ITEM_ENGLISH]Duty Cycle duration.
+[TABLE_ITEM_DEUTSCH]Duty Cycle duration.
+
+[TABLE_ITEM_SPANISH]5000
+[TABLE_ITEM_ENGLISH]5000
+[TABLE_ITEM_DEUTSCH]5000
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]10.png;90
+
+[SPANISH]Así, la señal tendrá 5000 pulsos de reloj de duración de Duty Cycle (tiempo de la señal a 1) y 10000 pulsos de reloj de período.
+[ENGLISH]So, the signal will have 5000 clock pulses of Duty Cycle and 10000 clock pulses of Period.
+[DEUTSCH]So, the signal will have 5000 clock pulses of Duty Cycle and 10000 clock pulses of Period.
+
+[SPANISH]La señal de reloj es de 12 MHz.
+[ENGLISH]The clock signal is 12 Mhz.
+[DEUTSCH]The clock signal is 12 Mhz.
+
+[IMG]008_PWM.png;90
+
+[SPANISH]Habilita la conexión HW del led Rojo.
+[ENGLISH]Enable the HW connection of the Red LED.
+[DEUTSCH]Enable the HW connection of the Red LED.
+
+[IMG]11.png;60
+[IMG]12.png;90
+
+[SPANISH]Conecta el led Rojo con la salida "line" del componente PWM.
+[ENGLISH]Connect the Red LED with the "line" output of the PWM component.
+[DEUTSCH]Connect the Red LED with the "line" output of the PWM component.
+
+[IMG]13.png;90
+
+[SPANISH]Genera la aplicación.
+[ENGLISH]Generate the application.
+[DEUTSCH]Generate the application.
+
+[IMG]14.png;70
+
+[SPANISH]Ve a "main.c".
+[ENGLISH]Go to "main.c".
+[DEUTSCH]Go to "main.c".
+
+[IMG]15.png;60
+
+[SPANISH]Borra el código del proyecto anterior.
+[ENGLISH]Remove the previous project code.
+[DEUTSCH]Remove the previous project code.
+
+[IMG]19.png;90
+
+[SPANISH]Añade la función "PWM_Start()" para incializar el componente PWM que añadimos al esquemático.
+[ENGLISH]Add the function "PWM_Start()" to initialize the PWM component we added to the schematic.
+[DEUTSCH]Add the function "PWM_Start()" to initialize the PWM component we added to the schematic.
+
+[IMG]20.png;90
+
+[SPANISH]Añade el siguiente código :
+[ENGLISH]Add the following code :
+[DEUTSCH]Add the following code :
+
+[IMG]21.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función
+[TABLE_ITEM_ENGLISH]Function
+[TABLE_ITEM_DEUTSCH]Function
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]PWM_WriteCompare(500)
+[TABLE_ITEM_ENGLISH]PWM_WriteCompare(500)
+[TABLE_ITEM_DEUTSCH]PWM_WriteCompare(500)
+
+[TABLE_ITEM_SPANISH]Cambia el Duty Cycle a 500.
+[TABLE_ITEM_ENGLISH]Change the Duty Cycle to 500.
+[TABLE_ITEM_DEUTSCH]Change the Duty Cycle to 500.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]CyDelay(1000)
+[TABLE_ITEM_ENGLISH]CyDelay(1000)
+[TABLE_ITEM_DEUTSCH]CyDelay(1000)
+
+[TABLE_ITEM_SPANISH]Espera 1000 mseg = 1 segundo.
+[TABLE_ITEM_ENGLISH]Wait for 1000 msec = 1 second.
+[TABLE_ITEM_DEUTSCH]Wait for 1000 msec = 1 second.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]PWM_WriteCompare(9500)
+[TABLE_ITEM_ENGLISH]PWM_WriteCompare(9500)
+[TABLE_ITEM_DEUTSCH]PWM_WriteCompare(9500)
+
+[TABLE_ITEM_SPANISH]Cambia el Duty Cycle a 9500.
+[TABLE_ITEM_ENGLISH]Change the Duty Cycle to 9500.
+[TABLE_ITEM_DEUTSCH]Change the Duty Cycle to 9500.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]008_PWM2.png;90
+
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa.
+[ENGLISH]As always, build the project and transfer the program.
+[DEUTSCH]As always, build the project and transfer the program.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS008.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS008.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS008.zip;Download the project here (PSoC Creator 3.3).
+

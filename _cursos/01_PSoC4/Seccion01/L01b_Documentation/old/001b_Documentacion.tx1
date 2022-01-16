@@ -1,0 +1,74 @@
+[IMG_FOLDER]img/007_001bDocumentation/
+[TITLE_SPANISH]001b - Mejorando la documentación
+[TITLE_ENGLISH]001b - Improving the documentation
+
+[SPANISH]En el primer proyecto añadimos 3 pines al esquemático y le dimos un nombre significativo (Pin_Rojo, Pin_Verde y Pin_Azul), pero esto no es suficiente para que alguien que no haya sido el autor del proyecto lo entienda.
+[ENGLISH]In the first project we added 3 pins to the schematic and we renamed them with meaningful names (Pin_Rojo, Pin_Verde and Pin_Azul), but this is not enough for someone who was not the author of the project to understand it.
+
+[SPANISH]Vamos a añadir resistencias y leds al esquemático.
+[ENGLISH]Let's add some resistors and leds to the schematic.
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[SPANISH]Lo primero que tenemos que hacer es ir al esquemático haciendo clic en TopDesign.cysch
+[ENGLISH]First go to the schematic by clicking on "TopDesign.cysch"
+[IMG]00.png;60
+
+[SPANISH]Hacemos doble clic en el Pin_Rojo
+[ENGLISH]Double click on "Pin_Rojo"
+[IMG]01.png;60
+
+[SPANISH]Y activamos la opción "External terminal" para que nos aparezca un terminal conectado al pin en el esquemático.
+[ENGLISH]Enable the option "External terminal" so that the external terminal appear in the schematic.
+[IMG]02.png;90
+[IMG]03.png;90
+
+[SPANISH]En el catálogo de componentes busco mediante la caja de texto las resistencias (resis) y selecciono la pestaña 'Off-Chip'.
+[ENGLISH]In the Component Catalog search for "resis" and select the tab 'Off-Chip'.
+[SPANISH]Arrastro la resistencia al esquemático.
+[ENGLISH]Drag the resistor to the schematic.
+[IMG]04.png;90
+
+[SPANISH]Una vez en el esquemático, hago doble clic en la resistencia y en la caja de diálogo pongo a 'false' el parámetro 'Instance_Name_Visible' para que no me aparezca el nombre de la resistencia.
+[ENGLISH]Double click on the resistor and set the parameter 'Instance_Name_Visible' to false to remove the resistor name from the schematic.
+[SPANISH]Además borro el valor. Así me aparecerá sólo el símbolo de la resistencia en el esquemático.
+[ENGLISH]Delete the value as well. So only the symbol of the resistor will be in the schematic.
+[IMG]05.png;90
+[IMG]06.png;70
+[IMG]07.png;90
+
+[SPANISH]Hago lo mismo para añadir un led.
+[ENGLISH]Do the same to add an led.
+[IMG]08.png;90
+[IMG]09.png;90
+[IMG]10.png;70
+[IMG]11.png;90
+
+[SPANISH]Tengo que cambiar el sentido del led usando el botón de 'flip horizontal'
+[ENGLISH]The direction of the led has to be changed by using the button 'horizontal flip'
+[IMG]12.png;90
+[IMG]13.png;90
+
+[SPANISH]Hago lo mismo para añadir un símbolo de alimentación.
+[ENGLISH]Do the same to add a power symbol.
+[IMG]14.png;90
+[IMG]15.png;90
+[IMG]16.png;90
+[IMG]17.png;90
+
+[SPANISH]Ahora vamos a unir los componentes añadidos.
+[ENGLISH]Let's join the added components.
+[IMG]19.png;90
+[IMG]20.png;90
+[IMG]21.png;90
+
+[SPANISH]Ya tenemos el esquemático terminado.
+[ENGLISH]The schematic is done.
+[IMG]22.png;90
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+
+[LINK_SPANISH]downloads/WS001b.zip;Descarga el proyecto aquí.
+[LINK_ENGLISH]downloads/WS001b.zip;Download the project here.

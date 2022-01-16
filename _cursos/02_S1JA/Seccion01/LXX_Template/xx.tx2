@@ -1,0 +1,36 @@
+[LESSON_FOLDER]../_cursos/02_S1JA/Seccion01/LXX_Template/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Título
+[TITLE_ENGLISH]Title
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]
+[ENGLISH]
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]
+[ENGLISH]
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS004b.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS004b.zip;Download the project here (PSoC Creator 3.3).
+[END_LIST]
+[BLOCK_END]
+
+

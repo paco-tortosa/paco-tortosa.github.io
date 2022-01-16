@@ -1,0 +1,101 @@
+        <div class="title">PWM (HAL)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this lesson we are going to do the same as in the previous lesson (generate a PWM signal of period 100us and duty cycle 25%) but this time using the HAL and the configurator MX.</div></li>
+            </ul>
+        </div>
+        <div class="title">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Create a new project based on the evaluation kit with the name <b>P22_TIM1_PWM_HAL</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/01.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/02.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/03.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/04.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s configure the <b>TIM1</b> with the same parameters than in the previous lesson.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/06.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The clock for <b>TIM1</b> will be the MCU internal clock (48MHZ).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Configure the channel 1 as PWM output.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/09.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">The prescaler must be 47 to get a frequency of 1MHz from the input clock of 48MHz, the counter mode as upcounting and the register <b>ARR</b> 99 that makes the period be 99+1=100 us.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/11.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/12.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Note that the pin <b>PA8</b> has been configured as <b>TIM1_CH1</b>. </div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Set the <b>auto-reload preload</b> to <b>Enable</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/14.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now is time to set the <b>duty cycle</b> to 25us.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/17.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now you can generate the source code for the configuration.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/19.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the file <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/21.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s add here the activation of <b>TIM1</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/23.png">
+            <ul>
+               <li><div class="text">With the function <b>HAL_TIM_PWM_START</b> the <b>TIM1</b> is activated and the PWM signal is generated on the pin <b>PA8</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">You can build and debug the program.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/25.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/26.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/27.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/28.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/29.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/30.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/31.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L42_TIM1_PWM_HAL/img/32.png">
+        </div>

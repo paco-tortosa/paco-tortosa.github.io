@@ -1,0 +1,117 @@
+[LESSON_FOLDER]../_cursos/02_S1JA/Seccion01/L02_E2Studio_Download/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Instalación de e2 studio
+[TITLE_ENGLISH]e2 studio Installation
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a descargar el SW que necesitamos para programar el microcontrolador
+[ENGLISH]In this lesson we are going to download the SW we need to program the MCU
+
+[SPANISH]<b>e2 studio</b> es parte de <b>Renesas Synergy</b>, búscalo en google
+[ENGLISH]<b>e2 studio</b> is part of <b>Renesas Synergy</b>, search on google
+[END_LIST]
+
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es la página donde podemos descargar el programa
+[ENGLISH]This is the webpage where we can download the program
+[END_LIST]
+
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Baja hasta encontrar el instalador de la plataforma
+[ENGLISH]Scroll down until you find the platform installer
+
+[SPANISH]Haz clic en el botón de descarga
+[ENGLISH]Click on the download button
+[END_LIST]
+
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Otro botón más para confirmar
+[ENGLISH]Another button to confirm the download
+[END_LIST]
+[IMG]04.png
+
+[SPANISH]y acepta la licencia de uso
+[ENGLISH]and accept the use licence
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cuando el fichero se haya descargado descomprímelo
+[ENGLISH]When the file download is done, unzip it
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Entra en el directorio y ejecuta el instalador
+[ENGLISH]Go into the folder and run the installer
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Sigue los pasos de la instalación
+[ENGLISH]Follow all the installation steps
+[END_LIST]
+[IMG]16.png
+[IMG]18.png
+[IMG]20.png
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Marca la opción de ejecutar e2 studio tras la instalación
+[ENGLISH]Check the option to run e2 studio after the installation
+[END_LIST]
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]<b>e2studio</b> está basado en Eclipse
+[ENGLISH]<b>e2studio</b> is based on Eclipse
+[END_LIST]
+[IMG]24.png
+
+[BEGIN_LIST]
+[SPANISH]Tienes que seleccionar dónde colocar el <b>workspace</b>
+[ENGLISH]You have to select a location for the <b>workspace</b>
+
+[SPANISH]El <b>workspace</b> es un contenedor de proyectos
+[ENGLISH]A <b>workspace</b> is a container of projects
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]<b>e2studio</b> se ha instalado correctamente, puedes ver su pantalla principal
+[ENGLISH]<b>e2studio</b> is installed correctly, you can see the main window
+[END_LIST]
+[IMG]27.png
+[BLOCK_END]
+
+
+

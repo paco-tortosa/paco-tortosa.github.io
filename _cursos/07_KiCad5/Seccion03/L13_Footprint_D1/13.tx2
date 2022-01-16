@@ -1,0 +1,96 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion03/L13_Footprint_D1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Footprint de D1
+[TITLE_ENGLISH]D1 footprint
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet del diodo rectificador <b>SA4-W</b>.
+[ENGLISH]This is the datasheet of the <b> SA4-W </b> rectifier diode.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Estas son las dimensiones recomendadas por el fabricante:
+[ENGLISH]These are the dimensions recommended by the manufacturer:
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos al editor de footprints para ver si encontramos el encapsulado <b>SOD-123F</b> en alguna librería.
+[ENGLISH]We go to the footprint editor to see if we find the <b> SOD-123F </b> package in any library.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hemos encontrado exactamente el footprint que necesitamos.
+[ENGLISH]We have found exactly the footprint we need.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a copiar el footprint <b>D_SOD-123F</b> de la librería <b>Diode_SMD</b> en nuestra librería.
+[ENGLISH]I am going to copy the footprint <b> D_SOD-123F </b> from the <b> Diode_SMD </b> library into our library.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a conservar el nombre y como destino nuestra librería.
+[ENGLISH]We will keep the name and as a destination our library.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver las dimensiones del footprint.
+[ENGLISH]Let&#39s see the dimensions of the footprint.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver comparadas las dimensiones del footprint de KiCad (en rosa) y las del datasheet (en verde). Ambas son muy parecidas, por lo que nos vale.
+[ENGLISH]Here you can see the dimensions of the KiCad footprint (in pink) and the datasheet (in green). Both are very similar, it fits.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora como en componentes anteriores hay que asociar el símbolo con el footprint.
+[ENGLISH]Now, as in previous components, the symbol must be associated with the footprint.
+[END_LIST]
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como siempre reordeno los textos y guardo la librería.
+[ENGLISH]As always I reorder the texts and keep the library.
+[END_LIST]
+[IMG]15.png
+//[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+
+
+

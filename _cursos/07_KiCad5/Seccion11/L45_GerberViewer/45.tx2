@@ -1,0 +1,80 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion11/L45_GerberViewer/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Gerber Viewer
+[TITLE_ENGLISH]Gerber Viewer
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]<b>KiCad</b> tiene un visor de ficheros gerber. Haz clic en él.
+[ENGLISH]<b>KiCad</b> has a gerber file viewer. Click on it.
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a abrir los ficheros gerber.
+[ENGLISH]We are going to open the gerber files.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como ves todos los ficheros son visibles.
+[ENGLISH]As you can see all the files are visible.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a esconder todas las capas.
+[ENGLISH]Let&#39s hide all the layers.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a mostrar el borde (fichero <b>Edge-Cuts.gbr</b>)
+[ENGLISH]We are going to show the border (file <b>Edge-Cuts.gbr</b>)
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver la capa de cobre BOTTOM (fichero <b>B_Cu.gbr</b>)
+[ENGLISH]Let&#39s see the BOTTOM copper layer (file <b>B_Cu.gbr</b>)
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora la capa de cobre TOP (fichero <b>F_Cu.gbr</b>)
+[ENGLISH]Now the TOP copper layer (file <b>F_Cu.gbr</b>)
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y por último la serigrafía de la capa TOP (fichero <b>F_SilkS.gbr</b>)
+[ENGLISH]And finally the silkscreen of the TOP layer (file <b>F_SilkS.gbr</b>)
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Todo parece en orden, ya podemos mandar nuestra placa a fabricar.
+[ENGLISH]Everything seems in order, we can already send our PCB to manufacture.
+[END_LIST]
+[BLOCK_END]
+

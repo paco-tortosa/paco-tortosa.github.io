@@ -1,0 +1,62 @@
+[LESSON_FOLDER]../_cursos/08_KiCad5_ArduinoUNO/Seccion04/L27_ResetButton/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Botón de reset
+[TITLE_ENGLISH]Reset button
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el pulsador para resetear manualmente el microcontrolador <b>ATMEGA328P</b>
+[ENGLISH]This is the button to manually reset the <b>ATMEGA328P</b> microcontroller
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es un pulsador que he encontrado en <b>Mouser</b>
+[ENGLISH]This is a push button that I found at <b>Mouser</b>
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Es SMD y tiene función <b>OFF-(ON)</b>, es decir, cuando está presionado une los contactos.
+[ENGLISH]It is SMD and it has <b>OFF-(ON)</b> function, that is, when pressed it connects the contacts.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Switch</b> he encontrado el símbolo <b>SW_Push</b>.
+[ENGLISH]In the <b>Switch</b> library I found the <b>SW_Push</b> symbol.
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo he copiado en la librería <b>JAVIERM_LIBS</b> y le he añadido los campos habituales en mis diseños.
+[ENGLISH]I have copied it in the <b>JAVIERM_LIBS</b> library and added the usual fields in my designs.
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Button_Switch_SMD</b> está el footprint del componente (<b>SW_SPST_TL3305A</b>).
+[ENGLISH]In the <b>Button_Switch_SMD</b> library is the footprint of the component (<b>SW_SPST_TL3305A</b>).
+[END_LIST]
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]Así que he copiado el footprint en nuestra librería.
+[ENGLISH]So I have copied the footprint in our library.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/TL3305-844809.pdf;Datasheet
+[LINK_ENGLISH]downloads/TL3305-844809.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]

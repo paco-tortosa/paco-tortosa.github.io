@@ -1,0 +1,98 @@
+[IMG_FOLDER]img/013_005Project_ToggleFlipFlop/
+
+[TITLE_SPANISH]005 - Toggle Flip Flop
+[TITLE_ENGLISH]005 - Toggle Flip Flop
+[TITLE_DEUTSCH]005 - Toggle Flip Flop
+
+[SPANISH]En este proyecto vas a conocer un nuevo componente hardware, el biestable T (Toggle Flip Flop).
+[ENGLISH]In this project you will learn a new HW component, the Toggle Flip Flop.
+[DEUTSCH]In this project you will learn a new HW component, the Toggle Flip Flop.
+
+[SPANISH]Como puedes ver en la imagen, el biestable T tiene 2 entradas y 1 salida.
+[ENGLISH]As you can see in the picture, the Toggle Flip Flop has 2 inputs and 1 output.
+[DEUTSCH]As you can see in the picture, the Toggle Flip Flop has 2 inputs and 1 output.
+
+[BEGIN_LIST]
+[SPANISH]Entrada "t" : habilita (1) o deshabilita (0) cambios en el pin de salida
+[ENGLISH]Input "t" : enables (1) or disables (0) changes in the output pin.
+
+[SPANISH]Entrada "Clk" : si "t" = 1, un flanco de subida en esta señal cambia el nivel de la salida "Output".
+[ENGLISH]Input "Clk" : If "t" = 1, a rising edge on this signal changes the output "Output".
+[END_LIST]
+
+[IMG]TFlipFlop.png;90
+
+[SPANISH]Vamos a usar el biestable T para conmutar el led Rojo cada vez que pulsemos SW2.
+[ENGLISH]You are going to use the Toggle Flip Flop to toggle the Red LED every time SW2 is pressed.
+[DEUTSCH]You are going to use the Toggle Flip Flop to toggle the Red LED every time SW2 is pressed.
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 4 y renómbralo como Workspace 5.
+[ENGLISH]Copy the Workspace 4 and rename it as Workspace 5.
+[DEUTSCH]Copy the Workspace 4 and rename it as Workspace 5.
+
+[IMG]01.png;50
+[IMG]02.png;50
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]03.png;50
+[IMG]04.png;90
+
+[SPANISH]Borra la conexión entre Pin_SW2 y Pin_Rojo.
+[ENGLISH]Delete the connection between Pin_SW2 and Pin_Rojo.
+[DEUTSCH]Delete the connection between Pin_SW2 and Pin_Rojo.
+
+[IMG]06.png;90
+
+[SPANISH]Recuerda que el pulsador SW2 da una entrada 0 cuando está cerrado. Y como para el biestable T necesitamos el flanco de subida, vamos a usar una puerta lógica NOT para invertirlo.
+[ENGLISH]Remember that the Switch Button SW2 gives a 0 value when pressed. As you need a rising edge for the Toggle Flip Flop, a NOT component is needed to invert the signal.
+[DEUTSCH]Remember that the Switch Button SW2 gives a 0 value when pressed. As you need a rising edge for the Toggle Flip Flop, a NOT component is needed to invert the signal.
+
+[IMG]005_Not.png;80
+[IMG]07.png;50
+
+[SPANISH]Ve al catálogo de componentes y añádelo al esquemático.
+[ENGLISH]Go to the schematic and add it to the schematic.
+[DEUTSCH]Go to the schematic and add it to the schematic.
+
+[IMG]08.png;90
+
+[SPANISH]Ahora el biestable T.
+[ENGLISH]Now the Toggle Flip Flop.
+[DEUTSCH]Now the Toggle Flip Flop.
+
+[IMG]09.png;50
+[IMG]10.png;90
+
+[SPANISH]Pon a 1 la entrada t.
+[ENGLISH]Set the input t to 1.
+[DEUTSCH]Set the input t to 1.
+
+[IMG]11.png;50
+[IMG]12.png;90
+
+[SPANISH]Y conecta la salida del biestable al Pin_Rojo.
+[ENGLISH]And connect the output of the Toggle Flip Flop to the Pin_Rojo.
+[DEUTSCH]And connect the output of the Toggle Flip Flop to the Pin_Rojo.
+
+[IMG]13.png;90
+[IMG]005_Final.png;90
+
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa.
+[ENGLISH]As always, build the project and transfer the program.
+[DEUTSCH]As always, build the project and transfer the program.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS005.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS005.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS005.zip;Download the project here (PSoC Creator 3.3).
+

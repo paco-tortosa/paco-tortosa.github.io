@@ -1,0 +1,207 @@
+        <div class="title">Registro de estado</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En este proyecto vas a conocer un nuevo componente hardware, el componente Registro de Estado (Status Register)</div></li>
+               <li><div class="text">Con él, vas a poder saber en el firmware lo que está pasando en el hardware</div></li>
+               <li><div class="text">Si al proyecto anterior (013-Demultiplexor) añades un Registro de estado, podrás saber en el firmware el valor de la señal de salida del contador básico</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/14a.png">
+        </div>
+        <div class="section">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Copia el Workspace 13 y renómbralo como 14</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/01.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/02.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Añade un componente "Status Register" (Registro de estado)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Edita sus propiedades</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Renómbralo como "StatusRegister" y configura 2 entradas</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/06.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta un 1 lógico en la entrada de reloj</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Conecta la señal de salida del contador básico a la entrada del registro de estado</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/09.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Como es un bus hay que seleccionar que bit quieres conectar a la entrada</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/10.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/11.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/12.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El esquemático está terminado</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ve a "main.c" y añade el siguiente código:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/15.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b1">volatile<span class="tooltiptext"> La palabra clave <b>volatile</b> hace que el compilador no optimice el uso de estas variables</span></span>    uint8   u8OldStatus =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    volatile    uint8   u8Status    =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>    volatile    uint8   u8Times     =   0;</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>        u8Status        =   <span class="b2">StatusRegister_Read()<span class="tooltiptext"> Devuelve el valor de las entradas del componente StatusRegister</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td>        <span class="b3">if (u8Status != u8OldStatus)<span class="tooltiptext"> Chequea si ha habido un cambio en el valor del status</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>            <span class="b4">u8Times++<span class="tooltiptext"> Incrementa la variable u8Times (sólo sirve para que veas su valor en la depuración)</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>            u8OldStatus =   u8Status;</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En vez de transferir el programa y ejecutarlo, vas a depurarlo (debug)</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/16.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">El programa se para en la primera línea de código</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Pon un breakpoint en la línea 27, al llegar ahí el programa parará</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Dale a ejecutar</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Cada vez que pulsemos SW2, el programa llegará a la línea 27</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Si pasas el ratón por encima de una variable podrás ver su valor</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Puedes quitar el breakpoint y dejarlo correr</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/23.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Para terminar la sesión de depuración : </div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/img/25.png">
+        </div>
+        <div class="section">Descargas</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion04/L14_StatusRegister/downloads/WS014.zip">Descarga el proyecto aquí (PSoC Creator 3.3).</a></li>
+            </ul>
+        </div>

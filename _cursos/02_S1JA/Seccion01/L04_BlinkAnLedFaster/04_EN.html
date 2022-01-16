@@ -1,0 +1,272 @@
+        <div class="title">Blinking faster</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to show you how to change the frequency of the led blinking in this SW example by Renesas.</div></li>
+               <li><div class="text">If you browse the SW example files, you can see that there is <b>much</b> source code generated automatically.</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">To stop the debug session click on the below button:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/02_S1JA/Seccion01/L04_BlinkAnLedFaster/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go back to the programming perspective.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/02_S1JA/Seccion01/L04_BlinkAnLedFaster/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the perspective where you can write your source code and configure the MCU.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/02_S1JA/Seccion01/L04_BlinkAnLedFaster/img/03.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the file <b>hal_entry.c</b>. In it, it is the user source code.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/02_S1JA/Seccion01/L04_BlinkAnLedFaster/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the source code of the file <b>hal_entry.c</b>.</div></li>
+            </ul>
+            <div class="text"><small>Hover the mouse over the highlighted words for explanation</small></div>
+            <table class="source-code-table">
+                  <tr>
+                      <td>24</td>
+                      <td>#include "hal_data.h"</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>/*******************************************************************************************************************//**</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td> * @brief  Blinky example application</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td> *</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td> * Blinks all leds at a rate of 1 second using the software delay function provided by the BSP.</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td> * Only references two other modules including the BSP, IOPORT.</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td> *</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td> **********************************************************************************************************************/</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>void <span class="b1">hal_entry<span class="tooltiptext">This is the user function called by <b>main()</b>.</span></span>(void) {</td>
+                  </tr>
+                  <tr>
+                      <td>34</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>35</td>
+                      <td>    /* Define the units to be used with the software delay function */</td>
+                  </tr>
+                  <tr>
+                      <td>36</td>
+                      <td>    const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;</td>
+                  </tr>
+                  <tr>
+                      <td>37</td>
+                      <td>    /* Set the blink frequency (must be &lt= bsp_delay_units */</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    const uint32_t <span class="b2">freq_in_hz<span class="tooltiptext">Frequency the led blinks at.</span></span> =<span class="b3"> 2 <span class="tooltiptext">2 Hz (twice a second)</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>39</td>
+                      <td>    /* Calculate the delay in terms of bsp_delay_units */</td>
+                  </tr>
+                  <tr>
+                      <td>40</td>
+                      <td>    const uint32_t delay = bsp_delay_units/freq_in_hz;</td>
+                  </tr>
+                  <tr>
+                      <td>41</td>
+                      <td>    /* LED type structure */</td>
+                  </tr>
+                  <tr>
+                      <td>42</td>
+                      <td>    bsp_leds_t leds;</td>
+                  </tr>
+                  <tr>
+                      <td>43</td>
+                      <td>    /* LED state variable */</td>
+                  </tr>
+                  <tr>
+                      <td>44</td>
+                      <td>    ioport_level_t level = IOPORT_LEVEL_HIGH;</td>
+                  </tr>
+                  <tr>
+                      <td>45</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>46</td>
+                      <td>    /* Get LED information for this board */</td>
+                  </tr>
+                  <tr>
+                      <td>47</td>
+                      <td>    R_BSP_LedsGet(&leds);</td>
+                  </tr>
+                  <tr>
+                      <td>48</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>49</td>
+                      <td>    /* If this board has no LEDs then trap here */</td>
+                  </tr>
+                  <tr>
+                      <td>50</td>
+                      <td>    if (0 == leds.led_count)</td>
+                  </tr>
+                  <tr>
+                      <td>51</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>52</td>
+                      <td>        while(1);   // There are no LEDs on this board</td>
+                  </tr>
+                  <tr>
+                      <td>53</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>54</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>55</td>
+                      <td>    while(1)</td>
+                  </tr>
+                  <tr>
+                      <td>56</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>57</td>
+                      <td>        /* Determine the next state of the LEDs */</td>
+                  </tr>
+                  <tr>
+                      <td>58</td>
+                      <td>        <span class="b4">if<span class="tooltiptext">With this <b>if</b> the led is toggled. If it is on it will become off and viceversa.</span></span>(IOPORT_LEVEL_LOW == level)</td>
+                  </tr>
+                  <tr>
+                      <td>59</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>60</td>
+                      <td>            level = IOPORT_LEVEL_HIGH;</td>
+                  </tr>
+                  <tr>
+                      <td>61</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>        else</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>            level = IOPORT_LEVEL_LOW;</td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td>        /* Update all board LEDs */</td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>        for(uint32_t i = 0; i &lt leds.led_count; i++)</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td>        {</td>
+                  </tr>
+                  <tr>
+                      <td>70</td>
+                      <td>            g_ioport.p_api-&gt<span class="b5">pinWrite<span class="tooltiptext">With the function <b>pinWrite</b> you can put a value (on/off) to the the digital output connected to the led.</span></span>(leds.p_leds[i], level);</td>
+                  </tr>
+                  <tr>
+                      <td>71</td>
+                      <td>        }</td>
+                  </tr>
+                  <tr>
+                      <td>72</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>73</td>
+                      <td>        /* Delay */</td>
+                  </tr>
+                  <tr>
+                      <td>74</td>
+                      <td>        <span class="b6">R_BSP_SoftwareDelay<span class="tooltiptext">This function is for waiting for a delay using instructions. In later lessons you will see more clever ways of doing that.</span></span>(delay, bsp_delay_units);</td>
+                  </tr>
+                  <tr>
+                      <td>75</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>76</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Modify the value assigned to the variable <b>freq_in_hz</b> to change the frequency.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>37</td>
+                      <td>    /* Set the blink frequency (must be &lt= bsp_delay_units */</td>
+                  </tr>
+                  <tr>
+                      <td>38</td>
+                      <td>    const uint32_t <span class="b1">freq_in_hz<span class="tooltiptext">Frequency the led blinks at.</span></span> =<span class="b2"> 10 <span class="tooltiptext">10 Hz (ten times a second)</span></span>;</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this lesson I have shown you how to go to the file where the user source code is located and how to change the frequency, easy, is not it?</div></li>
+               <li><div class="text">In future lessons you will do more interesting things.</div></li>
+            </ul>
+        </div>

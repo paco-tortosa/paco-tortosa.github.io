@@ -1,0 +1,103 @@
+[LESSON_FOLDER]../_cursos/01_PSoC4/Seccion01/L04_HWInputs/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Entradas HW
+[TITLE_ENGLISH]HW Inputs
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a activar el led rojo cuando SW2 esté presionado, pero esta vez sólo con hardware, sin programa alguno. 
+[ENGLISH]Lets activate the red LED when pressing SW2, but this time only with hardware, no software is necessary.
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Copia el workspace WS002 y renómbralo como WS004.
+[ENGLISH]Copy the workspace WS002 and rename it as WS004.
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic en Pin_SW2.
+[ENGLISH]Double click on Pin_SW2.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Habilita la conexión hardware.
+[ENGLISH]Enable HW connection.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz lo mismo con Pin_Rojo.
+[ENGLISH]Do the same with Pin_Rojo.
+[END_LIST]
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta Pin_SW2 con Pin_Rojo.
+[ENGLISH]Connect Pin_SW2 with Pin_Rojo.
+[END_LIST]
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al fichero main.c
+[ENGLISH]Go to main.c
+[END_LIST]
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Quita o comenta la línea 22.
+[ENGLISH]Remove or comment out the line 22.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el proyecto.
+[ENGLISH]Build the project.
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y transfiere el programa.
+[ENGLISH]And transfer the program.
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS004.zip;Descarga el proyecto aquí <b>(PSoC Creator 3.3)</b>
+[LINK_ENGLISH]downloads/WS004.zip;Download the project here <b>(PSoC Creator 3.3)</b>
+[END_LIST]
+[BLOCK_END]
+
+

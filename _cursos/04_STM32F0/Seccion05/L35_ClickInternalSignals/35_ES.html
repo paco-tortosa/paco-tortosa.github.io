@@ -1,0 +1,57 @@
+        <div class="title">Señales internas</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Entre el kit de evaluación y el Click hay una señal de datos (<b>DIN</b>), 2 alimentaciones (<b>5V</b> y <b>3V3</b>) y la masa.</div></li>
+               <li><div class="text">La señal <b>DIN</b> tiene que llegar a todos los leds.</div></li>
+               <li><div class="text">Este es el esquemático del Click:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">La señal <b>DIN</b> va del pin <b>IN1</b> del conector al pin <b>DIN</b> del primer led <b>WS2812</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/02.png">
+            <ul>
+               <li><div class="text">La señal <b>DIN</b> sale del primer led <b>WS2812</b> por el pin <b>DOUT</b> al pin <b>DIN</b> del seegundo led <b>WS2812</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/03.png">
+            <ul>
+               <li><div class="text">Y así sucesivamente hasta llegar a todos los leds.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a explicar las alimentaciones de <b>3.3V</b> y <b>5v</b>. <br>Para que se vea mejor, aquí tienes sólo los 3 primeros leds.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Los <b>3.3V</b> del conector están conectados a <b>Vcc</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/06.png">
+            <ul>
+               <li><div class="text">Y <b>Vcc</b> al pin 3 de los leds <b>WS2812</b> que es la alimentación de su circuito de control del <b>WS2812</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Los <b>5V</b> del conector están conectados a <b>Vcc-5V</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/09.png">
+            <ul>
+               <li><div class="text"><b>Vcc-5V</b> es la entrada al regulador <b>U1</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/10.png">
+            <ul>
+               <li><div class="text">La salida del regulador <b>U1</b> son 3.5 voltios (<b>Vcc-3.5V</b>).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/11.png">
+            <ul>
+               <li><div class="text">Está conectados al pin 5 de los <b>WS2812</b> y alimentan los leds.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion05/L35_ClickInternalSignals/img/12.png">
+        </div>

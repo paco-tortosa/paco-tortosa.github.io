@@ -1,0 +1,81 @@
+[LESSON_FOLDER]../_cursos/08_KiCad5_ArduinoUNO/Seccion04/L25_Leds/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Leds
+[TITLE_ENGLISH]Leds
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La placa tiene 3 leds <b>amarillos</b> y uno <b>verde</b> en formato <b>0805</b>.
+[ENGLISH]The board has 3 <b>yellow</b> leds and one <b>green</b> in <b>0805</b> format.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el led amarillo que he elegido.
+[ENGLISH]This is the yellow led that I have chosen.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Y este el verde.
+[ENGLISH]And this is the green one.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Device</b> he encontrado el símbolo <b>LED</b>.
+[ENGLISH]In the <b>Device</b> library I found the <b>LED</b> symbol.
+[SPANISH]Es un componente polarizado, el cátodo, a la izquierda, debe ser el número 1, el ánodo, a la derecha, debe ser el pin número 2.
+[ENGLISH]It is a polarized component, the cathode, on the left, should be number 1, the anode, on the right, should be pin number 2.
+[END_LIST]
+[IMG]04.png
+
+[BEGIN_LIST]
+[SPANISH]Lo copio en la librería <b>JAVIERM_LIBS</b> con el nombre <b>LED_0805_Yellow</b>.
+[ENGLISH]I copy it into the <b>JAVIERM_LIBS</b> library with the name <b>LED_0805_Yellow</b>.
+[END_LIST]
+[IMG]05.png
+
+[BEGIN_LIST]
+[SPANISH]Lo copio otra vez para crear el verde (<b>LED_0805_Green</b>).
+[ENGLISH]I copy it again to create the green one (<b>LED_0805_Green</b>).
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Estas son las dimensiones del datasheet
+[ENGLISH]These are the dimensions of the datasheet
+[END_LIST]
+[IMG]07.png
+
+[BEGIN_LIST]
+[SPANISH]En la librería <b>LED_SMD</b> está el footprint <b>LED_0805_2012Metric</b>.
+[ENGLISH]The <b>LED_0805_2012Metric</b> footprint is in the <b>LED_SMD</b> library.
+[END_LIST]
+[IMG]09.png
+
+[BEGIN_LIST]
+[SPANISH]Las dimensiones son prácticamente iguales. Copiamos el footprint <b>LED_0805_2012Metric</b> en nuestra librería.
+[ENGLISH]The dimensions are practically the same. We copy the footprint <b>LED_0805_2012Metric</b> in our library.
+[END_LIST]
+[IMG]08.png
+[IMG]10.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/150080YS75000-1715432.pdf;Datasheet (Led amarillo)
+[LINK_ENGLISH]downloads/150080YS75000-1715432.pdf;Datasheet (Yellow led)
+[LINK_SPANISH]downloads/150080GS75000-1715657.pdf;Datasheet (Led verde)
+[LINK_ENGLISH]downloads/150080GS75000-1715657.pdf;Datasheet (Green led)
+[END_LIST]
+[BLOCK_END]

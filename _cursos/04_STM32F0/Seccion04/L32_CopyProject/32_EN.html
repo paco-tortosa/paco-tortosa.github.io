@@ -1,0 +1,151 @@
+        <div class="title">Copy a project</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In this lesson I am going to copy the project from the previous lesson and I will modify it so that when the button <b>B1</b> is pressed the led <b>LD2</b> will switch on.</div></li>
+               <li><div class="text"><b>Eclipse</b> is not a friendly environment to copy projects. That is why this lesson is about copying projects.</div></li>
+               <li><div class="text">On this video you can see the program running.</div></li>
+            </ul>
+                    <div class="video-div"><iframe src="https://www.youtube.com/embed/ztx4ImWPqWw?rel=0" frameborder="0" allowfullscreen></iframe></div>
+        </div>
+        <div class="title">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Click on the <b>New</b> button and select the menu-item to create a new project from a <b>.ioc</b> file.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Browse to find the file <b>.ioc</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Select the <b>.ioc</b> file from the project <b>P14_HelloWorld</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/03.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/04.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename the project as <b>P15_ButtonLed</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/06.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now let&#39s copy the source code files from the previous project.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/08.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/09.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Close all the projects but <b>P15_ButtonLed</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build and debug the project to search for errors.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/12.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/13.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/14.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/15.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/16.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/17.png">
+            <ul>
+               <li><div class="text">Everything was fine. The creation of the project was correct.</div></li>
+            </ul>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s modify the file <b>main.c</b> to add the new funcionality.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">This is the source code of the previous project.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/19.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And this is the new source code.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/20.png">
+        </div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>98</td>
+                      <td>while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>99</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>100</td>
+                      <td>  if(<span class="b2">HAL_GPIO_ReadPin<span class="tooltiptext">With the function <b>HAL_GPIO_ReadPin</b> the state of the pin <b>ButtonB1</b> is read.</span></span>(ButtonB1_GPIO_Port, ButtonB1_Pin)==<span class="b1">GPIO_PIN_RESET<span class="tooltiptext">If the push-button is pressed the state of the pin <b>ButtonB1</b> will be <b>GPIO_PIN_RESET</b>.</span></span>)</td>
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>102</td>
+                      <td>    <span class="b3">HAL_GPIO_WritePin<span class="tooltiptext">If the button is pressed, switch on the led <b>Led2</b>.</span></span>(Led2_GPIO_Port, Led2_Pin, GPIO_PIN_SET);</td>
+                  </tr>
+                  <tr>
+                      <td>103</td>
+                      <td>  }</td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>  else</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>    <span class="b4">HAL_GPIO_WritePin<span class="tooltiptext">If the button is <b>not</b> pressed, switch off the led <b>Led2</b>.</span></span>(Led2_GPIO_Port, Led2_Pin, GPIO_PIN_RESET);</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>  }</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>  /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td>  /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Build and debug the program to see it running.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/21.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/22.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion04/L32_CopyProject/img/23.png">
+        </div>

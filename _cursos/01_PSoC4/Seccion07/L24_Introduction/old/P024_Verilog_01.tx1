@@ -1,0 +1,366 @@
+[IMG_FOLDER]img/035_P024_Verilog_01/
+
+[TITLE_SPANISH]024 - Verilog (01)
+[TITLE_ENGLISH]024 - Verilog (01)
+[TITLE_DEUTSCH]024 - Verilog (01)
+
+[SPANISH]En este proyecto vamos a usar la lógica programable que hay dentro de PSoC con Verilog para crear un componente <b>muy</b> sencillo.
+[ENGLISH]On this project you will use the programmable logic inside PSoC with Verilog, to create a component <b>very</b> simple.
+[DEUTSCH]On this project you will use the programmable logic inside PSoC with Verilog, to create a component <b>very</b> simple.
+
+[SPANISH]Va a tener una entrada y dos salidas. La salida <b>OUT1</b> está conectada directamente a la entrada <b>IN1</b> y la salida <b>OUT1n</b> es la negada de la entrada <b>IN1</b>.
+[ENGLISH]It will have one input and two outputs. The output <b>OUT1</b> is connected directly to the input <b>IN1</b> and the output <b>OUT1n</b> is the negation of the input <b>IN1</b>. 
+[DEUTSCH]It will have one input and two outputs. The output <b>OUT1</b> is connected directly to the input <b>IN1</b> and the output <b>OUT1n</b> is the negation of the input <b>IN1</b>.
+
+[IMG]P024_NewComponent.png;60
+
+[SPANISH]En la siguiente simulación se puede ver cómo queremos que funcione : 
+[ENGLISH]In the next simulation you can see how it will work :
+[DEUTSCH]In the next simulation you can see how it will work :
+
+[IMG]EPWave2.png;90
+
+[SPANISH]Como se puede ver en la siguiente figura, <b>PSoC 4</b> tiene 4 <b>UDB</b> (Universal Digital Block - Bloque Digital Universal).
+[ENGLISH]As you can see in the following picture, <b>PSoC 4</b> has 4 <b>UDB</b> (Universal Digital Block).
+[DEUTSCH]As you can see in the following picture, <b>PSoC 4</b> has 4 <b>UDB</b> (Universal Digital Block).
+
+[IMG]LP.png;80
+
+[SPANISH]Cada <b>UDB</b> tiene 2 <b>PLD</b> (Programmable Logic Device - Dispositivo Lógico Programable).
+[ENGLISH]Each <b>UDB</b> has 2 <b>PLD</b> (Programmable Logic Device).
+[DEUTSCH]Each <b>UDB</b> has 2 <b>PLD</b> (Programmable Logic Device).
+
+[IMG]UDB.png;80
+
+[SPANISH]Una <b>PLD</b> contiene elementos lógicos (AND, OR, INVERT y FLIP-FLOP).
+[ENGLISH]A <b>PLD</b> has logical elements (AND, OR, INVERT and FLIP-FLOP).
+[DEUTSCH]A <b>PLD</b> has logical elements (AND, OR, INVERT and FLIP-FLOP).
+
+[IMG]PLD.png;80
+
+[SPANISH]Vamos a programar los <b>UDB</b> con <b>Verilog</b> que es un lenguaje de descripción de hardware usado para modelar sistemas electrónicos.
+[ENGLISH]You will program the <b>UDB</b> with <b>Verilog</b> that is a hardware description language used to model electronic systems.
+[DEUTSCH]You will program the <b>UDB</b> with <b>Verilog</b> that is a hardware description language used to model electronic systems.
+
+[SPANISH]Para ver el proyecto en funcionamiento vamos a conectar la entrada al pulsador SW2 y las salidas a los leds Rojo y Verde.
+[ENGLISH]In order to see the project running you must connect the input of the switch SW2 and the outputs of the leds Red and Green.
+[DEUTSCH]In order to see the project running you must connect the input of the switch SW2 and the outputs of the leds Red and Green.
+
+[IMG]P024_Board.png;60
+
+[SPANISH]Cuando SW2 esté pulsado se encenderá el led rojo, cuando no esté pulsado se encenderá el led verde.
+[ENGLISH]When SW2 is pressed the Red led will be on, when SW2 is not pressed the Green led will be on.
+[DEUTSCH]When SW2 is pressed the Red led will be on, when SW2 is not pressed the Green led will be on.
+
+[IMG]P024_Leds.png;60
+
+[VIDEO_SPANISH]560;315;https://www.youtube.com/embed/rKhCtNxQU2E?rel=0        
+[VIDEO_ENGLISH]560;315;https://www.youtube.com/embed/rKhCtNxQU2E?rel=0              
+[VIDEO_DEUTSCH]560;315;https://www.youtube.com/embed/rKhCtNxQU2E?rel=0              
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Vamos a necesitar 2 proyectos. El primero será una librería donde implementamos el nuevo componente. El segundo, proyecto principal, usará el nuevo componente.
+[ENGLISH]2 projects are needed. The first is a library where the new component is implemented. The second one, main project, will use the new component.
+[DEUTSCH]2 projects are needed. The first is a library where the new component is implemented. The second one, main project, will use the new component.
+
+[TITLE_SPANISH]Proyecto 1 : Librería.
+[TITLE_ENGLISH]Project 1 : Library.
+[TITLE_DEUTSCH]Project 1 : Library.
+
+[SPANISH]Crea un proyecto nuevo.
+[ENGLISH]Create a new project.
+[DEUTSCH]Create a new project.
+
+[IMG]01.png;60
+
+[SPANISH]Tipo = <b>"Library project"</b> (Librería de componentes)
+[ENGLISH]Type = <b>"Library project"</b>
+[DEUTSCH]Type = <b>"Library project"</b>
+
+[IMG]02.png;70
+
+[SPANISH]Asigna como nombre de proyecto <b>LIB_024</b>.
+[ENGLISH]Set as project name <b>LIB_024</b>.
+[DEUTSCH]Set as project name <b>LIB_024</b>.
+
+[IMG]03.png;70
+//[IMG]04.png;90
+
+[SPANISH]Ve a la pestaña de componentes.
+[ENGLISH]Go to the components tab.
+[DEUTSCH]Go to the components tab.
+
+[IMG]05.png;70
+
+[SPANISH]Haz clic con el botón derecho del ratón y selecciona la opción <b>Add Component Item...</b>.
+[ENGLISH]Click on the right button of the mouse and select the option <b>Add Component Item...</b>. 
+[DEUTSCH]Click on the right button of the mouse and select the option <b>Add Component Item...</b>. 
+
+[IMG]06.png;70
+
+[SPANISH]Nombra el componente como <b>PSoC4_Logic_01</b> y selecciona el <b>Symbol Wizard</b>.
+[ENGLISH]Name the component as <b>PSoC4_Logic_01</b> and select <b>Symbol Wizard</b>. 
+[DEUTSCH]Name the component as <b>PSoC4_Logic_01</b> and select <b>Symbol Wizard</b>. 
+
+[IMG]07.png;90
+
+[SPANISH]Añade 3 terminales. Una entrada llamada <b>in1</b> y dos salidas llamadas <b>out1</b> y <b>out1n</b>.
+[ENGLISH]Add 3 terminals. One input called <b>in1</b> and 2 outputs called <b>out1</b> and <b>out1n</b>.
+[DEUTSCH]Add 3 terminals. One input called <b>in1</b> and 2 outputs called <b>out1</b> and <b>out1n</b>.
+
+[IMG]08.png;90
+
+[SPANISH]Haz clic con el botón derecho del ratón en una zona sin componentes del panel.
+[ENGLISH]Click with the right button of the mouse on an empty place of the schematics.
+[DEUTSCH]Click with the right button of the mouse on an empty place of the schematics.
+
+[IMG]09.png;90
+
+[SPANISH]Haz clic en <b>Properties</b> (propiedades).
+[ENGLISH]Click on <b>Properties</b>.
+[DEUTSCH]Click on <b>Properties</b>.
+
+[IMG]10.png;90
+
+[SPANISH]En la propiedad <b>Doc.CatalogPlacement</b> haz clic en el botón con texto <b>...</b>
+[ENGLISH]In the property <b>Doc.CatalogPlacement</b> click on the button with text <b>...</b>
+[DEUTSCH]In the property <b>Doc.CatalogPlacement</b> click on the button with text <b>...</b>
+
+[IMG]11.png;90
+
+[SPANISH]Añade el texto <b>Community/Digital/Logic/PSoC4_Logic_01</b>. <br><b>PSoC4_Logic_01</b> es el nombre que le queremos dar a nuestro componente.<br><b>Community</b> es la categoría dentro del catálogo de componentes.<br><b>Digital</b> y <b>Logic</b> son las subcategorías dentro del catálogo de componentes.
+[ENGLISH]Add the text <b>Community/Digital/Logic/PSoC4_Logic_01</b>. <br><b>PSoC4_Logic_01</b> is the name of the component.<br><b>Community</b> is the category in the component catalog.<br><b>Digital</b> and <b>Logic</b> are the subcategories.
+[DEUTSCH]Add the text <b>Community/Digital/Logic/PSoC4_Logic_01</b>. <br><b>PSoC4_Logic_01</b> is the name of the component.<br><b>Community</b> is the category in the component catalog.<br><b>Digital</b> and <b>Logic</b> are the subcategories.
+
+[IMG]12.png;90
+
+[SPANISH]Haz el componente más ancho para que todo el nombre quepa en la caja.
+[ENGLISH]Make the component wider so that the name fits in the box.
+[DEUTSCH]Make the component wider so that the name fits in the box.
+
+[IMG]13.png;90
+[IMG]14.png;90
+
+[SPANISH]Haz clic con el botón derecho del ratón en una zona sin componentes del panel.
+[ENGLISH]Click with the right button of the mouse on an empty place of the schematics.
+[DEUTSCH]Click with the right button of the mouse on an empty place of the schematics.
+
+[IMG]15.png;90
+
+[SPANISH]Y genera el fichero de verilog.
+[ENGLISH]And generate the Verilog file.
+[DEUTSCH]And generate the Verilog file.
+
+[IMG]16.png;90
+
+[SPANISH]Haz clic en el botón <b>Generate</b> (generar).
+[ENGLISH]Click on the button <b>Generate</b>.
+[DEUTSCH]Click on the button <b>Generate</b>.
+
+[IMG]17.png;90
+
+[SPANISH]El fichero de verilog se ha creado con un módulo llamado como el componente <b>PSoC4_Logic_01</b>.
+[ENGLISH]The Verilog file has been created with a module called like the component <b>PSoC4_Logic_01</b>.
+[DEUTSCH]The Verilog file has been created with a module called like the component <b>PSoC4_Logic_01</b>.
+
+[IMG]18.png;90
+
+[SPANISH]Añade las líneas de código siguientes :
+[ENGLISH]Add the following lines of code:
+[DEUTSCH]Add the following lines of code:
+
+[IMG]19.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 25
+[TABLE_ITEM_ENGLISH]Line  25
+[TABLE_ITEM_DEUTSCH]Line  25
+
+[TABLE_ITEM_SPANISH]Asigna a la salida <b>out1</b> la entrada <b>in1</b>
+[TABLE_ITEM_ENGLISH]Assign the input <b>in1</b> to the output <b>out1</b>
+[TABLE_ITEM_DEUTSCH]Assign the input <b>in1</b> to the output <b>out1</b>
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 26
+[TABLE_ITEM_ENGLISH]Line  26
+[TABLE_ITEM_DEUTSCH]Line  26
+
+[TABLE_ITEM_SPANISH]Asigna a la salida <b>out1n</b> la negada de la entrada <b>in1</b>
+[TABLE_ITEM_ENGLISH]Assign the negation of the input <b>in1</b> to the output <b>out1n</b>
+[TABLE_ITEM_DEUTSCH]Assign the negation of the input <b>in1</b> to the output <b>out1n</b>
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[TITLE_SPANISH]Proyecto 2 : Proyecto principal.
+[TITLE_ENGLISH]Project 2 : Main project.
+[TITLE_DEUTSCH]Project 2 : Main project.
+
+[SPANISH]Crea un proyecto nuevo.
+[ENGLISH]Create a new project.
+[DEUTSCH]Create a new project.
+
+[IMG]20.png;90
+
+[SPANISH]Basado en el kit <b>CY8CKIT-042</b>
+[ENGLISH]Based on the <b>CY8CKIT-042</b> kit.
+[DEUTSCH]Based on the <b>CY8CKIT-042</b> kit.
+
+[IMG]21.png;90
+
+[SPANISH]Selecciona esquemático vacío.
+[ENGLISH]Select empty schematic.
+[DEUTSCH]Select empty schematic.
+
+[IMG]22.png;90
+
+[SPANISH]Dale el nombre <b>P024</b>
+[ENGLISH]Name it <b>P024</b> 
+[DEUTSCH]Name it <b>P024</b> 
+
+[IMG]23.png;90
+
+[SPANISH]En la pestaña <b>Components</b> (componentes) haz clic en <b>Dependencies...</b> (dependencias)
+[ENGLISH]In the tab <b>Components</b> click on <b>Dependencies...</b>
+[DEUTSCH]In the tab <b>Components</b> click on <b>Dependencies...</b>
+
+[IMG]24.png;90
+
+[SPANISH]Marca la opción <b>LIB_024</b>
+[ENGLISH]Check the option <b>LIB_024</b>
+[DEUTSCH]Check the option <b>LIB_024</b>
+
+[IMG]25.png;90
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]26.png;90
+
+[SPANISH]En el catálogo de componentes busca el componente <b>PSoC4_Logic_01</b>
+[ENGLISH]In the components catalog search for <b>PSoC4_Logic_01</b> 
+[DEUTSCH]In the components catalog search for <b>PSoC4_Logic_01</b> 
+
+[IMG]27.png;90
+
+[SPANISH]Y arrástralo al esquemático.
+[ENGLISH]And copy it to the schematic.
+[DEUTSCH]And copy it to the schematic.
+
+[IMG]28.png;90
+
+[SPANISH]Añade una salida digital al esquemático.
+[ENGLISH]Add a digital output to the schematic.
+[DEUTSCH]Add a digital output to the schematic.
+
+[IMG]29.png;90
+
+[SPANISH]Edita sus propiedades.
+[ENGLISH]Edit its properties.
+[DEUTSCH]Edit its properties.
+
+[IMG]30.png;90
+
+[SPANISH]Y renómbrala como <b>Pin_LedRed</b>
+[ENGLISH]And rename it as <b>Pin_LedRed</b>
+[DEUTSCH]And rename it as <b>Pin_LedRed</b>
+
+[IMG]45.png;90
+
+[SPANISH]Copia y pega <b>Pin_LedRed</b> 
+[ENGLISH]Copy and paste <b>Pin_LedRed</b>
+[DEUTSCH]Copy and paste <b>Pin_LedRed</b>
+
+[IMG]31.png;90
+
+[SPANISH]Y renombra el nuevo pin como <b>Pin_LedGreen</b>
+[ENGLISH]And rename the new pin as <b>Pin_LedGreen</b>
+[DEUTSCH]And rename the new pin as <b>Pin_LedGreen</b>
+
+[IMG]32.png;90
+
+[SPANISH]Añade una entrada digital al esquemático.
+[ENGLISH]Add a new digital input to the schematic.
+[DEUTSCH]Add a new digital input to the schematic.
+
+[IMG]33.png;90
+[IMG]34.png;90
+
+[SPANISH]Edita sus propiedades, renómbrala como <b>Pin_SW2</b> y selecciona el modo <b>Resistive pull up</b>.
+[ENGLISH]Edit its properties, rename it as <b>Pin_SW2</b> and select the mode <b>Resistive pull up</b>. 
+[DEUTSCH]Edit its properties, rename it as <b>Pin_SW2</b> and select the mode <b>Resistive pull up</b>.  
+
+[IMG]35.png;90
+[IMG]36.png;90
+
+[SPANISH]Ve a la configuración de pines.
+[ENGLISH]Go to pins configuration. 
+[DEUTSCH]Go to pins configuration. 
+
+[IMG]38.png;90
+
+[SPANISH]Asigna los pines así:
+[ENGLISH]Assign the pins as follows:
+[DEUTSCH]Assign the pins as follows:
+
+[IMG]39.png;90
+
+[SPANISH]Compila el proyecto y transfiérelo.
+[ENGLISH]Build the project and transfer it to the PSoC.
+[DEUTSCH]Build the project and transfer it to the PSoC.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS024.zip;Descarga el workspace con los dos proyectos aquí (PSoC Creator 4.0).
+[LINK_ENGLISH]downloads/WS024.zip;Download the workspace with the two projects here (PSoC Creator 4.0).
+[LINK_DEUTSCH]downloads/WS024.zip;Download the workspace with the two projects here (PSoC Creator 4.0).
+
+[END]
+
+[IMG]40.png;90
+
+[SPANISH]
+[ENGLISH]
+[DEUTSCH]
+
+[IMG]41.png;70
+
+[SPANISH]
+[ENGLISH]
+[DEUTSCH]
+
+[IMG]42.png;90
+
+[SPANISH]
+[ENGLISH]
+[DEUTSCH]
+
+[IMG]43.png;90
+
+[SPANISH]
+[ENGLISH]
+[DEUTSCH]
+
+[IMG]44.png;90
+
+
+[END]

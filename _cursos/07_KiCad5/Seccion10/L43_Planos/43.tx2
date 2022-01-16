@@ -1,0 +1,214 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion10/L43_Planos/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Planos
+[TITLE_ENGLISH]Planes
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a añadir 2 planos de masa a la placa, uno en la capa <b>TOP</b> y otro en la <b>BOTTOM</b>
+[ENGLISH]In this lesson we are going to add 2 ground planes to the PCB, one in the <b>TOP</b> layer and the other in the <b>BOTTOM</b> layer.
+[SPANISH]Vamos a seleccionar la capa de cobre en TOP (<b>F.Cu</b>)
+[ENGLISH]We are going to select the copper layer in TOP (<b>F.Cu</b>)
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a usar la herramienta de añadir planos (<b>Add filled zones</b>)
+[ENGLISH]We are going to use the add planes tool (<b>Add filled zones</b>)
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a empezar por la esquina superior izquierda.
+[ENGLISH]Let&#39s start at the upper left corner.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Tenemos que especificar la capa (<b>F.Cu</b>) y la net (<b>GND</b>) del plano.
+[ENGLISH]We have to specify the layer (<b>F.Cu</b>) and the net (<b>GND</b>) of the plane.
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Traza el rectángulo del plano.
+[ENGLISH]Draw the rectangle on the plane.
+[END_LIST]
+[IMG]06.png
+[IMG]07.png
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Hay varias opciones de visualización de los planos.
+[ENGLISH]There are several options for displaying the planes.
+[SPANISH]Con la primera opción el plano se rellena de cobre. Puedes ver el plano muy bien pero no se ve el resto de pistas.
+[ENGLISH]With the first option the plane is filled with copper. You can see the plane very well but you cannot see the rest of the tracks.
+[END_LIST]
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Con la segunda opción sólo se muestra el contorno del plano.
+[ENGLISH]With the second option, only the outline of the plane is shown.
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y con la tercera opción se muestra el contorno del plano y las pistas de la capa TOP.
+[ENGLISH]And with the third option it shows the outline of the plane and the tracks of the TOP layer.
+[END_LIST]
+[IMG]19.png
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a seleccionar sólo la vista del contorno.
+[ENGLISH]We are going to select only the outline view.
+[END_LIST]
+[IMG]21.png
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a copiar el plano de TOP para generar el plano de BOTTOM.
+[ENGLISH]We are going to copy the TOP plane to generate the BOTTOM plane.
+[END_LIST]
+[IMG]23.png
+[IMG]24.png
+
+[BEGIN_LIST]
+[SPANISH]Hay que seleccionar un punto de referencia para la copia.
+[ENGLISH]You must select a reference point for the copy.
+[END_LIST]
+[IMG]25.png
+
+[BEGIN_LIST]
+[SPANISH]Y pegamos.
+[ENGLISH]And paste.
+[END_LIST]
+[IMG]26.png
+
+[BEGIN_LIST]
+[SPANISH]El punto de referencia nos sirve para situar con precisión el nuevo plano.
+[ENGLISH]The reference point helps us to precisely locate the new plane.
+[END_LIST]
+[IMG]27.png
+
+[BEGIN_LIST]
+[SPANISH]Situamos los planos en la misma posición.
+[ENGLISH]We place the planes in the same position.
+[END_LIST]
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora hay que editar las propiedades del nuevo plano. Como están en la misma posición, <b>KiCad</b> nos pide que indiquemos qué plano queremos seleccionar.
+[ENGLISH]Now you have to edit the properties of the new plane. Since they are in the same position, <b>KiCad</b> asks us to indicate which plane we want to select.
+[END_LIST]
+[IMG]29.png
+
+[BEGIN_LIST]
+[SPANISH]El nuevo plano no tiene <b>Net</b> asociada.
+[ENGLISH]The new plane has no associated <b>Net</b>.
+[END_LIST]
+[IMG]30.png
+
+[BEGIN_LIST]
+[SPANISH]Una vez seleccionado podemos editar las propiedades con la tecla rápida <b>E</b>
+[ENGLISH]Once selected we can edit the properties with the <b>E</b> hot key
+[END_LIST]
+[IMG]31.png
+
+[BEGIN_LIST]
+[SPANISH]Seleccionamos la capa BOTTOM (<b>B.Cu</b>) y la net (<b>GND</b>)
+[ENGLISH]We select the BOTTOM layer (<b>B.Cu</b>) and the net (<b>GND</b>)
+[END_LIST]
+[IMG]32.png
+
+[BEGIN_LIST]
+[SPANISH]Ya tenemos los dos planos.
+[ENGLISH]We already have both planes.
+[END_LIST]
+[IMG]33.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver cómo han quedado.
+[ENGLISH]Let&#39s see how they look.
+[END_LIST]
+[IMG]34.png
+[IMG]35.png
+
+[BEGIN_LIST]
+[SPANISH]Primero la capa TOP
+[ENGLISH]First the TOP layer
+[END_LIST]
+[IMG]36.png
+
+[BEGIN_LIST]
+[SPANISH]Ahora la capa BOTTOM
+[ENGLISH]Now the BOTTOM layer
+[END_LIST]
+[IMG]37.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Veamos la placa en 3D.
+[ENGLISH]Let&#39s see the PCB in 3D.
+[END_LIST]
+[IMG]39.png
+[IMG]40.png
+[IMG]41.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y guardamos la PCB.
+[ENGLISH]And we save the PCB.
+[END_LIST]
+[IMG]42.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver si nuestra placa tiene errores.
+[ENGLISH]Let&#39s see if our board has errors.
+[END_LIST]
+[IMG]43.png
+[IMG]44.png
+
+[BEGIN_LIST]
+[SPANISH]No tiene errores. Ya hemos terminado nuestra placa.
+[ENGLISH]It has no errors. We have already finished our board.
+[END_LIST]
+[IMG]45.png
+[BLOCK_END]
+

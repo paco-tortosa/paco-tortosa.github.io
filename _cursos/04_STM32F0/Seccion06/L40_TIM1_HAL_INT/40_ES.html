@@ -1,0 +1,151 @@
+        <div class="title">Señal cuadrada (HAL-INT)</div>
+       <div class="mppro_section">MPPRO section = IDE</div>
+       <div class="mppro_section">MPPRO video = 03_Camtasia\01_cam_IDE.mp4|0</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">En esta lección vamos a utilizar interrupciones para hacer parpadear el led en vez de un bucle como en la lección anterior.</div></li>
+               <li><div class="text">Cada vez que el registro <b>CNT</b> del <b>TIM1</b> llegue a 0 se generará una interrupción, y en la rutina de atención a la interrupción conmutaremos el led.</div></li>
+            </ul>
+        </div>
+        <div class="title">Pasos</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Crea un proyecto nuevo basado en el kit de evaluación y dale el nombre <b>P20_TIM1_HAL_INT</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/01.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/02.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/03.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/04.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a configurar el <b>TIM1</b> como en la lección anterior.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/06.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/07.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/08.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/09.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/10.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora vamos a habilitar la interrupción cuando se genera el flag <b>UIF</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/12.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a generar el código de configuración.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/14.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a añadir nuestro código en el fichero <b>main.c</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/16.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/17.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Primero vamos a inicializar el temporizador, vamos a usar la función <b>HAL_TIM_Base_Start_IT</b> que además de inicializar el timer habilita la interrupción.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/19.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>103</td>
+                      <td>  /* Infinite loop */</td>
+                  </tr>
+                  <tr>
+                      <td>104</td>
+                      <td>  /* USER CODE BEGIN WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>105</td>
+                      <td>  <span class="b1">HAL_TIM_Base_Start_IT<span class="tooltiptext">Inicializamos el <b>TIM1</b> a la vez que habilitamos la interrupción.</span></span>( &htim1 );</td>
+                  </tr>
+                  <tr>
+                      <td>106</td>
+                      <td>  while (1)</td>
+                  </tr>
+                  <tr>
+                      <td>107</td>
+                      <td>  {</td>
+                  </tr>
+                  <tr>
+                      <td>108</td>
+                      <td>    /* USER CODE END WHILE */</td>
+                  </tr>
+                  <tr>
+                      <td>109</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>110</td>
+                      <td>    /* USER CODE BEGIN 3 */</td>
+                  </tr>
+                  <tr>
+                      <td>111</td>
+                      <td>  }</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora añadimos la rutina de atención a la interrupción.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/20.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/21.png">
+            <table class="source-code-table">
+                  <tr>
+                      <td>61</td>
+                      <td>/* Private user code -----------------*/</td>
+                  </tr>
+                  <tr>
+                      <td>62</td>
+                      <td>/* USER CODE BEGIN 0 */</td>
+                  </tr>
+                  <tr>
+                      <td>63</td>
+                      <td>void <span class="b4">HAL_TIM_PeriodElapsedCallback<span class="tooltiptext">Esta es la función callback que la HAL llama cuando hay una interrupción del timer.</span></span>(TIM_HandleTypeDef *htim)</td>
+                  </tr>
+                  <tr>
+                      <td>64</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>65</td>
+                      <td>    //Toggle LED</td>
+                  </tr>
+                  <tr>
+                      <td>66</td>
+                      <td>    <span class="b5">HAL_GPIO_TogglePin<span class="tooltiptext">Conmutamos el pin <b>PA5</b>.</span></span>(GPIOA, GPIO_PIN_5);</td>
+                  </tr>
+                  <tr>
+                      <td>67</td>
+                      <td><span class="b6">}<span class="tooltiptext">No hace falta limpiar el flag <b>UIF</b>, la HAL lo hace por nosotros.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>68</td>
+                      <td>/* USER CODE END 0 */</td>
+                  </tr>
+                  <tr>
+                      <td>69</td>
+                      <td></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ya puedes compilar y depurar el programa.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/22.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/23.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/24.png">
+            <img class="img" src="../_cursos/04_STM32F0/Seccion06/L40_TIM1_HAL_INT/img/25.png">
+        </div>

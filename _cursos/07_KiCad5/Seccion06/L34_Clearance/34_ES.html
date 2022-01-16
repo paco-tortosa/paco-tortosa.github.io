@@ -1,0 +1,151 @@
+        <div class="title">Clearance</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text"><b>Clearance</b> es la distancia entre dos elementos, dos pistas, pista y pad, ...</div></li>
+               <li><div class="text">En esta lección vamos a ver cómo usar el <b>clearance</b> del pad del agujero.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a desenrutar la pista entre el pad 1 del conector y el pad del diodo D1.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/03.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/04.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Una vez que la pista está seleccionada, desenruto la pista con la tecla <b>suprimir</b> .</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/06.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora voy a enrutar la pista para que pase por la corona circular alrededor del agujero.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Tener una pista de cobre en la capa <b>top</b> que pase por la corona es peligroso porque cuando aprietes el tornillo la pista puede dañarse con la cabeza del tornillo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/09.png">
+            <ul>
+               <li><div class="text">Esta es la cabeza del tornillo.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a ver si <b>KiCad</b> nos da algún tipo de error o aviso.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/11.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/12.png">
+            <ul>
+               <li><div class="text">No hay error:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a usar el <b>clearance</b> del pad para evitar estos problemas.</div></li>
+               <li><div class="text">Vamos a editar el footprint del agujero.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/14.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a medir la distancia del pad al límite de la corona.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/16.png">
+            <ul>
+               <li><div class="text">La distancia es <b>1.86mm</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a editar el pad.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/18.png">
+            <ul>
+               <li><div class="text">Vamos a la pestaña <b>Local Clearance and Settings</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/19.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Voy a poner el valor <b>1.86mm</b> en el campo <b>Pad clearance</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/21.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Guarda el footprint y vuelve a la PCB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora hay que actualizar el footprint de los agujeros que hay en la PCB con los cambios que hemos hecho en la librería.</div></li>
+               <li><div class="text">Selecciona el footprint del agujero y actualiza el footprint con la opción <b>Update Footprint...</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/24.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/25.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a actualizar todos los footprints de la PCB que se llamen <b>MountingHole_M3</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/27.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a ver si hay errores en la PCB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/29.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ahora <b>KiCad</b> ha detectado que hay una pista dentro de la corona del agujero.</div></li>
+               <li><div class="text">Si haces clic en el error <b>KiCad</b> te lleva al error en la PCB.</div></li>
+               <li><div class="text">Ahora ya tenemos correctamente definido el agujero.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/31.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a enrutar de nuevo la pista para volver al estado original.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/33.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/34.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/35.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/36.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/37.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Vamos a comprobar que nuestra placa no tiene errores.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/38.png">
+            <ul>
+               <li><div class="text">Ya no hay errores:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/39.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Ya tenemos los 4 agujeros en nuestra PCB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/40.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/41.png">
+        </div>

@@ -1,0 +1,278 @@
+[LESSON_FOLDER]../_cursos/04_STM32F0/Seccion06/L38_TIM1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Señal cuadrada
+[TITLE_ENGLISH]Square signal
+
+[MPPRO_SECTION_ES_EN]Clock Source|Clock Source
+[MPPRO_VIDEO]03_Camtasia\01_anim_regs.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección vamos a generar una señal cuadrada de período 300us utilizando el timer 1 (<b>TIM1</b>).
+[ENGLISH]In this lesson we are going to generate a square signal with a period of 300us using the timer 1 (<b>TIM1</b>).
+[SPANISH]El microcontrolador STM32F0 tiene varios timers (TIM1, TIM3, TIM6, TIM7 y TIM14 a TIM17). El timer 1 es de 16 bits.
+[ENGLISH]The MCU STM32F0 has several timers (TIM1, TIM3, TIM6, TIM7, and TIM14 to TIM17). The timer 1 is 16-bit wide.
+[SPANISH]Este es el diagrama del timer 1.
+[ENGLISH]This is the diagram of the timer 1.
+[END_LIST]
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El reloj de sistema de 48MHz es el reloj para el <b>TIM1</b>.
+[ENGLISH]The 48MHz system clock is the clock for <b>TIM1</b>.
+[END_LIST]
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El reloj llega hasta el prescaler.
+[ENGLISH]The system clock reaches the prescaler.
+[END_LIST]
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a trabajar con un reloj interno de 1MHz, así que el prescaler será 48.
+[ENGLISH]I am going to work with an internal clock of 1MHz, so the prescaler will be 48.
+[END_LIST]
+[IMG]22.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]Registros|Registers
+[MPPRO_VIDEO]03_Camtasia\02_anim_regs.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a utilizar el <b>TIM1</b> en modo descendente para cambiar el estado del pin <b>PA5</b>. 
+[ENGLISH]We are going to use the <b>TIM1</b> in descending mode to toggle the pin <b>PA5</b>. 
+[SPANISH]Como estamos usando un reloj de 1MHz, el contador se decrementará cada microsegundo.
+[ENGLISH]As we are using a 1-MHz clock, the counter will be decremented every microsecond.
+[SPANISH]Tenemos que conmutar el pin cada 150us, por lo que el registro de AutoReload (<b>ARR</b>) será 150.
+[ENGLISH]We have to toggle the pin every 150us, so the AutoReload register (<b>ARR</b>) will be 150.
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El registro <b>CNT</b> (contador) va a ser decrementado cada microsegundo.
+[ENGLISH]The register <b>CNT</b> (counter) is decremented every microsecond.
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El bit <b>UIF</b> del registro de status <b>TIM1_SR</b> está inicialmente a <b>0</b>.
+[ENGLISH]The bit <b>UIF</b> of the status register <b>TIM1_SR</b> is initially <b>0</b>.
+[END_LIST]
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cuando arranca el <b>TIM1</b>, el valor del registro <b>ARR</b> es copiado en el registro <b>CNT</b>.
+[ENGLISH]When the <b>TIM1</b> starts, the value of the register <b>ARR</b> is copied to the register <b>CNT</b>.
+[SPANISH]Así que CNT vale ahora 150.
+[ENGLISH]So CNT is now 150.
+[END_LIST]
+[IMG]27.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En cada ciclo de reloj el registro <b>CNT</b> es decrementado.
+[ENGLISH]At every clock cycle the register <b>CNT</b> is decremented.
+[END_LIST]
+[IMG]28.png
+[IMG]29.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cuando el registro <b>CNT</b> llega a 0, el bit <b>UIF</b> se pone a 1.
+[ENGLISH]When the register <b>CNT</b> reaches 0, the bit <b>UIF</b> is set.
+[END_LIST]
+[IMG]31.png
+
+[BEGIN_LIST]
+[SPANISH]Y el registro <b>ARR</b> se copia otra vez en el registro <b>CNT</b>.
+[ENGLISH]And the register <b>ARR</b> is copied again to the register <b>CNT</b>.
+[END_LIST]
+[IMG]32.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y el timer continua su operación.
+[ENGLISH]And the timer continues the operation.
+[END_LIST]
+[IMG]33.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En cualquier momento podemos poner a 0 el bit <b>UIF</b> desde el programa.
+[ENGLISH]At any time we can clear the bit <b>UIF</b> from the program.
+[END_LIST]
+[IMG]34.png
+[IMG]36.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[MPPRO_SECTION_ES_EN]IDE|IDE
+[MPPRO_VIDEO]03_Camtasia\03_cam_IDE.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Crea un nuevo proyecto.
+[ENGLISH]Create a new project.
+[END_LIST]
+[IMG]01.png
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona el kit de desarrollo.
+[ENGLISH]Select the evaluation kit.
+[END_LIST]
+[IMG]03.png
+[IMG]04.png
+[IMG]05.png
+[IMG]06.png
+[IMG]07.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El nombre que he elegido para este proyecto es <b>P18_TIM1</b>.
+[ENGLISH]The name I have chosen for this project is <b>P18_TIM1</b>.
+[END_LIST]
+[IMG]08.png
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a añadir el código de inicialización del <b>TIM1</b>.
+[ENGLISH]I am going to add the inicialization of <b>TIM1</b>. 
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+
+[SOURCE_CODE_EX_BEGIN]102
+:code:  RCC->APB2ENR    |=  RCC_APB2ENR_TIM1EN;     
+:key1:  ---------------------------------------
+:es__:Habilitamos el reloj del timer <b>TIM1</b>.
+:en__:Enable the clock for the timer <b>TIM1</b>.
+
+:code:  TIM1->CR1       =   0;                      
+:key2:  ---------------------
+:es__:Deshabilitamos el timer <b>TIM1</b> para poder configurarlo.
+:en__:Desable the timer <b>TIM1</b> so that it can be configured.
+
+:code:  TIM1->PSC       =   48 - 1;                 
+:key3:                      --
+:es__:En el registro <b>PSC</b> copiamos el valor del prescaler menos 1.
+:en__:Copy to the register <b>PSC</b> the prescaler value minus 1.
+
+:code:                                              
+:code:  TIM1->ARR       =   150;
+:key4:                      ---
+:es__:Copiamos en el registro <b>ARR</b> el valor del semiperiodo (150).
+:en__:Copy to the register <b>PSC</b> the prescaler value minus 1.
+
+:code:  TIM1->CR1       =   TIM_CR1_DIR |           
+:key5:                      -----------
+:es__:Ponemos a 1 el bit <b>DIR</b> del registro de control <b>CR1</b> para elegir modo descendente.
+:en__:Set the bit <b>DIR</b> of the register <b>CR1</b> to select descending mode.
+
+:code:                      TIM_CR1_CEN;            
+:key6:                      -----------
+:es__:Ponemos a 1 el bit <b>CEN</b> del registro de control <b>CR1</b> para comenzar la operación del <b>TIM1</b>.
+:en__:Set the bit <b>CEN</b> of the register <b>CR1</b> to enable the operation of <b>TIM1</b>. 
+
+:code:
+[SOURCE_CODE_EX_END]
+
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y aquí el código para esperar a que expire el <b>TIM1</b> y conmutar el pin <b>PA5</b>.
+[ENGLISH]And here the code to wait for the <b>TIM1</b> to expire and toggle the pin <b>PA5</b>.
+[END_LIST]
+[IMG]13.png
+
+[SOURCE_CODE_EX_BEGIN]110
+:code:  while (1)
+:code:  {
+:code:      TIM1->SR    =   0;                      
+:key1:      -----------------
+:es__:Limpiamos el registro de status <b>SR</b> que contiene los flags del <b>TIM1</b>, entre ellos el <b>UIF</b>.
+:en__:Clean the status register <b>SR</b> that contains the flags of <b>TIM1</b>, among them the flag <b>UIF</b>.
+
+:code:      while( (TIM1->SR & TIM_SR_UIF) == 0 );  //Wait for end-of-counting flag
+:key3:                                           -
+:es__:Mientras el flag sea 0 permanecemos en el bucle. (<b>;</b> es una sentencia en C vacía).
+:en__:While the flag is 0, we stay inside the loop. (<b>;</b> is an empty statement).
+
+:key2:             -----------------------
+:es__:Con este <b>and</b> obtenemos el valor del bit <b>UIF</b> del registro de status <b>SR</b>.
+:en__:With this <b>and</b> we get the value of the bit <b>UIF</b> of the status register <b>SR</b>.
+
+:code:
+:code:      //Toggle LED
+:code:      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+:key4:      -------------------------------------
+:es__:Aquí llegamos cuando el bit <b>UIF</b> está a uno, indicando que el registro <b>CNT</b> ha llegado a 0. Conmutamos el pin <b>PA5</b>.
+:en__:We reach this instruction when the bit <b>UIF</b> is 1, indicating that the register <b>CNT</b> reached 0. Toggle the pin <b>PA5</b>.
+
+:code:    /* USER CODE END WHILE */
+:code:
+:code:    /* USER CODE BEGIN 3 */
+:code:  }
+:code:
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila y depura el programa.
+[ENGLISH]Build and debug the program.
+[END_LIST]
+[IMG]14.png
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+[MPPRO_SECTION_ES_EN]Conexiones HW|HW Connections
+[MPPRO_VIDEO]03_Camtasia\04_anim_HW.mp4|0
+
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Aquí puedes ver cómo conectar el osciloscopio al kit de evaluación.
+[ENGLISH]Here you can see how to connect the oscilloscope to the evaluation kit.
+[END_LIST]
+[IMG]17.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/L38_HW_Connections.pdf;Conexiones HW
+[LINK_ENGLISH]downloads/L38_HW_Connections.pdf;HW connections
+[END_LIST]
+[BLOCK_END]

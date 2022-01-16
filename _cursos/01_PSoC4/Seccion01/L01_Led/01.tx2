@@ -1,0 +1,383 @@
+[LESSON_FOLDER]../_cursos/01_PSoC4/Seccion01/L01_Led/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Led
+[TITLE_ENGLISH]Led
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este primer proyecto vamos a hacer parpadear un led.
+[ENGLISH]In this first project let us blink an LED.
+
+[SPANISH]Para ello vamos a utilizar el kit <b>CY8CKIT-042</b> que trae un led RGB.
+[ENGLISH]The <b>CY8CKIT-042</b> kit will be used. It has an on-board RGB led.
+[END_LIST]
+
+[IMG]22.png
+
+[BEGIN_LIST]
+[SPANISH]Se llama 'led RGB' porque realmente son 3 leds en el mismo encapsulado. Uno R (<b>red-rojo</b>), otro G (<b>green-verde</b>) y otro B (<b>blue-azul</b>).
+[ENGLISH]It is called 'RGB led' because there are 3 leds in the same package. One Red, one Green and one Blue.
+
+[SPANISH]En este primer proyecto vamos a usar sólamente el color azul y lo vamos a hacer parpadear cada medio segundo.
+[ENGLISH]In this project you will use only the blue led, and you will blink it every half a second.
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ejecuta <b>PSoC Creator</b> y crea un proyecto nuevo.
+[ENGLISH]Execute <b>PSoC Creator</b> and create a new project.
+[END_LIST]
+
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona el hardware que vamos a usar (nuestro kit <b>CY8CKIT-042</b>).
+[ENGLISH]Select the hardware that you will use (our <b>CY8CKIT-042</b> kit).
+[END_LIST]
+
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona esquemático vacío (empty schematic).
+[ENGLISH]Select empty schematic.
+[END_LIST]
+
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Introducimos dónde queremos guardar el proyecto y el workspace en nuestro ordenador.
+[ENGLISH]Enter where to save the project and workspace in your PC.
+
+[SPANISH]El workspace o espacio de trabajo puede contener muchos proyectos, que normalmente tendrán una relación entre sí.
+[ENGLISH]The workspace can contain many projects, that normally will have a relationship with each other.
+[END_LIST]
+
+[IMG]20.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora ya tenemos nuestro proyecto creado (y vacío).
+[ENGLISH]Now you have created the project (but empty).
+[END_LIST]
+
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la parte de la derecha hay una pestaña llamada <b>Component Catalog</b> (catálogo de componentes).
+[ENGLISH]In the right pane there is a tab called <b>Component Catalog</b>.
+
+[SPANISH]La abrimos haciendo clic y seleccionamos el grupo de <b>Ports and Pins</b> (puertos y pines).
+[ENGLISH]Open it and select the <b>Ports and Pins</b> group.
+
+[SPANISH]La idea es configurar un pin del PSoC como salida y conectarlo al led azul.
+[ENGLISH]The intention is to configure a pin as output and connect it to the blue led.
+[END_LIST]
+
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la opción de <b>Digital Output Pin</b> (Pin de salida digital)
+[ENGLISH]Select the option <b>Digital Output Pin</b>
+[END_LIST]
+
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo arrastramos con el ratón hacia el esquemático.
+[ENGLISH]Drag it to the schematic.
+[END_LIST]
+
+[IMG]26.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic en el pin para modificar sus propiedades.
+[ENGLISH]Double click on the pin to change its properties.
+[END_LIST]
+
+[IMG]27.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Renómbralo como quieras (en mi caso <b>Pin_Verde</b>) y borramos la selección que había en <b>HW connection</b> de esta manera podremos controlar esa salida desde el programa. Además seleccionamos el estado inicial <b>Initial drive state</b> como alto (valor 1).
+[ENGLISH]Rename it as you like (in my case <b>Pin_Verde</b>) and deselect <b>HW connection</b> to be able to control it from the program. Additionally select <b>Initial drive state</b> as high (1).
+[END_LIST]
+
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esto último requiere un poco de aclaración. Si observamos el esquemático del kit vemos cómo están conectados los leds RGB. El ánodo común a los 3 leds está conectado a la tensión P4_VDD (que puede ser 3.3V o 5V según el estado del jumper J9, por defecto está a 3.3V)
+[ENGLISH]Let us explain it. If you watch the schematic of the kit, you will see how the leds (RGB) are connected. They share the same pin for the anode that is connected to P4_VDD (it can be 3.3V or 5V depending on the jumper J9, by default is connected to 3.3V)
+[END_LIST]
+
+[IMG]37a.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Por ello para encender el led tendremos que poner un 0 en la salida del PSoC. Como en el arranque del programa no queremos que el led esté encendindo ponemos como valor inicial 'Initial drive state' el valor 1.
+[ENGLISH]To switch on the led a low level (0) is needed in the PSoC output pin. At reset you do not want the led to light, so the parameter Initial drive state must be 1.
+
+[SPANISH]Debes hacer lo mismo para los leds rojo y azul. Para ello selecciona el pin recién creado en el esquemático (pin_verde) y cópialo para luego pegarlos.
+[ENGLISH]Do the same with the Red and Blue leds. To do this select the new created pin in the schematic (<b>Pin_Verde</b>), copy it to paste it later on.
+[END_LIST]
+
+[IMG]30.png
+[IMG]31.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic en él para renombrarlo y modificar sus propiedades.
+[ENGLISH]Double click on it to rename it and change its properties.
+[END_LIST]
+
+[IMG]33.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo mismo debes hacer con el rojo.
+[ENGLISH]Do the same with the red led.
+
+[SPANISH]Ya tienes los 3 pines en el esquemático.
+[ENGLISH]Now you have the 3 pins in the schematic.
+[END_LIST]
+
+[IMG]34.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Pero si te das cuenta no hemos dicho todavía a qué pines vamos a conectarlos.
+[ENGLISH]But if you realize, it is still missing the pin where the led will be connected to. 
+
+[SPANISH]Para ello haz doble clic en <b>Proyecto01.cydwr</b>.
+[ENGLISH]To do this, double click on <b>Proyecto01.cydwr</b>.
+[END_LIST]
+
+[IMG]35.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y se nos abre una pestaña con los elementos del esquemático a la derecha y los pines del PSoC a la izquierda.
+[ENGLISH]And a tab is opened with the elements of the schematic on the right and the pins of PSoC on the left.
+[END_LIST]
+
+[IMG]36.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la guía de usuario del kit podemos ver a qué pines están conectados.
+[ENGLISH]In the user guide of the kit you can see which pins are connected to the leds.
+[END_LIST]
+
+[TABLE_BEGIN]50
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Led
+[TABLE_ITEM_ENGLISH]Led
+
+[TABLE_ITEM_SPANISH]Pin
+[TABLE_ITEM_ENGLISH]Pin
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Rojo
+[TABLE_ITEM_ENGLISH]Red
+
+[TABLE_ITEM_SPANISH]P1_6
+[TABLE_ITEM_ENGLISH]P1_6
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Verde
+[TABLE_ITEM_ENGLISH]Green
+
+[TABLE_ITEM_SPANISH]P0_2
+[TABLE_ITEM_ENGLISH]P0_2
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Azul
+[TABLE_ITEM_ENGLISH]Blue
+
+[TABLE_ITEM_SPANISH]P0_3
+[TABLE_ITEM_ENGLISH]P0_3
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]37.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Arrastra los pines desde el panel de la derecha a los correspondientes pines del panel de la izquierda.
+[ENGLISH]Drag the pins from the right panel to the corresponding pins in the left panel.
+[END_LIST]
+
+[IMG]38.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y así con los 3.
+[ENGLISH]And so with all leds.
+[END_LIST]
+
+[IMG]40.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el project.
+[ENGLISH]Build the project.
+[END_LIST]
+
+[IMG]41.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y comprueba que no hay ningún error (panel inferior).
+[ENGLISH]And check that there is no error (bottom panel)
+[END_LIST]
+
+[IMG]42.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo que has hecho hasta ahora, ha sido simplemente definir los pines, que están conectados en el kit a los leds como salidas digitales. Ahora tienes que programar la activación del led azul cada medio segundo. Vamos al fichero <b>main.c</b>
+[ENGLISH]What you have done so far, is simply define the pins, that are connected in the kit to the leds as digital output. Now it is time to program the activation of the blue led every half a second. Go to the file <b>main.c</b>. 
+[END_LIST]
+
+[IMG]44.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Una vez abierto, vemos que hay una zona reservada para que escribamos nuestro código.
+[ENGLISH]Once open, you see that there is a zone reserved for your code.
+[END_LIST]
+
+[IMG]45.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Necesitas llamar a una función que se llama <b>Pin_Azul_Write</b> que va a servir para activar o desactivar la salida digital del PSoC. Cuando empieces a escribir el nombre de esta función la función de autocompletar de PSoC Creator va a sugerir funciones disponibles.
+[ENGLISH]You need to call a function called <b>Pin_Azul_Write</b> that will serve to activate/deactivate the digital output of PSoC. On starting to write the name of the function the autocomplete feature of PSoC Creator will give some suggestions.
+[END_LIST]
+
+[IMG]46.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]También se necesita la función <b>CyDelay</b> que va a esperar una cantidad de tiempo expresada en milisegundos. Para medio segundo habrá que llamarla con el valor 500 (500 milisegundos = medio segundo).
+[ENGLISH]It is needed also a function called <b>CyDelay</b> that will wait for an amount of time expressed in milliseconds. For half a second the value will be 500 (500 milliseconds = half a second).
+[END_LIST]
+
+[SOURCE_CODE_EX_BEGIN]20
+:code:    for(;;)
+:key2:    ---
+:es__:El bucle infinito hará parpadear el led azul cada medio segundo.
+:en__:The infinite loop will blink the blue led every half a second.
+
+:code:    {
+
+:code:        Pin_Azul_Write(1);
+:key1:        --------------
+:es__:Apagamos el led azul.
+:en__:Blue led off.
+
+:code:        CyDelay(500);
+:key4:        -------
+:es__:Esperamos medio segundo.
+:en__:Wait for half a second.
+
+:code:        Pin_Azul_Write(0);
+:key1:        --------------
+:es__:Encendemos el led azul.
+:en__:Blue led on.
+
+:code:        CyDelay(500);
+:key4:        -------
+:es__:Esperamos medio segundo.
+:en__:Wait for half a second.
+
+:code:    }
+[SOURCE_CODE_EX_END]
+[SPANISH]<small>(Pasa el ratón sobre las palabras resaltadas para obtener más información)</small>
+[ENGLISH]<small>(hover the mouse over the highlighted words for information)</small>
+
+//[IMG]47.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el proyecto.
+[ENGLISH]Build the project.
+[END_LIST]
+
+[IMG]48.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ahora sólo tienes que conectar el kit al ordenador por USB.
+[ENGLISH]Now connect the kit to the computer (via USB).
+[END_LIST]
+
+[IMG]49.png
+
+[BEGIN_LIST]
+[SPANISH]Y transfiere el programa.
+[ENGLISH]And transfer the program.
+[END_LIST]
+
+[IMG]51.png
+
+[BEGIN_LIST]
+[SPANISH]El led azul parpadea cada medio segundo.
+[ENGLISH]The blue led blinks every half a second.
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS001.zip;Descarga el proyecto aquí (<b>PSoC Creator 3.3</b>).
+[LINK_ENGLISH]downloads/WS001.zip;Download the project here (<b>PSoC Creator 3.3</b>).
+[LINK_SPANISH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;Guía de usuario
+[LINK_ENGLISH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;User guide
+[END_LIST]
+[BLOCK_END]

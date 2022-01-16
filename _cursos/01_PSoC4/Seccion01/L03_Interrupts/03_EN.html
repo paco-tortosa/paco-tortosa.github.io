@@ -1,0 +1,370 @@
+        <div class="title">Interrupts</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Lets use the switch button <b>SW2</b> to control the RGB led. But in this project with interrupts.</div></li>
+            </ul>
+        </div>
+        <div class="section">Steps</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the schematic.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/02.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Double click on <b>Pin_SW2</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/04.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the tab <b>Input</b> select <b>Falling edge</b> as interrupt mode.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/06a.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/003_Edges.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">In the schematic the symbol of <b>Pin_SW2</b> has changed.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to the Catalog component and search for interrupts.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/11.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Drag the component into the schematic.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/12.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/14.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">And connect it to <b>Pin_SW2</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Double click on the ISR (Interrupt Service Routine).</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/18.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Rename it to <b>Pin_SW2_Int</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/19.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/21.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">If you need more information about any component, just left click on it and Open Datasheet.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/23.png">
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/24.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Go to <b>main.c</b>.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/25.png">
+            <div class="text">And add the following piece of code:</div>
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>CY_ISR ( Pin_SW2_Handler )</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    Pin_Rojo_Write( ~ Pin_Rojo_Read() );</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    Pin_SW2_ClearInterrupt();</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    CyGlobalIntEnable; /* Enable global interrupts. */</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    Pin_SW2_Int_StartEx(Pin_SW2_Handler);</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>        Pin_Azul_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        CyDelay(500);</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>        Pin_Azul_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>        CyDelay(500);</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+        </div>
+        <div class="section">ISR (Interrupt Service Routine)</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Every time the switch button <b>SW2</b> is pressed the ISR routine <b>Pin_SW2_Handler</b> will be executed and the red led will toggle.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/img/003_ISR.png">
+            <ul>
+               <li><div class="text"><b>Pin_SW2_Handler</b> is the interrupt service routine.</div></li>
+            </ul>
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td><span class="b1">CY_ISR <span class="tooltiptext">This is a macro that tells the compiler that this is an interrupt routine.</span></span>( <span class="b2">Pin_SW2_Handler<span class="tooltiptext">This is the name of the routine and it can be any sensible name you like.</span></span> )</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    <span class="b5">Pin_Rojo_Write<span class="tooltiptext">Activate the digital output connected to the red led.</span></span> ( <span class="b3">~<span class="tooltiptext">Negate the value to toggle the led.</span></span> <span class="b4">Pin_Rojo_Read()<span class="tooltiptext">Read the value of the digital output connected to the red led.</span></span> );</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    <span class="b6">Pin_SW2_ClearInterrupt()<span class="tooltiptext">Clear the interrupt flag, indicating that the interrupt has been handled.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>int main()</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    CyGlobalIntEnable;</td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    Pin_SW2_Int_StartEx(Pin_SW2_Handler);</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    for(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>        Pin_Azul_Write(1);</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        CyDelay(500);</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>        Pin_Azul_Write(0);</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>        CyDelay(500);</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <div class="text"><small>(hover the mouse over the highlighted words for information)</small></div>
+        </div>
+        <div class="section"><b>main</b> function</div>
+        <div class="step-block">
+            <table class="source-code-table">
+                  <tr>
+                      <td>12</td>
+                      <td>#include &ltproject.h&gt</td>
+                  </tr>
+                  <tr>
+                      <td>13</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>14</td>
+                      <td>CY_ISR ( Pin_SW2_Handler )</td>
+                  </tr>
+                  <tr>
+                      <td>15</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>16</td>
+                      <td>    Pin_Rojo_Write ( ~ Pin_Rojo_Read() );</td>
+                  </tr>
+                  <tr>
+                      <td>17</td>
+                      <td>    Pin_SW2_ClearInterrupt();</td>
+                  </tr>
+                  <tr>
+                      <td>18</td>
+                      <td>}</td>
+                  </tr>
+                  <tr>
+                      <td>19</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>20</td>
+                      <td>int <span class="b1">main<span class="tooltiptext"><b>main</b> function.</span></span>()</td>
+                  </tr>
+                  <tr>
+                      <td>21</td>
+                      <td>{</td>
+                  </tr>
+                  <tr>
+                      <td>22</td>
+                      <td>    <span class="b2">CyGlobalIntEnable; <span class="tooltiptext">Enable global interrupts.</span></span></td>
+                  </tr>
+                  <tr>
+                      <td>23</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>24</td>
+                      <td>    <span class="b3">Pin_SW2_Int_StartEx<span class="tooltiptext">The function <b>Pin_SW2_Int_StartEx()</b> initializes the interrupt of SW2 and configures the function <b>Pin_SW2_Handler</b> as ISR. </span></span> ( Pin_SW2_Handler );</td>
+                  </tr>
+                  <tr>
+                      <td>25</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>26</td>
+                      <td>    <span class="b4">for<span class="tooltiptext">The infinite loop will blink the blue led every half a second.</span></span>(;;)</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>    {</td>
+                  </tr>
+                  <tr>
+                      <td>28</td>
+                      <td>        <span class="b5">Pin_Azul_Write<span class="tooltiptext">Blue led off.</span></span>(1);</td>
+                  </tr>
+                  <tr>
+                      <td>29</td>
+                      <td>        <span class="b6">CyDelay(500)<span class="tooltiptext">Wait for half a second.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>30</td>
+                      <td>        <span class="b1">Pin_Azul_Write<span class="tooltiptext">Blue led on.</span></span>(0);</td>
+                  </tr>
+                  <tr>
+                      <td>31</td>
+                      <td>        <span class="b2">CyDelay(500)<span class="tooltiptext">Wait for half a second.</span></span>;</td>
+                  </tr>
+                  <tr>
+                      <td>32</td>
+                      <td>    }</td>
+                  </tr>
+                  <tr>
+                      <td>33</td>
+                      <td>}</td>
+                  </tr>
+            </table>
+            <div class="text"><small>(hover the mouse over the highlighted words for information)</small></div>
+        </div>
+        <div class="section">Downloads</div>
+        <div class="step-block">
+            <ul>
+               <li><a target="_blank" href="../_cursos/01_PSoC4/Seccion01/L03_Interrupts/downloads/WS003.zip">Download the project here <b>(PSoC Creator 3.3)</b></a></li>
+            </ul>
+        </div>

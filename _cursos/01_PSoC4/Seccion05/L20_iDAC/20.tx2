@@ -1,0 +1,244 @@
+[LESSON_FOLDER]../_cursos/01_PSoC4/Seccion05/L20_iDAC/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]iDAC
+[TITLE_ENGLISH]iDAC
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En este proyecto vamos a usar el componente IDAC (Current Digital to Analog Converter, Conversor de Corriente Digital a Analógico)
+[ENGLISH]On this project you will use a potentiometer connected to the ADC component to switch on the red, green and blue LEDs
+[SPANISH]Con el componente IDAC podemos generar una corriente continua que podemos controlar con un valor de 8 bits
+[ENGLISH]With the IDAC component you can generate a direct current that can be controlled with a 8-bit value
+[SPANISH]Por medio de una resistencia de 2K ohmios vamos a poder medir esa corriente con el osciloscopio
+[ENGLISH]With a 2K resistor you can measure the current on the oscilloscope
+[END_LIST]
+[IMG]Setup.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Por el pin P2[0] la corriente va a fluir a través de la resistencia hacia masa
+[ENGLISH]From the pin P2[0] the current will flow through the resistor to ground
+[END_LIST]
+[IMG_SPANISH]P020_IDAC_pins_es.png
+[IMG_ENGLISH]P020_IDAC_pins_en.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a variar la corriente de una manera sencilla para obtener una señal en diente de sierra
+[ENGLISH]You can vary the current in a simple way to get a sawtooth signal
+[END_LIST]
+[IMG]TEK0000.JPG
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Crea un proyeto nuevo
+[ENGLISH]Create a new project
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Basado en el kit CY8CKIT-042
+[ENGLISH]Based on the CY8CKIT-042 kit
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Con un esquemático vacío
+[ENGLISH]With an empty schematic
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y nómbralo como workspace 20
+[ENGLISH]And rename it as workspace 20
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al catálogo de componentes y busca el componente IDAC
+[ENGLISH]Go to the component catalog and search for the IDAC component
+[END_LIST]
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añádelo al esquemático y edita sus propiedades
+[ENGLISH]Add it to the schematic and edit its properties
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[TABLE_BEGIN]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Parámetro
+[TABLE_ITEM_ENGLISH]Parameter
+[TABLE_ITEM_SPANISH]Valor
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Polarity
+[TABLE_ITEM_ENGLISH]Polarity
+[TABLE_ITEM_SPANISH]Positive (Source)
+[TABLE_ITEM_ENGLISH]Positive (Source)
+[TABLE_ITEM_SPANISH]La corriente sale del PSoC
+[TABLE_ITEM_ENGLISH]The current goes out of PSoC
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Resolution
+[TABLE_ITEM_ENGLISH]Resolution
+[TABLE_ITEM_SPANISH]8-bit
+[TABLE_ITEM_ENGLISH]8-bit
+[TABLE_ITEM_SPANISH]La corriente será controlada con un valor de 0 a 255
+[TABLE_ITEM_ENGLISH]The current will be controlled with a value from 0 to 255
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Value
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ITEM_SPANISH]0
+[TABLE_ITEM_ENGLISH]0
+[TABLE_ITEM_SPANISH]Al arrancar el PSoC la corriente es 0
+[TABLE_ITEM_ENGLISH]At startup the current is 0
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Range
+[TABLE_ITEM_ENGLISH]Range
+[TABLE_ITEM_SPANISH]0-612 uA (2.4 uA/bit)
+[TABLE_ITEM_ENGLISH]0-612 uA (2.4 uA/bit)
+[TABLE_ITEM_SPANISH]El rango de corriente es de 0 a 612 microamperios, lo que corresponde a 2.4 microamperios por bit
+[TABLE_ITEM_ENGLISH]The current is from 0 to 612 microamperes, i.e. 2.4 microamperes per bit
+[TABLE_ROW_END]
+[TABLE_END]
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade una salida al esquemático
+[ENGLISH]Add an output to the schematic
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Edita sus propiedades
+[ENGLISH]Edit its properties
+[END_LIST]
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Renómbrala como "Pin_IDAC" y selecciona el tipo "Analog"
+[ENGLISH]Rename it as "Pin_IDAC" and select type "Analog"
+[END_LIST]
+[IMG]11.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Dale la vuelta
+[ENGLISH]Flip it
+[END_LIST]
+[IMG]12.png
+[IMG]13.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta IDAC y la salida
+[ENGLISH]Connect IDAC and the output
+[END_LIST]
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Conecta la salida al pin P2[0]
+[ENGLISH]Connect the output to the pin P2[0]
+[END_LIST]
+[IMG]16.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Añade el siguiente código a "main.c"
+[ENGLISH]Add the following code to "main.c"
+[END_LIST]
+[IMG]15.png
+
+[SOURCE_CODE_EX_BEGIN]12
+:code:#include "project.h"
+:code:
+:code:int main(void)
+:code:{
+:code:    uint8   u8Current   =   0;
+:key1:            ---------
+:es__: Define la variable <b>u8Current</b> que almacena el valor digital de la corriente a generar en el componente IDAC
+:en__: Defines the variable <b>u8Current</b> that stores the digital value of the current to generate with the IDAC component
+
+:code:
+:code:    CyGlobalIntEnable; /* Enable global interrupts. */
+:key2:    -----------------
+:es__: Habilita interrupciones
+:en__: Enable global interrupts
+
+:code:
+:code:    IDAC_Start();
+:key3:    ------------
+:es__: Inicializa el componente IDAC
+:en__: Initializes the IDAC component
+
+:code:
+:code:    for(;;)
+:code:    {
+:code:        IDAC_SetValue(u8Current++);
+:key4:        -------------
+:es__: Poner el valor en el componente IDAC
+:en__: Sets the value on the IDAC component
+
+:key5:                      -----------
+:es__: Incrementa en 1 el valor de la variable "u8Current".  <br> Al llegar a 255 volverá a 0
+:en__: Increments by 1 the value of the variable "u8Current". <br> After 255 it will go to 0 again
+
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa
+[ENGLISH]As always, build the project and transfer the program
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/WS020.zip;Descarga el proyecto aquí (PSoC Creator 4.0).
+[LINK_ENGLISH]downloads/WS020.zip;Download the project here (PSoC Creator 4.0).
+[END_LIST]
+[BLOCK_END]

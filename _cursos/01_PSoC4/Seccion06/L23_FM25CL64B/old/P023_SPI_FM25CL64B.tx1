@@ -1,0 +1,703 @@
+[IMG_FOLDER]img/034_P023_SPI_FM25CL64B/
+
+[TITLE_SPANISH]023 - SPI (FM25CL64B)
+[TITLE_ENGLISH]023 - SPI (FM25CL64B)
+[TITLE_DEUTSCH]023 - SPI (FM25CL64B)
+
+[SPANISH]En este proyecto vamos a usar otra vez el componente SPI (Serial Peripheral Interface).
+[ENGLISH]On this project you will use again the SPI (Serial Peripheral Interface) component.
+[DEUTSCH]On this project you will use again the SPI (Serial Peripheral Interface) component.
+
+[SPANISH]Vamos a comunicar el PSoC con el integrado FM25CL64B (Cypress), que es una memoria FRAM.
+[ENGLISH]PSoC will communicate with a FM25CL64B (Cypress), that is a FRAM memory.
+[DEUTSCH]PSoC will communicate with a FM25CL64B (Cypress), that is a FRAM memory.
+
+[SPANISH]Sus principales características son:
+[ENGLISH]Its main features are:
+[DEUTSCH]Its main features are:
+
+[BEGIN_LIST]
+
+[SPANISH]FRAM = Ferroelectric Random Access Memory
+[ENGLISH]FRAM = Ferroelectric Random Access Memory
+[DEUTSCH]FRAM = Ferroelectric Random Access Memory
+
+[SPANISH]Capacidad : 8K Bytes.
+[ENGLISH]Size : 8K Bytes.
+[DEUTSCH]Size : 8K Bytes.
+
+[SPANISH]Tensión de alimentación = 2.7V a 3.65V
+[ENGLISH]Voltage supply = 2.7V a 3.65V
+[DEUTSCH]Voltage supply = 2.7V a 3.65V
+
+[SPANISH]Número máximo de lecturas/escrituras : 100.000.000.000.000 veces (10 elevado a 14).
+[ENGLISH]high-endurance 100 trillion (10^14) read/writes
+[DEUTSCH]high-endurance 100 trillion (10^14) read/writes
+
+[SPANISH]Retardo por escritura = 0 (misma velocidad que el bus SPI). No hay que esperar.
+[ENGLISH]No delay on writing (same speed as the SPI bus). 
+[DEUTSCH]No delay on writing (same speed as the SPI bus). 
+
+[SPANISH]Frecuencia máxima de reloj (SCLK) = 20 MHz.
+[ENGLISH]Maximum SPI frequency (SCLK)  = 20 MHz.
+[DEUTSCH]Maximum SPI frequency (SCLK)  = 20 MHz.
+
+[END_LIST]
+
+[IMG]Setup.png;80
+[IMG]P023_Pins_.png;80
+[IMG]FRAM.png;60
+
+[SPANISH]El jumper J9 debe tener los terminales 1 y 2 conectados. Así el kit funcionará a 3V3.
+[ENGLISH]Change the jumper J9 so that the pins 1 and 2 are connected. So the kit will run with 3.3 volts.
+[DEUTSCH]Change the jumper J9 so that the pins 1 and 2 are connected. So the kit will run with 3.3 volts.
+
+[IMG]P023_3V.png;80
+
+[SPANISH]Esta es la configuración de SPI que vamos a usar con el esclavo FM25CL64B:
+[ENGLISH]This is the SPI configuration you will use with the SPI slave FM25CL64B:
+[DEUTSCH]This is the SPI configuration you will use with the SPI slave FM25CL64B:
+
+[BEGIN_LIST]
+
+[SPANISH]La señal CS (Chip Select) es activa a nivel bajo.
+[ENGLISH]The CS signal (Chip Select) is active low.
+[DEUTSCH]The CS signal (Chip Select) is active low.
+
+[SPANISH]En reposo la señal SCLK está a nivel bajo, y los datos se capturan en el flanco de subida.
+[ENGLISH]In idle state, SCLK is low and the data are captured on the rising edge of SCLK.
+[DEUTSCH]In idle state, SCLK is low and the data are captured on the rising edge of SCLK.
+
+[END_LIST]
+
+[IMG]P023_SPI.png;90
+
+[SPANISH]Hay 6 comandos SPI (pero aquí sólo usaremos 3):
+[ENGLISH]There are 6 SPI commands (but here you will use 3):
+[DEUTSCH]There are 6 SPI commands (but here you will use 3):
+
+[IMG]FRAM_01.png;80
+
+[SPANISH]El comando "WREN" (código 0x06) debe ser enviado antes de cualquier operación de escritura.
+[ENGLISH]The "WREN2 command (opcode 0x06) must be sent before any write operation.
+[DEUTSCH]The "WREN2 command (opcode 0x06) must be sent before any write operation.
+
+[IMG]FRAM_02.png;60
+
+[SPANISH]El comando "WRITE" (código 0x02) escribe en una dirección de 13 bits un número variable de bytes.
+[ENGLISH]The "WRITE" command (opcode 0x02) writes into a 13-bit address location a variable number of bytes.
+[DEUTSCH]The "WRITE" command (opcode 0x02) writes into a 13-bit address location a variable number of bytes.
+
+[IMG]FRAM_04.png;90
+
+[SPANISH]El comando "READ" (código 0x03) lee de una dirección de 13 bits un número variable de bytes.
+[ENGLISH]The "READ" command (opcode 0x03) reads from a 13-bit address a variable number of bytes.
+[DEUTSCH]The "READ" command (opcode 0x03) reads from a 13-bit address a variable number of bytes.
+
+[IMG]FRAM_05.png;90
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el proyecto anterior (WS022) y renómbralo como WS023.
+[ENGLISH]Copy the previous project (WS022) and rename it as WS023.
+[DEUTSCH]Copy the previous project (WS022) and rename it as WS023.
+
+[SPANISH]Ve al esquemático y añade dos salidas digitales "Pin_HOLD" y "Pin_WP".
+[DEUTSCH]Go to the schematic and add 2 digital outputs "Pin_HOLD" and "Pin_WP". 
+[ENGLISH]Go to the schematic and add 2 digital outputs "Pin_HOLD" and "Pin_WP". 
+
+[IMG]01.png;90
+
+[SPANISH]Asigna las salidas a los pines del PSoC:
+[ENGLISH]Assign the outputs to the PSoC pins:
+[DEUTSCH]Assign the outputs to the PSoC pins:
+
+[IMG]02.png;90
+
+[SPANISH]Añade el siguiente código a "main.c" :
+[ENGLISH]Add the following code to "main.c" :
+[DEUTSCH]Add the following code to "main.c" :
+
+[IMG]03.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 14
+[TABLE_ITEM_ENGLISH]Line  14
+[TABLE_ITEM_DEUTSCH]Line  14
+
+[TABLE_ITEM_SPANISH]Define la constante  CMD_WREN como 0x06.
+[TABLE_ITEM_ENGLISH]Defines the constant CMD_WREN as 0x06.
+[TABLE_ITEM_DEUTSCH]Defines the constant CMD_WREN as 0x06.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 15
+[TABLE_ITEM_ENGLISH]Line  15
+[TABLE_ITEM_DEUTSCH]Line  15
+
+[TABLE_ITEM_SPANISH]Define la constante  CMD_READ_MEM como 0x03.
+[TABLE_ITEM_ENGLISH]Defines the constant CMD_READ_MEM as   0x03.
+[TABLE_ITEM_DEUTSCH]Defines the constant CMD_READ_MEM as   0x03.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 16
+[TABLE_ITEM_ENGLISH]Line  16
+[TABLE_ITEM_DEUTSCH]Line  16
+
+[TABLE_ITEM_SPANISH]Define la constante  CMD_WRITE_MEM como 0x02.
+[TABLE_ITEM_ENGLISH]Defines the constant CMD_WRITE_MEM as   0x02.
+[TABLE_ITEM_DEUTSCH]Defines the constant CMD_WRITE_MEM as   0x02.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 18
+[TABLE_ITEM_ENGLISH]Line  18
+[TABLE_ITEM_DEUTSCH]Line  18
+
+[TABLE_ITEM_SPANISH]Define la variable "au8Constants1" que es un array de enteros de 8 bits sin signo, con valores desde 0 a 11.
+[TABLE_ITEM_ENGLISH]Defines the variable "au8Constants1" that is an array of 8-bit unsigned integer, with values from 0 to 11.
+[TABLE_ITEM_DEUTSCH]Defines the variable "au8Constants1" that is an array of 8-bit unsigned integer, with values from 0 to 11.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 19
+[TABLE_ITEM_ENGLISH]Line  19
+[TABLE_ITEM_DEUTSCH]Line  19
+
+[TABLE_ITEM_SPANISH]Define la variable "au8Constants2" que es un array de enteros de 8 bits sin signo, con valores desde 12 a 23.
+[TABLE_ITEM_ENGLISH]Defines the variable "au8Constants2" that is an array of 8-bit unsigned integer, with values from 12 to 23.
+[TABLE_ITEM_DEUTSCH]Defines the variable "au8Constants2" that is an array of 8-bit unsigned integer, with values from 12 to 23.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 20
+[TABLE_ITEM_ENGLISH]Line  20
+[TABLE_ITEM_DEUTSCH]Line  20
+
+[TABLE_ITEM_SPANISH]Define la variable "au8FromMemory" que es un array de enteros de 8 bits sin signo, donde guardaremos los datos leídos de la memoria con valores desde 12 a 23.
+[TABLE_ITEM_ENGLISH]Defines the variable "au8FromMemory" that is an array of 8-bit unsigned integer, with values from 12 to 23.
+[TABLE_ITEM_DEUTSCH]Defines the variable "au8FromMemory" that is an array of 8-bit unsigned integer, with values from 12 to 23.
+[TABLE_ROW_END]
+[TABLE_END]
+
+[IMG]04.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 25
+[TABLE_ITEM_ENGLISH]Line  25
+[TABLE_ITEM_DEUTSCH]Line  25
+
+[TABLE_ITEM_SPANISH]Define la función "SpiWriteByte" que envía un byte por SPI.
+[TABLE_ITEM_ENGLISH]Defines the function "SpiWriteByte" that sends a byte through SPI.
+[TABLE_ITEM_DEUTSCH]Defines the function "SpiWriteByte" that sends a byte through SPI.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 27
+[TABLE_ITEM_ENGLISH]Line  27
+[TABLE_ITEM_DEUTSCH]Line  27
+
+[TABLE_ITEM_SPANISH]Escribe en el buffer de transmisión SPI el valor a enviar.
+[TABLE_ITEM_ENGLISH]Writes into the transmission SPI buffer the value to send.
+[TABLE_ITEM_DEUTSCH]Writes into the transmission SPI buffer the value to send.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 30
+[TABLE_ITEM_ENGLISH]Line  30
+[TABLE_ITEM_DEUTSCH]Line  30
+
+[TABLE_ITEM_SPANISH]Espera hasta que el buffer de transmisión SPI está vacío (el byte ha sido enviados).
+[TABLE_ITEM_ENGLISH]Waits for the transmission SPI buffer to be empty (the byte has been already sent).
+[TABLE_ITEM_DEUTSCH]Waits for the transmission SPI buffer to be empty (the byte has been already sent).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 32
+[TABLE_ITEM_ENGLISH]Line  32
+[TABLE_ITEM_DEUTSCH]Line  32
+
+[TABLE_ITEM_SPANISH]Espera hasta haber recibido el byte del esclavo por la línea MISO.
+[TABLE_ITEM_ENGLISH]Waits for the incoming byte from the slave through the MISO line.
+[TABLE_ITEM_DEUTSCH]Waits for the incoming byte from the slave through the MISO line.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 36
+[TABLE_ITEM_ENGLISH]Line  36
+[TABLE_ITEM_DEUTSCH]Line  36
+
+[TABLE_ITEM_SPANISH]Devuelve el valor recibido del esclavo.
+[TABLE_ITEM_ENGLISH]Returns the value received from the slave.
+[TABLE_ITEM_DEUTSCH]Returns the value received from the slave.
+[TABLE_ROW_END]
+[TABLE_END]
+
+[IMG]05.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 42
+[TABLE_ITEM_ENGLISH]Line  42
+[TABLE_ITEM_DEUTSCH]Line  42
+
+[TABLE_ITEM_SPANISH]Define la función "FramWriteMem" que escribe datos en la memoria.
+[TABLE_ITEM_ENGLISH]Defines the function "FramWriteMem" that writes data into the memory.
+[TABLE_ITEM_DEUTSCH]Defines the function "FramWriteMem" that writes data into the memory.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 42 <br>(_u16Address)
+[TABLE_ITEM_ENGLISH]Line  42 <br>(_u16Address)
+[TABLE_ITEM_DEUTSCH]Line  42 <br>(_u16Address)
+
+[TABLE_ITEM_SPANISH]Dirección de la memoria FRAM donde escribir los datos.
+[TABLE_ITEM_ENGLISH]FRAM address where to write the data.
+[TABLE_ITEM_DEUTSCH]FRAM address where to write the data.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 43 <br>(_pu8Data)
+[TABLE_ITEM_ENGLISH]Line  43 <br>(_pu8Data)
+[TABLE_ITEM_DEUTSCH]Line  43 <br>(_pu8Data)
+
+[TABLE_ITEM_SPANISH]Puntero a un array que contiene los datos a escribir.
+[TABLE_ITEM_ENGLISH]Pointer to an array of bytes that stores the data to write.
+[TABLE_ITEM_DEUTSCH]Pointer to an array of bytes that stores the data to write.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 44 <br>(_u16DataCount)
+[TABLE_ITEM_ENGLISH]Line  44 <br>(_u16DataCount)
+[TABLE_ITEM_DEUTSCH]Line  44 <br>(_u16DataCount)
+
+[TABLE_ITEM_SPANISH]Número de bytes a escribir
+[TABLE_ITEM_ENGLISH]Number of bytes to write
+[TABLE_ITEM_DEUTSCH]Number of bytes to write
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 46
+[TABLE_ITEM_ENGLISH]Line  46
+[TABLE_ITEM_DEUTSCH]Line  46
+
+[TABLE_ITEM_SPANISH]Define la variable "u16Idx" que será usada en el bucle for (línea 59).
+[TABLE_ITEM_ENGLISH]Defines the variable "u16Idx" that will be used in the for loop (line 59).
+[TABLE_ITEM_DEUTSCH]Defines the variable "u16Idx" that will be used in the for loop (line 59).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 47
+[TABLE_ITEM_ENGLISH]Line  47
+[TABLE_ITEM_DEUTSCH]Line  47
+
+[TABLE_ITEM_SPANISH]Define la variable "u8AddressByteHigh" que es el byte alto de la dirección a escribir.
+[TABLE_ITEM_ENGLISH]Defines the variable "u8AddressByteHigh" that is the high byte of the address to write.
+[TABLE_ITEM_DEUTSCH]Defines the variable "u8AddressByteHigh" that is the high byte of the address to write.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 48
+[TABLE_ITEM_ENGLISH]Line  48
+[TABLE_ITEM_DEUTSCH]Line  48
+
+[TABLE_ITEM_SPANISH]Define la variable "u8AddressByteLow" que es el byte bajo de la dirección a escribir.
+[TABLE_ITEM_ENGLISH]Defines the variable "u8AddressByteLow" that is the low byte of the address to write.
+[TABLE_ITEM_DEUTSCH]Defines the variable "u8AddressByteLow" that is the low byte of the address to write.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 50 a  52
+[TABLE_ITEM_ENGLISH]Lines  50 to 52
+[TABLE_ITEM_DEUTSCH]Lines  50 to 52
+
+[TABLE_ITEM_SPANISH]Envío del comando "WREN" (necesario antes de cualquier escritura).
+[TABLE_ITEM_ENGLISH]Sending of the "WREN" command (needed before any write).
+[TABLE_ITEM_DEUTSCH]Sending of the "WREN" command (needed before any write).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 54 a  65
+[TABLE_ITEM_ENGLISH]Lines  54 to 65
+[TABLE_ITEM_DEUTSCH]Lines  54 to 65
+
+[TABLE_ITEM_SPANISH]Envío del comando "WRITE".
+[TABLE_ITEM_ENGLISH]Sending of the "WRITE" command.
+[TABLE_ITEM_DEUTSCH]Sending of the "WRITE" command.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 54
+[TABLE_ITEM_ENGLISH]Line  54
+[TABLE_ITEM_DEUTSCH]Line  54
+
+[TABLE_ITEM_SPANISH]Señal CS a nivel bajo para indicar comienzo de transmisión SPI.
+[TABLE_ITEM_ENGLISH]CS Signal to low level to indicate begin of SPI transmission.
+[TABLE_ITEM_DEUTSCH]CS Signal to low level to indicate begin of SPI transmission.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 55
+[TABLE_ITEM_ENGLISH]Line  55
+[TABLE_ITEM_DEUTSCH]Line  55
+
+[TABLE_ITEM_SPANISH]Envío del byte "CMD_WRITE_MEM".
+[TABLE_ITEM_ENGLISH]Sending of the byte "CMD_WRITE_MEM".
+[TABLE_ITEM_DEUTSCH]Sending of the byte "CMD_WRITE_MEM".
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 56
+[TABLE_ITEM_ENGLISH]Line  56
+[TABLE_ITEM_DEUTSCH]Line  56
+
+[TABLE_ITEM_SPANISH]Envío del byte alto de la dirección a escribir.
+[TABLE_ITEM_ENGLISH]Sending of the high byte of the address to write.
+[TABLE_ITEM_DEUTSCH]Sending of the high byte of the address to write.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 57
+[TABLE_ITEM_ENGLISH]Line  57
+[TABLE_ITEM_DEUTSCH]Line  57
+
+[TABLE_ITEM_SPANISH]Envío del byte bajo de la dirección a escribir.
+[TABLE_ITEM_ENGLISH]Sending of the low byte of the address to write.
+[TABLE_ITEM_DEUTSCH]Sending of the low byte of the address to write.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 59 a  64
+[TABLE_ITEM_ENGLISH]Lines  59 to 64
+[TABLE_ITEM_DEUTSCH]Lines  59 to 64
+
+[TABLE_ITEM_SPANISH]Envío de los datos a escribir (el bucle for recorre todo el array y envía los bytes que lo forman).
+[TABLE_ITEM_ENGLISH]Sending of data to write (the for loop iterates through all the array and sends the content).
+[TABLE_ITEM_DEUTSCH]Sending of data to write (the for loop iterates through all the array and sends the content).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 65
+[TABLE_ITEM_ENGLISH]Line  65
+[TABLE_ITEM_DEUTSCH]Line  65
+
+[TABLE_ITEM_SPANISH]Señal CS a nivel alto para indicar fin de transmisión SPI.
+[TABLE_ITEM_ENGLISH]CS Signal to high level to indicate end of SPI transmission.
+[TABLE_ITEM_DEUTSCH]CS Signal to high level to indicate end of SPI transmission.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]06.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 71
+[TABLE_ITEM_ENGLISH]Line  71
+[TABLE_ITEM_DEUTSCH]Line  71
+
+[TABLE_ITEM_SPANISH]Define la función "FramReadMem" que lee datos de la memoria.
+[TABLE_ITEM_ENGLISH]Defines the function "FramReadMem" that reads data from the memory.
+[TABLE_ITEM_DEUTSCH]Defines the function "FramReadMem" that reads data from the memory.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 71 <br>(_u16Address)
+[TABLE_ITEM_ENGLISH]Line  71 <br>(_u16Address)
+[TABLE_ITEM_DEUTSCH]Line  71 <br>(_u16Address)
+
+[TABLE_ITEM_SPANISH]Dirección de la memoria FRAM de donde leer los datos.
+[TABLE_ITEM_ENGLISH]FRAM address where to read the data.
+[TABLE_ITEM_DEUTSCH]FRAM address where to read the data.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 72 <br>(_pu8Data)
+[TABLE_ITEM_ENGLISH]Line  72 <br>(_pu8Data)
+[TABLE_ITEM_DEUTSCH]Line  72 <br>(_pu8Data)
+
+[TABLE_ITEM_SPANISH]Puntero al array donde guardar los datos leidos.
+[TABLE_ITEM_ENGLISH]Pointer to an array where to store the read data.
+[TABLE_ITEM_DEUTSCH]Pointer to an array where to store the read data.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 73 <br>(_u16DataCount)
+[TABLE_ITEM_ENGLISH]Line  73 <br>(_u16DataCount)
+[TABLE_ITEM_DEUTSCH]Line  73 <br>(_u16DataCount)
+
+[TABLE_ITEM_SPANISH]Número de bytes a leer
+[TABLE_ITEM_ENGLISH]Number of bytes to read
+[TABLE_ITEM_DEUTSCH]Number of bytes to read
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 75
+[TABLE_ITEM_ENGLISH]Line  75
+[TABLE_ITEM_DEUTSCH]Line  75
+
+[TABLE_ITEM_SPANISH]Define la variable "u16Idx" que será usada en el bucle for (línea 84).
+[TABLE_ITEM_ENGLISH]Defines the variable "u16Idx" that will be used in the for loop (line 84).
+[TABLE_ITEM_DEUTSCH]Defines the variable "u16Idx" that will be used in the for loop (line 84).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 76
+[TABLE_ITEM_ENGLISH]Line  76
+[TABLE_ITEM_DEUTSCH]Line  76
+
+[TABLE_ITEM_SPANISH]Define la variable "u8AddressByteHigh" que es el byte alto de la dirección a leer.
+[TABLE_ITEM_ENGLISH]Defines the variable "u8AddressByteHigh" that is the high byte of the address to read.
+[TABLE_ITEM_DEUTSCH]Defines the variable "u8AddressByteHigh" that is the high byte of the address to read.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 77
+[TABLE_ITEM_ENGLISH]Line  77
+[TABLE_ITEM_DEUTSCH]Line  77
+
+[TABLE_ITEM_SPANISH]Define la variable "u8AddressByteLow" que es el byte bajo de la dirección a leer.
+[TABLE_ITEM_ENGLISH]Defines the variable "u8AddressByteLow" that is the low byte of the address to read.
+[TABLE_ITEM_DEUTSCH]Defines the variable "u8AddressByteLow" that is the low byte of the address to read.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 79 a  90
+[TABLE_ITEM_ENGLISH]Lines  79 to 90
+[TABLE_ITEM_DEUTSCH]Lines  79 to 90
+
+[TABLE_ITEM_SPANISH]Envío del comando "READ".
+[TABLE_ITEM_ENGLISH]Sending of the "READ" command.
+[TABLE_ITEM_DEUTSCH]Sending of the "READ" command.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 79
+[TABLE_ITEM_ENGLISH]Line  79
+[TABLE_ITEM_DEUTSCH]Line  79
+
+[TABLE_ITEM_SPANISH]Señal CS a nivel bajo para indicar comienzo de transmisión SPI.
+[TABLE_ITEM_ENGLISH]CS Signal to low level to indicate begin of SPI transmission.
+[TABLE_ITEM_DEUTSCH]CS Signal to low level to indicate begin of SPI transmission.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 80
+[TABLE_ITEM_ENGLISH]Line  80
+[TABLE_ITEM_DEUTSCH]Line  80
+
+[TABLE_ITEM_SPANISH]Envío del byte "CMD_READ_MEM".
+[TABLE_ITEM_ENGLISH]Sending of the byte "CMD_READ_MEM".
+[TABLE_ITEM_DEUTSCH]Sending of the byte "CMD_READ_MEM".
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 81
+[TABLE_ITEM_ENGLISH]Line  81
+[TABLE_ITEM_DEUTSCH]Line  81
+
+[TABLE_ITEM_SPANISH]Envío del byte alto de la dirección a leer.
+[TABLE_ITEM_ENGLISH]Sending of the high byte of the address to read.
+[TABLE_ITEM_DEUTSCH]Sending of the high byte of the address to read.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 82
+[TABLE_ITEM_ENGLISH]Line  82
+[TABLE_ITEM_DEUTSCH]Line  82
+
+[TABLE_ITEM_SPANISH]Envío del byte bajo de la dirección a leer.
+[TABLE_ITEM_ENGLISH]Sending of the low byte of the address to read.
+[TABLE_ITEM_DEUTSCH]Sending of the low byte of the address to read.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 84 a  89
+[TABLE_ITEM_ENGLISH]Lines  84 to 89
+[TABLE_ITEM_DEUTSCH]Lines  84 to 89
+
+[TABLE_ITEM_SPANISH]Lectura de los datos (el bucle for recorre todo el array y envía siempre 0, para poder leer del esclavo).<br>La función "SpiWriteByte" devuelve el dato leído y es almacenado en el array.
+[TABLE_ITEM_ENGLISH]Read of the data (the for loop iterates through all the array and sends always 0 to be able to read from the slave).<br>The function "SpiWriteByte" returns the read data and it is stored in the array.
+[TABLE_ITEM_DEUTSCH]Read of the data (the for loop iterates through all the array and sends always 0 to be able to read from the slave).<br>The function "SpiWriteByte" returns the read data and it is stored in the array.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 90
+[TABLE_ITEM_ENGLISH]Line  90
+[TABLE_ITEM_DEUTSCH]Line  90
+
+[TABLE_ITEM_SPANISH]Señal CS a nivel alto para indicar fin de transmisión SPI.
+[TABLE_ITEM_ENGLISH]CS Signal to high level to indicate end of SPI transmission.
+[TABLE_ITEM_DEUTSCH]CS Signal to high level to indicate end of SPI transmission.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[IMG]07.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 99
+[TABLE_ITEM_ENGLISH]Line  99
+[TABLE_ITEM_DEUTSCH]Line  99
+
+[TABLE_ITEM_SPANISH]Habilita interrupciones.
+[TABLE_ITEM_ENGLISH]Enables global interrupts.
+[TABLE_ITEM_DEUTSCH]Enables global interrupts.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 101
+[TABLE_ITEM_ENGLISH]Line  101
+[TABLE_ITEM_DEUTSCH]Line  101
+
+[TABLE_ITEM_SPANISH]Inicializa el componente SPIM.
+[TABLE_ITEM_ENGLISH]Initializes the SPI component.
+[TABLE_ITEM_DEUTSCH]Initializes the SPI component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 103
+[TABLE_ITEM_ENGLISH]Line  103
+[TABLE_ITEM_DEUTSCH]Line  103
+
+[TABLE_ITEM_SPANISH]Pone a nivel alto la señal CS.
+[TABLE_ITEM_ENGLISH]Set the CS signal to high level.
+[TABLE_ITEM_DEUTSCH]Set the CS signal to high level.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 104
+[TABLE_ITEM_ENGLISH]Line  104
+[TABLE_ITEM_DEUTSCH]Line  104
+
+[TABLE_ITEM_SPANISH]Pone a nivel alto la señal WP (habilita las escrituras en la memoria).
+[TABLE_ITEM_ENGLISH]Set the WP signal to high level (enables the writes into the memory).
+[TABLE_ITEM_DEUTSCH]Set the WP signal to high level (enables the writes into the memory).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 105
+[TABLE_ITEM_ENGLISH]Line  105
+[TABLE_ITEM_DEUTSCH]Line  105
+
+[TABLE_ITEM_SPANISH]Pone a nivel alto la señal HOLD (no se usa la función HOLD de la memoria).
+[TABLE_ITEM_ENGLISH]Set the HOLD signal to high level (the HOLD feature of the memory is not used).
+[TABLE_ITEM_DEUTSCH]Set the HOLD signal to high level (the HOLD feature of the memory is not used).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 107
+[TABLE_ITEM_ENGLISH]Line  107
+[TABLE_ITEM_DEUTSCH]Line  107
+
+[TABLE_ITEM_SPANISH]Escribe en la dirección 0x00 los valores : 0,1,2,3,4,5,6,7,8,10,11
+[TABLE_ITEM_ENGLISH]Writes in the address 0x00 the values : 0,1,2,3,4,5,6,7,8,10,11
+[TABLE_ITEM_DEUTSCH]Writes in the address 0x00 the values : 0,1,2,3,4,5,6,7,8,10,11
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 108
+[TABLE_ITEM_ENGLISH]Line  108
+[TABLE_ITEM_DEUTSCH]Line  108
+
+[TABLE_ITEM_SPANISH]Lee 12 bytes de la dirección 0x00 y los almacena en el array "au8FromMemory". <br>(sizeof() devuelve el tamaño en bytes de una variable).<br>Coloca aquí un breakpoint para ver el contenido del array "au8FromMemory", debe ser 0,1,2,3,4,5,6,7,8,10,11.
+[TABLE_ITEM_ENGLISH]Read 12 bytes from the address 0x00 and it stores into the array "au8FromMemory". <br>(sizeof() returns the size in bytes of a variable).<br>Set here a breakpoint to see the content of the array "au8FromMemory", it must be 0,1,2,3,4,5,6,7,8,10,11.
+[TABLE_ITEM_DEUTSCH]Read 12 bytes from the address 0x00 and it stores into the array "au8FromMemory". <br>(sizeof() returns the size in bytes of a variable).<br>Set here a breakpoint to see the content of the array "au8FromMemory", it must be 0,1,2,3,4,5,6,7,8,10,11.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 110
+[TABLE_ITEM_ENGLISH]Line  110
+[TABLE_ITEM_DEUTSCH]Line  110
+
+[TABLE_ITEM_SPANISH]Escribe en la dirección 0x00 los valores : 12,13,14,15,16,17,18,19,20,21,22,23
+[TABLE_ITEM_ENGLISH]Writes in the address 0x00 the values : 12,13,14,15,16,17,18,19,20,21,22,23
+[TABLE_ITEM_DEUTSCH]Writes in the address 0x00 the values : 12,13,14,15,16,17,18,19,20,21,22,23
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 111
+[TABLE_ITEM_ENGLISH]Line  111
+[TABLE_ITEM_DEUTSCH]Line  111
+
+[TABLE_ITEM_SPANISH]Lee 12 bytes de la dirección 0x00 y los almacena en el array "au8FromMemory".     <br>Coloca aquí un breakpoint para ver el contenido del array "au8FromMemory", debe ser 12,13,14,15,16,17,18,19,20,21,22,23.
+[TABLE_ITEM_ENGLISH]Read 12 bytes from the address 0x00 and it stores into the array "au8FromMemory". <br>Set here a breakpoint to see the content of the array "au8FromMemory", it must be 12,13,14,15,16,17,18,19,20,21,22,23.
+[TABLE_ITEM_DEUTSCH]Read 12 bytes from the address 0x00 and it stores into the array "au8FromMemory". <br>Set here a breakpoint to see the content of the array "au8FromMemory", it must be 12,13,14,15,16,17,18,19,20,21,22,23.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS023.zip;Descarga el proyecto aquí (PSoC Creator 4.0).
+[LINK_ENGLISH]downloads/WS023.zip;Download the project here (PSoC Creator 4.0).
+[LINK_DEUTSCH]downloads/WS023.zip;Download the project here (PSoC Creator 4.0).
+
+[LINK_SPANISH]downloads/FM25CL64B.pdf;Descarga la información sobre FM25CL64B.
+[LINK_ENGLISH]downloads/FM25CL64B.pdf;Download the datasheet of FM25CL64B.
+[LINK_DEUTSCH]downloads/FM25CL64B.pdf;Download the datasheet of FM25CL64B.
+
+[END]

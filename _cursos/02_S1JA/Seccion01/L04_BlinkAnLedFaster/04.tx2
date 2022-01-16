@@ -1,0 +1,175 @@
+[LESSON_FOLDER]../_cursos/02_S1JA/Seccion01/L04_BlinkAnLedFaster/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Parpadeo más rápido
+[TITLE_ENGLISH]Blinking faster
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a mostrarte cómo cambiar la frecuencia de parpadeo del led en este ejemplo SW que proporciona Renesas.
+[ENGLISH]I am going to show you how to change the frequency of the led blinking in this SW example by Renesas.
+
+[SPANISH]Si navegas un poco por los ficheros del ejemplo, verás que hay <b>mucho</b> código que se genera automáticamente.
+[ENGLISH]If you browse the SW example files, you can see that there is <b>much</b> source code generated automatically.
+[END_LIST]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Para parar la sesión de depuración haz clic en el siguiente botón:
+[ENGLISH]To stop the debug session click on the below button:
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vuelve a la perspectiva de programación.
+[ENGLISH]Go back to the programming perspective.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Esta es la perspectiva donde puedes escribir el código fuente y configurar el microcontrolador.
+[ENGLISH]This is the perspective where you can write your source code and configure the MCU.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al fichero <b>hal_entry.c</b>. En él está el código de usuario.
+[ENGLISH]Go to the file <b>hal_entry.c</b>. In it, it is the user source code.
+[END_LIST]
+[IMG]04.png
+[BLOCK_END]
+
+[BLOCK_START]
+
+[BEGIN_LIST]
+[SPANISH]Este es el código fuente del fichero <b>hal_entry.c</b>.
+[ENGLISH]This is the source code of the file <b>hal_entry.c</b>.
+[END_LIST]
+
+[SPANISH]<small>Pasa el ratón por encima de las palabras resaltadas para ver la explicación</small>
+[ENGLISH]<small>Hover the mouse over the highlighted words for explanation</small>
+
+[SOURCE_CODE_EX_BEGIN]24
+:code:#include "hal_data.h"
+:code:
+:code:/*******************************************************************************************************************//**
+:code: * @brief  Blinky example application
+:code: *
+:code: * Blinks all leds at a rate of 1 second using the software delay function provided by the BSP.
+:code: * Only references two other modules including the BSP, IOPORT.
+:code: *
+:code: **********************************************************************************************************************/
+
+:code:void hal_entry(void) {
+:key1:     ---------
+:es__:Esta es la función de usuario llamada por <b>main()</b>.
+:en__:This is the user function called by <b>main()</b>.
+
+:code:
+:code:    /* Define the units to be used with the software delay function */
+:code:    const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;
+:code:    /* Set the blink frequency (must be <= bsp_delay_units */
+
+:code:    const uint32_t freq_in_hz = 2 ;
+:key2:                   ----------
+:es__:Frecuencia a la que parpadea el led.
+:en__:Frequency the led blinks at.
+:key3:                               ---
+:es__:2 Hz (dos veces por segundo)
+:en__:2 Hz (twice a second)
+
+:code:    /* Calculate the delay in terms of bsp_delay_units */
+:code:    const uint32_t delay = bsp_delay_units/freq_in_hz;
+:code:    /* LED type structure */
+:code:    bsp_leds_t leds;
+:code:    /* LED state variable */
+:code:    ioport_level_t level = IOPORT_LEVEL_HIGH;
+:code:
+:code:    /* Get LED information for this board */
+:code:    R_BSP_LedsGet(&leds);
+:code:
+:code:    /* If this board has no LEDs then trap here */
+:code:    if (0 == leds.led_count)
+:code:    {
+:code:        while(1);   // There are no LEDs on this board
+:code:    }
+:code:
+:code:    while(1)
+:code:    {
+:code:        /* Determine the next state of the LEDs */
+
+:code:        if(IOPORT_LEVEL_LOW == level)
+:key4:        --
+:es__:Con este <b>if</b> se conmuta el valor del led. Si está a nivel alto se pone a bajo y viceversa.
+:en__:With this <b>if</b> the led is toggled. If it is on it will become off and viceversa.
+
+:code:        {
+:code:            level = IOPORT_LEVEL_HIGH;
+:code:        }
+:code:        else
+:code:        {
+:code:            level = IOPORT_LEVEL_LOW;
+:code:        }
+:code:
+:code:        /* Update all board LEDs */
+:code:        for(uint32_t i = 0; i < leds.led_count; i++)
+:code:        {
+
+:code:            g_ioport.p_api->pinWrite(leds.p_leds[i], level);
+:key5:                            --------
+:es__:Con la función <b>pinWrite</b> escribimos en la salida digital del led.
+:en__:With the function <b>pinWrite</b> you can put a value (on/off) to the the digital output connected to the led.
+
+:code:        }
+:code:
+:code:        /* Delay */
+
+:code:        R_BSP_SoftwareDelay(delay, bsp_delay_units);
+:key6:        -------------------
+:es__:Esta función sirve para hacer un delay con instrucciones. Más adelante veremos maneras más inteligentes de hacerlo.
+:en__:This function is for waiting for a delay using instructions. In later lessons you will see more clever ways of doing that.
+
+:code:    }
+:code:}
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+
+[BEGIN_LIST]
+[SPANISH]Modifica el valor asignado a la variable <b>freq_in_hz</b> para cambiar la frecuencia.
+[ENGLISH]Modify the value assigned to the variable <b>freq_in_hz</b> to change the frequency.
+[END_LIST]
+
+[SOURCE_CODE_EX_BEGIN]37
+:code:    /* Set the blink frequency (must be <= bsp_delay_units */
+
+:code:    const uint32_t freq_in_hz = 10 ;
+:key1:                   ----------
+:es__:Frecuencia a la que parpadea el led.
+:en__:Frequency the led blinks at.
+:key2:                               ----
+:es__:10 Hz (diez veces por segundo)
+:en__:10 Hz (ten times a second)
+[SOURCE_CODE_EX_END]
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En esta lección te he mostrado cómo ir hasta el fichero donde está el código de usuario y dónde cambiar la velocidad, muy sencillo ¿verdad?.
+[ENGLISH]In this lesson I have shown you how to go to the file where the user source code is located and how to change the frequency, easy, is not it?
+
+[SPANISH]En futuras lecciones haremos cosas más difíciles.
+[ENGLISH]In future lessons you will do more interesting things.
+[END_LIST]
+[BLOCK_END]
+
+
+

@@ -1,0 +1,151 @@
+        <div class="title">Clearance</div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text"><b>Clearance</b> is the distance between two elements, two tracks, track and pad, ...</div></li>
+               <li><div class="text">In this lesson we are going to see how to use the <b>clearance</b> of the hole pad.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/01.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I&#39m going to unroute the track between pad 1 of the connector and pad of diode D1.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/03.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/04.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/05.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Once the track is selected, I unroute the track with the <b>delete</b> key.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/06.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/07.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now I&#39m going to route the track so that it goes through the circular crown around the hole.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/08.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Having a copper track in the <b>top</b> layer that goes through the crown is dangerous because when you tighten the screw the track can be damaged by the screw head.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/09.png">
+            <ul>
+               <li><div class="text">This is the head of the screw.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/10.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s see if <b>KiCad</b> gives us some kind of error or warning.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/11.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/12.png">
+            <ul>
+               <li><div class="text">No error:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/13.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to use the <b>clearance</b> of the pad to avoid these problems.</div></li>
+               <li><div class="text">Let&#39s edit the footprint of the hole.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/14.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/15.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to measure the distance from the pad to the crown limit.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/16.png">
+            <ul>
+               <li><div class="text">The distance is <b>1.86mm</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/17.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to edit the pad.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/18.png">
+            <ul>
+               <li><div class="text">We go to the <b>Local Clearance and Settings</b> tab</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/19.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/20.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">I am going to put the value <b>1.86mm</b> in the field <b>Pad clearance</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/21.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/22.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Save the footprint and go back to the PCB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/23.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now we have to update the footprint of the holes in the PCB with the changes we have made in the library.</div></li>
+               <li><div class="text">Select the footprint of the hole and update the footprint with the option <b>Update Footprint ...</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/24.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/25.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/26.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to update all the footprints of the PCB called <b>MountingHole_M3</b></div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/27.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/28.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Let&#39s see if there are errors on the PCB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/29.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/30.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">Now <b>KiCad</b> has detected that there is a track inside the crown of the hole.</div></li>
+               <li><div class="text">If you click on the <b>KiCad</b> error, it leads to the error on the PCB.</div></li>
+               <li><div class="text">Now we have the hole correctly defined.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/31.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/32.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to re-route the track to return to the original state.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/33.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/34.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/35.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/36.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/37.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We are going to check that our board has no errors.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/38.png">
+            <ul>
+               <li><div class="text">There are no more errors:</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/39.png">
+        </div>
+        <div class="step-block">
+            <ul>
+               <li><div class="text">We already have the 4 holes in our PCB.</div></li>
+            </ul>
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/40.png">
+            <img class="img" src="../_cursos/07_KiCad5/Seccion06/L34_Clearance/img/41.png">
+        </div>

@@ -1,0 +1,233 @@
+[IMG_FOLDER]img/021_P010_Uart_Leds/
+
+[TITLE_SPANISH]010 - UART y Leds
+[TITLE_ENGLISH]010 - UART and LEDs
+[TITLE_DEUTSCH]010 - UART and LEDs
+
+[SPANISH]En este proyecto vas a usar el interfaz UART para encender los leds.
+[ENGLISH]In this project you will use the UART interface to switch on the LEDs.
+[DEUTSCH]In this project you will use the UART interface to switch on the LEDs.
+
+[SPANISH]PSoC enviará un mensaje al ordenador así :
+[ENGLISH]PSoC will send a string to the PC as follows :
+[DEUTSCH]PSoC will send a string to the PC as follows :
+
+[IMG_SPANISH]20.png;90
+[IMG_ENGLISH]21.png;90
+[IMG_DEUTSCH]21.png;90
+
+[SPANISH]Si envías un carácter entre 1 y 3 desde el ordenador, se encenderá un led según la siguiente tabla:
+[ENGLISH]If you send a character from 1 to 3 from the PC, an LED will be switched on according to the following table:
+[DEUTSCH]If you send a character from 1 to 3 from the PC, an LED will be switched on according to the following table:
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Carácter
+[TABLE_ITEM_ENGLISH]Character
+[TABLE_ITEM_DEUTSCH]Character
+
+[TABLE_ITEM_SPANISH]LED
+[TABLE_ITEM_ENGLISH]LED
+[TABLE_ITEM_DEUTSCH]LED
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]1
+[TABLE_ITEM_ENGLISH]1
+[TABLE_ITEM_DEUTSCH]1
+
+[TABLE_ITEM_SPANISH]rojo
+[TABLE_ITEM_ENGLISH]red
+[TABLE_ITEM_DEUTSCH]red
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]2
+[TABLE_ITEM_ENGLISH]2
+[TABLE_ITEM_DEUTSCH]2
+
+[TABLE_ITEM_SPANISH]verde
+[TABLE_ITEM_ENGLISH]green
+[TABLE_ITEM_DEUTSCH]green
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]3
+[TABLE_ITEM_ENGLISH]3
+[TABLE_ITEM_DEUTSCH]3
+
+[TABLE_ITEM_SPANISH]Azul
+[TABLE_ITEM_ENGLISH]Blue
+[TABLE_ITEM_DEUTSCH]Blue
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]Conecta el kit como en el proyecto 009-Uart.
+[ENGLISH]Connect the kit as in the 009-Uart project.
+[DEUTSCH]Connect the kit as in the 009-Uart project.
+
+[IMG]P009_PSoC5_PSoC4_2.png;80
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Steps
+
+[SPANISH]Copia el Workspace 1 y renómbralo como 10.
+[ENGLISH]Copy the Workspace 1 and rename it as 10.
+[DEUTSCH]Copy the Workspace 1 and rename it as 10.
+
+[IMG]01.png;60
+[IMG]02.png;60
+
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[DEUTSCH]Go to the schematic.
+
+[IMG]03.png;60
+[IMG]04.png;90
+
+[SPANISH]Busca el componente UART (SCB mode).
+[ENGLISH]Search for the UART (SCB mode) component.
+[DEUTSCH]Search for the UART (SCB mode) component.
+
+[IMG]05.png;70
+
+[SPANISH]Arrastra el componente UART al esquemático y haz doble clic en él.
+[ENGLISH]Drag the UART component to the schematic and double click on it.
+[DEUTSCH]Drag the UART component to the schematic and double click on it.
+
+[IMG]06.png;60
+
+[SPANISH]Renómbralo como UART y selecciona 38400 como velocidad de transmisión.
+[ENGLISH]Rename it as UART and select 38400 as baudrate.
+[DEUTSCH]Rename it as UART and select 38400 as baudrate.
+
+[IMG]07.png;90
+
+[SPANISH]Genera la aplicación para generar la API (funciones) del nuevo componente.
+[ENGLISH]Generate Application to generate the API (functions) of the new component.
+[DEUTSCH]Generate Application to generate the API (functions) of the new component.
+
+[IMG]09.png;60
+
+[SPANISH]Asigna los pines UART del PSoC 4.
+[ENGLISH]Assign the PSoC 4 UART pins.
+[DEUTSCH]Assign the PSoC 4 UART pins.
+
+[IMG]22.png;90
+[IMG]14.png;90
+[IMG]15.png;90
+[IMG]16.png;90
+
+[SPANISH]Ve a "main.c" y borrar el código antiguo:
+[ENGLISH]Go to "main.c" and delete the old code:
+[DEUTSCH]Go to "main.c" and delete the old code:
+
+[IMG]10.png;60
+[IMG]11.png;90
+[IMG]12.png;90
+
+[SPANISH]Añade el siguiente código :
+[ENGLISH]Add the following code :
+[DEUTSCH]Add the following code :
+
+[IMG]19.png;90
+
+[TABLE_BEGIN]90
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Función / Línea
+[TABLE_ITEM_ENGLISH]Function / Line
+[TABLE_ITEM_DEUTSCH]Function / Line
+
+[TABLE_ITEM_SPANISH]Descripción
+[TABLE_ITEM_ENGLISH]Description
+[TABLE_ITEM_DEUTSCH]Beschreibung
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 18
+[TABLE_ITEM_ENGLISH]Line  18
+[TABLE_ITEM_DEUTSCH]Line  18
+
+[TABLE_ITEM_SPANISH]Inicializa el componente UART.
+[TABLE_ITEM_ENGLISH]Initializes the UART component.
+[TABLE_ITEM_DEUTSCH]Initializes the UART component.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 19
+[TABLE_ITEM_ENGLISH]Line  19
+[TABLE_ITEM_DEUTSCH]Line  19
+
+[TABLE_ITEM_SPANISH]Envía el mensaje inicial al ordenador por UART.
+[TABLE_ITEM_ENGLISH]Sends the initial string to the PC via UART.
+[TABLE_ITEM_DEUTSCH]Sends the initial string to the PC via UART.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Línea 23 (UART_UartGetChar())
+[TABLE_ITEM_ENGLISH]Line  23 (UART_UartGetChar())
+[TABLE_ITEM_DEUTSCH]Line  23 (UART_UartGetChar())
+
+[TABLE_ITEM_SPANISH]Lee el caracter recibido por UART (Si no recibe nada, devuelve el valor 0).
+[TABLE_ITEM_ENGLISH]Gets the character received via UART (if there is no character in the buffer, it returns the value 0).
+[TABLE_ITEM_DEUTSCH]Gets the character received via UART (if there is no character in the buffer, it returns the value 0).
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 27 a 29
+[TABLE_ITEM_ENGLISH]Lines 27 through 29
+[TABLE_ITEM_DEUTSCH]Lines 27 through 29
+
+[TABLE_ITEM_SPANISH]Apaga todos los leds.
+[TABLE_ITEM_ENGLISH]Switchs off all LEDs.
+[TABLE_ITEM_DEUTSCH]Switchs off all LEDs.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 31 a 34
+[TABLE_ITEM_ENGLISH]Lines 31 through 34
+[TABLE_ITEM_DEUTSCH]Lines 31 through 34
+
+[TABLE_ITEM_SPANISH]Si el carácter recibido es el 1, enciende el led rojo.
+[TABLE_ITEM_ENGLISH]If the received character is 1, the red LED is switched on.
+[TABLE_ITEM_DEUTSCH]If the received character is 1, the red LED is switched on.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 35 a 38
+[TABLE_ITEM_ENGLISH]Lines 35 through 38
+[TABLE_ITEM_DEUTSCH]Lines 35 through 38
+
+[TABLE_ITEM_SPANISH]Si el carácter recibido es el 2, enciende el led verde.
+[TABLE_ITEM_ENGLISH]If the received character is 2, the green LED is switched on.
+[TABLE_ITEM_DEUTSCH]If the received character is 2, the green LED is switched on.
+[TABLE_ROW_END]
+
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Líneas 39 a 42
+[TABLE_ITEM_ENGLISH]Lines 39 through 42
+[TABLE_ITEM_DEUTSCH]Lines 39 through 42
+
+[TABLE_ITEM_SPANISH]Si el carácter recibido es el 3, enciende el led azul.
+[TABLE_ITEM_ENGLISH]If the received character is 3, the blue LED is switched on.
+[TABLE_ITEM_DEUTSCH]If the received character is 3, the blue LED is switched on.
+[TABLE_ROW_END]
+
+[TABLE_END]
+
+[SPANISH]Como siempre, compila el proyecto y transfiere el programa.
+[ENGLISH]As always, build the project and transfer the program.
+[DEUTSCH]As always, build the project and transfer the program.
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+[TITLE_DEUTSCH]Downloads
+
+[LINK_SPANISH]downloads/WS010es.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS010en.zip;Download the project here (PSoC Creator 3.3).
+[LINK_DEUTSCH]downloads/WS010en.zip;Download the project here (PSoC Creator 3.3).
+

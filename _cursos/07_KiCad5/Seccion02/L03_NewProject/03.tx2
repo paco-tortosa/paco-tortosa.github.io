@@ -1,0 +1,107 @@
+[LESSON_FOLDER]../_cursos/07_KiCad5/Seccion02/L03_NewProject/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Nuevo proyecto
+[TITLE_ENGLISH]New project
+
+[MPPRO_SECTION_ES_EN]Esquemático final|Final schematic
+[MPPRO_VIDEO]03_Camtasia\02_cam_FinalSch.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a crear nuestro primer proyecto en el que vamos a diseñar un regulador lineal.
+[ENGLISH]We are going to create our first project in which we are going to design a linear regulator.
+[SPANISH]El nombre del proyecto será <b>001_7805</b>.
+[ENGLISH]The name of the project will be <b>001_7805</b>.
+[SPANISH]Este es el esquemático:
+[ENGLISH]This is the schematic:
+[END_LIST]
+[IMG]_FinalSCH.png
+[BLOCK_END]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+
+[MPPRO_SECTION_ES_EN]KiCad|KiCad
+[MPPRO_VIDEO]03_Camtasia\01_cam.mp4|0
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Abre KiCad.
+[ENGLISH]Open KiCad.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz clic en el botón de crear nuevo proyecto (<b>Create new project</b>).
+[ENGLISH]Click on the <b>Create new project</b> button.
+[END_LIST]
+[IMG]02.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Da el nombre al proyecto y asegúrate de que la opción de crear nuevo directorio para el proyecto (<b>Create a new directory for the project</b>) esté activa.
+[ENGLISH]Give the name to the project and make sure that the option <b>Create a new directory for the project</b> is checked.
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al esquemático.
+[ENGLISH]Go to the schematic.
+[END_LIST]
+[IMG]04.png
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a editar las propiedades de la página.
+[ENGLISH]Let&#39s edit the settings of the page.
+[END_LIST]
+[IMG]06.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Lo primero es establecer la fecha del proyecto. Hay un botón para asignar la fecha de hoy.
+[ENGLISH]The first is to set the date of the project. There is a button to set the today&#39s date.
+[END_LIST]
+[IMG]07.png
+[IMG]08.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Voy a poner la revisión <b>1.0</b>, el título <b>001_7805</b> y como compañía mi nombre <b>Javier Martinez</b>.
+[ENGLISH]I am going to set the revision <b>1.0</b>, the title <b>001_7805</b> and as company my name <b>Javier Martinez</b>.
+[END_LIST]
+[IMG]09.png
+[IMG]10.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a ver en grande la caja de la página.
+[ENGLISH]Let&#39s zoom in the box of the page.
+[END_LIST]
+[IMG]11.png
+[IMG]12.png
+[IMG]13.png
+[IMG]14.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Con este botón volvemos a ver toda la página.
+[ENGLISH]With this button we can see the complete page again.
+[END_LIST]
+[IMG]15.png
+[IMG]16.png
+[BLOCK_END]
+
+

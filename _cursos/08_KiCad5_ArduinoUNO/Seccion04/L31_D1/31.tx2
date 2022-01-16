@@ -1,0 +1,71 @@
+[LESSON_FOLDER]../_cursos/08_KiCad5_ArduinoUNO/Seccion04/L31_D1/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Diodo D1
+[TITLE_ENGLISH]D1 diode
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]El diodo <b>D1</b> protege contra tensiones negativas la alimentación que entra por el conector <b>X1</b>.
+[ENGLISH]The <b>D1</b> diode protects against negative voltages the power that enters through the <b>X1</b> connector.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el diodo que he encontrado en Mouser.
+[ENGLISH]This is the diode that I found at Mouser.
+[END_LIST]
+[IMG]02.png
+
+[BEGIN_LIST]
+[SPANISH]Soporta hasta <b>1A</b> y tiene una caída de tensión de <b>1.1V</b>
+[ENGLISH]Supports up to <b>1A</b> and has a voltage drop of <b>1.1V</b>
+[END_LIST]
+[IMG]03.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ya teníamos un diodo parecido en nuestra librería de 150mA. Lo copiamos, le cambiamos el valor a 1A, el part number, fabricante y footprint.
+[ENGLISH]We already had a similar diode in our library, of 150mA. We copy it, change the value to 1A, the part number, manufacturer and footprint.
+[END_LIST]
+[IMG]04.png
+[IMG]05.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Este es el datasheet con sus dimensiones
+[ENGLISH]This is the datasheet with its dimensions
+[END_LIST]
+[IMG]06.png
+
+[BEGIN_LIST]
+[SPANISH]En la librería <b>Diode_SMD</b> está el footprint <b>D_SMA</b>.
+[ENGLISH]The <b>D_SMA</b> footprint is in the <b>Diode_SMD</b> library.
+[END_LIST]
+[IMG]07.png
+
+[BEGIN_LIST]
+[SPANISH]El footprint de KiCad es algo más grande que las dimensiones del datasheet, así que el footprint es Ok.
+[ENGLISH]The KiCad footprint is somewhat larger than the datasheet dimensions, so the footprint is Ok.
+[END_LIST]
+[IMG]08.png
+
+[BEGIN_LIST]
+[SPANISH]He copiado el footprint a nuestra librería.
+[ENGLISH]I have copied the footprint to our library.
+[END_LIST]
+[IMG]09.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads
+[BLOCK_START]
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/fm4001-fm4007-1113844.pdf;Datasheet
+[LINK_ENGLISH]downloads/fm4001-fm4007-1113844.pdf;Datasheet
+[END_LIST]
+[BLOCK_END]

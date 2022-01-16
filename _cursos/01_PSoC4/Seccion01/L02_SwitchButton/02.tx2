@@ -1,0 +1,231 @@
+[LESSON_FOLDER]../_cursos/01_PSoC4/Seccion01/L02_SwitchButton/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Pulsador
+[TITLE_ENGLISH]Switch Button
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Vamos a usar el pulsador SW2 para encender el led RGB.
+[ENGLISH]We are going to use the swicth button (SW2) to control the RGB led.
+[END_LIST]
+[IMG]18a.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Puedes ver toda la información sobre el kit CY8CKIT-042 en la guía de usuario (ve a la sección de <b>Descargas</b> de la lección 01)
+[ENGLISH]You can find all the information about the CY8CKIT-042 kit in the user guide (go to the <b>Downloads</b> section of the lesson 01)
+[END_LIST]
+[BLOCK_END]
+
+[SECTION_SPANISH]Pasos
+[SECTION_ENGLISH]Steps
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Ve al esquemático y abre el catálogo de componentes. Busca dentro del grupo de "Ports and Pins" la entrada digital ("Digital Input Pin").
+[ENGLISH]Go to the schematic and open the component catalog. Go to "Ports and Pins" and "Digital Input Pin".
+[END_LIST]
+[IMG]15.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Arrástralo al esquemático.
+[ENGLISH]Drag it to the schematic.
+[END_LIST]
+[IMG]16.png
+[IMG]17.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic en "Pin_1" para editar sus propiedades.
+[ENGLISH]Double click on "Pin_1" to modify its properties.
+[END_LIST]
+[IMG]19.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En la guía de usuario vemos que el pulsador ("User Button") se llama SW2 y que está conectado al pin P0_7.
+[ENGLISH]In the user guide you can see that the name of the switch button is SW2 and it is connected to pin P0_7.
+[END_LIST]
+[IMG]18.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Modifica las siguientes propiedades :
+[ENGLISH]Modify the following properties :
+[END_LIST]
+
+[TABLE_BEGIN]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Propiedad
+[TABLE_ITEM_ENGLISH]Property
+[TABLE_ITEM_SPANISH]Valor
+[TABLE_ITEM_ENGLISH]Value
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Nombre
+[TABLE_ITEM_ENGLISH]Name
+[TABLE_ITEM_SPANISH]SW2
+[TABLE_ITEM_ENGLISH]SW2
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]HW connection
+[TABLE_ITEM_ENGLISH]HW connection
+[TABLE_ITEM_SPANISH]No
+[TABLE_ITEM_ENGLISH]No
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]External terminal
+[TABLE_ITEM_ENGLISH]External terminal
+[TABLE_ITEM_SPANISH]Sí
+[TABLE_ITEM_ENGLISH]Yes
+[TABLE_ROW_END]
+[TABLE_ROW_BEGIN]
+[TABLE_ITEM_SPANISH]Drive Mode
+[TABLE_ITEM_ENGLISH]Drive Mode
+[TABLE_ITEM_SPANISH]Resistive pull up
+[TABLE_ITEM_ENGLISH]Resistive pull up
+[TABLE_ROW_END]
+[TABLE_END]
+
+[IMG]20a.png
+[IMG]21.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En el catálogo de componentes selecciona pulsador (Switch).
+[ENGLISH]In the component catalog, select Switch.
+[END_LIST]
+[IMG]22.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Arrástralo al esquemático.
+[ENGLISH]Drag it to the schematic.
+[END_LIST]
+[IMG]23.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]En el catálogo de componentes selecciona masa (Ground).
+[ENGLISH]In the component catalog, select Ground.
+[END_LIST]
+[IMG]24.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Arrástrala al esquemático.
+[ENGLISH]Drag it to the schematic.
+[END_LIST]
+[IMG]25.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Selecciona la herramienta para unir componentes.
+[ENGLISH]Select the Wire Tool to join the components.
+[END_LIST]
+[IMG]26.png
+[IMG]27.png
+[IMG]28.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic para renombrar el pulsador.
+[ENGLISH]Double click on the switch to rename it.
+[END_LIST]
+[IMG]29.png
+[IMG]30.png
+[IMG]31.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Haz doble clic en <b>Proyecto02.cydwr</b> para asignar un pin del PSoC al pulsador.
+[ENGLISH]Double click on <b>Proyecto02.cydwr</b> to assign a pin to the switch.
+[END_LIST]
+[IMG]32.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Arrastra el Pin_SW2 desde la parte derecha al pin P0_7.
+[ENGLISH]Drag the Pin_SW2 and drop it to the pin P0_7. 
+[END_LIST]
+[IMG]33.png
+[IMG]34.png
+[IMG]35.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Abre <b>main.c</b>
+[ENGLISH]Open <b>main.c</b>
+[END_LIST]
+[IMG]36.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Modifica el código para activar el led azul cuando pulses el pulsador SW2.
+[ENGLISH]Modify the source code to activate the blue led when the switch button SW2 is pressed.
+[END_LIST]
+[IMG]37.png
+[IMG]38.png
+[IMG]39.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]La función <b>Pin_SW2_Read()</b> devuelve 0 cuando el pulsador SW2 está pulsado.
+[ENGLISH]The function <b>Pin_SW2_Read()</b> returns 0 when the switch button SW2 is pressed.
+[END_LIST]
+[IMG]43.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cuando el pulsador SW2 no está cerrado hay un 1 lógico en la entrada digital P0_7 (debido a la resistencia pull-up interna), este 1 se lleva a la salida digital P0_3 y el LED no se enciende porque no hay diferencia de potencial entre sus patas.
+[ENGLISH]When the switch button SW2 is not closed, there is a logical 1 in the digital input P0_7 (due to the internal pull-up resistor), this logical 1 is copied to the digital output P0_3 and the LED is off because there is no voltage drop in its pins.
+[END_LIST]
+[IMG]002_Open.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Cuando el pulsador SW2 está cerrado hay un 0 lógico en la entrada digital P0_7, este 0 se lleva a la salida digital P0_3 y el LED se enciende.
+[ENGLISH]When the switch button SW2 is closed, there is a logical 0 in the digital input P0_7, this logical 0 is copied to the digital output P0_3 and the LED lights.
+[END_LIST]
+[IMG]002_Close.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Compila el project.
+[ENGLISH]Build the project.
+[END_LIST]
+[IMG]40.png
+[IMG]41.png
+[BLOCK_END]
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Y transfiere el programa.
+[ENGLISH]And transfer the program.
+[END_LIST]
+[IMG]42.png
+[BLOCK_END]
+
+
+

@@ -1,0 +1,188 @@
+[IMG_FOLDER]img/008_002Project/
+
+[TITLE_SPANISH]002 - Pulsador
+[TITLE_ENGLISH]002 - Switch Button
+[TITLE_DEUTSCH]002 - Switch Button
+
+[SPANISH]Vamos a usar el pulsador SW2 para encender el led RGB.
+[ENGLISH]Let's use the swicth button (SW2) to control the RGB led.
+[DEUTSCH]Let's use the swicth button (SW2) to control the RGB led.
+
+[IMG]18a.png;70
+
+[SPANISH]Puedes ver toda la información sobre el kit CY8CKIT-042 en :
+[ENGLISH]You can find all the information about the CY8CKIT-042 kit on :
+[DEUTSCH]You can find all the information about the CY8CKIT-042 kit on :
+
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;Guía de usuario
+[LINK_ENGLISH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;User guide
+[LINK_DEUTSCH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;User guide
+[END_LIST]
+
+[TITLE_SPANISH]Pasos
+[TITLE_ENGLISH]Steps
+[TITLE_DEUTSCH]Schritte
+
+[SPANISH]Ve al esquemático y abre el catálogo de componentes. Busca dentro del grupo de "Ports and Pins" la entrada digital ("Digital Input Pin").
+[ENGLISH]Go to the schematic and open the component catalog. Go to "Ports and Pins" and "Digital Input Pin".
+[DEUTSCH]Go to the schematic and open the component catalog. Go to "Ports and Pins" and "Digital Input Pin".
+
+[IMG]15.png;90
+
+[SPANISH]Arrástralo al esquemático.
+[ENGLISH]Drag it to the schematic.
+[DEUTSCH]Drag it to the schematic.
+
+[IMG]16.png;90
+[IMG]17.png;90
+
+[SPANISH]Haz doble clic en "Pin_1" para editar sus propiedades.
+[ENGLISH]Double click on "Pin_1" to modify its properties.
+[DEUTSCH]Double click on "Pin_1" to modify its properties.
+
+[IMG]19.png;90
+
+[SPANISH]En la guía de usuario vemos que el pulsador ("User Button") se llama SW2 y que está conectado al pin P0_7.
+[ENGLISH]In the user guide you can see that the name of the switch button is SW2 and it is connected to pin P0_7.
+[DEUTSCH]In the user guide you can see that the name of the switch button is SW2 and it is connected to pin P0_7.
+
+[BEGIN_LIST]
+[LINK_SPANISH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;Guía de usuario
+[LINK_ENGLISH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;User guide
+[LINK_DEUTSCH]downloads/CY8CKIT_042_PSOC4_PIONEER_KIT_GUIDE.pdf;User guide
+[END_LIST]
+
+[IMG]18.png;90
+
+[SPANISH]Modifica las siguientes propiedades :
+[ENGLISH]Modify the following properties :
+[DEUTSCH]Modify the following properties :
+
+[BEGIN_LIST]
+[SPANISH]Nombre ("SW2")
+[ENGLISH]Name ("SW2)
+[DEUTSCH]Name ("SW2)
+
+[SPANISH]HW connection (No)
+[ENGLISH]HW connection (No)
+[DEUTSCH]HW connection (No)
+
+[SPANISH]External terminal (Sí)
+[ENGLISH]External terminal (Yes)
+[DEUTSCH]External terminal (Yes)
+
+[SPANISH]Drive Mode (Resistive pull up)
+[ENGLISH]Drive Mode (Resistive pull up)
+[DEUTSCH]Drive Mode (Resistive pull up)
+[END_LIST]
+
+[IMG]20a.png;90
+
+[IMG]21.png;90
+
+[SPANISH]En el catálogo de componentes selecciona pulsador (Switch).
+[ENGLISH]In the component catalog, select Switch.
+[DEUTSCH]In the component catalog, select Switch.
+
+[IMG]22.png;50
+
+[SPANISH]Arrástralo al esquemático.
+[ENGLISH]Drag it to the schematic.
+[DEUTSCH]Drag it to the schematic.
+
+[IMG]23.png;90
+
+[SPANISH]En el catálogo de componentes selecciona masa (Ground).
+[ENGLISH]In the component catalog, select Ground.
+[DEUTSCH]In the component catalog, select Ground.
+
+[IMG]24.png;50
+
+[SPANISH]Arrástrala al esquemático.
+[ENGLISH]Drag it to the schematic.
+[DEUTSCH]Drag it to the schematic.
+
+[IMG]25.png;90
+
+[SPANISH]Selecciona la herramienta para unir componentes.
+[ENGLISH]Select the Wire Tool to join the components.
+[DEUTSCH]Select the Wire Tool to join the components.
+
+[IMG]26.png;50
+[IMG]27.png;90
+[IMG]28.png;90
+
+[SPANISH]Haz doble clic para renombrar el pulsador.
+[ENGLISH]Double click on the switch to rename it.
+[DEUTSCH]Double click on the switch to rename it.
+
+[IMG]29.png;90
+[IMG]30.png;70
+[IMG]31.png;90
+
+[SPANISH]Haz doble clic en "Proyecto02.cydwr" para asignar un pin del PSoC al pulsador.
+[ENGLISH]Double click on "Proyecto02.cydwr" to assign a pin to the switch.
+[DEUTSCH]Double click on "Proyecto02.cydwr" to assign a pin to the switch.
+
+[IMG]32.png;50
+
+[SPANISH]Arrastra el Pin_SW2 desde la parte derecha al pin P0_7.
+[ENGLISH]Drag the Pin_SW2 and drop it to the pin P0_7. 
+[DEUTSCH]Drag the Pin_SW2 and drop it to the pin P0_7. 
+
+[IMG]33.png;90
+[IMG]34.png;90
+[IMG]35.png;90
+
+[SPANISH]Abre "main.c".
+[ENGLISH]Open "main.c".
+[DEUTSCH]Open "main.c".
+
+[IMG]36.png;50
+
+[SPANISH]Modifica el código para activar el led azul cuando pulses el pulsador SW2.
+[ENGLISH]Modify the source code to activate the blue led when the switch button SW2 is pressed.
+[DEUTSCH]Modify the source code to activate the blue led when the switch button SW2 is pressed.
+
+[IMG]37.png;60
+[IMG]38.png;90
+[IMG]39.png;90
+
+[SPANISH]La función "Pin_SW2_Read()" devuelve 0 cuando el pulsador SW2 está pulsado.
+[ENGLISH]The function "Pin_SW2_Read()" returns 0 when the switch button SW2 is pressed.
+[DEUTSCH]The function "Pin_SW2_Read()" returns 0 when the switch button SW2 is pressed.
+
+[IMG]43.png;60
+
+[SPANISH]Cuando el pulsador SW2 no está cerrado hay un 1 lógico en la entrada digital P0_7 (debido a la resistencia pull-up interna), este 1 se lleva a la salida digital P0_3 y el LED no se enciende porque no hay diferencia de potencial entre sus patas.
+[ENGLISH]When the switch button SW2 is not closed, there is a logical 1 in the digital input P0_7 (due to the internal pull-up resistor), this logical 1 is copied to the digital output P0_3 and the LED is off because there is no voltage drop in its pins.
+[DEUTSCH]When the switch button SW2 is not closed, there is a logical 1 in the digital input P0_7 (due to the internal pull-up resistor), this logical 1 is copied to the digital output P0_3 and the LED is off because there is no voltage drop in its pins.
+
+[IMG]002_Open.png;90
+
+[SPANISH]Cuando el pulsador SW2 está cerrado hay un 0 lógico en la entrada digital P0_7, este 0 se lleva a la salida digital P0_3 y el LED se enciende.
+[ENGLISH]When the switch button SW2 is closed, there is a logical 0 in the digital input P0_7, this logical 0 is copied to the digital output P0_3 and the LED lights.
+[DEUTSCH]When the switch button SW2 is closed, there is a logical 0 in the digital input P0_7, this logical 0 is copied to the digital output P0_3 and the LED lights.
+
+[IMG]002_Close.png;90
+
+[SPANISH]Compila el project.
+[ENGLISH]Build the project.
+[DEUTSCH]Build the project.
+
+[IMG]40.png;50
+[IMG]41.png;90
+
+[SPANISH]Y transfiere el programa.
+[ENGLISH]And transfer the program.
+[DEUTSCH]And transfer the program.
+
+[IMG]42.png;50
+
+[TITLE_SPANISH]Descargas
+[TITLE_ENGLISH]Downloads
+
+[LINK_SPANISH]downloads/WS002.zip;Descarga el proyecto aquí (PSoC Creator 3.3).
+[LINK_ENGLISH]downloads/WS002.zip;Download the project here (PSoC Creator 3.3).
+
