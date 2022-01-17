@@ -1,19 +1,19 @@
 [LESSON_FOLDER]../courses/00_Web/HomePage/
 [IMG_FOLDER]img/
 
-[TITLE_SPANISH]Bienvenido a <b>Embedded-Learning Academy</b>
-[TITLE_ENGLISH]Welcome to <b>Embedded-Learning Academy</b> 
+[TITLE_SPANISH]Bienvenido
+[TITLE_ENGLISH]Welcome 
 
 [BLOCK_START]
 [BEGIN_LIST]
 [SPANISH]<b>Muchas gracias</b> por visitar mi web-page.
 [ENGLISH]<b>Many thanks</b> for visiting my web-page.
 
-[SPANISH]Me llamo <b>Javier Martínez</b> y soy Ingeniero de Telecomunicación.
-[ENGLISH]My name is <b>Javier Martínez</b> and I am a Telecommunication Engineer.
+[SPANISH]Me llamo <b>Paco Tortosa</b> y soy Ingeniero de Telecomunicación.
+[ENGLISH]My name is <b>Paco Tortosa</b> and I am a Telecommunication Engineer.
 
-[SPANISH]Aquí podrás encontrar <b>CURSOS</b> sobre microcontroladores.
-[ENGLISH]Here you can find <b>COURSES</b> on MCU.
+[SPANISH]Aquí podrás encontrar <b>CURSOS</b> sobre electrónica analógica y microcontroladores.
+[ENGLISH]Here you can find <b>COURSES</b> on analog electronics and MCU.
 
 [SPANISH]Mi email es<a class="email" href = "mailto: javierm@embedded-learning.academy">javierm@embedded-learning.academy</a>
 [ENGLISH]My email is<a class="email" href = "mailto: javierm@embedded-learning.academy">javierm@embedded-learning.academy</a>
