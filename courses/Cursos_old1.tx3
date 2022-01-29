@@ -1,0 +1,49 @@
+[COURSE_ES_EN]      Grove               |Grove              |05_Grove_Arduino
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
+ [SECTION_ES_EN]2   |Módulos            |Modules            |Seccion02
+        
+[COURSE_ES_EN]      KiCad5              |KiCad5             |07_KiCad5
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
+ [SECTION_ES_EN]2   |Proyecto           |Project            |Seccion02
+ [SECTION_ES_EN]3   |Componentes        |Components         |Seccion03
+ [SECTION_ES_EN]4   |Esquemático        |Schematic          |Seccion04
+ [SECTION_ES_EN]5   |PCB                |PCB                |Seccion05
+ [SECTION_ES_EN]6   |Agujeros           |Holes              |Seccion06
+ [SECTION_ES_EN]7   |Fiduciales         |Fiducials          |Seccion07
+ [SECTION_ES_EN]8   |Serigrafía         |Silkscreen         |Seccion08
+ [SECTION_ES_EN]9   |Borde              |Edge               |Seccion09
+ [SECTION_ES_EN]10  |Planos             |Planes             |Seccion10
+ [SECTION_ES_EN]11  |Salida             |Output             |Seccion11
+ 
+[COURSE_ES_EN]      KiCad5-Arduino UNO  |KiCad5-Arduino UNO |08_KiCad5_ArduinoUNO
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
+ [SECTION_ES_EN]2   |Proyecto           |Project            |Seccion02
+ [SECTION_ES_EN]3   |Componentes I      |Components I       |Seccion03
+ [SECTION_ES_EN]4   |Componentes II     |Components II      |Seccion04
+
+[COURSE_ES_EN]      LPC804              |LPC804             |06_LPC804
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
+ [SECTION_ES_EN]2   |Leds               |Leds               |Seccion02
+ [SECTION_ES_EN]3   |Debug              |Debug              |Seccion03
+ [SECTION_ES_EN]4   |Part I             |Part I             |Seccion04
+        
+[COURSE_ES_EN]      PSoC 4              |PSoC 4             |01_PSoC4
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
+ [SECTION_ES_EN]2   |Hardware (I)       |Hardware (I)       |Seccion02
+ [SECTION_ES_EN]3   |UART               |UART               |Seccion03
+ [SECTION_ES_EN]4   |Hardware (II)      |Hardware (II)      |Seccion04
+ [SECTION_ES_EN]5   |Analog             |Analog             |Seccion05
+ [SECTION_ES_EN]6   |SPI                |SPI                |Seccion06
+ [SECTION_ES_EN]7   |Verilog            |Verilog            |Seccion07
+        
+[COURSE_ES_EN]      S1JA                |S1JA               |02_S1JA
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
+        
+[COURSE_ES_EN]      STM32F0             |STM32F0            |04_STM32F0
+ [SECTION_ES_EN]1   |SW                 |SW                 |Seccion01
+ [SECTION_ES_EN]2   |GPIO               |GPIO               |Seccion02
+ [SECTION_ES_EN]3   |7-segment Click    |7-segment Click    |Seccion03
+ [SECTION_ES_EN]4   |STM32CubeIDE       |STM32CubeIDE       |Seccion04
+ [SECTION_ES_EN]5   |4x4 RGB Click      |4x4 RGB Click      |Seccion05
+ [SECTION_ES_EN]6   |TIM1               |TIM1               |Seccion06
+ 
