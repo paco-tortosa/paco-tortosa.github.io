@@ -1,0 +1,16 @@
+[LESSON_FOLDER]../courses/09_Rust/Seccion01/L01_Introduction/
+[IMG_FOLDER]img/
+
+[TITLE_SPANISH]Introducción
+[TITLE_ENGLISH]Introduction
+
+[BLOCK_START]
+[BEGIN_LIST]
+[SPANISH]Bienvenidos al curso de <b>Rust</b>.
+[ENGLISH]Welcome to the course on <b>Rust</b>.
+[END_LIST]
+[IMG]01.png
+[BLOCK_END]
+
+[SECTION_SPANISH]Descargas
+[SECTION_ENGLISH]Downloads

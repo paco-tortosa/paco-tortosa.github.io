@@ -19,3 +19,6 @@
  [SECTION_ES_EN]5   |Analog             |Analog             |Seccion05
  [SECTION_ES_EN]6   |SPI                |SPI                |Seccion06
  [SECTION_ES_EN]7   |Verilog            |Verilog            |Seccion07
+        
+[COURSE_ES_EN]      Rust                |Rust               |09_Rust
+ [SECTION_ES_EN]1   |Introducción       |Introduction       |Seccion01
