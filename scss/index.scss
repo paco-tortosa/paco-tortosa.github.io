@@ -483,6 +483,20 @@ $scroll-width : 17px;
                 border-color: black;
             }
 
+            & > .img_no_border {
+                /* 205-Size*/
+                max-width: 85%;
+                /* 206-Padding and Margin */  
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                /* 207-Border */
+                border-style: none;
+                border-width: 1px;
+                border-color: black;
+            }
+
             & > ul {
                 /* 201-Layout */
                 list-style: square;
